@@ -12,11 +12,6 @@ body {
   background-position: top;
 }
 
-main {
-  flex: 1 0 auto;
-}
-
-
 footer.page-footer-modi {
   width: 100%;
   position: absolute;
