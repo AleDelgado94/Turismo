@@ -11,9 +11,10 @@ body {
 
 footer.page-footer-modi {
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
-  padding-top: 5px;;
+  padding-top: 5px;
+  margin-top: auto;
   background-color: #1F1E1E;
   max-height: 100%;
 }
@@ -34,9 +35,8 @@ footer.page-footer-modi .footer-copyright-modi {
 }
 
 .menu{
-  max-width: auto;
-  max-height: auto;
-  width: 25%;
+
+  background-color: #58D3F7;
 
 }
 

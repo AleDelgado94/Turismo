@@ -1,5 +1,5 @@
 <?php
-  $usuario = $_GET[]
+
  ?>
 
 
@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <meta charset="utf-8">
-    <title></title>
+    <title>Turismo - Base de datos</title>
   </head>
   <body>
 
@@ -31,18 +31,39 @@
     </nav>
 
 
-    <div class="menu" style="border:solid">
-      <div class="row">
-        <div class="col s3">
-          <p>Usuario: </p>
-        </div>
-        <div class='col s9'>
-          <?php echo "<p>ADMIN</p>"; ?>
-        </div>
 
+
+      <!--<div class="row">
+        <div class="col s12 m4 13">
+          <div class="col">
+            <h5>Usuario: </h5>
+          </div>
+          <div class='col'>
+            <?php echo "<p>ADMIN</p>"; ?>
+          </div>
+        </div>
       </div>
 
-    </div>
+      <div class="row">
+        <div class="col">
+
+        </div>
+          <div class="col">
+            <p><a href="#"><h5>Encuestas</h5></a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p><a href="#"><h5>Estadísticas</h5></a></p>
+          </div>
+        </div>-->
+
+        <div class="row menu">
+          <div class="col l6 s12 m6"><span class="flow-text">I am always full-width (col s12)</span></div>
+          <div class="col l6 m6 s12"><span class="flow-text">I am full-width on mobile (col s12 m6)</span></div>
+        </div>
+
+
 
 
 
