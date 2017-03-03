@@ -22,6 +22,8 @@ body {
   margin-right: 10%;
   background-color: white;
   border-radius: 5px;
+  border-color: red;
+  border-width: 5px;
 }
 
 .formulario-acceso{
@@ -39,8 +41,9 @@ body {
 
 /* FOOTER */
 footer.page-footer-modi {
+  margin-top: auto;
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
   padding-top: 5px;;
   background-color: #1F1E1E;
