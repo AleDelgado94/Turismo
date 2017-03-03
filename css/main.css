@@ -1,0 +1,64 @@
+html{
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+footer.page-footer-modi {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding-top: 5px;;
+  background-color: #1F1E1E;
+  max-height: 100%;
+}
+
+footer.page-footer-modi .footer-copyright-modi {
+  overflow: hidden;
+  min-height: auto;
+  max-height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3px 0px;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(51, 51, 51, 0.08);
+}
+
+.menu{
+  max-width: auto;
+  max-height: auto;
+  width: 25%;
+
+}
+
+#escudo-nav{
+  max-width: auto;
+  max-height: auto;
+  width: 35%;
+  margin-left: 10%
+
+}
+
+
+#escudo-footer{
+  padding-top: 10px;
+  max-height: 100px;
+}
+
+#logo-footer{
+  padding-top: 10px;
+  max-height: 100px;
+}
+
+#tel-footer{
+  color: white;
+}
