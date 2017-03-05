@@ -9,9 +9,11 @@
 
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="../css/main.css"/>
     <link type="text/css" rel="stylesheet" href="../css/font-awesome.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/main.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -58,10 +60,13 @@
           </div>
         </div>-->
 
-        <div class="row menu">
-          <div class="col l6 s12 m6"><span class="flow-text">I am always full-width (col s12)</span></div>
+        <div class="menu">
+          <!--<div class="col l6 s12 m6"><span class="flow-text">I am always full-width (col s12)</span></div>
           <div class="col l6 m6 s12"><span class="flow-text">I am full-width on mobile (col s12 m6)</span></div>
+        -->
+          <p>hola</p>
         </div>
+
 
 
 

@@ -36,7 +36,13 @@ footer.page-footer-modi .footer-copyright-modi {
 
 .menu{
 
-  background-color: #58D3F7;
+  /*background-color: #58D3F7;*/
+  float: left;
+  width: 100px;
+  border: solid;
+  width: 300px;
+  height: 550px;
+
 
 }
 
