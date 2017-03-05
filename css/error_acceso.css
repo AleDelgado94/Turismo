@@ -1,0 +1,18 @@
+.container-error{
+  background-color: #C4C4C4;
+  border-style: dotted;
+  border-width: 8px;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 600px;
+}
+
+.acceso{
+  position: relative;
+  align-items: center;
+}
+
+#error-icon{
+  position: relative;
+  max-width: 200px
+}

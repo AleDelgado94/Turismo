@@ -12,7 +12,7 @@
 
   if(mysqli_num_rows($query_autentification) == 1){
     /*  USUARIO AUTENTIFICADO. */
-    echo "<script>localtion.href = 'main.html' </script>"
+    echo "<script>localtion.href = 'main.html' </script>";
     mysqli_free_result($query_autentification);
   }
   else{
@@ -20,9 +20,7 @@
     mysqli_free_result($query_autentification);
     mysqli_close($link);
 
-    echo "<h1>Fallo de autentificación</h1> <br> <h2>Redireccionando...</h2>";
-    echo "<meta HTTP-EQUIV='Refresh' CONTENT='5; URL=../index.html' />";
-
+    echo "<script>location.href = 'error_acceso.html' </script>";
   }
 
  ?>
