@@ -64,7 +64,7 @@ input[type=submit]:hover{
   width: 35%;
   margin-left: 10%
 
-} 
+}
 
 #escudo_principal{
   margin-top: 8%;
@@ -89,6 +89,10 @@ input[type=submit]:hover{
 }
 
 #tel-footer{
+  color: white;
+}
+
+.usuario_panel{
   color: white;
 }
 

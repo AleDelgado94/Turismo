@@ -6,6 +6,7 @@
     session_start();
 
    if(isset($_SESSION['usuario'])) {
+     $username = $_SESSION['usuario'];
 ?>
        <!-- Aquí ponemos todo el código HTML de nuestra página restringida, desde <html> a </html>-->
 
@@ -54,6 +55,9 @@
       <div class="row">
         <div class="col s3 ">
           <ul class="menu">
+            <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
+            $username
+            </span>"; ?></li>
             <li><i class="material-icons">mode_edit</i><a href="#">&nbsp; Encuesta</a></li>
             <li><i class="material-icons">trending_up</i><a href="#">&nbsp; Consultar estadísticas</a></li>
             <li><i class="material-icons">new_releases</i><a href="#">&nbsp; Incidencias</a></li>
