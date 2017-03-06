@@ -32,7 +32,7 @@
     <nav class="#424242 grey darken-3 top-nav">
       <div class="container">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo left"><img id="escudo-nav" src="..\images\Escudos\Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
+          <a href="http://www.guiadeisora.org/corp" class="brand-logo left"><img id="escudo-nav" src="..\images\Escudos\Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="http://www.guiadeisora.org/corp">Ayuntamiento</a></li>
@@ -54,16 +54,13 @@
       <div class="row">
         <div class="col s3 ">
           <ul class="menu">
-            <li><a href="encuesta.php">pepe</a></li>
-            <li>pepe</li>
-            <li>pepe</li>
-            <li>pepe</li>
-            <li>pepe</li>
-            <li>pepe</li>
-            <li>pepe</li>
+            <li><i class="material-icons">mode_edit</i><a href="#">&nbsp Encuesta</a></li>
+            <li><i class="material-icons">trending_up</i><a href="#">&nbsp Consultar estadísticas</a></li>
+            <li><i class="material-icons">new_releases</i><a href="#">&nbsp Incidencias</a></li>
           </ul>
         </div>
         <div class="col s9">
+
           <div class="row">
             <div class="col s6">
                 hola que tal

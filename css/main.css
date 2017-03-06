@@ -9,6 +9,80 @@ body {
   flex-direction: column;
 }
 
+
+
+
+/*MENU LATERAL*/
+.menu{
+  margin-top: none;
+  background-color: #409bc7;
+
+  border-radius: 8px;
+  height: auto;
+  width: auto;
+  min-width: 80px;
+  font-weight: bold;
+}
+
+.menu li{
+  margin: 2%;
+}
+
+
+.menu li a{
+  color: white;
+}
+.menu li a:hover{
+  color: black;
+
+}
+
+
+input[type=submit] {
+    padding:10px 20px;
+    background:#FE1313;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: auto;
+    width: auto;
+}
+
+input[type=submit]:hover{
+  background: #E91111;
+}
+
+
+
+#escudo-nav{
+  max-width: auto;
+  max-height: auto;
+  width: 35%;
+  margin-left: 10%
+
+}
+
+
+#escudo-footer{
+  padding-top: 10px;
+  max-height: 100px;
+}
+
+#logo-footer{
+  padding-top: 10px;
+  max-height: 100px;
+}
+
+#tel-footer{
+  color: white;
+}
+
+
+/*FOOTER*/
 footer.page-footer-modi {
   width: 100%;
   position: relative;
@@ -32,38 +106,4 @@ footer.page-footer-modi .footer-copyright-modi {
   padding: 3px 0px;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(51, 51, 51, 0.08);
-}
-
-.menu{
-  margin-top: none;
-  background-color: pink;
-  border: solid;
-
-}
-
-.menu ul li{
-  margin: 500px;
-}
-
-#escudo-nav{
-  max-width: auto;
-  max-height: auto;
-  width: 35%;
-  margin-left: 10%
-
-}
-
-
-#escudo-footer{
-  padding-top: 10px;
-  max-height: 100px;
-}
-
-#logo-footer{
-  padding-top: 10px;
-  max-height: 100px;
-}
-
-#tel-footer{
-  color: white;
 }
