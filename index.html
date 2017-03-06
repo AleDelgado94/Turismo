@@ -23,8 +23,12 @@
 
     <form class="col s12" action="pages/autentica_usuario.php" method="post">
       <div class="row">
-        <div class="input-field col l6 s12 center">
-          <i class="small material-icons">perm_identity</i>
+
+        <div class="col l2 s12">
+          <i class="medium material-icons my-icon">perm_identity</i>
+        </div>
+
+        <div class="input-field col l4 s12">
           <select name="users[]" >
             <option value="" disabled selected>Elija su usuario</option>
             <option type="text" value="admin" name="admin">admin</option>
@@ -32,8 +36,11 @@
           </select>
         </div>
 
-        <div class="input-field col l6 s12 center">
-          <i class="small material-icons ">vpn_key</i>
+        <div class="col l2 s12">
+          <i class="medium material-icons my-icon">vpn_key</i>
+        </div>
+
+        <div class="input-field col l4 s12">
           <input id="password" type="password" class="validate" name="password">
           <label for="password">Contraseña</label>
         </div>
