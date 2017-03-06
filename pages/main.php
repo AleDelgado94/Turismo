@@ -1,7 +1,17 @@
 <?php
 
- ?>
+   //include('connect_db'); // incluímos los datos de acceso a la BD
+   // comprobamos que se haya iniciado la sesión
 
+    session_start();
+
+   //echo "-------------------";
+   //echo $_SESSION['usuario'];
+   //echo "-------------------";
+
+   if(isset($_SESSION['usuario'])) {
+?>
+       <!-- Aquí ponemos todo el código HTML de nuestra página restringida, desde <html> a </html>-->
 
 <!DOCTYPE html>
 <html>
@@ -110,3 +120,10 @@
 
   </body>
 </html>
+
+
+<?php
+   }else {
+       header("Location: ../index.html");
+   }
+?>

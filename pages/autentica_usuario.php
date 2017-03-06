@@ -1,5 +1,6 @@
 <?php
 
+  session_start(); //Iniciamos la sesión
   $link = require("connect_db.php");
   $username = $_POST['users'][0];
 
@@ -15,8 +16,22 @@
 
 
   if($row_cnt == 1){
+
+    //CREAMOS LAS SESIONES PARA LOS USUARIOS
+    $_SESSION['usuario'] = $username;
+    //$_SESSION['id'] = $query_autentification['id'];
+
+
+
+
+
+
+    //if(isset($_SESSION['usuario'])){
+      header("Location: main.php");
+  //  }
+
     /*  USUARIO AUTENTIFICADO. */
-    header('Location: main.php');
+
     mysqli_free_result($query_autentification);
   }
   else{
