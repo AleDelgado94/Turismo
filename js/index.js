@@ -29,3 +29,10 @@ function updateFondo(){
     $(fondo).css('left', (sizeWidth - $(fondo).width()) / 2);
   }
 };
+
+/*var usuarios = getElementById('users');
+var user = getElementById('user');
+
+//function select_user(){
+  user.value = usuarios.options[usuarios.selectedIndex].value;
+//}*/
