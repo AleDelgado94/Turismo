@@ -82,44 +82,6 @@
 
 
 
-
-
-      <!--<div class="row">
-        <div class="col s12 m4 13">
-          <div class="col">
-            <h5>Usuario: </h5>
-          </div>
-          <div class='col'>
-            <?php echo "<p>ADMIN</p>"; ?>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-
-        </div>
-          <div class="col">
-            <p><a href="#"><h5>Encuestas</h5></a></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <p><a href="#"><h5>Estadísticas</h5></a></p>
-          </div>
-        </div>-->
-
-        <!--<div class="menu">
-          <div class="col l6 s12 m6"><span class="flow-text">I am always full-width (col s12)</span></div>
-          <div class="col l6 m6 s12"><span class="flow-text">I am full-width on mobile (col s12 m6)</span></div>
-
-          <p>hola</p>
-        </div>
-      -->
-
-
-
-
     <footer class="page-footer-modi">
       <div class="container">
         <div class="row">
