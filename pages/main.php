@@ -59,15 +59,11 @@
             <li><i class="material-icons">new_releases</i><a href="#">&nbsp; Incidencias</a></li>
           </ul>
         </div>
-        <div class="col s9">
+        <div class="col s9 ">
 
-          <div class="row">
-            <div class="col s6">
-                hola que tal
-            </div>
-
+          <div class="center">
+            <img id="escudo_principal" src="../images/Escudos/EscudoLineas.png" alt="Escudo Guía de Isora" />
           </div>
-
         </div>
 
       </div>
