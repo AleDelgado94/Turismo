@@ -20,7 +20,7 @@
     mysqli_free_result($query_autentification);
     mysqli_close($link);
 
-    echo "<script>location.href = 'error_acceso.html' </script>";
+    //echo "<script>location.href = 'error_acceso.html' </script>";
   }
 
  ?>
