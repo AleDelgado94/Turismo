@@ -19,11 +19,6 @@
 
     //CREAMOS LAS SESIONES PARA LOS USUARIOS
     $_SESSION['usuario'] = $username;
-    //$_SESSION['id'] = $query_autentification['id'];
-
-
-
-
 
 
     //if(isset($_SESSION['usuario'])){

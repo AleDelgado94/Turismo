@@ -5,10 +5,6 @@
 
     session_start();
 
-   //echo "-------------------";
-   //echo $_SESSION['usuario'];
-   //echo "-------------------";
-
    if(isset($_SESSION['usuario'])) {
 ?>
        <!-- Aquí ponemos todo el código HTML de nuestra página restringida, desde <html> a </html>-->
