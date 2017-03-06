@@ -37,13 +37,12 @@ footer.page-footer-modi .footer-copyright-modi {
 .menu{
   margin-top: none;
   background-color: pink;
-  /*float: left;
-  width: 100px;
   border: solid;
-  width: 300px;
-  height: 550px;*/
 
+}
 
+.menu ul li{
+  margin: 500px;
 }
 
 #escudo-nav{
