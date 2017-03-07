@@ -82,8 +82,9 @@
         </div>
 
           <div class="row">
+
             <div class="col s12 m3 l3">
-              <ul class="collapsible container-fluid">
+              <ul class="collapsible container-fluid" data-collapsible="accordion">
                 <li>
                     <div class="collapsible-header center">Añadir nuevo usuario</div>
                     <div class="collapsible-body">
@@ -101,7 +102,7 @@
             </div>
 
             <div class="col s12 m3 l3">
-              <ul class="collapsible container-fluid">
+              <ul class="collapsible container-fluid" data-collapsible="accordion">
                 <li>
                   <div class="collapsible-header center">Eliminar usuario existente</div>
                   <div class="collapsible-body">
@@ -116,7 +117,7 @@
             </div>
 
             <div class="col s12 m3 l3">
-              <ul class="collapsible container-fluid">
+              <ul class="collapsible container-fluid" data-collapsible="accordion">
                 <li>
                   <div class="collapsible-header center">Editar usuario</div>
                   <div class="collapsible-body">
