@@ -70,7 +70,7 @@
             <li><i class="material-icons">new_releases</i><a href="#">&nbsp; Incidencias</a></li>
             <?php
               if($username == 'admin'){
-                echo "<li><a href='#'>&nbsp; Gestión de usuario</a></li>";
+                echo "<li><i class='material-icons'>contacts</i><a href='#'>&nbsp; Gestión de usuario</a></li>";
               }
              ?>
           </ul>
@@ -108,6 +108,28 @@
             <li>
               <div class="collapsible-header center">Editar usuario</div>
               <div class="collapsible-body">
+                  <?php
+                    echo "<div class='collection'>";
+                    while($usu = mysqli_fetch_assoc($users)){
+                      $user = $usu['usuario'];
+                      echo "<option type='text' value='$user' name='$user'>$user</option>";
+                      echo "<a href='#modal1' class='collection-item'>$user</a>";
+                    }
+
+                    echo "</div>";
+
+                    mysqli_free_result($users);
+                   ?>
+
+                   <div id="modal1" class="modal">
+                     <div class="modal-content">
+                       <h4><?php echo $user ?></h4>
+                       <p>A bunch of text</p>
+                     </div>
+                     <div class="modal-footer">
+                       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                     </div>
+                   </div>
 
               </div>
             </li>
@@ -161,6 +183,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/gestion_usuarios.js"></script>
 
   </body>
 </html>
