@@ -9,15 +9,16 @@ $new_pass = crypt($_POST['mod_pass'], '$6$rounds=5000$usesomesillystringforsalt$
 if($old_user != 'admin'){
   $consulta = "UPDATE login SET usuario='". $username ."', pass='". $new_pass ."' WHERE usuario='".$old_user."';";
   $mod = mysqli_query($link, $consulta) or die(mysqli_error($link));
-}
 
-if($mod === TRUE){
-  mysqli_close($link);
-  header("Location: main.php");
-}
-else {
-  mysqli_close($link);
-  echo "<script>location.href = 'error_acceso.html' </script>";
+
+  if($mod === TRUE){
+    mysqli_close($link);
+    header("Location: main.php");
+  }
+  else {
+    mysqli_close($link);
+    echo "<script>location.href = 'error_acceso.html' </script>";
+  }
 }
 
 
