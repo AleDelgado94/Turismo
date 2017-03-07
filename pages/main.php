@@ -33,7 +33,7 @@
     <nav class="#424242 grey darken-3 top-nav">
       <div class="container">
         <div class="nav-wrapper">
-          <a class="brand-logo left"><img id="escudo-nav" src="..\images\Escudos\Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
+          <a id ="quitar_escudo" class="brand-logo left"><img id="escudo-nav" src="..\images\Escudos\Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="main.php">Inicio</a></li>
@@ -114,9 +114,6 @@
         </div>
       </div>
     </footer>
-
-
-
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>

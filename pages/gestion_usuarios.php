@@ -47,6 +47,7 @@
             <li><a href="http://www.guiadeisora.travel/turismo">Turismo</a></li>
           </ul>
           <ul id="mobile-demo" class="side-nav">
+            <li><a href="main.php">Inicio</a></li>
             <li><a href="http://www.guiadeisora.org/corp">Ayuntamiento</a></li>
             <li><a href="http://www.guiadeisora.travel/turismo">Turismo</a></li>
           </ul>
@@ -65,6 +66,7 @@
             <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
             $username
             </span>"; ?></li>
+            <li><i class="material-icons">replay</i><a href="main.php">&nbsp; Inicio</a></li>
             <li><i class="material-icons">mode_edit</i><a href="#">&nbsp; Encuesta</a></li>
             <li><i class="material-icons">trending_up</i><a href="#">&nbsp; Consultar estadísticas</a></li>
             <li><i class="material-icons">new_releases</i><a href="#">&nbsp; Incidencias</a></li>
