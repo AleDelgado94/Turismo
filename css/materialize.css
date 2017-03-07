@@ -1028,11 +1028,11 @@
 }
 
 .teal.darken-1 {
-  background-color: #00897b !important;
+  background-color: #409bc7 !important;
 }
 
 .teal-text.text-darken-1 {
-  color: #00897b !important;
+  color: #409bc7 !important;
 }
 
 .teal.darken-2 {
@@ -8334,7 +8334,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .picker__weekday-display {
-  background-color: #1f897f;
+  background-color: #409bc7;
   padding: 10px;
   font-weight: 200;
   letter-spacing: .5;
