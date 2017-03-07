@@ -58,7 +58,10 @@ input[type=submit]:hover{
 
 #escudo-nav{
   max-width: auto;
+  max-width: 20%;
+  width: -moz-max-content auto;
   max-height: auto;
+  height: -moz-max-content auto;
 }
 
 #escudo_principal{
