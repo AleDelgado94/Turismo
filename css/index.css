@@ -58,6 +58,10 @@ input[type=submit]:hover{
   margin-top: 10%;
 }
 
+select{
+  color: red;
+}
+
 
 
 /* FOOTER */

@@ -27,9 +27,6 @@ $users = mysqli_query($link, $consulta) or die(mysqli_error($link));
   </head>
   <body>
 
-
-  <!--<img class="responsive-img" id="imagen-fondo" src="images/Paisajes/uno.jpg" alt="fondo">-->
-
   <div class="row registro">
 
     <form class="col s12" action="pages/autentica_usuario.php" method="post">
@@ -51,8 +48,6 @@ $users = mysqli_query($link, $consulta) or die(mysqli_error($link));
 
               mysqli_free_result($users);
              ?>
-            <!--<option type="text" value="admin" name="admin">admin</option>
-            <option type="text" value="Alejandro" name="Alejandro">Alejandro</option>-->
           </select>
         </div>
 
