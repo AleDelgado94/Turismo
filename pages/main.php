@@ -33,7 +33,7 @@
     <nav class="#424242 grey darken-3 top-nav">
       <div class="container">
         <div class="nav-wrapper">
-          <a href="http://www.guiadeisora.org/corp" class="brand-logo left"><img id="escudo-nav" src="..\images\Escudos\Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
+          <a class="brand-logo left"><img id="escudo-nav" src="..\images\Escudos\Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="main.php">Inicio</a></li>
@@ -41,6 +41,7 @@
             <li><a href="http://www.guiadeisora.travel/turismo">Turismo</a></li>
           </ul>
           <ul id="mobile-demo" class="side-nav">
+            <li><a href="main.php">Inicio</a></li>
             <li><a href="http://www.guiadeisora.org/corp">Ayuntamiento</a></li>
             <li><a href="http://www.guiadeisora.travel/turismo">Turismo</a></li>
           </ul>
@@ -59,6 +60,7 @@
             <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
             $username
             </span>"; ?></li>
+            <li><i class="material-icons">replay</i><a href="main.php">&nbsp; Inicio</a></li>
             <li><i class="material-icons">mode_edit</i><a href="#">&nbsp; Encuesta</a></li>
             <li><i class="material-icons">trending_up</i><a href="#">&nbsp; Consultar estadísticas</a></li>
             <li><i class="material-icons">new_releases</i><a href="#">&nbsp; Incidencias</a></li>
@@ -67,6 +69,7 @@
                 echo "<li> <i class='material-icons'>contacts</i><a href='gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
               }
              ?>
+
           </ul>
         </div>
         <div class="col s9 ">
