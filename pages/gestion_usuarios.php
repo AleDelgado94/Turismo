@@ -80,83 +80,81 @@
             <input type="submit" name="cerrar" value="Cerrar Sesión">
           </form>
         </div>
-        <div class="col s9 ">
+
+          <div class="row">
+            <div class="col s3">
+              <ul class="collapsible container-fluid">
+                <li>
+                    <div class="collapsible-header center">Añadir nuevo usuario</div>
+                    <div class="collapsible-body">
+                      <form action="crear_user.php" method="post">
+                        <span>Usuario: </span>
+                        <input type="text" name="new_user" value="">
+                        <br>
+                        <span>Contraseña: </span>
+                        <input type="password" class="validate" name="new_pass" value="">
+                        <input id="crear_button" type="submit" name="create_user" value="Crear">
+                      </form>
+                    </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col s3">
+              <ul class="collapsible container-fluid">
+                <li>
+                  <div class="collapsible-header center">Eliminar usuario existente</div>
+                  <div class="collapsible-body">
+                    <form action="borrar_user.php" method="post">
+                      <span>Usuario: </span>
+                      <input type="text" name="delete_user" value="">
+                      <input type="submit" name="create_user" value="Borrar">
+                    </form>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col s3">
+              <ul class="collapsible container-fluid">
+                <li>
+                  <div class="collapsible-header center">Editar usuario</div>
+                  <div class="collapsible-body">
+                      <?php
+                        echo "<div class='collection'>";
+                        while($usu = mysqli_fetch_assoc($users)){
+                          $user = $usu['usuario'];
+                          echo "<a href='#".$user."' class='collection-item'>$user</a>";
+                          echo "
+                            <div id='". $user ."' class='modal'>
+                              <div class='modal-content'>
+                                <h4>". $user ."</h4>
 
 
-        <!-- CÓDIGO AQUÍ -->
+                                <form action='mod_user.php' method='post'>
+                                  <span>Usuario: </span>
+                                  <input type='text' name='mod_user' value='". $user ."'>
+                                  <input type='hidden' name='old_user' value='".$user."'>
+                                  <br>
+                                  <span>Nueva Contraseña: </span>
+                                  <input type='password' class='validate' name='mod_pass' value=''>
+                                  <input id='mod_button' type='submit' name='mod_button' value='Modificar'>
+                                </form>
+                              </div>
+                            </div>
+                          ";
+                        }
 
-          <ul class="collapsible container-fluid">
-            <li>
+                        echo "</div>";
 
-                <div class="collapsible-header center">Añadir nuevo usuario</div>
-                <div class="collapsible-body">
-                  <form action="crear_user.php" method="post">
-                    <span>Usuario: </span>
-                    <input type="text" name="new_user" value="">
-                    <br>
-                    <span>Contraseña: </span>
-                    <input type="password" class="validate" name="new_pass" value="">
-                    <input id="crear_button" type="submit" name="create_user" value="Crear">
-                  </form>
-                </div>
-            </li>
-            <li>
-              <div class="collapsible-header center">Eliminar usuario existente</div>
-              <div class="collapsible-body">
-                <form action="borrar_user.php" method="post">
-                  <span>Usuario: </span>
-                  <input type="text" name="delete_user" value="">
-                  <input type="submit" name="create_user" value="Borrar">
-                </form>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header center">Editar usuario</div>
-              <div class="collapsible-body">
-                  <?php
-                    echo "<div class='collection'>";
-                    while($usu = mysqli_fetch_assoc($users)){
-                      $user = $usu['usuario'];
-                      echo "<a href='#".$user."' class='collection-item'>$user</a>";
-                      echo "
-                        <div id='". $user ."' class='modal'>
-                          <div class='modal-content'>
-                            <h4>". $user ."</h4>
-
-
-                            <form action='mod_user.php' method='post'>
-                              <span>Usuario: </span>
-                              <input type='text' name='mod_user' value='". $user ."'>
-                              <input type='hidden' name='old_user' value='".$user."'>
-                              <br>
-                              <span>Nueva Contraseña: </span>
-                              <input type='password' class='validate' name='mod_pass' value=''>
-                              <input id='mod_button' type='submit' name='mod_button' value='Modificar'>
-                            </form>
-                          </div>
-                        </div>
-                      ";
-                    }
-
-                    echo "</div>";
-
-                    mysqli_free_result($users);
-                   ?>
-
-
-
-              </div>
-            </li>
-          </ul>
-
-
-
-
-
+                        mysqli_free_result($users);
+                       ?>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-
-      </div>
-
 
 
   </main>
