@@ -37,7 +37,7 @@
 
 
     <nav class="#424242 grey darken-3 top-nav">
-      <div class="container">
+      <div class="container-fluid">
         <div class="nav-wrapper">
           <a href="http://www.guiadeisora.org/corp" class="brand-logo left"><img id="escudo-nav" src="..\images\Escudos\Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -76,6 +76,9 @@
               }
              ?>
           </ul>
+          <form class="col s3" action="cerrar_sesion.php" method="post">
+            <input type="submit" name="cerrar" value="Cerrar Sesión">
+          </form>
         </div>
         <div class="col s9 ">
 
@@ -153,11 +156,7 @@
         </div>
 
       </div>
-      <div class="row">
-        <form class="col s3" action="cerrar_sesion.php" method="post">
-          <input type="submit" name="cerrar" value="Cerrar Sesión">
-        </form>
-      </div>
+
 
 
   </main>

@@ -80,9 +80,10 @@ input[type=submit]:hover{
 
 #escudo-nav{
   max-width: auto;
+  max-width: 35%;
+  width: -moz-max-content auto;
   max-height: auto;
-  width: 35%;
-  margin-left: 10%
+  height: -moz-max-content auto;
 
 }
 
