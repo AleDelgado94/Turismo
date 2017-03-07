@@ -55,7 +55,7 @@
 
   <main>
       <div class="row">
-        <div class="col s3 ">
+        <div class="col s12 m3 l3 ">
           <ul class="menu">
             <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
             $username
@@ -71,11 +71,11 @@
              ?>
 
           </ul>
-          <form class="col s3" action="cerrar_sesion.php" method="post">
+          <form class="col s12 m3 l3" action="cerrar_sesion.php" method="post">
             <input type="submit" name="cerrar" value="Cerrar Sesión">
           </form>
         </div>
-        <div class="col s9 ">
+        <div class="col s12 m9 l9 ">
 
           <div class="center">
             <img id="escudo_principal" src="../images/Escudos/EscudoLineas.png" alt="Escudo Guía de Isora" />
@@ -91,17 +91,17 @@
     <footer class="page-footer-modi">
       <div class="container">
         <div class="row">
-          <div class="col l1 s12">
+          <div class="col m1 l1 s12">
             <img id="escudo-footer" class="responsive-img" src="../images/Escudos/EscudoLineas2.png" alt="Escudo Guia de Isora">
           </div>
-          <div class="col l2 s12">
+          <div class="col m2 l2 s12">
             <img id="logo-footer" class="responsive-img" src="../images/Logos/GuiadeIsora_CaracterNatural.png" alt="Guia de Isora Caracter Natural">
           </div>
-          <div class="col offset-l1 l4 s12">
+          <div class="col offset-l1 m4 l4 s12">
             <h5 class="white-text">Turismo</h5>
             <p class="grey-text text-lighten-4">Servicio de turismo para la recogida de datos estadísticos.</p>
           </div>
-          <div class="col l4 s12">
+          <div class="col m4 l4 s12">
             <h5 class="white-text">Contacto</h5>
             <ul>
               <li><i class="material-icons white-text">phone</i><a class="grey-text text-lighten-3"> Turismo: 666 666 666</a></li>
