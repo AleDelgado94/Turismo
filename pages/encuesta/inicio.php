@@ -55,7 +55,7 @@
 
   <main>
       <div class="row">
-        <div class="col s3 ">
+        <div class="col s12 m3 ">
           <ul class="menu">
             <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
             $username
@@ -71,45 +71,42 @@
              ?>
 
           </ul>
-          <form class="col s3" action="../cerrar_sesion.php" method="post">
+          <form class="col s12 m3" action="../cerrar_sesion.php" method="post">
             <input type="submit" name="cerrar" value="Cerrar Sesión">
           </form>
         </div>
-        <div class="col s9 ">
-          <div class="center">
+        <div class="col s12 m9 l9 center">
 
-            <ul class="pagination">
-              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-              <li class="active"><a href="#!">1</a></li>
-              <li class="waves-effect"><a href="#!">2</a></li>
-              <li class="waves-effect"><a href="#!">3</a></li>
-              <li class="waves-effect"><a href="#!">4</a></li>
-              <li class="waves-effect"><a href="#!">5</a></li>
-              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
-
-            <h5>Visita</h5>
+          <div class="row">
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab col s3 "><a class="active blue-text" href="#test1">Visita</a></li>
+                <li class="tab col s3"><a href="#test2">Perfil y Alojamiento</a></li>
+                <li class="tab col s3"><a href="#test3">Información</a></li>
+                <li class="tab col s3"><a href="#test4">Materiales</a></li>
+              </ul>
+            </div>
+            <div id="test1" class="col s12">
 
 
+            </div>
+            <div id="test2" class="col s12">
 
 
+            </div>
+            <div id="test3" class="col s12">
 
-            <ul class="pagination">
-              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-              <li class="active"><a href="#!">1</a></li>
-              <li class="waves-effect"><a href="#!">2</a></li>
-              <li class="waves-effect"><a href="#!">3</a></li>
-              <li class="waves-effect"><a href="#!">4</a></li>
-              <li class="waves-effect"><a href="#!">5</a></li>
-              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
+
+            </div>
+            <div id="test4" class="col s12">
+
+
+            </div>
+          </div>
 
 
           </div>
         </div>
-
-      </div>
-
   </main>
 
 
