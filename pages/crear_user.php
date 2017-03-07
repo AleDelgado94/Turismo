@@ -21,7 +21,6 @@
 
   if($repetido == FALSE){
     $consulta = "INSERT INTO login (usuario, pass) VALUES ('". $usuario ."', '". $pass_encrypt ."');";
-    echo $consulta;
 
     $insertar = mysqli_query($link, $consulta) or die(mysqli_error($link));
 

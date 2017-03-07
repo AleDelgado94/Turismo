@@ -23,7 +23,6 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../css/font-awesome.css"/>
-    <link type="text/css" rel="stylesheet" href="../css/main.css"/>
     <link type="text/css" rel="stylesheet" href="../css/gestion.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
@@ -169,6 +168,6 @@
 
 <?php
    }else {
-       header("Location: ../index.html");
+       header("Location: ../index.php");
    }
 ?>
