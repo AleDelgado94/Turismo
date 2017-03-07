@@ -61,7 +61,7 @@
 
   <main>
       <div class="row">
-        <div class="col s3 ">
+        <div class="col s12 m3 l3">
           <ul class="menu">
             <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
             $username
@@ -76,13 +76,13 @@
               }
              ?>
           </ul>
-          <form class="col s3" action="cerrar_sesion.php" method="post">
+          <form class="col s12 m3 l3" action="cerrar_sesion.php" method="post">
             <input type="submit" name="cerrar" value="Cerrar Sesión">
           </form>
         </div>
 
           <div class="row">
-            <div class="col s3">
+            <div class="col s12 m3 l3">
               <ul class="collapsible container-fluid">
                 <li>
                     <div class="collapsible-header center">Añadir nuevo usuario</div>
@@ -100,7 +100,7 @@
               </ul>
             </div>
 
-            <div class="col s3">
+            <div class="col s12 m3 l3">
               <ul class="collapsible container-fluid">
                 <li>
                   <div class="collapsible-header center">Eliminar usuario existente</div>
@@ -115,7 +115,7 @@
               </ul>
             </div>
 
-            <div class="col s3">
+            <div class="col s12 m3 l3">
               <ul class="collapsible container-fluid">
                 <li>
                   <div class="collapsible-header center">Editar usuario</div>
