@@ -6,8 +6,10 @@ $username = $_POST['mod_user'];
 $old_user = $_POST['old_user'];
 $new_pass = crypt($_POST['mod_pass'], '$6$rounds=5000$usesomesillystringforsalt$');
 
-$consulta = "UPDATE login SET usuario='". $username ."', pass='". $new_pass ."' WHERE usuario='".$old_user."';";
-$mod = mysqli_query($link, $consulta) or die(mysqli_error($link));
+if($old_user != 'admin'){
+  $consulta = "UPDATE login SET usuario='". $username ."', pass='". $new_pass ."' WHERE usuario='".$old_user."';";
+  $mod = mysqli_query($link, $consulta) or die(mysqli_error($link));
+}
 
 if($mod === TRUE){
   mysqli_close($link);

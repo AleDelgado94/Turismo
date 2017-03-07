@@ -19,7 +19,7 @@
 
   mysqli_free_result($users);
 
-  if($repetido == FALSE){
+  if($repetido == FALSE && $usuario != 'admin'){
     $consulta = "INSERT INTO login (usuario, pass) VALUES ('". $usuario ."', '". $pass_encrypt ."');";
 
     $insertar = mysqli_query($link, $consulta) or die(mysqli_error($link));
