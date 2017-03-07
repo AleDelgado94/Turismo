@@ -17,11 +17,11 @@ if($old_user != 'admin'){
   }
   else {
     mysqli_close($link);
-    echo "<script>location.href = 'error_acceso.html' </script>";
+    echo "<script>location.href = 'error_acceso_mod.html' </script>";
   }
 }else{
   mysqli_close($link);
-  echo "<script>location.href = 'error_acceso.html' </script>";
+  echo "<script>location.href = 'error_acceso_main.html' </script>";
 }
 
 
