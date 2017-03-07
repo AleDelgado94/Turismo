@@ -119,10 +119,17 @@
                         <div id='". $user ."' class='modal'>
                           <div class='modal-content'>
                             <h4>". $user ."</h4>
-                            <p>A bunch of text</p>
-                          </div>
-                          <div class='modal-footer'>
-                            <a href='#' class=' modal-action modal-close waves-effect waves-green btn-flat'>Agree</a>
+
+
+                            <form action='mod_user.php' method='post'>
+                              <span>Usuario: </span>
+                              <input type='text' name='mod_user' value='". $user ."'>
+                              <input type='hidden' name='old_user' value='".$user."'>
+                              <br>
+                              <span>Nueva Contraseña: </span>
+                              <input type='password' class='validate' name='mod_pass' value=''>
+                              <input id='mod_button' type='submit' name='mod_button' value='Modificar'>
+                            </form>
                           </div>
                         </div>
                       ";
