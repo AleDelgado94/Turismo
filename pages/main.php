@@ -71,6 +71,9 @@
              ?>
 
           </ul>
+          <form class="col s3" action="cerrar_sesion.php" method="post">
+            <input type="submit" name="cerrar" value="Cerrar Sesión">
+          </form>
         </div>
         <div class="col s9 ">
 
@@ -80,13 +83,7 @@
         </div>
 
       </div>
-      <div class="row">
-        <form class="col s3" action="cerrar_sesion.php" method="post">
-          <input type="submit" name="cerrar" value="Cerrar Sesión">
-        </form>
-      </div>
-
-
+      
   </main>
 
 
