@@ -7,6 +7,12 @@
 
    if(isset($_SESSION['usuario'])) {
      $username = $_SESSION['usuario'];
+
+     $link = require("connect_db.php");
+     $consulta = "SELECT usuario FROM login;";
+     $users = mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+
 ?>
        <!-- Aquí ponemos todo el código HTML de nuestra página restringida, desde <html> a </html>-->
 
@@ -18,6 +24,7 @@
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../css/font-awesome.css"/>
     <link type="text/css" rel="stylesheet" href="../css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/gestion.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
 
@@ -64,16 +71,53 @@
             <li><i class="material-icons">new_releases</i><a href="#">&nbsp; Incidencias</a></li>
             <?php
               if($username == 'admin'){
-                echo "<li><a href='gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
+                echo "<li><a href='#'>&nbsp; Gestión de usuario</a></li>";
               }
              ?>
           </ul>
         </div>
         <div class="col s9 ">
 
-          <div class="center">
-            <img id="escudo_principal" src="../images/Escudos/EscudoLineas.png" alt="Escudo Guía de Isora" />
-          </div>
+
+        <!-- CÓDIGO AQUÍ -->
+
+          <ul class="collapsible container-fluid">
+            <li>
+
+                <div class="collapsible-header center">Añadir nuevo usuario</div>
+                <div class="collapsible-body">
+                  <form action="crear_user.php" method="post">
+                    <span>Usuario: </span>
+                    <input type="text" name="new_user" value="">
+                    <br>
+                    <span>Contraseña: </span>
+                    <input type="password" class="validate" name="new_pass" value="">
+                    <input id="crear_button" type="submit" name="create_user" value="Crear">
+                  </form>
+                </div>
+            </li>
+            <li>
+              <div class="collapsible-header center">Eliminar usuario existente</div>
+              <div class="collapsible-body">
+                <form action="borrar_user.php" method="post">
+                  <span>Usuario: </span>
+                  <input type="text" name="delete_user" value="">
+                  <input type="submit" name="create_user" value="Borrar">
+                </form>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header center">Editar usuario</div>
+              <div class="collapsible-body">
+
+              </div>
+            </li>
+          </ul>
+
+
+
+
+
         </div>
 
       </div>
