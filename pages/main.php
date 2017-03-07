@@ -31,7 +31,7 @@
 
 
     <nav class="#424242 grey darken-3 top-nav">
-      <div class="container">
+      <div class="container-fluid">
         <div class="nav-wrapper">
           <a class="brand-logo left"><img id="escudo-nav" src="..\images\Escudos\Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
