@@ -19,6 +19,9 @@ if($old_user != 'admin'){
     mysqli_close($link);
     echo "<script>location.href = 'error_acceso.html' </script>";
   }
+}else{
+  mysqli_close($link);
+  echo "<script>location.href = 'error_acceso.html' </script>";
 }
 
 

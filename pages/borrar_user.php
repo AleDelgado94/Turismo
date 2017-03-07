@@ -16,6 +16,9 @@
     else{
       mysqli_close($link);
     }
+  }else{
+    mysqli_close($link);
+    echo "<script>location.href = 'error_acceso.html' </script>";
   }
 
  ?>
