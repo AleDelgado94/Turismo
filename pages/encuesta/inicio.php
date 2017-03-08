@@ -66,7 +66,7 @@
             <li><i class="material-icons">new_releases</i><a href="#">&nbsp; Incidencias</a></li>
             <?php
               if($username == 'admin'){
-                echo "<li> <i class='material-icons'>contacts</i><a href='gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
+                echo "<li> <i class='material-icons'>contacts</i><a href='../gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
               }
              ?>
 
