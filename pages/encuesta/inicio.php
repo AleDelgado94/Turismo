@@ -80,7 +80,7 @@
           <div class="row">
             <div class="col s12">
               <ul class="tabs tab-modi">
-                <li class="tab col s12 m3 l3"><a class="active blue-text" href="#test1">Visita</a></li>
+                <li class="tab col s12 m3 l3"><a class="active" href="#test1">Visita</a></li>
                 <li class="tab col s12 m3 l3"><a href="#test2">Perfil y Alojamiento</a></li>
                 <li class="tab col s12 m3 l3"><a href="#test3">Información</a></li>
                 <li class="tab col s12 m3 l3"><a href="#test4">Materiales</a></li>
