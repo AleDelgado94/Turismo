@@ -193,12 +193,6 @@
                         <label for="conoce3">Hoteles</label>
                       </p>
                     </div>
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="conocer" type="radio" id="test3"  />
-                        <label for="test3">Hoteles</label>
-                      </p>
-                  </div>
                   <div class="row-modi">
                     <p>
                       <input class="with-gap" name="group1" type="radio" id="conoce4"  />
