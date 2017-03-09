@@ -164,8 +164,44 @@
 
 
 
-            </div>
-            <div id="test2" class="col s12">
+
+
+            <div id="test2" class="col s12 m12 l12">
+                <div class="row">
+                  <div class="col s12 m3 l6 left-align">
+                    <div class="row">
+                      ¿Cómo conocieron el municipio?
+                    </div>
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="group1" type="radio" id="test1"  />
+                        <label for="test1">Redes sociales</label>
+                      </p>
+                    </div>
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="group1" type="radio" id="test2"  />
+                        <label for="test2">Web</label>
+                      <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="group1" type="radio" id="test3"  />
+                        <label for="test3">Hoteles</label>
+                      </p>
+                    </div>
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="group1" type="radio" id="test4"  />
+                        <label for="test4">Visitas Anteriores</label>
+                      </p>
+                    </div>
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="group1" type="radio" id="test5"  />
+                        <label for="test5">Otros</label>
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
 
 
