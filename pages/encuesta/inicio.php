@@ -113,7 +113,7 @@
                     <div class="col s12 m4">
                       <h5 class="col-center">Tipo de consulta</h5>
                     </div>
-                    <div class="col s12 m3 ">
+                    <div class="col s12 m3 left-align">
                       <p>
                         <input type="radio" name="encuesta" class="with-gap" id="enc_corta" />
                         <label for="enc_corta">Corta&nbsp;</label>
@@ -139,7 +139,7 @@
                     <div class="col s12 m4">
                       <h5 class="col-center">Hora de consulta</h5>
                     </div>
-                    <div class="col s12 m3 ">
+                    <div class="col s12 m3 left-align">
                       <p>
                         <input type="radio" name="horas" class="with-gap" id="9a11" />
                         <label for="9a11">9-11&nbsp;</label>
@@ -161,17 +161,106 @@
 
                 <div class="col s12 m6 l6">
                   <div class="row">
-                    <div class="col s12 m2">
+                    <div class="col s12 m4">
                       <h5>Añadir visitante</h5>
-                    </div>
-                    <div class="col s12 m1">
-                      <a class="btn-floating col-center"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="col s12 m1">
-                      <a class="btn-floating col-center"><i class="material-icons">replay</i></a>
+                      <div class="row">
+                        <div class="col s12 m6 left-align">
+                          <a class="btn-floating waves-effect col-center" id="add_user"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col s12 m6 left-align">
+                          <a class="btn-floating col-center" id="rm_user"><i class="material-icons">replay</i></a>
+                        </div>
+                      </div>
+
                     </div>
 
                   </div>
+
+                  <div id="user"></div>
+
+
+                  <!--<div class="row">
+                    <div class="col s12 m12 l12">
+                      <hr>
+                      <h5>Sexo</h5>
+                        <div class="row">
+                          <div class="col s12 m6 left-align">
+                              <div class="row">
+                                <input type="radio" name="sexo" class="with-gap" id="hombre" />
+                                <label for="hombre">Hombre</label>
+                              </div>
+                              <div class="row">
+                                <input type="radio" name="sexo" class="with-gap" id="mujer" />
+                                <label for="mujer">Mujer&nbsp;</label>
+                              </div>
+                          </div>
+                        </div>
+
+                        <h5>Edad</h5>
+                          <div class="row">
+                            <div class="col s12 m12 l12 left-align">
+                              <div class="row">
+                                <input type="radio" name="edad" class="with-gap" id="0a12" />
+                                <label for="0a12">0 a 12 años</label>
+                              </div>
+
+                              <div class="row">
+                                <input type="radio" name="edad" class="with-gap" id="12a30" />
+                                <label for="12a30">13 a 30 años</label>
+                              </div>
+                              <div class="row">
+                                <input type="radio" name="edad" class="with-gap" id="31a50" />
+                                <label for="31a50">31 a 50 años</label>
+                              </div>
+                              <div class="row">
+                                <input type="radio" name="edad" class="with-gap" id="50mas" />
+                                <label for="50mas">Más de 51 años</label>
+                              </div>
+
+
+
+                            </div>
+                          </div>
+
+                          <h5>Nacionalidad</h5>
+                          <div class="input-field col s12 m12 l12 left-align">
+                            <select>
+                              <option value="" disabled selected>Nacionalidad</option>
+                              <option value="Española">Española</option>
+                              <option value="Británica">Británica</option>
+                              <option value="Alemana">Alemana</option>
+                              <option value="Rusa">Rusa</option>
+                              <option value="Canaria">Canaria</option>
+                              <option value="Africana">Africana</option>
+                              <option value="Asiática">Asiática</option>
+                              <option value="Australiana">Australiana</option>
+                              <option value="Austriaca">Austriaca</option>
+                              <option value="Belga">Belga</option>
+                              <option value="Canadiense">Canadiense</option>
+                              <option value="Checa">Checa</option>
+                              <option value="China">China</option>
+                              <option value="Danesa">Danesa</option>
+                              <option value="Eslovena">Eslovena</option>
+                              <option value="Estadounidense">Estadounidense</option>
+                              <option value="Otros">Otros</option>
+                            </select>
+                            <label>Nacionalidades</label>
+                            <div class="row">
+                              <div class="col s12 m12 l12 left-align">
+                                <input type="checkbox" class="filled-in" name="segunda_residencia" id="segunda_residencia" />
+                                <label  for="segunda_residencia">Segunda Residencia</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>-->
+
+
+
+                  </div>
+
+
+
                 </div>
 
 
@@ -210,7 +299,7 @@
                     </div>
 
                     <div class="row-modi">
-                      <p>
+                      <p>add
                         <input class="with-gap" name="alo1" type="radio" id="conoce2"  />
                         <label for="conoce2">Web</label>
                     </div>
@@ -245,7 +334,7 @@
                     <div class="row-modi">
                       <p>
                         <input class="with-gap" name="alo2" type="radio" id="si1"  />
-                        <label for="si1">Sí</label>
+                        <label for="si1add">Sí</label>
                       </p>
                     </div>
                     <div class="row-modi">
@@ -336,7 +425,7 @@
                       <p>
                         <input class="with-gap" name="alo4" type="radio" id="motivo3"  />
                         <label for="motivo3">Ocio</label>
-                      </p>
+                      </p>add
                     </div>
 
                     <div class="row-modi">
@@ -462,6 +551,9 @@
     </footer>
 
     <script>
+      $(document).ready(function() {
+         $('select').material_select();
+       });
       $( "#datepicker" ).datepicker({
           // Formato de la fecha
           dateFormat: "dd/mm/yy",
@@ -480,6 +572,11 @@
                 $('#fecha').val(dateText);
             }
       });
+
+
+
+
+
       </script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
