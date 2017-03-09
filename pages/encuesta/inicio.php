@@ -172,48 +172,217 @@
 
 
 
+
+<!--ALOJAMIENTOOOOOOOOOOOOOOOOOOOO-->
             <div id="test2" class="col s12 m12 l12">
+
+              <!-- PRIMERA FILA -->
                 <div class="row">
-                  <div class="col s12 m3 l6 left-align">
-                    <div class="row">
-                      ¿Cómo conocieron el municipio?
+                  <!-- PRIMERA COLUMNA -->
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>¿Cómo conocieron el municipio?</h5>
                     </div>
+
                     <div class="row-modi">
                       <p>
-
-                        <input class="with-gap" name="group1" type="radio" id="conoce1"  />
+                        <input class="with-gap" name="alo1" type="radio" id="conoce1"  />
                         <label for="conoce1">Redes sociales</label>
-
                       </p>
                     </div>
+
                     <div class="row-modi">
                       <p>
-
-                        <input class="with-gap" name="group1" type="radio" id="conoce2"  />
+                        <input class="with-gap" name="alo1" type="radio" id="conoce2"  />
                         <label for="conoce2">Web</label>
                     </div>
+
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="conoce3"  />
+                        <input class="with-gap" name="alo1" type="radio" id="conoce3"  />
                         <label for="conoce3">Hoteles</label>
                       </p>
                     </div>
-                  <div class="row-modi">
-                    <p>
-                      <input class="with-gap" name="group1" type="radio" id="conoce4"  />
-                      <label for="conoce4">Visitas Anteriores</label>
 
-                    </p>
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo1" type="radio" id="conoce4"  />
+                        <label for="conoce4">Visitas Anteriores</label>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo1" type="radio" id="conoce5"  />
+                        <label for="conoce5">Otros</label>
+                      </p>
+                    </div>
                   </div>
-                  <div class="row-modi">
-                    <p>
-                      <input class="with-gap" name="group1" type="radio" id="conoce5"  />
-                      <label for="conoce5">Otros</label>
-                    </p>
+
+                  <!-- SEGUNDA COLUMNA -->
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>¿Repite visita?</h5>
+                    </div>
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo2" type="radio" id="si1"  />
+                        <label for="si1">Sí</label>
+                      </p>
+                    </div>
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo2" type="radio" id="no1"  />
+                        <label for="no1">No</label>
+                    </div>
                   </div>
+
+                  <!-- TERCERA COLUMNA -->
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>Tipo de Alojamiento</h5>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo3" type="radio" id="tip1"  />
+                        <label for="tip1">Hotel</label>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo3" type="radio" id="tip6"  />
+                        <label for="tip6">Apartamento</label>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo3" type="radio" id="tip2"  />
+                        <label for="tip2">Turismo rural</label>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo3" type="radio" id="tip3"  />
+                        <label for="tip3">Camping</label>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo3" type="radio" id="tip4"  />
+                        <label for="tip4">Amigos/Familiares</label>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo3" type="radio" id="tip5"  />
+                        <label for="tip5">Vivienda vacacional</label>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo3" type="radio" id="tip7"  />
+                        <label for="tip7">Otros</label>
+                    </div>
                   </div>
+
                 </div>
-              </div>
+
+
+
+
+                <!-- SEGUNDA FILA -->
+
+                <div class="row">
+                  <!-- PRIMERA COLUMNA -->
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>Motivo de visita al municipio</h5>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo4" type="radio" id="motivo1"  />
+                        <label for="motivo1">Clima</label>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo4" type="radio" id="motivo2"  />
+                        <label for="motivo2">Tranquilidad</label>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo4" type="radio" id="motivo3"  />
+                        <label for="motivo3">Ocio</label>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo4" type="radio" id="motivo4"  />
+                        <label for="motivo4">Oferta Cultural</label>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo4" type="radio" id="motivo5"  />
+                        <label for="motivo5">Gastronomía</label>
+                      </p>
+                    </div>
+
+                  </div>
+
+                  <!-- SEGUNDA COLUMNA -->
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>Se aloja en el municipio</h5>
+                    </div>
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo5" type="radio" id="si2"  />
+                        <label for="si2">Sí</label>
+                      </p>
+                    </div>
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo5" type="radio" id="no2"  />
+                        <label for="no2">No</label>
+                    </div>
+                  </div>
+
+                  <!-- TERCERA COLUMNA -->
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>Tiempo de estancia</h5>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo6" type="radio" id="esta1"  />
+                        <label for="esta1">Menos de 1 semana</label>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo6" type="radio" id="esta2"  />
+                        <label for="esta2">1 semana</label>
+                    </div>
+
+                    <div class="row-modi">
+                      <p>
+                        <input class="with-gap" name="alo6" type="radio" id="esta3"  />
+                        <label for="esta3">Más de 1 semana</label>
+                    </div>
+
+                  </div>
+
+                </div>
 
 
 
@@ -222,6 +391,8 @@
 
 
             </div>
+            <!-- FIN ALOJAMIENTOOOOOOOOOOOOOO-->
+
             <div id="test3" class="col s12">
 
 
