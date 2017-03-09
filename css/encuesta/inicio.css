@@ -129,6 +129,10 @@ input[type=submit]:hover{
   will-change: left, right;
 }
 
+.col-center{
+  margin-top: 35%;
+}
+
 
 /*FOOTER*/
 footer.page-footer-modi {

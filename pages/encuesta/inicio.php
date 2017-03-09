@@ -88,6 +88,74 @@
             </div>
             <div id="test1" class="col s12 ">
 
+              <div class="row">
+                <div class="col s12 m6 l6">
+
+                  <br>
+                  <div class="row">
+                    <div class="col s12 m4">
+                      <h5 class="col-center">Tipo de consulta</h5>
+                    </div>
+                    <div class="col s12 m3 ">
+                      <p>
+                        <input type="radio" name="encuesta" class="with-gap" id="enc_corta" />
+                        <label for="enc_corta">Corta&nbsp;</label>
+                      </p>
+                      <p>
+                        <input type="radio" name="encuesta" class="with-gap" id="enc_larga" />
+                        <label for="enc_larga">Larga&nbsp;</label>
+                      </p>
+                      <p>
+                        <input type="radio" name="encuesta" class="with-gap" id="enc_telephone" />
+                        <label for="enc_telephone">Tfno&nbsp;&nbsp;</label>
+                      </p>
+                      <p>
+                        <input type="radio" name="encuesta" class="with-gap" id="enc_email" />
+                        <label for="enc_email">E-mail</label>
+                      </p>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col s12 m4">
+                      <h5 class="col-center">Hora de consulta</h5>
+                    </div>
+                    <div class="col s12 m3 ">
+                      <p>
+                        <input type="radio" name="horas" class="with-gap" id="9a11" />
+                        <label for="9a11">9-11&nbsp;</label>
+                      </p>
+                      <p>
+                        <input type="radio" name="horas" class="with-gap" id="11a13" />
+                        <label for="11a13">11-13</label>
+                      </p>
+                      <p>
+                        <input type="radio" name="horas" class="with-gap" id="13a15" />
+                        <label for="13a15">13-15</label>
+                      </p>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col s12 m4">
+                      <h5 class="col-center">Fecha</h5>
+                    </div>
+                    <div class="col s12 m3 ">
+                        <input type="date" class="datepicker">
+                    </div>
+                  </div>
+
+
+
+                </div>
+                <div class="col s12 m6 l6">
+
+                </div>
+              </div>
 
 
 
@@ -98,11 +166,7 @@
 
             </div>
             <div id="test2" class="col s12">
-                <div class="row">
-                  <div class="col s12 m3 l3">
-                    
-                  </div>
-                </div>
+
 
 
 
