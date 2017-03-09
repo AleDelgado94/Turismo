@@ -174,29 +174,29 @@
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test1"  />
+                        <input class="with-gap" name="conocer" type="radio" id="test1"  />
                         <label for="test1">Redes sociales</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test2"  />
+                        <input class="with-gap" name="conocer" type="radio" id="test2"  />
                         <label for="test2">Web</label>
                       <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test3"  />
+                        <input class="with-gap" name="conocer" type="radio" id="test3"  />
                         <label for="test3">Hoteles</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test4"  />
+                        <input class="with-gap" name="conocer" type="radio" id="test4"  />
                         <label for="test4">Visitas Anteriores</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test5"  />
+                        <input class="with-gap" name="conocer" type="radio" id="test5"  />
                         <label for="test5">Otros</label>
                       </p>
                     </div>
