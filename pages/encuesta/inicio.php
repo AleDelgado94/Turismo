@@ -97,6 +97,18 @@
                 <div class="col s12 m6 l6">
 
                   <br>
+
+                  <div class="row">
+                    <div class="col s12 m3 ">
+                      <div id="datepicker"></div>
+                      <div id="datos">
+                        <input type='text' name='fecha' id='fecha' value="<?php echo date('d-m-y');?>" readonly />
+                      </div>
+                    </div>
+                  </div>
+
+                  <br>
+
                   <div class="row">
                     <div class="col s12 m4">
                       <h5 class="col-center">Tipo de consulta</h5>
@@ -144,22 +156,28 @@
                   </div>
 
                   <br>
-
-                  <div class="row">
-                    <div class="col s12 m3 ">
-                      <div id="datepicker"></div>
-                      <div id="datos">
-                        <input type='text' name='fecha' id='fecha' value="<?php echo date('d-m-y');?>" readonly />
-                      </div>
-                    </div>
-                  </div>
-
-
-
                 </div>
+
+
                 <div class="col s12 m6 l6">
+                  <div class="row">
+                    <div class="col s12 m2">
+                      <h5>Añadir visitante</h5>
+                    </div>
+                    <div class="col s12 m1">
+                      <a class="btn-floating col-center"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="col s12 m1">
+                      <a class="btn-floating col-center"><i class="material-icons">replay</i></a>
+                    </div>
 
+                  </div>
                 </div>
+
+
+
+
+
               </div>
             </div>
 
