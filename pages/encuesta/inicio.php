@@ -156,6 +156,7 @@
 
                 </div>
               </div>
+            </div>
 
 
 
@@ -174,35 +175,36 @@
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test1"  />
-                        <label for="test1">Redes sociales</label>
+                        <input class="with-gap" name="group1" type="radio" id="conoce1"  />
+                        <label for="conoce1">Redes sociales</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test2"  />
-                        <label for="test2">Web</label>
+                        <input class="with-gap" name="group1" type="radio" id="conoce2"  />
+                        <label for="conoce2">Web</label>
+                    </div>
                       <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test3"  />
-                        <label for="test3">Hoteles</label>
+                        <input class="with-gap" name="group1" type="radio" id="conoce3"  />
+                        <label for="conoce3">Hoteles</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test4"  />
-                        <label for="test4">Visitas Anteriores</label>
+                        <input class="with-gap" name="group1" type="radio" id="conoce4"  />
+                        <label for="conoce4">Visitas Anteriores</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="test5"  />
-                        <label for="test5">Otros</label>
+                        <input class="with-gap" name="group1" type="radio" id="conoce5"  />
+                        <label for="conoce5">Otros</label>
                       </p>
                     </div>
                   </div>
                 </div>
-
+              </div>
 
 
 
@@ -229,7 +231,9 @@
           </div>
 
 
+          <!-- Fin row tab-->
           </div>
+          <!-- fin columna grande -->
         </div>
   </main>
 
