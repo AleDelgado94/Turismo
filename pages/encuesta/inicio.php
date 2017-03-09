@@ -622,42 +622,21 @@
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="info4" type="radio" id="oci1"  />
-                        <label for="oci1">Deportes</label>
+                        <input class="with-gap" name="info7" type="radio" id="cont1"  />
+                        <label for="cont1">Corta duración</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="info4" type="radio" id="oci2"  />
-                        <label for="oci2">Restaurantes</label>
+                        <input class="with-gap" name="info7" type="radio" id="cont2"  />
+                        <label for="cont2">Larga duración</label>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="info4" type="radio" id="oci3"  />
-                        <label for="oci3">Excursiones</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="info4" type="radio" id="oci4"  />
-                        <label for="oci4">Compras</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="info4" type="radio" id="oci5"  />
-                        <label for="oci5">Mercados</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="info4" type="radio" id="oci6"  />
-                        <label for="oci6">Otros</label>
+                        <input class="with-gap" name="info7" type="radio" id="cont3"  />
+                        <label for="cont3">Telefónica</label>
                       </p>
                     </div>
 
@@ -666,45 +645,45 @@
                   <!-- SEGUNDA COLUMNA -->
                   <div class="col s12 m4 l4 left-align">
                     <div class="row-modi">
-                      <h5>Enventos</h5>
+                      <h5>Información Solicitada</h5>
                     </div>
                     <div class="row-modi">
                       <p>
                         <input class="with-gap" name="info5" type="radio" id="eve1"  />
-                        <label for="eve1">Gastronómicos</label>
+                        <label for="eve1">Teide</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
                         <input class="with-gap" name="info5" type="radio" id="eve2"  />
-                        <label for="eve2">Fiestas</label>
+                        <label for="eve2">Playas</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
                         <input class="with-gap" name="info5" type="radio" id="eve3"  />
-                        <label for="eve3">Miradas Doc</label>
+                        <label for="eve3">Eventos culturales</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
                         <input class="with-gap" name="info5" type="radio" id="eve4"  />
-                        <label for="eve4">Pascua Florida</label>
+                        <label for="eve4">Guaguas</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
                         <input class="with-gap" name="info5" type="radio" id="eve5"  />
-                        <label for="eve5">Eventos culturales</label>
+                        <label for="eve5">Taxi</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
                         <input class="with-gap" name="info5" type="radio" id="eve6"  />
-                        <label for="eve6">Eventos Tradicionales</label>
+                        <label for="eve6">Rent a car</label>
                       </p>
                     </div>
 
@@ -768,7 +747,7 @@
                 </div>
 
 
-                <!-- Tercera FILA -->
+
 
                 <div class="row">
                   <!-- PRIMERA COLUMNA -->
@@ -929,15 +908,14 @@
 
 
 
-
-
-
+            <!-- Tercera FILA -->
 
             </div>
             <!--FIN DE INFORMACION SOLICITADA-->
 
             <!-- INICIO DE MATERIALES-->
             <div id="test4" class="col s12">
+
 
 
             </div>
