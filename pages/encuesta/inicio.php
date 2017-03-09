@@ -268,7 +268,7 @@
 
 
               </div>
-            </div>
+
 
 
 
@@ -517,14 +517,14 @@
                     <div class="row-modi">
 
                       <p>
-                        <input type="checkbox" id="recurso1" />
+                        <input type="checkbox" name="recurso1" id="recurso1" />
                         <label for="recurso1">Playas</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="recurso2" />
+                        <input type="checkbox" name="recurso2" id="recurso2" />
                         <label for="recurso2">Senderos</label>
                       </p>
                     </div>
@@ -532,7 +532,7 @@
                     <div class="row-modi">
 
                       <p>
-                        <input type="checkbox" id="recurso3" />
+                        <input type="checkbox" name="recurso3" id="recurso3" />
                         <label for="recurso3">Otros</label>
                       </p>
                     </div>
@@ -547,37 +547,37 @@
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="aloj1" />
+                        <input type="checkbox" name="aloj1" id="aloj1" />
                         <label for="aloj1">Hoteles</label>
                       </p>
                     </div>
                     <div class="row-modi">
                         <p>
-                          <input type="checkbox" id="aloj2" />
+                          <input type="checkbox" name="aloj2" id="aloj2" />
                           <label for="aloj2">Apartamentos</label>
                         </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="aloj3" />
+                        <input type="checkbox" name="aloj3" id="aloj3" />
                         <label for="aloj3">Turismo Rural</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="aloj4" />
+                        <input type="checkbox" name="aloj4" id="aloj4" />
                         <label for="aloj4">Camping</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="aloj5" />
+                        <input type="checkbox" name="aloj5" id="aloj5" />
                         <label for="aloj5">Vivienda Vacacional</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="aloj6" />
+                        <input type="checkbox" name="aloj6" id="aloj6" />
                         <label for="aloj6">Otros</label>
                       </p>
                     </div>
@@ -591,28 +591,28 @@
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="trans1" />
+                        <input type="checkbox" name="trans" id="trans1" />
                         <label for="trans1">Guaguas</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="trans2" />
+                        <input type="checkbox" name="trans2"  id="trans2" />
                         <label for="trans2">Taxti</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="trans3" />
+                        <input type="checkbox" name="trans3" id="trans3" />
                         <label for="trans3">Rent a car</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="trans4" />
+                        <input type="checkbox" name="trans4" id="trans4" />
                         <label for="trans4">Otros</label>
                       </p>
                     </div>
@@ -634,42 +634,42 @@
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="oci1" />
+                        <input type="checkbox" name="oci1" id="oci1" />
                         <label for="oci1">Deportes</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="oci2" />
+                        <input type="checkbox" name="oci2" id="oci2" />
                         <label for="oci2">Restaurantes</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="oci3" />
+                        <input type="checkbox" name="oci3" id="oci3" />
                         <label for="oci3">Excursiones</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="oci4" />
+                        <input type="checkbox" name="oci4" id="oci4" />
                         <label for="oci4">Compras</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="oci5" />
+                        <input type="checkbox" name="oci5" id="oci5" />
                         <label for="oci5">Mercados</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="oci6" />
+                        <input type="checkbox" name="oci6" id="oci6" />
                         <label for="oci6">Otros</label>
                       </p>
                     </div>
@@ -683,47 +683,47 @@
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="eve1" />
+                        <input type="checkbox" class="eve1" id="eve1" />
                         <label for="eve1">Gastronómicos</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="eve2" />
+                        <input type="checkbox" class="eve2" id="eve2" />
                         <label for="eve2">Fiestas</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="eve3" />
+                        <input type="checkbox" class="eve3" id="eve3" />
                         <label for="eve3">Miradas Doc</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="eve4" />
+                        <input type="checkbox" class="eve4" id="eve4" />
                         <label for="eve4">Pascua Florida</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="eve5" />
+                        <input type="checkbox" class="eve5" id="eve5" />
                         <label for="eve5">Eventos Culturales</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="eve6" />
+                        <input type="checkbox" class="eve6" id="eve6" />
                         <label for="eve6">Eventos tradicionales</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="eve7" />
+                        <input type="checkbox" class="eve7" id="eve7" />
                         <label for="eve7">Otros</label>
                       </p>
                     </div>
@@ -738,46 +738,46 @@
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="servi1" />
+                        <input type="checkbox" name="servi1" id="servi1" />
                         <label for="servi1">Baños</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="servi2" />
+                        <input type="checkbox" name="servi2" id="servi2" />
                         <label for="servi2">Policía</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="servi3" />
+                        <input type="checkbox" name="servi3" id="servi3" />
                         <label for="servi3">Centros Médicos</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="servi4" />
+                        <input type="checkbox" name="servi4" id="servi4" />
                         <label for="servi4">Ayuntamiento</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="servi5" />
+                        <input type="checkbox" name="servi5" id="servi5" />
                         <label for="servi5">Correo</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="servi6" />
+                        <input type="checkbox" name="servi6" id="servi6" />
                         <label for="servi6">Direcciones específicas</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="servi7" />
+                        <input type="checkbox" name="servi7" id="servi7" />
                         <label for="servi7">Otros</label>
                       </p>
                     </div>
@@ -801,76 +801,76 @@
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo1" />
+                        <input type="checkbox" name="tfinfo1" id="tfinfo1" />
                         <label for="tfinfo1">Teide</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo2" />
+                        <input type="checkbox" name="tfinfo2" id="tfinfo2" />
                         <label for="tfinfo2">Playas</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo3" />
+                        <input type="checkbox" name="tfinfo3" id="tfinfo3" />
                         <label for="tfinfo3">Eventos culturales</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo4" />
+                        <input type="checkbox" name="tfinfo4" id="tfinfo4" />
                         <label for="tfinfo4">Guaguas</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo5" />
+                        <input type="checkbox" name="tfinfo5" id="tfinfo5" />
                         <label for="tfinfo5">Taxi</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo6" />
+                        <input type="checkbox" name="tfinfo6" id="tfinfo6" />
                         <label for="tfinfo6">Rent a car</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo7" />
+                        <input type="checkbox" name="tfinfo7" id="tfinfo7" />
                         <label for="tfinfo7">Ocio: atracciones, excursiones en barco</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo8" />
+                        <input type="checkbox" name="tfinfo8" id="tfinfo8" />
                         <label for="tfinfo8">Transporte marítimo</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo9" />
+                        <input type="checkbox" name="tfinfo9" id="tfinfo9" />
                         <label for="tfinfo9">Alojamiento</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo10" />
+                        <input type="checkbox" name="tfinfo10" id="tfinfo10" />
                         <label for="tfinfo10">Direcciones específicas</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo11" />
+                        <input type="checkbox" name="tfinfo11" id="tfinfo11" />
                         <label for="tfinfo11">Meteo</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input type="checkbox" id="tfinfo12" />
+                        <input type="checkbox" name="tfinfo12" id="tfinfo12" />
                         <label for="tfinfo12">Otras solicitudes</label>
                       </p>
                     </div>
@@ -1091,6 +1091,8 @@
           <!-- Fin row tab-->
           </div>
           <!-- fin columna grande -->
+        </div>
+
         </div>
   </main>
 
