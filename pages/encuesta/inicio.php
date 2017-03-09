@@ -175,16 +175,19 @@
                     </div>
                     <div class="row-modi">
                       <p>
+
                         <input class="with-gap" name="group1" type="radio" id="conoce1"  />
                         <label for="conoce1">Redes sociales</label>
+
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
+
                         <input class="with-gap" name="group1" type="radio" id="conoce2"  />
                         <label for="conoce2">Web</label>
                     </div>
-                      <div class="row-modi">
+                    <div class="row-modi">
                       <p>
                         <input class="with-gap" name="group1" type="radio" id="conoce3"  />
                         <label for="conoce3">Hoteles</label>
@@ -192,16 +195,23 @@
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="group1" type="radio" id="conoce4"  />
-                        <label for="conoce4">Visitas Anteriores</label>
+                        <input class="with-gap" name="conocer" type="radio" id="test3"  />
+                        <label for="test3">Hoteles</label>
                       </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="group1" type="radio" id="conoce5"  />
-                        <label for="conoce5">Otros</label>
-                      </p>
-                    </div>
+                  </div>
+                  <div class="row-modi">
+                    <p>
+                      <input class="with-gap" name="group1" type="radio" id="conoce4"  />
+                      <label for="conoce4">Visitas Anteriores</label>
+
+                    </p>
+                  </div>
+                  <div class="row-modi">
+                    <p>
+                      <input class="with-gap" name="group1" type="radio" id="conoce5"  />
+                      <label for="conoce5">Otros</label>
+                    </p>
+                  </div>
                   </div>
                 </div>
               </div>
