@@ -145,207 +145,217 @@
 
 
           <!-- Información del STOCK -->
+
+          <form action="stock_action.php" method="post">
+              <div class="row">
+                <div class="col s12 m4 l4 left-align">
+                  <div class="row-modi">
+                    <h5>Municipio</h5>
+                  </div>
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="callejero">Callejero: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['callejero']."</scan>"; ?></scan>
+                      <input type="number" name="cant_callejero_municipio" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="mapa_senderos">Mapa de senderos: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['mapa_senderos']."</scan>"; ?></scan>
+                      <input type="number" name="cant_mapa_senderos_municipio" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="guias_turisticas">Guías turísticas: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['guias_turisticas']."</scan>"; ?></scan>
+                      <input type="number" name="cant_guias_turisticas_municipio" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="folleto_eventos_municipales">Folleto eventos municipales: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['folleto_eventos_municipales']."</scan>"; ?></scan>
+                      <input type="number" name="cant_folleto_eventos_municipales_municipio" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="folleto_ocio">Folleto ocio: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['folleto_ocio']."</scan>"; ?></scan>
+                      <input type="number" name="cant_folleto_ocio_municipio" value="0">
+                    </p>
+                  </div>
+
+                </div>
+
+                <div class="col s12 m4 l4 left-align">
+                  <div class="row-modi">
+                    <h5>Otros Municipios</h5>
+                  </div>
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="callejero">Callejero: <?php echo "&nbsp;&nbsp;<scan>".$stock_otros_municipio['callejero']."</scan>"; ?></scan>
+                      <input type="number" name="cant_callejero_otros_municipios" value="0">
+                    </p>
+                  </div>
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="folleto_ocio_otros">Folleto ocio: <?php echo "&nbsp;&nbsp;<scan>".$stock_otros_municipio['folleto_ocio']."</scan>"; ?></scan>
+                      <input type="number" name="cant_folleto_ocio_otros_municipios" value="0">
+                    </p>
+                  </div>
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="otros_otros">Otros: <?php echo "&nbsp;&nbsp;<scan>".$stock_otros_municipio['otros']."</scan>"; ?></scan>
+                      <input type="number" name="cant_otros_otros_municipios" value="0">
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col s12 m4 l4 left-align">
+                  <div class="row-modi">
+                    <h5>De otras islas</h5>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="mapas_islas">Mapas: <?php echo "&nbsp;&nbsp;<scan>".$stock_otras_islas['mapas']."</scan>"; ?></scan>
+                      <input type="number" name="cant_mapas_islas_otras_islas" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="otros_islas">Otros: <?php echo "&nbsp;&nbsp;<scan>".$stock_otras_islas['otros']."</scan>"; ?></scan>
+                      <input type="number" name="cant_otros_islas_otras_islas" value="0">
+                    </p>
+                  </div>
+              </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col s12 m4 l4 left-align">
+                  <div class="row-modi">
+                    <h5>Turismo de Tenerife</h5>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="mapa_tenerife">Mapa Tenerife: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['mapa_tenerife']."</scan>"; ?></scan>
+                      <input type="number" name="cant_mapa_tenerife_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="mapa_block_sur">Mapa block zona sur: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['mapa_block_sur']."</scan>"; ?></scan>
+                      <input type="number" name="cant_mapa_block_sur_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="tenerife_coche">Tenerife en coche: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_coche']."</scan>"; ?></scan>
+                      <input type="number" name="cant_tenerife_coche_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="tradiciones_tenerife">Tradiciones en Tenerife: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tradiciones_tenerife']."</scan>"; ?></scan>
+                      <input type="number" name="cant_tradiciones_tenerife_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="tenerife_pie">Tenerife a pie: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_pie']."</scan>"; ?></scan>
+                      <input type="number" name="cant_tenerife_pie_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="tenerife_cetaceos">Tenerife avistamiento de cetáceos: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_cetaceos']."</scan>"; ?></scan>
+                      <input type="number" name="cant_tenerife_cetaceos_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="guia_de_tenerife">Guía de Tenerife: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['guia_de_tenerife']."</scan>"; ?></scan>
+                      <input type="number" name="cant_guia_de_tenerife_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="gastronomia_tenerife">Gastronomía en Tenerife: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['gastronomia_tenerife']."</scan>"; ?></scan>
+                      <input type="number" name="cant_gastronomia_tenerife_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="tenerife_natural_rural">Tenerife Natural y Rural: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_natural_rural']."</scan>"; ?></scan>
+                      <input type="number" name="cant_tenerife_natural_rural_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                  <div class="row-modi">
+                    <p class="range-field">
+                      <scan for="tenerife_familia">Tenerife en familia: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_familia']."</scan>"; ?></scan>
+                      <input type="number" name="cant_tenerife_familia_turismo_tenerife" value="0">
+                    </p>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>Material Promocional</h5>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="periodico_revista">Periódico/Revista: <?php echo "&nbsp;&nbsp;<scan>".$stock_material_promocional['periodico_revista']."</scan>"; ?></scan>
+                        <input type="number" name="cant_periodico_revista_material_promocional" value="0">
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="folleto_bus">Folleto Bus: <?php echo "&nbsp;&nbsp;<scan>".$stock_material_promocional['folleto_bus']."</scan>"; ?></scan>
+                        <input type="number" name="cant_folleto_bus_material_promocional" value="0">
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="otros_promocional">Otros: <?php echo "&nbsp;&nbsp;<scan>".$stock_material_promocional['otros_promocional']."</scan>"; ?></scan>
+                        <input type="number" name="cant_otros_promocional_material_promocional" value="0">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          <!-- Fin informacion stock -->
+
           <div class="row">
-            <div class="col s12 m4 l4 left-align">
-              <div class="row-modi">
-                <h5>Municipio</h5>
-              </div>
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="callejero">Callejero: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['callejero']."</scan>"; ?></scan>
-                  <input type="number" name="cant_callejero_municipio" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="mapa_senderos">Mapa de senderos: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['mapa_senderos']."</scan>"; ?></scan>
-                  <input type="number" name="cant_mapa_senderos_municipio" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="guias_turisticas">Guías turísticas: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['guias_turisticas']."</scan>"; ?></scan>
-                  <input type="number" name="cant_guias_turisticas_municipio" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="folleto_eventos_municipales">Folleto eventos municipales: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['folleto_eventos_municipales']."</scan>"; ?></scan>
-                  <input type="number" name="cant_folleto_eventos_municipales_municipio" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="folleto_ocio">Folleto ocio: <?php echo "&nbsp;&nbsp;<scan>".$stock_municipio['folleto_ocio']."</scan>"; ?></scan>
-                  <input type="number" name="cant_folleto_ocio_municipio" value="0">
-                </p>
-              </div>
-
-            </div>
-
-            <div class="col s12 m4 l4 left-align">
-              <div class="row-modi">
-                <h5>Otros Municipios</h5>
-              </div>
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="callejero">Callejero: <?php echo "&nbsp;&nbsp;<scan>".$stock_otros_municipio['callejero']."</scan>"; ?></scan>
-                  <input type="number" name="cant_callejero_otros_municipios" value="0">
-                </p>
-              </div>
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="folleto_ocio_otros">Folleto ocio: <?php echo "&nbsp;&nbsp;<scan>".$stock_otros_municipio['folleto_ocio']."</scan>"; ?></scan>
-                  <input type="number" name="cant_folleto_ocio_otros_municipios" value="0">
-                </p>
-              </div>
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="otros_otros">Otros: <?php echo "&nbsp;&nbsp;<scan>".$stock_otros_municipio['otros']."</scan>"; ?></scan>
-                  <input type="number" name="cant_otros_otros_municipios" value="0">
-                </p>
-              </div>
-            </div>
-
-            <div class="col s12 m4 l4 left-align">
-              <div class="row-modi">
-                <h5>De otras islas</h5>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="mapas_islas">Mapas: <?php echo "&nbsp;&nbsp;<scan>".$stock_otras_islas['mapas']."</scan>"; ?></scan>
-                  <input type="number" name="cant_mapas_islas_otras_islas" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="otros_islas">Otros: <?php echo "&nbsp;&nbsp;<scan>".$stock_otras_islas['otros']."</scan>"; ?></scan>
-                  <input type="number" name="cant_otros_islas_otras_islas" value="0">
-                </p>
-              </div>
+            <input id="add_cant" type="submit" name="add_cant" value="Añadir">
+            <scan>&nbsp;&nbsp;</scan>
+            <input id="delete_cant" type="submit" name="delete_cant" value="Eliminar">
           </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col s12 m4 l4 left-align">
-              <div class="row-modi">
-                <h5>Turismo de Tenerife</h5>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="mapa_tenerife">Mapa Tenerife: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['mapa_tenerife']."</scan>"; ?></scan>
-                  <input type="number" name="cant_mapa_tenerife_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="mapa_block_sur">Mapa block zona sur: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['mapa_block_sur']."</scan>"; ?></scan>
-                  <input type="number" name="cant_mapa_block_sur_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="tenerife_coche">Tenerife en coche: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_coche']."</scan>"; ?></scan>
-                  <input type="number" name="cant_tenerife_coche_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="tradiciones_tenerife">Tradiciones en Tenerife: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tradiciones_tenerife']."</scan>"; ?></scan>
-                  <input type="number" name="cant_tradiciones_tenerife_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="tenerife_pie">Tenerife a pie: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_pie']."</scan>"; ?></scan>
-                  <input type="number" name="cant_tenerife_pie_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="tenerife_cetaceos">Tenerife avistamiento de cetáceos: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_cetaceos']."</scan>"; ?></scan>
-                  <input type="number" name="cant_tenerife_cetaceos_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="guia_de_tenerife">Guía de Tenerife: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['guia_de_tenerife']."</scan>"; ?></scan>
-                  <input type="number" name="cant_guia_de_tenerife_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="gastronomia_tenerife">Gastronomía en Tenerife: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['gastronomia_tenerife']."</scan>"; ?></scan>
-                  <input type="number" name="cant_gastronomia_tenerife_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="tenerife_natural_rural">Tenerife Natural y Rural: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_natural_rural']."</scan>"; ?></scan>
-                  <input type="number" name="cant_tenerife_natural_rural_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-              <div class="row-modi">
-                <p class="range-field">
-                  <scan for="tenerife_familia">Tenerife en familia: <?php echo "&nbsp;&nbsp;<scan>".$stock_turismo_tenerife['tenerife_familia']."</scan>"; ?></scan>
-                  <input type="number" name="cant_tenerife_familia_turismo_tenerife" value="0">
-                </p>
-              </div>
-
-            </div>
-
-            <div class="row">
-              <div class="col s12 m4 l4 left-align">
-                <div class="row-modi">
-                  <h5>Material Promocional</h5>
-                </div>
-
-                <div class="row-modi">
-                  <p class="range-field">
-                    <scan for="periodico_revista">Periódico/Revista: <?php echo "&nbsp;&nbsp;<scan>".$stock_material_promocional['periodico_revista']."</scan>"; ?></scan>
-                    <input type="number" name="cant_periodico_revista_material_promocional" value="0">
-                  </p>
-                </div>
-
-                <div class="row-modi">
-                  <p class="range-field">
-                    <scan for="folleto_bus">Folleto Bus: <?php echo "&nbsp;&nbsp;<scan>".$stock_material_promocional['folleto_bus']."</scan>"; ?></scan>
-                    <input type="number" name="cant_folleto_bus_material_promocional" value="0">
-                  </p>
-                </div>
-
-                <div class="row-modi">
-                  <p class="range-field">
-                    <scan for="otros_promocional">Otros: <?php echo "&nbsp;&nbsp;<scan>".$stock_material_promocional['otros_promocional']."</scan>"; ?></scan>
-                    <input type="number" name="cant_otros_promocional_material_promocional" value="0">
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-
-
+        </form>
         </div>
+
+
+
+
 
       </div>
 
