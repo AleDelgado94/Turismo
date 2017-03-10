@@ -26,6 +26,7 @@
 
 
 
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">
     <title>Turismo - Base de datos</title>
@@ -1122,7 +1123,7 @@
       </div>
     </footer>
 
-    <script>
+    <!--<script>
       $(document).ready(function() {
          $('select').material_select();
        });
@@ -1149,7 +1150,7 @@
 
 
 
-      </script>
+    </script>-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
     <script type="text/javascript" src="../../js/main.js"></script>
