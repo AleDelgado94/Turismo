@@ -8,6 +8,6 @@ $(document).ready(function () {
 function quitarescudo(){
 
 
-  if (screen.width < 955) 
+  if (screen.width < 955)
     document.getElementById('escudo-nav').style.display = "none";
 }
