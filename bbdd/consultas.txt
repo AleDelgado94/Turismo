@@ -1,0 +1,23 @@
+CREATE TABLE `turismo`.`visita` ( `id` INT NOT NULL AUTO_INCREMENT , `grupo` INT NOT NULL , `consulta` VARCHAR(255) NOT NULL , `hora` TIME NOT NULL , `fecha` DATE NOT NULL , `sexo` VARCHAR(255) NOT NULL , `edad` INT NOT NULL , `nacionalidad` VARCHAR(255) NOT NULL , `residencia` VARCHAR(255) NOT NULL , `oficina` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `visita` CHANGE `consulta` `consulta` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL, CHANGE `sexo` `sexo` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL, CHANGE `nacionalidad` `nacionalidad` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL, CHANGE `residencia` `residencia` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL, CHANGE `oficina` `oficina` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL;
+
+CREATE TABLE `turismo`.`perfil_alojamiento` ( `gurpo` INT NOT NULL , `conocer` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `repite` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `alojamiento` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `motivo` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `municipio` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `tiempo` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL ) ENGINE = InnoDB;
+
+CREATE TABLE `turismo`.`informacion_guia` ( `grupo` INT NOT NULL , `recursos` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `alojamiento` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `transporte` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `ocio` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `eventos` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `servicios_publicos` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , PRIMARY KEY (`grupo`)) ENGINE = InnoDB;
+
+CREATE TABLE `turismo`.`informacion_tenerife` ( `grupo` INT NOT NULL , `info` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , PRIMARY KEY (`grupo`)) ENGINE = InnoDB;
+
+CREATE TABLE `turismo`.`materiales_municipio` ( `grupo` INT NOT NULL , `material` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , PRIMARY KEY (`grupo`)) ENGINE = InnoDB;
+
+CREATE TABLE `turismo`.`materiales_otros_municipios` ( `grupo` INT NOT NULL , `material` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL ) ENGINE = InnoDB;
+
+CREATE TABLE `turismo`.`materiales_otras_islas` ( `grupo` INT NOT NULL , `material` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL ) ENGINE = InnoDB;
+
+CREATE TABLE `turismo`.`material_turismo_tenerife` ( `grupo` INT NOT NULL , `material` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL ) ENGINE = InnoDB;
+
+CREATE TABLE `turismo`.`material_promocional` ( `grupo` INT NOT NULL , `material` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL ) ENGINE = InnoDB;
+
+CREATE TABLE `turismo`.`stock` ( `material` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL , `cantidad` INT NOT NULL , PRIMARY KEY (`material`)) ENGINE = InnoDB;
+
+
