@@ -41,8 +41,8 @@ $(document).ready(function(){
       var formu =
       "<div class='row' id ='persona"+ aux +"'>"+
         "<div class='col s12 m12 l12'>"+
+          "<h5 class='left-align'>Persona"+aux+"</h5>"+
           "<hr>"+
-
             "<div class='row'>"+
             "<div class='col s12 m6 l6 left-align'>"+
                 "<h5>Edad</h5>"+

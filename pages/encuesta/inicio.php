@@ -94,7 +94,7 @@
             <div id="test1" class="col s12 ">
 
               <div class="row">
-                <div class="col s12 m6 l6">
+                <div class="col s12 m4 l4">
 
                   <br>
 
@@ -155,7 +155,24 @@
                     </div>
                   </div>
 
+
                   <br>
+
+
+                  <div class="row">
+                    <div class="col s12 m12">
+                      <h5 class="left-align">Oficina</h5>
+                    </div>
+                    <div class="col s12 m9 left-align">
+                      <select>
+                        <option value="" disabled selected>Oficina</option>
+                        <option value="Alcala">Alcalá</option>
+                        <option value="Playa San Juan">Playa San Juan</option>
+                        <option value="Guia Casco">Guía Casco</option>
+                      </select>
+                      <label>Oficina</label>
+                    </div>
+                  </div>
                 </div>
 
 
