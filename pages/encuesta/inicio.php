@@ -97,7 +97,6 @@
                 <div class="col s12 m4 l4">
 
                   <br>
-
                   <div class="row">
                     <div class="col s12 m3 ">
                       <div id="datepicker"></div>
@@ -107,56 +106,72 @@
                     </div>
                   </div>
 
-                  <br>
+
 
                   <div class="row">
-                    <div class="col s12 m4">
-                      <h5 class="col-center left-align">Tipo de consulta</h5>
-                    </div>
-                    <div class="col s12 m3 left-align">
-                      <p>
-                        <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_corta" />
-                        <label for="enc_corta">Corta&nbsp;</label>
-                      </p>
-                      <p>
-                        <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_larga" />
-                        <label for="enc_larga">Larga&nbsp;</label>
-                      </p>
-                      <p>
-                        <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_telephone" />
-                        <label for="enc_telephone">Tfno&nbsp;&nbsp;</label>
-                      </p>
-                      <p>
-                        <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_email" />
-                        <label for="enc_email">E-mail</label>
-                      </p>
+                    <div class="col s12 m12 l12 left-align">
+                      <div class="row-modi">
+                        <h5>Tipo de consulta</h5>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_corta" />
+                          <label for="enc_corta">Corta&nbsp;</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_larga" />
+                          <label for="enc_larga">Larga&nbsp;</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_telephone" />
+                          <label for="enc_telephone">Tfno&nbsp;&nbsp;</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_email" />
+                          <label for="enc_email">E-mail</label>
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <br>
-
                   <div class="row">
-                    <div class="col s12 m4">
-                      <h5 class="col-center left-align">Hora de consulta</h5>
-                    </div>
-                    <div class="col s12 m3 left-align">
-                      <p>
-                        <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="9a11" />
-                        <label for="9a11">9-11&nbsp;</label>
-                      </p>
-                      <p>
-                        <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="11a13" />
-                        <label for="11a13">11-13</label>
-                      </p>
-                      <p>
-                        <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="13a15" />
-                        <label for="13a15">13-15</label>
-                      </p>
+                    <div class="col s12 m12 l12 left-align">
+                      <div class="row-modi">
+                        <h5>Hora consulta</h5>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="9a11" />
+                          <label for="9a11">9-11&nbsp;</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="11a13" />
+                          <label for="11a13">11-13</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="13a15" />
+                          <label for="13a15">13-15</label>
+                        </p>
+                      </div>
                     </div>
                   </div>
-
-
-                  <br>
 
 
                   <div class="row">
@@ -176,7 +191,7 @@
                 </div>
 
 
-                <div class="col s12 m6 l6">
+                <div class="col s12 offset-m2 m6 offset-l2 l6">
                   <div class="row">
                     <div class="col s12 m4">
                       <h5 class="left-align">Añadir visitante</h5>
