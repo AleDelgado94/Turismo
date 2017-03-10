@@ -54,6 +54,25 @@ input[type=submit] {
 
 input[type=submit]:hover{
   background: #E91111;
+
+}
+
+#add_cant{
+  background: #088A29;
+  padding:10px 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-left: auto;
+  width: auto;
+}
+
+#add_cant:hover{
+  background: #04B431;
 }
 
 #escudo-nav{
