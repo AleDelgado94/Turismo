@@ -293,35 +293,35 @@
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo1" type="radio" onclick="uncheckRadio(this)" id="conoce1"  />
+                        <input class="with-gap" name="alo1" value="Redes sociales" type="radio" onclick="uncheckRadio(this)" id="conoce1"  />
                         <label for="conoce1">Redes sociales</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo1" type="radio" onclick="uncheckRadio(this)" id="conoce2"  />
+                        <input class="with-gap" name="alo1" value="Web" type="radio" onclick="uncheckRadio(this)" id="conoce2"  />
                         <label for="conoce2">Web</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo1" type="radio" onclick="uncheckRadio(this)" id="conoce3"  />
+                        <input class="with-gap" name="alo1" value="Hoteles" type="radio" onclick="uncheckRadio(this)" id="conoce3"  />
                         <label for="conoce3">Hoteles</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo1" type="radio" onclick="uncheckRadio(this)" id="conoce4"  />
-                        <label for="conoce4">Visitas Anteriores</label>
+                        <input class="with-gap" name="alo1" value="Visitas anteriores" type="radio" onclick="uncheckRadio(this)" id="conoce4"  />
+                        <label for="conoce4">Visitas anteriores</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo1" type="radio" onclick="uncheckRadio(this)" id="conoce5"  />
+                        <input class="with-gap" name="alo1" value="Otros" type="radio" onclick="uncheckRadio(this)" id="conoce5"  />
                         <label for="conoce5">Otros</label>
                       </p>
                     </div>
@@ -334,13 +334,13 @@
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo2" type="radio" onclick="uncheckRadio(this)" id="si1"  />
+                        <input class="with-gap" name="alo2" value="Si" type="radio" onclick="uncheckRadio(this)" id="si1"  />
                         <label for="si1">Sí</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo2" type="radio" onclick="uncheckRadio(this)" id="no1"  />
+                        <input class="with-gap" name="alo2" value="No" type="radio" onclick="uncheckRadio(this)" id="no1"  />
                         <label for="no1">No</label>
                     </div>
                   </div>
@@ -353,44 +353,44 @@
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo3" type="radio" onclick="uncheckRadio(this)" id="tip1"  />
+                        <input class="with-gap" name="alo3" value="Hotel" type="radio" onclick="uncheckRadio(this)" id="tip1"  />
                         <label for="tip1">Hotel</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo3" type="radio" onclick="uncheckRadio(this)" id="tip6"  />
+                        <input class="with-gap" name="alo3" value="Apartamento" type="radio" onclick="uncheckRadio(this)" id="tip6"  />
                         <label for="tip6">Apartamento</label>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo3" type="radio" onclick="uncheckRadio(this)" id="tip2"  />
+                        <input class="with-gap" name="alo3" value="Turismo rural" type="radio" onclick="uncheckRadio(this)" id="tip2"  />
                         <label for="tip2">Turismo rural</label>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo3" type="radio" onclick="uncheckRadio(this)" id="tip3"  />
+                        <input class="with-gap" name="alo3" value="Camping" type="radio" onclick="uncheckRadio(this)" id="tip3"  />
                         <label for="tip3">Camping</label>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo3" type="radio" onclick="uncheckRadio(this)" id="tip4"  />
+                        <input class="with-gap" name="alo3" value="Amigos_familiares" type="radio" onclick="uncheckRadio(this)" id="tip4"  />
                         <label for="tip4">Amigos/Familiares</label>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo3" type="radio" onclick="uncheckRadio(this)" id="tip5"  />
+                        <input class="with-gap" name="alo3" value="Vivienda vacacional" type="radio" onclick="uncheckRadio(this)" id="tip5"  />
                         <label for="tip5">Vivienda vacacional</label>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo3" type="radio" onclick="uncheckRadio(this)" id="tip7"  />
+                        <input class="with-gap" name="alo3" value="Otros" type="radio" onclick="uncheckRadio(this)" id="tip7"  />
                         <label for="tip7">Otros</label>
                     </div>
                   </div>
@@ -411,34 +411,34 @@
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo4" type="radio" onclick="uncheckRadio(this)" id="motivo1"  />
+                        <input class="with-gap" name="alo4" value="Clima" type="radio" onclick="uncheckRadio(this)" id="motivo1"  />
                         <label for="motivo1">Clima</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo4" type="radio" onclick="uncheckRadio(this)" id="motivo2"  />
+                        <input class="with-gap" name="alo4" value="Tranquilidad" type="radio" onclick="uncheckRadio(this)" id="motivo2"  />
                         <label for="motivo2">Tranquilidad</label>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo4" type="radio" onclick="uncheckRadio(this)" id="motivo3"  />
+                        <input class="with-gap" name="alo4" value="Ocio" type="radio" onclick="uncheckRadio(this)" id="motivo3"  />
                         <label for="motivo3">Ocio</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo4" type="radio" onclick="uncheckRadio(this)" id="motivo4"  />
+                        <input class="with-gap" name="alo4" value="Oferta Cultural" type="radio" onclick="uncheckRadio(this)" id="motivo4"  />
                         <label for="motivo4">Oferta Cultural</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo4" type="radio" onclick="uncheckRadio(this)" id="motivo5"  />
+                        <input class="with-gap" name="alo4" value="Gastronomía" type="radio" onclick="uncheckRadio(this)" id="motivo5"  />
                         <label for="motivo5">Gastronomía</label>
                       </p>
                     </div>
@@ -452,13 +452,13 @@
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo5" type="radio" onclick="uncheckRadio(this)" id="si2"  />
+                        <input class="with-gap" name="alo5" value="Si" type="radio" onclick="uncheckRadio(this)" id="si2"  />
                         <label for="si2">Sí</label>
                       </p>
                     </div>
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo5" type="radio" onclick="uncheckRadio(this)" id="no2"  />
+                        <input class="with-gap" name="alo5" value="No" type="radio" onclick="uncheckRadio(this)" id="no2"  />
                         <label for="no2">No</label>
                     </div>
                   </div>
@@ -471,20 +471,20 @@
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo6" type="radio" onclick="uncheckRadio(this)" id="esta1"  />
+                        <input class="with-gap" name="alo6" value="Menos de 1 semana" type="radio" onclick="uncheckRadio(this)" id="esta1"  />
                         <label for="esta1">Menos de 1 semana</label>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo6" type="radio" onclick="uncheckRadio(this)" id="esta2"  />
+                        <input class="with-gap" name="alo6" value="1 semana" type="radio" onclick="uncheckRadio(this)" id="esta2"  />
                         <label for="esta2">1 semana</label>
                     </div>
 
                     <div class="row-modi">
                       <p>
-                        <input class="with-gap" name="alo6" type="radio" onclick="uncheckRadio(this)" id="esta3"  />
+                        <input class="with-gap" name="alo6" value="Más 1 semana" type="radio" onclick="uncheckRadio(this)" id="esta3"  />
                         <label for="esta3">Más de 1 semana</label>
                     </div>
 
