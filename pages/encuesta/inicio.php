@@ -185,7 +185,7 @@
                           <a class="btn-floating waves-effect " id="add_user"><i class="material-icons">add</i></a>
                         </div>
                         <div class="col s12 m6 l6 left-align">
-                          <a class="btn-floating " id="rm_user"><i class="material-icons">replay</i></a>
+                          <a class="btn-floating waves-effect" id="rm_user"><i class="material-icons">replay</i></a>
                         </div>
                       </div>
 
@@ -1135,6 +1135,11 @@
         </div>
       </div>
     </footer>
+
+
+
+
+
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
