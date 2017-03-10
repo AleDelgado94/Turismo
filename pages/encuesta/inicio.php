@@ -21,8 +21,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="../../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.min.css">
-    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
 
 
 
@@ -1123,42 +1122,9 @@
       </div>
     </footer>
 
-    <!--<script>
-      $(document).ready(function() {
-         $('select').material_select();
-       });
-      $( "#datepicker" ).datepicker({
-          // Formato de la fecha
-          dateFormat: "dd/mm/yy",
-          // Primer dia de la semana El lunes
-          firstDay: 1,
-          // Dias Largo en castellano
-          dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
-          // Dias cortos en castellano
-          dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
-          // Nombres largos de los meses en castellano
-          monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
-          // Nombres de los meses en formato corto
-          monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec" ],
-          // Cuando seleccionamos la fecha esta se pone en el campo Input
-          onSelect: function(dateText) {
-                $('#fecha').val(dateText);
-            }
-      });
-
-       var era;
-       var previo=null;
-       function uncheckRadio(rbutton){
-         if(previo &&previo!=rbutton){previo.era=false;}
-         if(rbutton.checked==true && rbutton.era==true){rbutton.checked=false;}
-         rbutton.era=rbutton.checked;
-         previo=rbutton;
-       }
-
-
-
-    </script>-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
     <script type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="../../js/encuesta/inicio.js"></script>
