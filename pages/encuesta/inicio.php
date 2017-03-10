@@ -893,15 +893,15 @@
                   </div>
                   <div class="row-modi">
                     <p class="range-field">
-                      <scan for="mapa_senderos">Mapa de senderos</scan>
-                      <input id="mapa_senderos" name="mapa_senderos" type="range" value=0 step=1 min=0 max=10>
+                      <scan for="callejero">Callejero</scan>
+                      <input id="callejero" name="callejero" type="range" value=0 step=1 min=0 max=10>
                     </p>
                   </div>
 
                   <div class="row-modi">
                     <p class="range-field">
-                      <scan for="guias_turisticas">Guías turísticas</scan>
-                      <input id="guias_turisticas" name="guias_turisticas" type="range" value=0 step=1 min=0 max=10>
+                      <scan for="mapa_senderos">Mapa de senderos</scan>
+                      <input id="mapa_senderos" name="mapa_senderos" type="range" value=0 step=1 min=0 max=10>
                     </p>
                   </div>
 

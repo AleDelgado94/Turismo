@@ -80,7 +80,201 @@
 
 
           <!-- Información del STOCK -->
+          <div class="row">
+            <div class="col s12 m4 l4 left-align">
+              <div class="row-modi">
+                <h5>Municipio</h5>
+              </div>
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="callejero">Callejero</scan>
+                  <input id="callejero" name="callejero" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
 
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="mapa_senderos">Mapa de senderos</scan>
+                  <input id="mapa_senderos" name="mapa_senderos" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="guias_turisticas">Guías turísticas</scan>
+                  <input id="guias_turisticas" name="guias_turisticas" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="folleto_eventos_municipales">Folleto eventos municipales</scan>
+                  <input id="folleto_eventos_municipales" name="folleto_eventos_municipales" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="folleto_ocio">Folleto ocio</scan>
+                  <input id="folleto_ocio" name="folleto_ocio" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+            </div>
+
+            <div class="col s12 m4 l4 left-align">
+              <div class="row-modi">
+                <h5>Otros Municipios</h5>
+              </div>
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="callejero">Callejero</scan>
+                  <input id="callejero" name="callejero" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="folleto_ocio_otros">Folleto ocio</scan>
+                  <input id="folleto_ocio_otros" name="folleto_ocio_otros" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="otros_otros">Otros</scan>
+                  <input id="otros_otros" name="otros_otros" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+            </div>
+
+            <div class="col s12 m4 l4 left-align">
+              <div class="row-modi">
+                <h5>De otras islas</h5>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="mapas_islas">Mapas</scan>
+                  <input id="mapas_islas" name="mapas_islas" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="otros_islas">Otros</scan>
+                  <input id="otros_islas" name="otros_islas" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+          </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col s12 m4 l4 left-align">
+              <div class="row-modi">
+                <h5>Turismo de Tenerife</h5>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="mapa_tenerife">Mapa Tenerife</scan>
+                  <input id="mapa_tenerife" name="mapa_tenerife" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="mapa_block_sur">Mapa block zona sur</scan>
+                  <input id="mapa_block_sur" name="mapa_block_sur" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="tenerife_coche">Tenerife en coche</scan>
+                  <input id="tenerife_coche" name="tenerife_coche" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="tradiciones_tenerife">Tradiciones en Tenerife</scan>
+                  <input id="tradiciones_tenerife" name="tradiciones_tenerife" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="tenerife_pie">Tenerife a pie</scan>
+                  <input id="tenerife_pie" name="tenerife_pie" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="tenerife_cetaceos">Tenerife avistamiento de cetáceos</scan>
+                  <input id="tenerife_cetaceos" name="tenerife_cetaceos" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="guia_de_tenerife">Guía de Tenerife</scan>
+                  <input id="guia_de_tenerife" name="guia_de_tenerife" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="gastronomia_tenerife">Gastronomía en Tenerife</scan>
+                  <input id="gastronomia_tenerife" name="gastronomia_tenerife" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="tenerife_natural_rural">Tenerife Natural y Rural</scan>
+                  <input id="tenerife_natural_rural" name="tenerife_natural_rural" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+              <div class="row-modi">
+                <p class="range-field">
+                  <scan for="tenerife_familia">Tenerife en familia</scan>
+                  <input id="tenerife_familia" name="tenerife_familia" type="range" value=0 step=1 min=0 max=10>
+                </p>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col s12 m4 l4 left-align">
+                <div class="row-modi">
+                  <h5>Material Promocional</h5>
+                </div>
+
+                <div class="row-modi">
+                  <p class="range-field">
+                    <scan for="periodico_revista">Periódico/Revista</scan>
+                    <input id="periodico_revista" name="periodico_revista" type="range" value=0 step=1 min=0 max=10>
+                  </p>
+                </div>
+
+                <div class="row-modi">
+                  <p class="range-field">
+                    <scan for="folleto_bus">Folleto Bus</scan>
+                    <input id="folleto_bus" name="folleto_bus" type="range" value=0 step=1 min=0 max=10>
+                  </p>
+                </div>
+
+                <div class="row-modi">
+                  <p class="range-field">
+                    <scan for="otros_promocional">Otros</scan>
+                    <input id="otros_promocional" name="otros_promocional" type="range" value=0 step=1 min=0 max=10>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
