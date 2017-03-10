@@ -111,7 +111,7 @@
 
                   <div class="row">
                     <div class="col s12 m4">
-                      <h5 class="col-center">Tipo de consulta</h5>
+                      <h5 class="col-center left-align">Tipo de consulta</h5>
                     </div>
                     <div class="col s12 m3 left-align">
                       <p>
@@ -137,7 +137,7 @@
 
                   <div class="row">
                     <div class="col s12 m4">
-                      <h5 class="col-center">Hora de consulta</h5>
+                      <h5 class="col-center left-align">Hora de consulta</h5>
                     </div>
                     <div class="col s12 m3 left-align">
                       <p>
@@ -162,13 +162,13 @@
                 <div class="col s12 m6 l6">
                   <div class="row">
                     <div class="col s12 m4">
-                      <h5>Añadir visitante</h5>
+                      <h5 class="left-align">Añadir visitante</h5>
                       <div class="row">
-                        <div class="col s12 m6 left-align">
-                          <a class="btn-floating waves-effect col-center" id="add_user"><i class="material-icons">add</i></a>
+                        <div class="col s12 m6 l6 left-align">
+                          <a class="btn-floating waves-effect " id="add_user"><i class="material-icons">add</i></a>
                         </div>
-                        <div class="col s12 m6 left-align">
-                          <a class="btn-floating col-center" id="rm_user"><i class="material-icons">replay</i></a>
+                        <div class="col s12 m6 l6 left-align">
+                          <a class="btn-floating " id="rm_user"><i class="material-icons">replay</i></a>
                         </div>
                       </div>
 
@@ -176,13 +176,18 @@
 
                   </div>
 
-                  <div id="user"></div>
+                  <div id="user">
 
 
-                  <!--<div class="row">
+                  </div>
+
+
+
+                  <!-- AQUI VA LOS CAMPOS QUE SE AÑADEN NUEVOS-->
+                  <!--<div class="row" id="formulario">
                     <div class="col s12 m12 l12">
                       <hr>
-                      <h5>Sexo</h5>
+                      <h5 class="left-align">Sexo</h5>
                         <div class="row">
                           <div class="col s12 m6 left-align">
                               <div class="row">
@@ -196,7 +201,7 @@
                           </div>
                         </div>
 
-                        <h5>Edad</h5>
+                        <h5 class="left-align">Edad</h5>
                           <div class="row">
                             <div class="col s12 m12 l12 left-align">
                               <div class="row">
@@ -222,7 +227,7 @@
                             </div>
                           </div>
 
-                          <h5>Nacionalidad</h5>
+                          <h5 class="left-align">Nacionalidad</h5>
                           <div class="input-field col s12 m12 l12 left-align">
                             <select>
                               <option value="" disabled selected>Nacionalidad</option>
@@ -255,17 +260,9 @@
                         </div>
                     </div>-->
 
-
-
                   </div>
 
-
-
                 </div>
-
-
-
-
 
               </div>
 
