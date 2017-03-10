@@ -18,6 +18,8 @@
     <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../../css/font-awesome.css"/>
     <link type="text/css" rel="stylesheet" href="../../css/encuesta/inicio.css"/>
+    <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.css"/>
+    <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.date.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="../../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.min.css">
@@ -101,7 +103,9 @@
                     <div class="col s12 m3 ">
                       <div id="datepicker"></div>
                       <div id="datos">
-                        <input type='text' name='fecha' id='fecha' value="<?php echo date('d-m-y');?>" readonly />
+                        <!--<input type='text' name='fecha' id='fecha' value="<?php echo date('d-m-y');?>" readonly />-->
+
+                        <input type="button" name="name" value="">
                       </div>
                     </div>
                   </div>
@@ -1162,6 +1166,11 @@
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
     <script type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="../../js/encuesta/inicio.js"></script>
+    <script type="text/javascript" src="../../js/encuesta/legacy.js"></script>
+    <script type="text/javascript" src="../../js/encuesta/picker.js"></script>
+    <script type="text/javascript" src="../../js/encuesta/picker.date.js"></script>
+    <script type="text/javascript" src="../../js/encuesta/translations/es_ES.js"></script>
+
 
   </body>
 </html>

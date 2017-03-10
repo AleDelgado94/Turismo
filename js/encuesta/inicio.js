@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $('select').material_select();
     $('ul.tabs').tabs();
+    $('.datepicker').pickadate()
 
 
 //Funcion que muestra el calendario
