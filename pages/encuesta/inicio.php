@@ -85,7 +85,7 @@
 
           <form class="col s12 m3" action="validar_encuesta.php" method="post">
 
-            <input type="submit" name="send" value="Enviar encuesta">
+            <input class="#00e676 green accent-3" type="submit" name="send" value="Enviar encuesta">
         </div>
         <div class="col s12 m9 l9 center">
 
@@ -104,7 +104,7 @@
               <div id="test1" class="col s12 ">
 
                 <div class="row">
-                  <div class="col s12 m6 l6">
+                  <div class="col s12 m12 l4">
 
                     <br>
                     <div class="row">
@@ -201,16 +201,21 @@
                   </div>
 
 
-                  <div class="col s12  m6 l6">
+                  <div class="col s12 m12 l6">
                     <div class="row">
-                      <div class="col s12 m4">
+                      <div class="col s12 m6">
                         <h5 class="left-align">Añadir visitante</h5>
                         <div class="row">
-                          <div class="col s12 m6 l6 left-align">
-                            <a class="btn-floating waves-effect " id="add_user"><i class="material-icons">add</i></a>
+                          <div class="col s12 m12 l12 left-align">
+                            <a class="waves-effect waves-light btn #00e676 green accent-3" id="add_user">Añadir</a>
+                            <!--<a class="btn-floating waves-effect " id="add_user"><i class="material-icons">add</i></a>-->
                           </div>
-                          <div class="col s12 m6 l6 left-align">
-                            <a class="btn-floating waves-effect" id="rm_user"><i class="material-icons">replay</i></a>
+
+                        </div>
+                        <div class="row">
+                          <div class="col s12 m12 l12 left-align">
+                            <!--<a class="btn-floating waves-effect" id="rm_user"><i class="material-icons">replay</i></a>-->
+                            <a class="waves-effect waves-light btn #ef5350 red lighten-1" id="rm_user">Borrar</a>
                           </div>
                         </div>
 
@@ -253,35 +258,35 @@
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo1" value="Redes sociales" type="radio" onclick="uncheckRadio(this)" id="conoce1"  />
-                          <label for="conoce1">Redes sociales</label>
+                          <input type="checkbox" name="alo1" value="Redes sociales" id="conoce1" />
+                          <label for="conoce1">Playas</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo1" value="Web" type="radio" onclick="uncheckRadio(this)" id="conoce2"  />
+                          <input type="checkbox" name="alo1" value="Web" id="conoce2"  />
                           <label for="conoce2">Web</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo1" value="Hoteles" type="radio" onclick="uncheckRadio(this)" id="conoce3"  />
+                          <input name="alo1" value="Hoteles" type="checkbox" id="conoce3"  />
                           <label for="conoce3">Hoteles</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo1" value="Visitas anteriores" type="radio" onclick="uncheckRadio(this)" id="conoce4"  />
+                          <input name="alo1" value="Visitas anteriores" type="checkbox"  id="conoce4"  />
                           <label for="conoce4">Visitas anteriores</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo1" value="Otros" type="radio" onclick="uncheckRadio(this)" id="conoce5"  />
+                          <input name="alo1" value="Otros" type="checkbox"  id="conoce5"  />
                           <label for="conoce5">Otros</label>
                         </p>
                       </div>
@@ -371,34 +376,34 @@
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo4" value="Clima" type="radio" onclick="uncheckRadio(this)" id="motivo1"  />
+                          <input name="alo4" value="Clima" type="checkbox" id="motivo1"  />
                           <label for="motivo1">Clima</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo4" value="Tranquilidad" type="radio" onclick="uncheckRadio(this)" id="motivo2"  />
+                          <input name="alo4" value="Tranquilidad" type="checkbox" id="motivo2"  />
                           <label for="motivo2">Tranquilidad</label>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo4" value="Ocio" type="radio" onclick="uncheckRadio(this)" id="motivo3"  />
+                          <input name="alo4" value="Ocio" type="checkbox"  id="motivo3"  />
                           <label for="motivo3">Ocio</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo4" value="Oferta Cultural" type="radio" onclick="uncheckRadio(this)" id="motivo4"  />
+                          <input name="alo4" value="Oferta Cultural" type="checkbox" id="motivo4"  />
                           <label for="motivo4">Oferta Cultural</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo4" value="Gastronomía" type="radio" onclick="uncheckRadio(this)" id="motivo5"  />
+                          <input name="alo4" value="Gastronomía" type="checkbox" id="motivo5"  />
                           <label for="motivo5">Gastronomía</label>
                         </p>
                       </div>

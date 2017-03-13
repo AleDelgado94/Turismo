@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('select').material_select();
     $('ul.tabs').tabs();
-    $('.datepicker').pickadate()
+    $('.datepicker').pickadate();
 
 
 //Funcion que muestra el calendario
@@ -34,15 +34,17 @@ $(document).ready(function(){
 
     $("#rm_user").click(function() {
           $("#persona"+aux).remove();
-          aux = aux-1;
+          if(aux > 0)
+            aux = aux-1;
       });
 
     $("#add_user").click(function(){
+      
       aux = aux+1;
       var formu =
       "<div class='row' id ='persona"+ aux +"'>"+
         "<div class='col s12 m12 l12'>"+
-          "<h5 class='left-align'>Persona"+aux+"</h5>"+
+          "<h5 class='left-align'>Persona "+aux+"</h5>"+
           "<hr>"+
             "<div class='row'>"+
             "<div class='col s12 m6 l6 left-align'>"+
