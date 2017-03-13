@@ -79,13 +79,14 @@
 
           </ul>
 
-          <form class="col s12 m3" action="../cerrar_sesion.php" method="post">
+          <form class="col s12 m12 l12" action="../cerrar_sesion.php" method="post">
             <input type="submit" name="cerrar" value="Cerrar Sesión">
           </form>
 
-          <form class="col s12 m3" action="validar_encuesta.php" method="post">
+      <form class="col s12 m3" action="validar_encuesta.php" method="post">
+              <input class="#00e676 green accent-3 enviar_encuesta" type="submit" name="send" value="Enviar encuesta">
 
-            <input class="#00e676 green accent-3" type="submit" name="send" value="Enviar encuesta">
+
         </div>
         <div class="col s12 m9 l9 center">
 
