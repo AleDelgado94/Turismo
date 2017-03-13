@@ -209,6 +209,7 @@
 
                         <input type="hidden" name="n_personas" id="n_personas" value="0">
 
+
                         <div class="row">
                           <div class="col s12 m12 l12 left-align">
                             <a class="waves-effect waves-light btn #00e676 green accent-3" id="add_user">Añadir</a>
@@ -228,7 +229,7 @@
                     </div>
 
                     <div id="user">
-
+                      
 
                     </div>
 

@@ -128,9 +128,12 @@ $(document).ready(function(){
 
 
       $("#user").append(formu);
+
+
+      
     });
 
-    
+
 
 });
 
