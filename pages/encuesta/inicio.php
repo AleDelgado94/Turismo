@@ -78,9 +78,14 @@
              ?>
 
           </ul>
+
           <form class="col s12 m3" action="../cerrar_sesion.php" method="post">
             <input type="submit" name="cerrar" value="Cerrar Sesión">
           </form>
+
+          <form class="col s12 m3" action="validar_encuesta.php" method="post">
+
+            <input type="submit" name="send" value="Enviar encuesta">
         </div>
         <div class="col s12 m9 l9 center">
 
@@ -93,430 +98,131 @@
                 <li class="tab col s12 m3 l3"><a href="#test4">Materiales</a></li>
               </ul>
             </div>
-            <div id="test1" class="col s12 ">
-
-              <div class="row">
-                <div class="col s12 m6 l6">
-
-                  <br>
-                  <div class="row">
-                    <div class="col s12 m3 ">
-                      <div id="datepicker"></div>
-                      <div id="datos">
-                        <input type='text' name='fecha' id='fecha' value="<?php echo date('d/m/y');?>" readonly />
-                      </div>
-                    </div>
-                  </div>
 
 
 
-                  <div class="row">
-                    <div class="col s12 m12 l12 left-align">
-                      <div class="row-modi">
-                        <h5>Tipo de consulta</h5>
-                      </div>
+              <div id="test1" class="col s12 ">
 
-                      <div class="row-modi">
-                        <p>
-                          <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_corta" />
-                          <label for="enc_corta">Corta&nbsp;</label>
-                        </p>
-                      </div>
+                <div class="row">
+                  <div class="col s12 m6 l6">
 
-                      <div class="row-modi">
-                        <p>
-                          <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_larga" />
-                          <label for="enc_larga">Larga&nbsp;</label>
-                        </p>
-                      </div>
-
-                      <div class="row-modi">
-                        <p>
-                          <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_telephone" />
-                          <label for="enc_telephone">Tfno&nbsp;&nbsp;</label>
-                        </p>
-                      </div>
-
-                      <div class="row-modi">
-                        <p>
-                          <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_email" />
-                          <label for="enc_email">E-mail</label>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col s12 m12 l12 left-align">
-                      <div class="row-modi">
-                        <h5>Hora consulta</h5>
-                      </div>
-
-                      <div class="row-modi">
-                        <p>
-                          <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="9a11" />
-                          <label for="9a11">9-11&nbsp;</label>
-                        </p>
-                      </div>
-
-                      <div class="row-modi">
-                        <p>
-                          <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="11a13" />
-                          <label for="11a13">11-13</label>
-                        </p>
-                      </div>
-
-                      <div class="row-modi">
-                        <p>
-                          <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="13a15" />
-                          <label for="13a15">13-15</label>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="row">
-                    <div class="col s12 m12 l12">
-                      <h5 class="left-align">Oficina</h5>
-                    </div>
-                    <div class="col s12 m6 l6 left-align">
-                      <select>
-                        <option value="" disabled selected>Oficina</option>
-                        <option value="Alcala">Alcalá</option>
-                        <option value="Playa San Juan">Playa San Juan</option>
-                        <option value="Guia Casco">Guía Casco</option>
-                      </select>
-                      <label>Oficina</label>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col s12  m6 l6">
-                  <div class="row">
-                    <div class="col s12 m4">
-                      <h5 class="left-align">Añadir visitante</h5>
-                      <div class="row">
-                        <div class="col s12 m6 l6 left-align">
-                          <a class="btn-floating waves-effect " id="add_user"><i class="material-icons">add</i></a>
-                        </div>
-                        <div class="col s12 m6 l6 left-align">
-                          <a class="btn-floating waves-effect" id="rm_user"><i class="material-icons">replay</i></a>
+                    <br>
+                    <div class="row">
+                      <div class="col s12 m3 ">
+                        <div id="datepicker"></div>
+                        <div id="datos">
+                          <input type='text' name='fecha' id='fecha' value="<?php echo date('d/m/y');?>" readonly />
                         </div>
                       </div>
-
                     </div>
 
+
+
+                    <div class="row">
+                      <div class="col s12 m12 l12 left-align">
+                        <div class="row-modi">
+                          <h5>Tipo de consulta</h5>
+                        </div>
+
+                        <div class="row-modi">
+                          <p>
+                            <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_corta" />
+                            <label for="enc_corta">Corta&nbsp;</label>
+                          </p>
+                        </div>
+
+                        <div class="row-modi">
+                          <p>
+                            <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_larga" />
+                            <label for="enc_larga">Larga&nbsp;</label>
+                          </p>
+                        </div>
+
+                        <div class="row-modi">
+                          <p>
+                            <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_telephone" />
+                            <label for="enc_telephone">Tfno&nbsp;&nbsp;</label>
+                          </p>
+                        </div>
+
+                        <div class="row-modi">
+                          <p>
+                            <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_email" />
+                            <label for="enc_email">E-mail</label>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col s12 m12 l12 left-align">
+                        <div class="row-modi">
+                          <h5>Hora consulta</h5>
+                        </div>
+
+                        <div class="row-modi">
+                          <p>
+                            <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="9a11" />
+                            <label for="9a11">9-11&nbsp;</label>
+                          </p>
+                        </div>
+
+                        <div class="row-modi">
+                          <p>
+                            <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="11a13" />
+                            <label for="11a13">11-13</label>
+                          </p>
+                        </div>
+
+                        <div class="row-modi">
+                          <p>
+                            <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="13a15" />
+                            <label for="13a15">13-15</label>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col s12 m12 l12">
+                        <h5 class="left-align">Oficina</h5>
+                      </div>
+                      <div class="col s12 m6 l6 left-align">
+                        <select>
+                          <option value="" disabled selected>Oficina</option>
+                          <option value="Alcala">Alcalá</option>
+                          <option value="Playa San Juan">Playa San Juan</option>
+                          <option value="Guia Casco">Guía Casco</option>
+                        </select>
+                        <label>Oficina</label>
+                      </div>
+                    </div>
                   </div>
 
-                  <div id="user">
 
-
-                  </div>
-
-
-
-                  <!-- AQUI VA LOS CAMPOS QUE SE AÑADEN NUEVOS-->
-                  <!--<div class="row" id="formulario">
-                    <div class="col s12 m12 l12">
-                      <hr>
-                      <h5 class="left-align">Sexo</h5>
+                  <div class="col s12  m6 l6">
+                    <div class="row">
+                      <div class="col s12 m4">
+                        <h5 class="left-align">Añadir visitante</h5>
                         <div class="row">
-                          <div class="col s12 m6 left-align">
-                              <div class="row">
-                                <input type="radio" name="sexo" class="with-gap" id="hombre" />
-                                <label for="hombre">Hombre</label>
-                              </div>
-                              <div class="row">
-                                <input type="radio" name="sexo" class="with-gap" id="mujer" />
-                                <label for="mujer">Mujer&nbsp;</label>
-                              </div>
+                          <div class="col s12 m6 l6 left-align">
+                            <a class="btn-floating waves-effect " id="add_user"><i class="material-icons">add</i></a>
+                          </div>
+                          <div class="col s12 m6 l6 left-align">
+                            <a class="btn-floating waves-effect" id="rm_user"><i class="material-icons">replay</i></a>
                           </div>
                         </div>
 
-                        <h5 class="left-align">Edad</h5>
-                          <div class="row">
-                            <div class="col s12 m12 l12 left-align">
-                              <div class="row">
-                                <input type="radio" name="edad" class="with-gap" id="0a12" />
-                                <label for="0a12">0 a 12 años</label>
-                              </div>
+                      </div>
 
-                              <div class="row">
-                                <input type="radio" name="edad" class="with-gap" id="12a30" />
-                                <label for="12a30">13 a 30 años</label>
-                              </div>
-                              <div class="row">
-                                <input type="radio" name="edad" class="with-gap" id="31a50" />
-                                <label for="31a50">31 a 50 años</label>
-                              </div>
-                              <div class="row">
-                                <input type="radio" name="edad" class="with-gap" id="50mas" />
-                                <label for="50mas">Más de 51 años</label>
-                              </div>
-
-
-
-                            </div>
-                          </div>
-
-                          <h5 class="left-align">Nacionalidad</h5>
-                          <div class="input-field col s12 m12 l12 left-align">
-                            <select>
-                              <option value="" disabled selected>Nacionalidad</option>
-                              <option value="Española">Española</option>
-                              <option value="Británica">Británica</option>
-                              <option value="Alemana">Alemana</option>
-                              <option value="Rusa">Rusa</option>
-                              <option value="Canaria">Canaria</option>
-                              <option value="Africana">Africana</option>
-                              <option value="Asiática">Asiática</option>
-                              <option value="Australiana">Australiana</option>
-                              <option value="Austriaca">Austriaca</option>
-                              <option value="Belga">Belga</option>
-                              <option value="Canadiense">Canadiense</option>
-                              <option value="Checa">Checa</option>
-                              <option value="China">China</option>
-                              <option value="Danesa">Danesa</option>
-                              <option value="Eslovena">Eslovena</option>
-                              <option value="Estadounidense">Estadounidense</option>
-                              <option value="Otros">Otros</option>
-                            </select>
-                            <label>Nacionalidades</label>
-                            <div class="row">
-                              <div class="col s12 m12 l12 left-align">
-                                <input type="checkbox" class="filled-in" name="segunda_residencia" id="segunda_residencia" />
-                                <label  for="segunda_residencia">Segunda Residencia</label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>-->
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--ALOJAMIENTOOOOOOOOOOOOOOOOOOOO-->
-            <div id="test2" class="col s12 m12 l12">
-
-              <!-- PRIMERA FILA -->
-                <div class="row">
-                  <!-- PRIMERA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>¿Cómo conocieron el municipio?</h5>
                     </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo1" value="Redes sociales" type="radio" onclick="uncheckRadio(this)" id="conoce1"  />
-                        <label for="conoce1">Redes sociales</label>
-                      </p>
+                    <div id="user">
+
+
                     </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo1" value="Web" type="radio" onclick="uncheckRadio(this)" id="conoce2"  />
-                        <label for="conoce2">Web</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo1" value="Hoteles" type="radio" onclick="uncheckRadio(this)" id="conoce3"  />
-                        <label for="conoce3">Hoteles</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo1" value="Visitas anteriores" type="radio" onclick="uncheckRadio(this)" id="conoce4"  />
-                        <label for="conoce4">Visitas anteriores</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo1" value="Otros" type="radio" onclick="uncheckRadio(this)" id="conoce5"  />
-                        <label for="conoce5">Otros</label>
-                      </p>
-                    </div>
-                  </div>
-
-                  <!-- SEGUNDA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>¿Repite visita?</h5>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo2" value="Si" type="radio" onclick="uncheckRadio(this)" id="si1"  />
-                        <label for="si1">Sí</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo2" value="No" type="radio" onclick="uncheckRadio(this)" id="no1"  />
-                        <label for="no1">No</label>
-                    </div>
-                  </div>
-
-                  <!-- TERCERA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Tipo de Alojamiento</h5>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo3" value="Hotel" type="radio" onclick="uncheckRadio(this)" id="tip1"  />
-                        <label for="tip1">Hotel</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo3" value="Apartamento" type="radio" onclick="uncheckRadio(this)" id="tip6"  />
-                        <label for="tip6">Apartamento</label>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo3" value="Turismo rural" type="radio" onclick="uncheckRadio(this)" id="tip2"  />
-                        <label for="tip2">Turismo rural</label>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo3" value="Camping" type="radio" onclick="uncheckRadio(this)" id="tip3"  />
-                        <label for="tip3">Camping</label>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo3" value="Amigos_familiares" type="radio" onclick="uncheckRadio(this)" id="tip4"  />
-                        <label for="tip4">Amigos/Familiares</label>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo3" value="Vivienda vacacional" type="radio" onclick="uncheckRadio(this)" id="tip5"  />
-                        <label for="tip5">Vivienda vacacional</label>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo3" value="Otros" type="radio" onclick="uncheckRadio(this)" id="tip7"  />
-                        <label for="tip7">Otros</label>
-                    </div>
-                  </div>
-
-                </div>
-
-
-
-
-                <!-- SEGUNDA FILA -->
-
-                <div class="row">
-                  <!-- PRIMERA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Motivo de visita al municipio</h5>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo4" value="Clima" type="radio" onclick="uncheckRadio(this)" id="motivo1"  />
-                        <label for="motivo1">Clima</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo4" value="Tranquilidad" type="radio" onclick="uncheckRadio(this)" id="motivo2"  />
-                        <label for="motivo2">Tranquilidad</label>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo4" value="Ocio" type="radio" onclick="uncheckRadio(this)" id="motivo3"  />
-                        <label for="motivo3">Ocio</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo4" value="Oferta Cultural" type="radio" onclick="uncheckRadio(this)" id="motivo4"  />
-                        <label for="motivo4">Oferta Cultural</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo4" value="Gastronomía" type="radio" onclick="uncheckRadio(this)" id="motivo5"  />
-                        <label for="motivo5">Gastronomía</label>
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <!-- SEGUNDA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Se aloja en el municipio</h5>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo5" value="Si" type="radio" onclick="uncheckRadio(this)" id="si2"  />
-                        <label for="si2">Sí</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo5" value="No" type="radio" onclick="uncheckRadio(this)" id="no2"  />
-                        <label for="no2">No</label>
-                    </div>
-                  </div>
-
-                  <!-- TERCERA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Tiempo de estancia</h5>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo6" value="Menos de 1 semana" type="radio" onclick="uncheckRadio(this)" id="esta1"  />
-                        <label for="esta1">Menos de 1 semana</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo6" value="1 semana" type="radio" onclick="uncheckRadio(this)" id="esta2"  />
-                        <label for="esta2">1 semana</label>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input class="with-gap" name="alo6" value="Más 1 semana" type="radio" onclick="uncheckRadio(this)" id="esta3"  />
-                        <label for="esta3">Más de 1 semana</label>
                     </div>
 
                   </div>
@@ -529,602 +235,819 @@
 
 
 
-            </div>
-            <!-- FIN ALOJAMIENTOOOOOOOOOOOOOO-->
 
 
-            <!-- INICIO DE INFORMACION SOLICITADA-->
-            <div id="test3" class="col s12">
-              <!-- PRIMERA FILA -->
-                <div class="row">
-                  <h4 class="left-align">Guía de Isora</h4>
-                  <hr>
-                  <!-- PRIMERA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Recursos</h5>
-                    </div>
-
-                    <div class="row-modi">
-
-                      <p>
-                        <input type="checkbox" name="recurso1" value="Playas" id="recurso1" />
-                        <label for="recurso1">Playas</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="recurso2" value="Senderos" id="recurso2" />
-                        <label for="recurso2">Senderos</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-
-                      <p>
-                        <input type="checkbox" name="recurso3" value="Otros" id="recurso3" />
-                        <label for="recurso3">Otros</label>
-                      </p>
-                    </div>
 
 
-                  </div>
 
-                  <!-- SEGUNDA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Alojamiento</h5>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="aloj1" value="Hoteles" id="aloj1" />
-                        <label for="aloj1">Hoteles</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
+  <!--ALOJAMIENTOOOOOOOOOOOOOOOOOOOO-->
+              <div id="test2" class="col s12 m12 l12">
+
+                <!-- PRIMERA FILA -->
+                  <div class="row">
+                    <!-- PRIMERA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>¿Cómo conocieron el municipio?</h5>
+                      </div>
+
+                      <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="aloj2" value="Apartaments" id="aloj2" />
-                          <label for="aloj2">Apartamentos</label>
+                          <input class="with-gap" name="alo1" value="Redes sociales" type="radio" onclick="uncheckRadio(this)" id="conoce1"  />
+                          <label for="conoce1">Redes sociales</label>
                         </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="aloj3" value="Turismo Rural" id="aloj3" />
-                        <label for="aloj3">Turismo Rural</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="aloj4" value="Camping" id="aloj4" />
-                        <label for="aloj4">Camping</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="aloj5" value="Vivienda Vacacional" id="aloj5" />
-                        <label for="aloj5">Vivienda Vacacional</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="aloj6" value="Otros" id="aloj6" />
-                        <label for="aloj6">Otros</label>
-                      </p>
-                    </div>
-                  </div>
+                      </div>
 
-                  <!-- TERCERA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Transporte</h5>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo1" value="Web" type="radio" onclick="uncheckRadio(this)" id="conoce2"  />
+                          <label for="conoce2">Web</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo1" value="Hoteles" type="radio" onclick="uncheckRadio(this)" id="conoce3"  />
+                          <label for="conoce3">Hoteles</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo1" value="Visitas anteriores" type="radio" onclick="uncheckRadio(this)" id="conoce4"  />
+                          <label for="conoce4">Visitas anteriores</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo1" value="Otros" type="radio" onclick="uncheckRadio(this)" id="conoce5"  />
+                          <label for="conoce5">Otros</label>
+                        </p>
+                      </div>
                     </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="trans" value="Guaguas" id="trans1" />
-                        <label for="trans1">Guaguas</label>
-                      </p>
+                    <!-- SEGUNDA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>¿Repite visita?</h5>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo2" value="Si" type="radio" onclick="uncheckRadio(this)" id="si1"  />
+                          <label for="si1">Sí</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo2" value="No" type="radio" onclick="uncheckRadio(this)" id="no1"  />
+                          <label for="no1">No</label>
+                      </div>
                     </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="trans2" value="Taxi"  id="trans2" />
-                        <label for="trans2">Taxi</label>
-                      </p>
-                    </div>
+                    <!-- TERCERA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Tipo de Alojamiento</h5>
+                      </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="trans3" value="Rent a car" id="trans3" />
-                        <label for="trans3">Rent a car</label>
-                      </p>
-                    </div>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo3" value="Hotel" type="radio" onclick="uncheckRadio(this)" id="tip1"  />
+                          <label for="tip1">Hotel</label>
+                        </p>
+                      </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="trans4" value="Otros" id="trans4" />
-                        <label for="trans4">Otros</label>
-                      </p>
-                    </div>
-                  </div>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo3" value="Apartamento" type="radio" onclick="uncheckRadio(this)" id="tip6"  />
+                          <label for="tip6">Apartamento</label>
+                      </div>
 
-                </div>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo3" value="Turismo rural" type="radio" onclick="uncheckRadio(this)" id="tip2"  />
+                          <label for="tip2">Turismo rural</label>
+                      </div>
 
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo3" value="Camping" type="radio" onclick="uncheckRadio(this)" id="tip3"  />
+                          <label for="tip3">Camping</label>
+                      </div>
 
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo3" value="Amigos_familiares" type="radio" onclick="uncheckRadio(this)" id="tip4"  />
+                          <label for="tip4">Amigos/Familiares</label>
+                      </div>
 
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo3" value="Vivienda vacacional" type="radio" onclick="uncheckRadio(this)" id="tip5"  />
+                          <label for="tip5">Vivienda vacacional</label>
+                      </div>
 
-                <!-- SEGUNDA FILA -->
-
-                <div class="row">
-                  <!-- PRIMERA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Ocio</h5>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="oci1" value="Deportes" id="oci1" />
-                        <label for="oci1">Deportes</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="oci2" value="Restaurantes" id="oci2" />
-                        <label for="oci2">Restaurantes</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="oci3" value="Excursiones" id="oci3" />
-                        <label for="oci3">Excursiones</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="oci4" value="Compras" id="oci4" />
-                        <label for="oci4">Compras</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="oci5" value="Mercados" id="oci5" />
-                        <label for="oci5">Mercados</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="oci6" value="Otros" id="oci6" />
-                        <label for="oci6">Otros</label>
-                      </p>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo3" value="Otros" type="radio" onclick="uncheckRadio(this)" id="tip7"  />
+                          <label for="tip7">Otros</label>
+                      </div>
                     </div>
 
                   </div>
 
-                  <!-- SEGUNDA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Enventos</h5>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" class="eve1" value="Gastronómicos" id="eve1" />
-                        <label for="eve1">Gastronómicos</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" class="eve2" value="Fiestas" id="eve2" />
-                        <label for="eve2">Fiestas</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" class="eve3" value="Miradas Doc" id="eve3" />
-                        <label for="eve3">Miradas Doc</label>
-                      </p>
+
+
+
+                  <!-- SEGUNDA FILA -->
+
+                  <div class="row">
+                    <!-- PRIMERA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Motivo de visita al municipio</h5>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo4" value="Clima" type="radio" onclick="uncheckRadio(this)" id="motivo1"  />
+                          <label for="motivo1">Clima</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo4" value="Tranquilidad" type="radio" onclick="uncheckRadio(this)" id="motivo2"  />
+                          <label for="motivo2">Tranquilidad</label>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo4" value="Ocio" type="radio" onclick="uncheckRadio(this)" id="motivo3"  />
+                          <label for="motivo3">Ocio</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo4" value="Oferta Cultural" type="radio" onclick="uncheckRadio(this)" id="motivo4"  />
+                          <label for="motivo4">Oferta Cultural</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo4" value="Gastronomía" type="radio" onclick="uncheckRadio(this)" id="motivo5"  />
+                          <label for="motivo5">Gastronomía</label>
+                        </p>
+                      </div>
+
                     </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" class="eve4" value="Pascua Florida" id="eve4" />
-                        <label for="eve4">Pascua Florida</label>
-                      </p>
+                    <!-- SEGUNDA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Se aloja en el municipio</h5>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo5" value="Si" type="radio" onclick="uncheckRadio(this)" id="si2"  />
+                          <label for="si2">Sí</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo5" value="No" type="radio" onclick="uncheckRadio(this)" id="no2"  />
+                          <label for="no2">No</label>
+                      </div>
                     </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" class="eve5" value="Eventos Culturales" id="eve5" />
-                        <label for="eve5">Eventos Culturales</label>
-                      </p>
-                    </div>
+                    <!-- TERCERA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Tiempo de estancia</h5>
+                      </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" class="eve6" value="Eventos tradicionales" id="eve6" />
-                        <label for="eve6">Eventos tradicionales</label>
-                      </p>
-                    </div>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo6" value="Menos de 1 semana" type="radio" onclick="uncheckRadio(this)" id="esta1"  />
+                          <label for="esta1">Menos de 1 semana</label>
+                        </p>
+                      </div>
 
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" class="eve7" value="Otros" id="eve7" />
-                        <label for="eve7">Otros</label>
-                      </p>
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo6" value="1 semana" type="radio" onclick="uncheckRadio(this)" id="esta2"  />
+                          <label for="esta2">1 semana</label>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input class="with-gap" name="alo6" value="Más 1 semana" type="radio" onclick="uncheckRadio(this)" id="esta3"  />
+                          <label for="esta3">Más de 1 semana</label>
+                      </div>
+
                     </div>
 
                   </div>
 
-                  <!-- TERCERA COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Servicios Públicos</h5>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="servi1" value="Baños" id="servi1" />
-                        <label for="servi1">Baños</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="servi2" value="Policía" id="servi2" />
-                        <label for="servi2">Policía</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="servi3" value="Centros Médicos" id="servi3" />
-                        <label for="servi3">Centros Médicos</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="servi4" value="Ayuntamiento" id="servi4" />
-                        <label for="servi4">Ayuntamiento</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="servi5" value="Correo" id="servi5" />
-                        <label for="servi5">Correo</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="servi6" value="Direcciones específicas" id="servi6" />
-                        <label for="servi6">Direcciones específicas</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="servi7" value="Otros" id="servi7" />
-                        <label for="servi7">Otros</label>
-                      </p>
-                    </div>
-                  </div>
 
 
-                </div>
 
 
-                <!-- Tercera FILA -->
 
-                <div class="row">
-
-                  <h4 class="left-align">Tenerife</h4>
-                  <hr>
-                  <!-- Primera COLUMNA -->
-                  <div class="col s12 m4 l4 left-align">
-                    <div class="row-modi">
-                      <h5>Información Solicitada</h5>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo1" value="Teide" id="tfinfo1" />
-                        <label for="tfinfo1">Teide</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo2" value="Playas" id="tfinfo2" />
-                        <label for="tfinfo2">Playas</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo3" value="Eventos culturales" id="tfinfo3" />
-                        <label for="tfinfo3">Eventos culturales</label>
-                      </p>
-                    </div>
-
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo4" value="Guaguas" id="tfinfo4" />
-                        <label for="tfinfo4">Guaguas</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo5" value="Taxi" id="tfinfo5" />
-                        <label for="tfinfo5">Taxi</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo6" value="Rent a car" id="tfinfo6" />
-                        <label for="tfinfo6">Rent a car</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo7" value="Ocio" id="tfinfo7" />
-                        <label for="tfinfo7">Ocio: atracciones, excursiones en barco</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo8" value="Transporte marítimo" id="tfinfo8" />
-                        <label for="tfinfo8">Transporte marítimo</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo9" value="Alojamiento" id="tfinfo9" />
-                        <label for="tfinfo9">Alojamiento</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo10" value="Direcciones específicas" id="tfinfo10" />
-                        <label for="tfinfo10">Direcciones específicas</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo11" value="Meteo" id="tfinfo11" />
-                        <label for="tfinfo11">Meteo</label>
-                      </p>
-                    </div>
-                    <div class="row-modi">
-                      <p>
-                        <input type="checkbox" name="tfinfo12" value="Otras solicitudes" id="tfinfo12" />
-                        <label for="tfinfo12">Otras solicitudes</label>
-                      </p>
-                    </div>
-                  </div>
-
-
-                </div>
-
-            </div>
-            <!--FIN DE INFORMACION SOLICITADA-->
-
-            <!-- INICIO DE MATERIALES-->
-          <div id="test4" class="col s12">
-
-              <div class="row">
-                <div class="col s12 m4 l4 left-align">
-                  <div class="row-modi">
-                    <h5>Municipio</h5>
-                  </div>
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="callejero">Callejero</scan>
-                      <input id="callejero" name="callejero" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="mapa_senderos">Mapa de senderos</scan>
-                      <input id="mapa_senderos" name="mapa_senderos" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="guias_turisticas">Guías turísticas</scan>
-                      <input id="guias_turisticas" name="guias_turisticas" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="folleto_eventos_municipales">Folleto eventos municipales</scan>
-                      <input id="folleto_eventos_municipales" name="folleto_eventos_municipales" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="folleto_ocio">Folleto ocio</scan>
-                      <input id="folleto_ocio" name="folleto_ocio" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                </div>
-
-                <div class="col s12 m4 l4 left-align">
-                  <div class="row-modi">
-                    <h5>Otros Municipios</h5>
-                  </div>
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="callejero">Callejero</scan>
-                      <input id="callejero" name="callejero" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="folleto_ocio_otros">Folleto ocio</scan>
-                      <input id="folleto_ocio_otros" name="folleto_ocio_otros" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="otros_otros">Otros</scan>
-                      <input id="otros_otros" name="otros_otros" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-                </div>
-
-                <div class="col s12 m4 l4 left-align">
-                  <div class="row-modi">
-                    <h5>De otras islas</h5>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="mapas_islas">Mapas</scan>
-                      <input id="mapas_islas" name="mapas_islas" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="otros_islas">Otros</scan>
-                      <input id="otros_islas" name="otros_islas" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-              </div>
 
               </div>
+              <!-- FIN ALOJAMIENTOOOOOOOOOOOOOO-->
 
-              <div class="row">
-                <div class="col s12 m4 l4 left-align">
-                  <div class="row-modi">
-                    <h5>Turismo de Tenerife</h5>
+
+              <!-- INICIO DE INFORMACION SOLICITADA-->
+              <div id="test3" class="col s12">
+                <!-- PRIMERA FILA -->
+                  <div class="row">
+                    <h4 class="left-align">Guía de Isora</h4>
+                    <hr>
+                    <!-- PRIMERA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Recursos</h5>
+                      </div>
+
+                      <div class="row-modi">
+
+                        <p>
+                          <input type="checkbox" name="recurso1" value="Playas" id="recurso1" />
+                          <label for="recurso1">Playas</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="recurso2" value="Senderos" id="recurso2" />
+                          <label for="recurso2">Senderos</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+
+                        <p>
+                          <input type="checkbox" name="recurso3" value="Otros" id="recurso3" />
+                          <label for="recurso3">Otros</label>
+                        </p>
+                      </div>
+
+
+                    </div>
+
+                    <!-- SEGUNDA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Alojamiento</h5>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="aloj1" value="Hoteles" id="aloj1" />
+                          <label for="aloj1">Hoteles</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                          <p>
+                            <input type="checkbox" name="aloj2" value="Apartaments" id="aloj2" />
+                            <label for="aloj2">Apartamentos</label>
+                          </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="aloj3" value="Turismo Rural" id="aloj3" />
+                          <label for="aloj3">Turismo Rural</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="aloj4" value="Camping" id="aloj4" />
+                          <label for="aloj4">Camping</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="aloj5" value="Vivienda Vacacional" id="aloj5" />
+                          <label for="aloj5">Vivienda Vacacional</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="aloj6" value="Otros" id="aloj6" />
+                          <label for="aloj6">Otros</label>
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- TERCERA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Transporte</h5>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="trans" value="Guaguas" id="trans1" />
+                          <label for="trans1">Guaguas</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="trans2" value="Taxi"  id="trans2" />
+                          <label for="trans2">Taxi</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="trans3" value="Rent a car" id="trans3" />
+                          <label for="trans3">Rent a car</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="trans4" value="Otros" id="trans4" />
+                          <label for="trans4">Otros</label>
+                        </p>
+                      </div>
+                    </div>
+
                   </div>
 
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="mapa_tenerife">Mapa Tenerife</scan>
-                      <input id="mapa_tenerife" name="mapa_tenerife" type="range" value=0 step=1 min=0 max=10>
-                    </p>
+
+
+
+                  <!-- SEGUNDA FILA -->
+
+                  <div class="row">
+                    <!-- PRIMERA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Ocio</h5>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="oci1" value="Deportes" id="oci1" />
+                          <label for="oci1">Deportes</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="oci2" value="Restaurantes" id="oci2" />
+                          <label for="oci2">Restaurantes</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="oci3" value="Excursiones" id="oci3" />
+                          <label for="oci3">Excursiones</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="oci4" value="Compras" id="oci4" />
+                          <label for="oci4">Compras</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="oci5" value="Mercados" id="oci5" />
+                          <label for="oci5">Mercados</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="oci6" value="Otros" id="oci6" />
+                          <label for="oci6">Otros</label>
+                        </p>
+                      </div>
+
+                    </div>
+
+                    <!-- SEGUNDA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Enventos</h5>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" class="eve1" value="Gastronómicos" id="eve1" />
+                          <label for="eve1">Gastronómicos</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" class="eve2" value="Fiestas" id="eve2" />
+                          <label for="eve2">Fiestas</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" class="eve3" value="Miradas Doc" id="eve3" />
+                          <label for="eve3">Miradas Doc</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" class="eve4" value="Pascua Florida" id="eve4" />
+                          <label for="eve4">Pascua Florida</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" class="eve5" value="Eventos Culturales" id="eve5" />
+                          <label for="eve5">Eventos Culturales</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" class="eve6" value="Eventos tradicionales" id="eve6" />
+                          <label for="eve6">Eventos tradicionales</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" class="eve7" value="Otros" id="eve7" />
+                          <label for="eve7">Otros</label>
+                        </p>
+                      </div>
+
+                    </div>
+
+                    <!-- TERCERA COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Servicios Públicos</h5>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="servi1" value="Baños" id="servi1" />
+                          <label for="servi1">Baños</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="servi2" value="Policía" id="servi2" />
+                          <label for="servi2">Policía</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="servi3" value="Centros Médicos" id="servi3" />
+                          <label for="servi3">Centros Médicos</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="servi4" value="Ayuntamiento" id="servi4" />
+                          <label for="servi4">Ayuntamiento</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="servi5" value="Correo" id="servi5" />
+                          <label for="servi5">Correo</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="servi6" value="Direcciones específicas" id="servi6" />
+                          <label for="servi6">Direcciones específicas</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="servi7" value="Otros" id="servi7" />
+                          <label for="servi7">Otros</label>
+                        </p>
+                      </div>
+                    </div>
+
+
                   </div>
 
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="mapa_block_sur">Mapa block zona sur</scan>
-                      <input id="mapa_block_sur" name="mapa_block_sur" type="range" value=0 step=1 min=0 max=10>
-                    </p>
+
+                  <!-- Tercera FILA -->
+
+                  <div class="row">
+
+                    <h4 class="left-align">Tenerife</h4>
+                    <hr>
+                    <!-- Primera COLUMNA -->
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Información Solicitada</h5>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo1" value="Teide" id="tfinfo1" />
+                          <label for="tfinfo1">Teide</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo2" value="Playas" id="tfinfo2" />
+                          <label for="tfinfo2">Playas</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo3" value="Eventos culturales" id="tfinfo3" />
+                          <label for="tfinfo3">Eventos culturales</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo4" value="Guaguas" id="tfinfo4" />
+                          <label for="tfinfo4">Guaguas</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo5" value="Taxi" id="tfinfo5" />
+                          <label for="tfinfo5">Taxi</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo6" value="Rent a car" id="tfinfo6" />
+                          <label for="tfinfo6">Rent a car</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo7" value="Ocio" id="tfinfo7" />
+                          <label for="tfinfo7">Ocio: atracciones, excursiones en barco</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo8" value="Transporte marítimo" id="tfinfo8" />
+                          <label for="tfinfo8">Transporte marítimo</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo9" value="Alojamiento" id="tfinfo9" />
+                          <label for="tfinfo9">Alojamiento</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo10" value="Direcciones específicas" id="tfinfo10" />
+                          <label for="tfinfo10">Direcciones específicas</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo11" value="Meteo" id="tfinfo11" />
+                          <label for="tfinfo11">Meteo</label>
+                        </p>
+                      </div>
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="tfinfo12" value="Otras solicitudes" id="tfinfo12" />
+                          <label for="tfinfo12">Otras solicitudes</label>
+                        </p>
+                      </div>
+                    </div>
+
+
                   </div>
 
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="tenerife_coche">Tenerife en coche</scan>
-                      <input id="tenerife_coche" name="tenerife_coche" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
+              </div>
+              <!--FIN DE INFORMACION SOLICITADA-->
 
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="tradiciones_tenerife">Tradiciones en Tenerife</scan>
-                      <input id="tradiciones_tenerife" name="tradiciones_tenerife" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="tenerife_pie">Tenerife a pie</scan>
-                      <input id="tenerife_pie" name="tenerife_pie" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="tenerife_cetaceos">Tenerife avistamiento de cetáceos</scan>
-                      <input id="tenerife_cetaceos" name="tenerife_cetaceos" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="guia_de_tenerife">Guía de Tenerife</scan>
-                      <input id="guia_de_tenerife" name="guia_de_tenerife" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="gastronomia_tenerife">Gastronomía en Tenerife</scan>
-                      <input id="gastronomia_tenerife" name="gastronomia_tenerife" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="tenerife_natural_rural">Tenerife Natural y Rural</scan>
-                      <input id="tenerife_natural_rural" name="tenerife_natural_rural" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                  <div class="row-modi">
-                    <p class="range-field">
-                      <scan for="tenerife_familia">Tenerife en familia</scan>
-                      <input id="tenerife_familia" name="tenerife_familia" type="range" value=0 step=1 min=0 max=10>
-                    </p>
-                  </div>
-
-                </div>
+              <!-- INICIO DE MATERIALES-->
+            <div id="test4" class="col s12">
 
                 <div class="row">
                   <div class="col s12 m4 l4 left-align">
                     <div class="row-modi">
-                      <h5>Material Promocional</h5>
+                      <h5>Municipio</h5>
+                    </div>
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="callejero">Callejero</scan>
+                        <input id="callejero" name="callejero" type="range" value=0 step=1 min=0 max=10>
+                      </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
-                        <scan for="periodico_revista">Periódico/Revista</scan>
-                        <input id="periodico_revista" name="periodico_revista" type="range" value=0 step=1 min=0 max=10>
+                        <scan for="mapa_senderos">Mapa de senderos</scan>
+                        <input id="mapa_senderos" name="mapa_senderos" type="range" value=0 step=1 min=0 max=10>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
-                        <scan for="folleto_bus">Folleto Bus</scan>
-                        <input id="folleto_bus" name="folleto_bus" type="range" value=0 step=1 min=0 max=10>
+                        <scan for="guias_turisticas">Guías turísticas</scan>
+                        <input id="guias_turisticas" name="guias_turisticas" type="range" value=0 step=1 min=0 max=10>
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
-                        <scan for="otros_promocional">Otros</scan>
-                        <input id="otros_promocional" name="otros_promocional" type="range" value=0 step=1 min=0 max=10>
+                        <scan for="folleto_eventos_municipales">Folleto eventos municipales</scan>
+                        <input id="folleto_eventos_municipales" name="folleto_eventos_municipales" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="folleto_ocio">Folleto ocio</scan>
+                        <input id="folleto_ocio" name="folleto_ocio" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+
+                  </div>
+
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>Otros Municipios</h5>
+                    </div>
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="callejero">Callejero</scan>
+                        <input id="callejero" name="callejero" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="folleto_ocio_otros">Folleto ocio</scan>
+                        <input id="folleto_ocio_otros" name="folleto_ocio_otros" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="otros_otros">Otros</scan>
+                        <input id="otros_otros" name="otros_otros" type="range" value=0 step=1 min=0 max=10>
                       </p>
                     </div>
                   </div>
+
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>De otras islas</h5>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="mapas_islas">Mapas</scan>
+                        <input id="mapas_islas" name="mapas_islas" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="otros_islas">Otros</scan>
+                        <input id="otros_islas" name="otros_islas" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
                 </div>
-              </div>
 
+                </div>
 
+                <div class="row">
+                  <div class="col s12 m4 l4 left-align">
+                    <div class="row-modi">
+                      <h5>Turismo de Tenerife</h5>
+                    </div>
 
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="mapa_tenerife">Mapa Tenerife</scan>
+                        <input id="mapa_tenerife" name="mapa_tenerife" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
 
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="mapa_block_sur">Mapa block zona sur</scan>
+                        <input id="mapa_block_sur" name="mapa_block_sur" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
 
-        </div>
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="tenerife_coche">Tenerife en coche</scan>
+                        <input id="tenerife_coche" name="tenerife_coche" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
 
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="tradiciones_tenerife">Tradiciones en Tenerife</scan>
+                        <input id="tradiciones_tenerife" name="tradiciones_tenerife" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
 
-          <!-- Fin row tab-->
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="tenerife_pie">Tenerife a pie</scan>
+                        <input id="tenerife_pie" name="tenerife_pie" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="tenerife_cetaceos">Tenerife avistamiento de cetáceos</scan>
+                        <input id="tenerife_cetaceos" name="tenerife_cetaceos" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="guia_de_tenerife">Guía de Tenerife</scan>
+                        <input id="guia_de_tenerife" name="guia_de_tenerife" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="gastronomia_tenerife">Gastronomía en Tenerife</scan>
+                        <input id="gastronomia_tenerife" name="gastronomia_tenerife" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="tenerife_natural_rural">Tenerife Natural y Rural</scan>
+                        <input id="tenerife_natural_rural" name="tenerife_natural_rural" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+
+                    <div class="row-modi">
+                      <p class="range-field">
+                        <scan for="tenerife_familia">Tenerife en familia</scan>
+                        <input id="tenerife_familia" name="tenerife_familia" type="range" value=0 step=1 min=0 max=10>
+                      </p>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col s12 m4 l4 left-align">
+                      <div class="row-modi">
+                        <h5>Material Promocional</h5>
+                      </div>
+
+                      <div class="row-modi">
+                        <p class="range-field">
+                          <scan for="periodico_revista">Periódico/Revista</scan>
+                          <input id="periodico_revista" name="periodico_revista" type="range" value=0 step=1 min=0 max=10>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p class="range-field">
+                          <scan for="folleto_bus">Folleto Bus</scan>
+                          <input id="folleto_bus" name="folleto_bus" type="range" value=0 step=1 min=0 max=10>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p class="range-field">
+                          <scan for="otros_promocional">Otros</scan>
+                          <input id="otros_promocional" name="otros_promocional" type="range" value=0 step=1 min=0 max=10>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
           </div>
-          <!-- fin columna grande -->
-        </div>
+            <!-- Fin row tab-->
+            </div>
+            <!-- fin columna grande -->
+          </div>
+          </div>
+        </form>
 
-        </div>
   </main>
 
 
