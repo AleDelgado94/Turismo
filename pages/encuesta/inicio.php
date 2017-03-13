@@ -39,7 +39,7 @@
 
     <nav class="#424242 grey darken-3 top-nav">
       <div class="container-fluid">
-        <div class="nav-wrapper">     
+        <div class="nav-wrapper">
 
           <a class="brand-logo left"><img id="escudo-nav" src="../../images/Escudos/Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -85,7 +85,7 @@
           </form>
 
       <form class="col s12 m3" action="validar_encuesta.php" method="post">
-              <input class="#00e676 green accent-3 enviar_encuesta" type="submit" name="send" value="Enviar encuesta">
+              <input class="#00e676 green accent-3 enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
 
 
         </div>
@@ -229,10 +229,10 @@
 
                     </div>
 
-                    <div id="user">
+                     <div class="user__"></div>
 
 
-                    </div>
+
 
                     </div>
 

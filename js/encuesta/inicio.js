@@ -5,6 +5,11 @@ $(document).ready(function(){
 
 
 
+
+
+
+
+
 //Funcion que muestra el calendario
     $( "#datepicker" ).datepicker({
         // Formato de la fecha
@@ -43,5 +48,31 @@ $(document).ready(function(){
 function cambio(val){
   var ofi = val;
   document.getElementById('oficina').value = ofi;
+
+}
+
+var edad = new Object();
+
+
+
+function selectEdad(val, person, id){
+
+   edad[id] = id;
+
+   console.log(edad[id]);
+
+}
+
+function selectSexo(val){
+
+}
+
+function selectNacionalidad(val){
+
+
+}
+
+function selectResidencia(val){
+
 
 }

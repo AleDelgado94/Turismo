@@ -18,29 +18,50 @@ if(isset($_SESSION['usuario'])) {
  $n_personas = $_POST['n_personas'];
 
 
-  if(isset($_POST['fecha'])) $fecha = $_POST['fecha'];;
-  if(isset($_POST['encuesta'])) $tipo_consulta = $_POST['encuesta'];
-  if(isset($_POST['horas'])) $hora = $_POST['horas'];
-  if(isset($_POST['oficina'])) $oficina = $_POST['oficina'];
 
 
-  for ($i=1; $i <= $n_personas; $i++) {
+
+//
+
+switch($_POST['submit'] ) {
+    //case 'send':
+    default:
 
 
-    $age = "edad" . $i;
-    $sex = "sexo" . $i;
+      if(isset($_POST['fecha'])) $fecha = $_POST['fecha'];;
+      if(isset($_POST['encuesta'])) $tipo_consulta = $_POST['encuesta'];
+      if(isset($_POST['horas'])) $hora = $_POST['horas'];
+      if(isset($_POST['oficina'])) $oficina = $_POST['oficina'];
 
-    $edad = $_POST[$age];
-    $sexo = $_POST[$sex];
+      echo $fecha;
 
-    echo $edad;
-    echo "\n".$sexo;
+
+    //...
+  //  break;
+    // 'user':
+    //...
+
+      for ($i=1; $i <= $n_personas; $i++) {
+        $age = "edad" . $i;
+        $sex = "sexo" . $i;
+
+        $edad = $_POST[$age];
+        $sexo = $_POST[$sex];
+
+        echo $edad;
+        echo "\n".$sexo;
+
+
+      }
+      break;
+}
+
 
 
     //$visita_consulta = "INSERT INTO visita (grupo, consulta, hora, fecha, sexo, edad, nacionalidad, residencia, oficina) VALUES ( '".$grupo_actual."', '".$tipo_consulta."', '".$hora."', '".$fecha."', '".."', '12', 'fdsgdf', 'si', 'fgsfdg') "
 
 
-  }
+//  }
 
 
   //RECOGEMOS GRUPO MÁS RECIENTE DE LA BASE DE DATOS
