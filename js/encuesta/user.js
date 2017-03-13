@@ -9,13 +9,16 @@
       });
 
     $("#add_user").click(function(){
-      /*$.getScript( "inicio.js" )
-        .done(function( script, textStatus ) {
-          console.log( textStatus );
-        })
-        .fail(function( jqxhr, settings, exception ) {
-          $( "div.log" ).text( "Triggered ajaxError handler." );
-      });*/
+
+
+      var newscript = document.createElement('script');
+     newscript.type = 'text/javascript';
+     newscript.async = true;
+     newscript.src = '../../js/encuesta/inicio.js';
+     (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);
+
+
+
       aux = aux+1;
 
       document.getElementById('n_personas').value = aux;
@@ -29,20 +32,20 @@
             "<div class='col s12 m6 l6 left-align'>"+
                 "<h5>Edad</h5>"+
                 "<div class='row'>"+
-                  "<input type='radio' name='edad"+aux+"' class='with-gap' id='0a12"+aux+"' />"+
+                  "<input type='radio' name='edad"+aux+"' class='with-gap' onclick='uncheckRadio(this)' id='0a12"+aux+"' />"+
                   "<label for='0a12"+aux+"'>0 a 12 años</label>"+
                 "</div>"+
 
                 "<div class='row'>"+
-                  "<input type='radio' name='edad"+aux+"' class='with-gap' id='12a30"+aux+"' />"+
+                  "<input type='radio' name='edad"+aux+"' class='with-gap' onclick='uncheckRadio(this)' id='12a30"+aux+"' />"+
                   "<label for='12a30"+aux+"'>13 a 30 años</label>"+
                 "</div>"+
                 "<div class='row'>"+
-                  "<input type='radio' name='edad"+aux+"' class='with-gap' id='31a50"+aux+"' />"+
+                  "<input type='radio' name='edad"+aux+"' class='with-gap' onclick='uncheckRadio(this)' id='31a50"+aux+"' />"+
                   "<label for='31a50"+aux+"'>31 a 50 años</label>"+
                 "</div>"+
                 "<div class='row'>"+
-                  "<input type='radio' name='edad"+aux+"' class='with-gap' id='50mas"+aux+"' />"+
+                  "<input type='radio' name='edad"+aux+"' class='with-gap' onclick='uncheckRadio(this)' id='50mas"+aux+"' />"+
                   "<label for='50mas"+aux+"'>Más de 51 años</label>"+
                 "</div>"+
             "</div>"+
@@ -50,11 +53,11 @@
               "<div class='col s12 m6 l6 left-align'>"+
                   "<h5>Sexo</h5>"+
                   "<div class='row'>"+
-                    "<input type='radio' name='sexo"+aux+"' class='with-gap' id='hombre"+aux+"' />"+
+                    "<input type='radio' name='sexo"+aux+"' class='with-gap' onclick='uncheckRadio(this)' id='hombre"+aux+"' />"+
                     "<label for='hombre"+aux+"'>Hombre</label>"+
                   "</div>"+
                   "<div class='row'>"+
-                    "<input type='radio' name='sexo"+aux+"' class='with-gap' id='mujer"+aux+"' />"+
+                    "<input type='radio' name='sexo"+aux+"' class='with-gap' onclick='uncheckRadio(this)' id='mujer"+aux+"' />"+
                     "<label for='mujer"+aux+"'>Mujer&nbsp;</label>"+
                   "</div>"+
               "</div>"+
@@ -96,12 +99,7 @@
 
 
       $("#user").append(formu);
-      /*var newscript = document.createElement('script');
-     newscript.type = 'text/javascript';
-     newscript.async = true;
-     newscript.src = '../../js/encuesta/inicio.js';
-     //(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);
-     document.getElementById('user').appendChild(newscript);*/
+
 
 
     });

@@ -5,12 +5,6 @@ $(document).ready(function(){
 
 
 
-
-    //console.log(ofi);
-
-
-
-
 //Funcion que muestra el calendario
     $( "#datepicker" ).datepicker({
         // Formato de la fecha

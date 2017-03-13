@@ -39,7 +39,8 @@
 
     <nav class="#424242 grey darken-3 top-nav">
       <div class="container-fluid">
-        <div class="nav-wrapper">
+        <div class="nav-wrapper">     //document.getElementById('user').appendChild(newscript);
+
           <a class="brand-logo left"><img id="escudo-nav" src="../../images/Escudos/Escudo_AyuntamientoGuiadeIsora1.png" alt="Escudo Guía de Isora"></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -229,7 +230,7 @@
                     </div>
 
                     <div id="user">
-                      
+
 
                     </div>
 
