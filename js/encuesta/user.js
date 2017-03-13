@@ -99,8 +99,11 @@
       ;
 
 
-      $(".user__").after(formu);
+      $(".user__").append(formu);
 
-
+      var node ;
+      var textnode = document.createTextNode(formu);
+      node.appendChild(textnode);
+      document.getElementById("user").appendChild(node);
 
     });
