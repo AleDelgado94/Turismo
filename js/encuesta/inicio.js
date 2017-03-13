@@ -46,7 +46,7 @@ $(document).ready(function(){
       });
 
     $("#add_user").click(function(){
-      
+
       aux = aux+1;
       var formu =
       "<div class='row' id ='persona"+ aux +"'>"+
@@ -124,9 +124,9 @@ $(document).ready(function(){
 
 
       $("#user").append(formu);
-
     });
 
+    
 
 });
 
