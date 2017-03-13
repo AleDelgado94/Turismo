@@ -4,6 +4,13 @@ $(document).ready(function(){
     $('.datepicker').pickadate()
 
 
+
+
+    //console.log(ofi);
+
+
+
+
 //Funcion que muestra el calendario
     $( "#datepicker" ).datepicker({
         // Formato de la fecha
@@ -131,3 +138,10 @@ $(document).ready(function(){
       rbutton.era=rbutton.checked;
       previo=rbutton;
     }
+
+
+function cambio(val){
+  var ofi = val;
+  document.getElementById('oficina').value = ofi;
+
+}

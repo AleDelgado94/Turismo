@@ -126,28 +126,28 @@
 
                         <div class="row-modi">
                           <p>
-                            <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_corta" />
+                            <input type="radio" name="encuesta" value="Corta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_corta" />
                             <label for="enc_corta">Corta&nbsp;</label>
                           </p>
                         </div>
 
                         <div class="row-modi">
                           <p>
-                            <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_larga" />
+                            <input type="radio" name="encuesta" value="Larga" class="with-gap" onclick="uncheckRadio(this)" id="enc_larga" />
                             <label for="enc_larga">Larga&nbsp;</label>
                           </p>
                         </div>
 
                         <div class="row-modi">
                           <p>
-                            <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)"  id="enc_telephone" />
+                            <input type="radio" name="encuesta" value="Tfno" class="with-gap" onclick="uncheckRadio(this)"  id="enc_telephone" />
                             <label for="enc_telephone">Tfno&nbsp;&nbsp;</label>
                           </p>
                         </div>
 
                         <div class="row-modi">
                           <p>
-                            <input type="radio" name="encuesta" class="with-gap" onclick="uncheckRadio(this)" id="enc_email" />
+                            <input type="radio" name="encuesta" value="E-mail" class="with-gap" onclick="uncheckRadio(this)" id="enc_email" />
                             <label for="enc_email">E-mail</label>
                           </p>
                         </div>
@@ -162,21 +162,21 @@
 
                         <div class="row-modi">
                           <p>
-                            <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="9a11" />
+                            <input type="radio" name="horas" value="9-11" class="with-gap" onclick="uncheckRadio(this)" id="9a11" />
                             <label for="9a11">9-11&nbsp;</label>
                           </p>
                         </div>
 
                         <div class="row-modi">
                           <p>
-                            <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="11a13" />
+                            <input type="radio" name="horas" value="11-13" class="with-gap" onclick="uncheckRadio(this)" id="11a13" />
                             <label for="11a13">11-13</label>
                           </p>
                         </div>
 
                         <div class="row-modi">
                           <p>
-                            <input type="radio" name="horas" class="with-gap" onclick="uncheckRadio(this)" id="13a15" />
+                            <input type="radio" name="horas" value="13-15" class="with-gap" onclick="uncheckRadio(this)" id="13a15" />
                             <label for="13a15">13-15</label>
                           </p>
                         </div>
@@ -189,13 +189,13 @@
                         <h5 class="left-align">Oficina</h5>
                       </div>
                       <div class="col s12 m6 l6 left-align">
-                        <select>
-                          <option value="" disabled selected>Oficina</option>
-                          <option value="Alcala">Alcalá</option>
-                          <option value="Playa San Juan">Playa San Juan</option>
-                          <option value="Guia Casco">Guía Casco</option>
+                        <select name="oficinas" onchange="cambio(this.value)">
+                          <option  value="" disabled selected>Oficina</option>
+                          <option  value="Alcalá">Alcalá</option>
+                          <option  value="Playa San Juan">Playa San Juan</option>
+                          <option  value="Guía Casco">Guía Casco</option>
                         </select>
-                        <label>Oficina</label>
+                        <input id="oficina" type="hidden" name="oficina">
                       </div>
                     </div>
                   </div>
