@@ -43,11 +43,15 @@ $(document).ready(function(){
           $("#persona"+aux).remove();
           if(aux > 0)
             aux = aux-1;
+            document.getElementById('n_personas').value = aux;
       });
 
     $("#add_user").click(function(){
-      
+
       aux = aux+1;
+
+      document.getElementById('n_personas').value = aux;
+
       var formu =
       "<div class='row' id ='persona"+ aux +"'>"+
         "<div class='col s12 m12 l12'>"+

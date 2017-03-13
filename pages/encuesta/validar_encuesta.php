@@ -2,6 +2,7 @@
 
 
 session_start();
+$link = require("../connect_db.php");
 
 if(isset($_SESSION['usuario'])) {
  $username = $_SESSION['usuario'];
@@ -13,6 +14,8 @@ if(isset($_SESSION['usuario'])) {
  $edad = "";
  $sexo = "";
  $nacionalidad = "";
+ $grupo_actual = "";
+ $n_personas = $_POST['n_personas'];
 
 
   if(isset($_POST['fecha'])) $fecha = $_POST['fecha'];;
@@ -21,9 +24,44 @@ if(isset($_SESSION['usuario'])) {
   if(isset($_POST['oficina'])) $oficina = $_POST['oficina'];
 
 
+  for ($i=1; $i <= $n_personas; $i++) {
 
 
-  echo $oficina;
+    $age = "edad" . $i;
+    $sex = "sexo" . $i;
+
+    $edad = $_POST[$age];
+    $sexo = $_POST[$sex];
+
+    echo $edad;
+    echo "\n".$sexo;
+
+
+    //$visita_consulta = "INSERT INTO visita (grupo, consulta, hora, fecha, sexo, edad, nacionalidad, residencia, oficina) VALUES ( '".$grupo_actual."', '".$tipo_consulta."', '".$hora."', '".$fecha."', '".."', '12', 'fdsgdf', 'si', 'fgsfdg') "
+
+
+  }
+
+
+  //RECOGEMOS GRUPO MÁS RECIENTE DE LA BASE DE DATOS
+  $consulta_grupo = "SELECT MAX(grupo) as max_group FROM visita;";
+  $max_group = mysqli_query($link, $consulta_grupo) or die(mysqli_error($link));
+
+  if($grupo_arr = mysqli_fetch_array($max_group)){
+    $grupo = $grupo_arr['max_group'];
+    $grupo_actual = $grupo + 1;
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
