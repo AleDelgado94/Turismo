@@ -9,7 +9,7 @@
       });
 
     $("#add_user").click(function(){
-    /*  $.getScript( "../../js/encuesta/inicio.js" )
+      /*$.getScript( "inicio.js" )
         .done(function( script, textStatus ) {
           console.log( textStatus );
         })
