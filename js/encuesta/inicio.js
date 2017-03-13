@@ -7,7 +7,7 @@ $(document).ready(function(){
 //Funcion que muestra el calendario
     $( "#datepicker" ).datepicker({
         // Formato de la fecha
-        dateFormat: "dd/mm/yy",
+        dateFormat: "dd/mm/y",
         // Primer dia de la semana El lunes
         firstDay: 1,
         // Dias Largo en castellano

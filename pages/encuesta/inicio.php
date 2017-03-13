@@ -96,16 +96,14 @@
             <div id="test1" class="col s12 ">
 
               <div class="row">
-                <div class="col s12 m4 l4">
+                <div class="col s12 m6 l6">
 
                   <br>
                   <div class="row">
                     <div class="col s12 m3 ">
                       <div id="datepicker"></div>
                       <div id="datos">
-                        <!--<input type='text' name='fecha' id='fecha' value="<?php echo date('d-m-y');?>" readonly />-->
-
-                        <input type="button" name="name" value="">
+                        <input type='text' name='fecha' id='fecha' value="<?php echo date('d/m/y');?>" readonly />
                       </div>
                     </div>
                   </div>
@@ -179,10 +177,10 @@
 
 
                   <div class="row">
-                    <div class="col s12 m12">
+                    <div class="col s12 m12 l12">
                       <h5 class="left-align">Oficina</h5>
                     </div>
-                    <div class="col s12 m9 left-align">
+                    <div class="col s12 m6 l6 left-align">
                       <select>
                         <option value="" disabled selected>Oficina</option>
                         <option value="Alcala">Alcalá</option>
@@ -195,7 +193,7 @@
                 </div>
 
 
-                <div class="col s12 offset-m2 m6 offset-l2 l6">
+                <div class="col s12  m6 l6">
                   <div class="row">
                     <div class="col s12 m4">
                       <h5 class="left-align">Añadir visitante</h5>
