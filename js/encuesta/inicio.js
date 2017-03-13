@@ -32,7 +32,7 @@ $(document).ready(function(){
     });
 
 
-
+});
 
 
 //Funcion que deselecciona el radiobutton
