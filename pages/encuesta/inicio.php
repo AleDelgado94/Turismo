@@ -20,7 +20,7 @@
     <link type="text/css" rel="stylesheet" href="../../css/encuesta/inicio.css"/>
     <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.css"/>
     <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.date.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="icon" type="../../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.min.css">
 
@@ -61,7 +61,7 @@
 
   </header>
 
-  <main>
+  <main id="FORMULARIO_ENCUESTA">
       <div class="row">
         <div class="col s12 m3 ">
           <ul class="menu">
@@ -86,6 +86,7 @@
 
       <form class="col s12 m3" action="validar_encuesta.php" method="post">
               <input class="#00e676 green accent-3 enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
+
 
 
         </div>
@@ -229,7 +230,7 @@
 
                     </div>
 
-                     <div class="user__"></div>
+                     <div id="USER"></div>
 
 
 
@@ -264,38 +265,38 @@
 
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="alo1" value="Redes sociales" id="conoce1" />
+                          <input type="checkbox" name="alo1[]" value="Redes sociales" id="conoce1" />
                           <label for="conoce1">Playas</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="alo1" value="Web" id="conoce2"  />
+                          <input type="checkbox" name="alo1[]" value="Web" id="conoce2"  />
                           <label for="conoce2">Web</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input name="alo1" value="Hoteles" type="checkbox" id="conoce3"  />
+                          <input name="alo1[]" value="Hoteles" type="checkbox" id="conoce3"  />
                           <label for="conoce3">Hoteles</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input name="alo1" value="Visitas anteriores" type="checkbox"  id="conoce4"  />
+                          <input name="alo1[]" value="Visitas anteriores" type="checkbox"  id="conoce4"  />
                           <label for="conoce4">Visitas anteriores</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input name="alo1" value="Otros" type="checkbox"  id="conoce5"  />
+                          <input name="alo1[]" value="Otros" type="checkbox"  id="conoce5"  />
                           <label for="conoce5">Otros</label>
                         </p>
-                      </div>
+                      </div>https://www.google.es/?gws_rd=ssl
                     </div>
 
                     <!-- SEGUNDA COLUMNA -->
@@ -1057,7 +1058,8 @@
             <!-- fin columna grande -->
           </div>
           </div>
-        </form>
+        <!--</form>-->
+ç
 
   </main>
 

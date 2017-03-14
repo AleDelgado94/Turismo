@@ -23,9 +23,9 @@ if(isset($_SESSION['usuario'])) {
 
 //
 
-switch($_POST['submit'] ) {
+/*switch($_POST['submit'] ) {
     //case 'send':
-    default:
+    default:*/
 
 
       if(isset($_POST['fecha'])) $fecha = $_POST['fecha'];;
@@ -33,7 +33,7 @@ switch($_POST['submit'] ) {
       if(isset($_POST['horas'])) $hora = $_POST['horas'];
       if(isset($_POST['oficina'])) $oficina = $_POST['oficina'];
 
-      echo $fecha;
+      echo $_POST['fecha'];
 
 
     //...
@@ -45,7 +45,7 @@ switch($_POST['submit'] ) {
         $age = "edad" . $i;
         $sex = "sexo" . $i;
 
-        $edad = $_POST[$age];
+        $edad = $_POST['edad1'];
         $sexo = $_POST[$sex];
 
         echo $edad;
@@ -53,8 +53,8 @@ switch($_POST['submit'] ) {
 
 
       }
-      break;
-}
+    //  break;
+//}*/
 
 
 

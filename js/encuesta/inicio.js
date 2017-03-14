@@ -55,13 +55,7 @@ var edad = new Object();
 
 
 
-function selectEdad(val, person, id){
 
-   edad[id] = id;
-
-   console.log(edad[id]);
-
-}
 
 function selectSexo(val){
 
