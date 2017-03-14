@@ -179,7 +179,113 @@ if(isset($_SESSION['usuario'])) {
 
 
   //MATERIALES
-  
+
+  //Municipio
+  $callejero = $_POST['callejero'];
+  $consulta = "INSERT INTO materiales_municipio (grupo, material) VALUES ('".$grupo_actual."', '".$callejero."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $mapa_senderos = $_POST['mapa_senderos'];
+  $consulta = "INSERT INTO materiales_municipio (grupo, material) VALUES ('".$grupo_actual."', '".$mapa_senderos."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $guias_turisticas = $_POST['guias_turisticas'];
+  $consulta = "INSERT INTO materiales_municipio (grupo, material) VALUES ('".$grupo_actual."', '".$guias_turisticas."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $folleto_eventos_municipales = $_POST['folleto_eventos_municipales'];
+  $consulta = "INSERT INTO materiales_municipio (grupo, material) VALUES ('".$grupo_actual."', '".$folleto_eventos_municipales."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $folleto_ocio = $_POST['folleto_ocio'];
+  $consulta = "INSERT INTO materiales_municipio (grupo, material) VALUES ('".$grupo_actual."', '".$folleto_ocio."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+
+
+
+  //Otros Municipios
+  $callejero_otros = $_POST['callejero_otros'];
+  $consulta = "INSERT INTO materiales_otros_municipios (grupo, material) VALUES ('".$grupo_actual."', '".$callejero_otros."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $folleto_ocio_otros = $_POST['folleto_ocio_otros'];
+  $consulta = "INSERT INTO materiales_otros_municipios (grupo, material) VALUES ('".$grupo_actual."', '".$folleto_ocio_otros."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $otros_otros = $_POST['otros_otros'];
+  $consulta = "INSERT INTO materiales_otros_municipios (grupo, material) VALUES ('".$grupo_actual."', '".$otros_otros."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+
+
+  //Otras islas
+  $mapas_islas = $_POST['mapas_islas'];
+  $consulta = "INSERT INTO materiales_otras_islas (grupo, material) VALUES ('".$grupo_actual."', '".$callejero_otros."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $otros_islas = $_POST['otros_islas'],
+  $consulta = "INSERT INTO materiales_otras_islas (grupo, material) VALUES ('".$grupo_actual."', '".$callejero_otros."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+
+  //Turismo Tenerife
+  $mapa_tenerife = $_POST['mapa_tenerife'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$mapa_tenerife."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $mapa_block_sur = $_POST['mapa_block_sur'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$mapa_block_sur."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $tenerife_coche = $_POST['tenerife_coche'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$tenerife_coche."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $tradiciones_tenerife = $_POST['tradiciones_tenerife'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$tradiciones_tenerife."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $tenerife_pie = $_POST['tenerife_pie'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$tenerife_pie."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $tenerife_cetaceos = $_POST['tenerife_cetaceos'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$tenerife_cetaceos."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $guia_de_tenerife = $_POST['guia_de_tenerife'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$guia_de_tenerife."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $gastronomia_tenerife = $_POST['gastronomia_tenerife'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$gastronomia_tenerife."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $tenerife_natural_rural = $_POST['tenerife_natural_rural'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$tenerife_natural_rural."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $tenerife_familia = $_POST['tenerife_familia'];
+  $consulta = "INSERT INTO material_turismo_tenerife (grupo, material) VALUES ('".$grupo_actual."', '".$tenerife_familia."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+
+  //Material promocional
+  $periodico_revista = $_POST['periodico_revista'];
+  $consulta = "INSERT INTO material_promocional (grupo, material) VALUES ('".$grupo_actual."', '".$periodico_revista."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $folleto_bus = $_POST['folleto_bus'];
+  $consulta = "INSERT INTO material_promocional (grupo, material) VALUES ('".$grupo_actual."', '".$folleto_bus."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+  $otros_promocional = $_POST['otros_promocional'];
+  $consulta = "INSERT INTO material_promocional (grupo, material) VALUES ('".$grupo_actual."', '".$otros_promocional."')";
+  mysqli_query($link, $consulta) or die(mysqli_error($link));
+
+
+
 
 
 

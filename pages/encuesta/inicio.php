@@ -905,8 +905,8 @@
                     </div>
                     <div class="row-modi">
                       <p class="range-field">
-                        <scan for="callejero">Callejero</scan>
-                        <input id="callejero" name="callejero" type="range" value=0 step=1 min=0 max=10>
+                        <scan for="callejero_otros">Callejero</scan>
+                        <input id="callejero_otros" name="callejero_otros" type="range" value=0 step=1 min=0 max=10>
                       </p>
                     </div>
                     <div class="row-modi">
