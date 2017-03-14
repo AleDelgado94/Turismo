@@ -38,7 +38,8 @@ if(isset($_SESSION['usuario'])) {
       if(isset($_POST['fecha'])) $fecha = $_POST['fecha'];;
       if(isset($_POST['encuesta'])) $tipo_consulta = $_POST['encuesta'];
       if(isset($_POST['horas'])) $hora = $_POST['horas'];
-      if(isset($_POST['oficinas'])) $oficina = $_POST['oficinas'];
+      if(isset($_POST['ofic'])) $oficina = $_POST['ofic'];
+
 
 
 
@@ -390,16 +391,7 @@ if(isset($_SESSION['usuario'])) {
   }
 
 
-
-
-
-
   header("Location: inicio.php");
-
-
-
-
-
 
 
 

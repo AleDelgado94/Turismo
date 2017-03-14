@@ -193,13 +193,13 @@
                         <h5 class="left-align">Oficina</h5>
                       </div>
                       <div class="col s12 m6 l6 left-align">
-                        <select name="oficinas" onchange="cambio(this.value)">
+                        <select name="oficinas" onchange="cambio(this.value, ofic)">
                           <option  value="" disabled selected>Oficina</option>
                           <option  value="Alcala">Alcalá</option>
                           <option  value="Playa San Juan">Playa San Juan</option>
                           <option  value="Guia Casco">Guía Casco</option>
                         </select>
-                        <input id="oficina" type="hidden" name="oficina">
+                        <input id="ofic" type="hidden" name="ofic" value="">
                       </div>
                     </div>
                   </div>

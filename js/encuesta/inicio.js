@@ -45,27 +45,8 @@ $(document).ready(function(){
     }
 
 
-function cambio(val, id){
-  document.getElementById(id).value = val;
-}
+function cambio(val){
 
-
-var edad = new Object();
-
-
-
-
-
-function selectSexo(val){
-
-}
-
-function selectNacionalidad(val){
-
-
-}
-
-function selectResidencia(val){
-
-
+  document.getElementById('ofic').value = val;
+  console.log(document.getElementById('ofic'));
 }
