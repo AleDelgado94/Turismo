@@ -37,6 +37,10 @@ body {
 
 }
 
+.stock{
+  color: red;
+}
+
 
 input[type=submit] {
     padding:10px 20px;
