@@ -455,7 +455,7 @@
                       </div>
 
                       <div class="row-modi">
-                        <p>perfil_alojamiento
+                        <p>
                           <input class="with-gap" name="alo6" value="Más 1 semana" type="radio" onclick="uncheckRadio(this)" id="esta3"  />
                           <label for="esta3">Más de 1 semana</label>
                       </div>
