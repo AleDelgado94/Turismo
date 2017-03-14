@@ -159,7 +159,7 @@ if(isset($_SESSION['usuario'])) {
   $eventos = $_POST['eve'];
   for ($i=0; $i < count($eventos) ; $i++) {
     $consulta_eventos = "INSERT INTO informacion_guia (grupo, eventos) VALUES ('".$grupo_actual."', '".$eventos[$i]."')";
-    mysqli_query($link, $consulta_eventos) or die(mysqli_error($link));
+    mysqli_query($link, $consulta_eventos) or die(mysqli_error($link));ofi
   }
 
   //servicios_publicos TABLA: informacion_guia

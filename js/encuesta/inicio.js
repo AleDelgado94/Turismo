@@ -45,11 +45,10 @@ $(document).ready(function(){
     }
 
 
-function cambio(val){
-  var ofi = val;
-  document.getElementById('oficina').value = ofi;
-
+function cambio(val, id){
+  document.getElementById(id).value = val;
 }
+
 
 var edad = new Object();
 

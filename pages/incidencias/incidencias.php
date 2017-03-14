@@ -92,7 +92,7 @@
             </div>
             <!--INICIO AÑADIR INCIDENCIAS-->
             <div id="anadir" class="col s12">
-              <form class="col s12 m12 l12" action="" method="post">
+              <form class="col s12 m12 l12" action="add_incidencia.php" method="post">
                 <div class="row">
                   <div class="col 12 m12 l3">
 
@@ -105,11 +105,11 @@
 
                     <div class="row">
                       <div class="col s12 m12 l12 left-align">
-                        <select name="oficinas" onchange="cambio(this.value)">
+                        <select name="oficinas" onchange="cambio(this.value, oficina)">
                           <option  value="" disabled selected>Oficina</option>
-                          <option  value="Alcalá">Alcalá</option>
+                          <option  value="Alcala">Alcalá</option>
                           <option  value="Playa San Juan">Playa San Juan</option>
-                          <option  value="Guía Casco">Guía Casco</option>
+                          <option  value="Guia Casco">Guía Casco</option>
                         </select>
                         <input id="oficina" type="hidden" name="oficina">
                       </div>
@@ -132,14 +132,14 @@
                   <div class="col s12 m12 l6">
                     <div class="row">
                       <div class="col s12 m12 12 left-align">
-                        <select name="lugar" onchange="cambio(this.value)">
+                        <select name="lugares" onchange="cambio(this.value, lugar)">
                           <option  value="" disabled selected>Lugar</option>
-                          <option  value="Alcalá">Alcalá</option>
+                          <option  value="Alcala">Alcalá</option>
                           <option  value="Playa San Juan">Playa San Juan</option>
-                          <option  value="Guía Casco">Guía Casco</option>
-                          <option  value="Chío">Chío</option>
+                          <option  value="Guia Casco">Guía Casco</option>
+                          <option  value="Chio">Chío</option>
                         </select>
-                        <input id="oficina" type="hidden" name="lugar">
+                        <input id="lugar" type="hidden" name="lugar">
                       </div>
                     </div>
 
@@ -157,7 +157,7 @@
                     </div>
                     <div class="row">
                       <div class="col s12">
-                        <a class="waves-effect waves-light btn #00e676 green accent-3">Enviar</a>
+                        <input type ="submit"/>
                       </div>
                     </div>
                   </div>

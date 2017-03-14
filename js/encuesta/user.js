@@ -4,11 +4,25 @@
 
 
 
-    function getAttr(val) {
+    function getAttr(val, id, type) {
 
-      console.log(val);
+      switch (type) {
+        case "edad":
 
+          break;
+        case "sexo":
+          break;
 
+        case "nacionalidad":
+
+          break;
+
+        case "2residencia":
+
+          break;
+        default:
+
+      }
 
     }
 
@@ -42,20 +56,20 @@
             formu += "<div class='col s12 m6 l6 left-align'>";
                 formu += "<h5>Edad</h5>";
                 formu += "<div class='row'>"
-                  formu += "<input onchange='getAttr(this.value)'  type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='0a12' id='_0a12"+aux+"' />";
+                  formu += "<input onchange='getAttr(this.value,"+aux+", 'edad')'  type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='0a12' id='_0a12"+aux+"' />";
                   formu += "<label for='_0a12"+aux+"'>0 a 12 años</label>";
                 formu += "</div>";
 
                 formu += "<div class='row'>"
-                  formu += "<input onchange='getAttr(this.value)' type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='12a30' id='_12a30"+aux+"' />";
+                  formu += "<input onchange='getAttr(this.value,"+aux+", 'edad')' type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='12a30' id='_12a30"+aux+"' />";
                   formu += "<label for='_12a30"+aux+"'>13 a 30 años</label>";
                 formu += "</div>";
                 formu += "<div class='row'>";
-                  formu += "<input onchange='getAttr(this.value)' type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='31a50' id='_31a50"+aux+"' />";
+                  formu += "<input onchange='getAttr(this.value,"+aux+")' type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='31a50' id='_31a50"+aux+"' />";
                   formu += "<label for='_31a50"+aux+"'>31 a 50 años</label>";
                 formu += "</div>";
                 formu += "<div class='row'>";
-                  formu += "<input onchange='getAttr(this.value)' type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='50mas' id='_50mas"+aux+"' />";
+                  formu += "<input onchange='getAttr(this.value,"+aux+")' type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='50mas' id='_50mas"+aux+"' />";
                   formu += "<label for='_50mas"+aux+"'>Más de 51 años</label>";
                 formu += "</div>";
             formu += "</div>";
@@ -63,11 +77,11 @@
               formu += "<div class='col s12 m6 l6 left-align'>";
                   formu += "<h5>Sexo</h5>";
                   formu += "<div class='row'>";
-                    formu += "<input type='radio' name='sexo"+aux+"' class='with-gap' onchange='selectSexo(this.value)' onclick='uncheckRadio(this)' value='hombre' id='hombre"+aux+"' />";
+                    formu += "<input type='radio' onchange='getAttr(this.value,"+aux+")' name='sexo"+aux+"' class='with-gap' onchange='selectSexo(this.value)' onclick='uncheckRadio(this)' value='hombre' id='hombre"+aux+"' />";
                     formu += "<label for='hombre"+aux+"'>Hombre</label>";
                   formu += "</div>";
                   formu += "<div class='row'>";
-                    formu += "<input type='radio' name='sexo"+aux+"' class='with-gap' onchange='selectSexo(this.value)' onclick='uncheckRadio(this)' value='mujer' id='mujer"+aux+"' />";
+                    formu += "<input type='radio' onchange='getAttr(this.value,"+aux+")' name='sexo"+aux+"' class='with-gap' onchange='selectSexo(this.value)' onclick='uncheckRadio(this)' value='mujer' id='mujer"+aux+"' />";
                     formu += "<label for='mujer"+aux+"'>Mujer&nbsp;</label>";
                   formu += "</div>";
               formu += "</div>";
@@ -77,7 +91,7 @@
               formu += "<div class='row'>";
                 formu += "<div class='col s12 m6 l6 left-align'>";
                   formu += "<h5>Nacionalidad</h5>";
-                  formu += "<select name='nacion' onchange='selectNacionalidad(this.value)'>";
+                  formu += "<select name='nacion' onchange='getAttr(this.value,"+aux+")'>";
                     formu += "<option value='' disabled selected>Nacionalidad</option>";
                     formu += "<option value='Española'>Española</option>";
                     formu += "<option value='Británica'>Británica</option>";
@@ -100,7 +114,7 @@
                   formu += "<label>Nacionalidades</label>";
                 formu += "</div>";
                 formu += "<div class='input-field col s12 m6 l6 left-align'>";
-                    formu += "<input type='checkbox' class='filled-in' onchange='selectResidencia(this.value)' name='segunda_residencia"+aux+"' id='segunda_residencia"+aux+"' />";
+                    formu += "<input type='checkbox' class='filled-in' onchange='getAttr(this.value,"+aux+")' name='segunda_residencia"+aux+"' id='segunda_residencia"+aux+"' />";
                     formu += "<label  for='segunda_residencia"+aux+"'>Segunda Residencia</label>";
                 formu += "</div>";
               formu += "</div>";
