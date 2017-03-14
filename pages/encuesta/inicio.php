@@ -195,9 +195,9 @@
                       <div class="col s12 m6 l6 left-align">
                         <select name="oficinas" onchange="cambio(this.value)">
                           <option  value="" disabled selected>Oficina</option>
-                          <option  value="Alcalá">Alcalá</option>
+                          <option  value="Alcala">Alcalá</option>
                           <option  value="Playa San Juan">Playa San Juan</option>
-                          <option  value="Guía Casco">Guía Casco</option>
+                          <option  value="Guia Casco">Guía Casco</option>
                         </select>
                         <input id="oficina" type="hidden" name="oficina">
                       </div>
@@ -235,6 +235,157 @@
 
 
 
+
+                      <!-- PERSONAS MAX -->
+                      <input type="hidden" name="edad1" id="edad1" value="">
+                      <input type="hidden" name="sexo1" id="sexo1" value="">
+                      <input type="hidden" name="nacionalidad1" id="nacionalidad1" value="">
+                      <input type="hidden" name="residencia1" id="residencia1" value="">
+
+                      <input type="hidden" name="edad2" id="edad2" value="">
+                      <input type="hidden" name="sexo2" id="sexo2" value="">
+                      <input type="hidden" name="nacionalidad2" id="nacionalidad2" value="">
+                      <input type="hidden" name="residencia2" id="residencia2" value="">
+
+                      <input type="hidden" name="edad3" id="edad3" value="">
+                      <input type="hidden" name="sexo3" id="sexo3" value="">
+                      <input type="hidden" name="nacionalidad3" id="nacionalidad3" value="">
+                      <input type="hidden" name="residencia3" id="residencia3" value="">
+
+                      <input type="hidden" name="edad4" id="edad4" value="">
+                      <input type="hidden" name="sexo4" id="sexo4" value="">
+                      <input type="hidden" name="nacionalidad4" id="nacionalidad4" value="">
+                      <input type="hidden" name="residencia4" id="residencia4" value="">
+
+                      <input type="hidden" name="edad5" id="edad5"  value="">
+                      <input type="hidden" name="sexo5" id="sexo5"  value="">
+                      <input type="hidden" name="nacionalidad5" id="nacionalidad5"  value="">
+                      <input type="hidden" name="residencia5" id="residencia5" value="">
+
+                      <input type="hidden" name="edad6" id="edad6" value="">
+                      <input type="hidden" name="sexo6" id="sexo6" value="">
+                      <input type="hidden" name="nacionalidad6" id="nacionalidad6" value="">
+                      <input type="hidden" name="residencia6" id="residencia6" value="">
+
+                      <input type="hidden" name="edad7" id="edad7" value="">
+                      <input type="hidden" name="sexo7" id="sexo7" value="">
+                      <input type="hidden" name="nacionalidad7" id="nacionalidad7" value="">
+                      <input type="hidden" name="residencia7" id="residencia7" value="">
+
+                      <input type="hidden" name="edad8" id="edad8" value="">
+                      <input type="hidden" name="sexo8" id="sexo8" value="">
+                      <input type="hidden" name="nacionalidad8" id="nacionalidad8" value="">
+                      <input type="hidden" name="residencia8" id="residencia8" value="">
+
+                      <input type="hidden" name="edad9" id="edad9" value="">
+                      <input type="hidden" name="sexo9" id="sexo9" value="">
+                      <input type="hidden" name="nacionalidad9" id="nacionalidad9" value="">
+                      <input type="hidden" name="residencia9" id="residencia9" value="">
+
+                      <input type="hidden" name="edad10" name="edad10" value="">
+                      <input type="hidden" name="sexo10" name="sexo10" value="">
+                      <input type="hidden" name="nacionalidad10" name="nacionalidad10" value="">
+                      <input type="hidden" name="residencia10" name="residencia10" value="">
+
+                      <input type="hidden" name="edad11" name="edad11" value="">
+                      <input type="hidden" name="sexo11" name="sexo11" value="">
+                      <input type="hidden" name="nacionalidad11" name="nacionalidad11" value="">
+                      <input type="hidden" name="residencia11" name="residencia11" value="">
+
+                      <input type="hidden" name="edad12" id="edad12" value="">
+                      <input type="hidden" name="sexo12" id="sexo12" value="">
+                      <input type="hidden" name="nacionalidad12" id="nacionalidad12" value="">
+                      <input type="hidden" name="residencia12" id="residencia12" value="">
+
+                      <input type="hidden" name="edad13" id="edad13" value="">
+                      <input type="hidden" name="sexo13" id="sexo13" value="">
+                      <input type="hidden" name="nacionalidad13" id="nacionalidad13" value="">
+                      <input type="hidden" name="residencia13" id="residencia13" value="">
+
+                      <input type="hidden" name="edad14" id="edad14" value="">
+                      <input type="hidden" name="sexo14" id="sexo14" value="">
+                      <input type="hidden" name="nacionalidad14" id="nacionalidad14" value="">
+                      <input type="hidden" name="residencia14" id="residencia14" value="">
+
+                      <input type="hidden" name="edad15" id="edad15" value="">
+                      <input type="hidden" name="sexo15" id="sexo15" value="">
+                      <input type="hidden" name="nacionalidad15" id="nacionalidad15" value="">
+                      <input type="hidden" name="residencia15" id="residencia15" value="">
+
+                      <input type="hidden" name="edad16" id="edad16" value="">
+                      <input type="hidden" name="sexo16" id="sexo16" value="">
+                      <input type="hidden" name="nacionalidad16" id="nacionalidad16" value="">
+                      <input type="hidden" name="residencia16" id="residencia16" value="">
+
+                      <input type="hidden" name="edad17" id="edad17" value="">
+                      <input type="hidden" name="sexo17" id="sexo17" value="">
+                      <input type="hidden" name="nacionalidad17" id="nacionalidad17" value="">
+                      <input type="hidden" name="residencia17" id="residencia17" value="">
+
+                      <input type="hidden" name="edad18" id="edad18" value="">
+                      <input type="hidden" name="sexo18" id="sexo18" value="">
+                      <input type="hidden" name="nacionalidad18" id="nacionalidad18" value="">
+                      <input type="hidden" name="residencia18" id="residencia18" value="">
+
+                      <input type="hidden" name="edad19" id="edad19" value="">
+                      <input type="hidden" name="sexo19" id="sexo19" value="">
+                      <input type="hidden" name="nacionalidad19" id="nacionalidad19" value="">
+                      <input type="hidden" name="residencia19" id="residencia19" value="">
+
+                      <input type="hidden" name="edad20" id="edad20" value="">
+                      <input type="hidden" name="sexo20" id="sexo20" value="">
+                      <input type="hidden" name="nacionalidad20" id="nacionalidad20" value="">
+                      <input type="hidden" name="residencia20" id="residencia20" value="">
+
+                      <input type="hidden" name="edad21" id="edad21" value="">
+                      <input type="hidden" name="sexo21" id="sexo21" value="">
+                      <input type="hidden" name="nacionalidad21" id="nacionalidad21" value="">
+                      <input type="hidden" name="residencia21" id="residencia21" value="">
+
+                      <input type="hidden" name="edad22" id="edad22" value="">
+                      <input type="hidden" name="sexo22" id="sexo22" value="">
+                      <input type="hidden" name="nacionalidad22" id="nacionalidad22" value="">
+                      <input type="hidden" name="residencia22" id="residencia22" value="">
+
+                      <input type="hidden" name="edad23" id="edad23" value="">
+                      <input type="hidden" name="sexo23" id="sexo23" value="">
+                      <input type="hidden" name="nacionalidad23" id="nacionalidad23" value="">
+                      <input type="hidden" name="residencia23" id="residencia23" value="">
+
+                      <input type="hidden" name="edad24" id="edad24" value="">
+                      <input type="hidden" name="sexo24" id="sexo24" value="">
+                      <input type="hidden" name="nacionalidad24" id="nacionalidad24" value="">
+                      <input type="hidden" name="residencia24" id="residencia24" value="">
+
+                      <input type="hidden" name="edad25" id="edad25" value="">
+                      <input type="hidden" name="sexo25" id="sexo25" value="">
+                      <input type="hidden" name="nacionalidad25" id="nacionalidad25" value="">
+                      <input type="hidden" name="residencia25" id="residencia25" value="">
+
+                      <input type="hidden" name="edad26" id="edad26" value="">
+                      <input type="hidden" name="sexo26" id="sexo26" value="">
+                      <input type="hidden" name="nacionalidad26" id="nacionalidad26" value="">
+                      <input type="hidden" name="residencia26" id="residencia26" value="">
+
+                      <input type="hidden" name="edad27" id="edad27" value="">
+                      <input type="hidden" name="sexo27" id="sexo27" value="">
+                      <input type="hidden" name="nacionalidad27" id="nacionalidad27" value="">
+                      <input type="hidden" name="residencia27" id="residencia27" value="">
+
+                      <input type="hidden" name="edad28" id="edad28" value="">
+                      <input type="hidden" name="sexo28" id="sexo28" value="">
+                      <input type="hidden" name="nacionalidad28" id="nacionalidad28" value="">
+                      <input type="hidden" name="residencia28" id="residencia28" value="">
+
+                      <input type="hidden" name="edad29" id="edad29"  value="">
+                      <input type="hidden" name="sexo29" id="sexo29"  value="">
+                      <input type="hidden" name="nacionalidad29" id="nacionalidad29"  value="">
+                      <input type="hidden" name="residencia29" id="residencia29"  value="">
+
+                      <input type="hidden" name="edad30" id="edad30"  value="">
+                      <input type="hidden" name="sexo30" id="sexo30"  value="">
+                      <input type="hidden" name="nacionalidad30" id="nacionalidad30"  value="">
+                      <input type="hidden" name="residencia30" id="residencia30"  value="">
 
                     </div>
 
@@ -411,7 +562,7 @@
 
                       <div class="row-modi">
                         <p>
-                          <input name="alo4[]" value="Gastronomía" type="checkbox" id="motivo5"  />
+                          <input name="alo4[]" value="Gastronomia" type="checkbox" id="motivo5"  />
                           <label for="motivo5">Gastronomía</label>
                         </p>
                       </div>
@@ -457,18 +608,13 @@
 
                       <div class="row-modi">
                         <p>
-                          <input class="with-gap" name="alo6" value="Más 1 semana" type="radio" onclick="uncheckRadio(this)" id="esta3"  />
+                          <input class="with-gap" name="alo6" value="Mas 1 semana" type="radio" onclick="uncheckRadio(this)" id="esta3"  />
                           <label for="esta3">Más de 1 semana</label>
                       </div>
 
                     </div>
 
                   </div>
-
-
-
-
-
 
 
               </div>
@@ -526,7 +672,7 @@
                       </div>
                       <div class="row-modi">
                           <p>
-                            <input type="checkbox" name="aloj1[]" value="Apartaments" id="aloj2" />
+                            <input type="checkbox" name="aloj1[]" value="Apartamentos" id="aloj2" />
                             <label for="aloj2">Apartamentos</label>
                           </p>
                       </div>
@@ -656,7 +802,7 @@
                       </div>
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" class="eve[]" value="Gastronómicos" id="eve1" />
+                          <input type="checkbox" class="eve[]" value="Gastronomicos" id="eve1" />
                           <label for="eve1">Gastronómicos</label>
                         </p>
                       </div>
@@ -711,21 +857,21 @@
 
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="servi[]" value="Baños" id="servi1" />
+                          <input type="checkbox" name="servi[]" value="Banos" id="servi1" />
                           <label for="servi1">Baños</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="servi[]" value="Policía" id="servi2" />
+                          <input type="checkbox" name="servi[]" value="Policia" id="servi2" />
                           <label for="servi2">Policía</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="servi[]" value="Centros Médicos" id="servi3" />
+                          <input type="checkbox" name="servi[]" value="Centros Medicos" id="servi3" />
                           <label for="servi3">Centros Médicos</label>
                         </p>
                       </div>
@@ -744,7 +890,7 @@
                       </div>
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="servi[]" value="Direcciones específicas" id="servi6" />
+                          <input type="checkbox" name="servi[]" value="Direcciones especificas" id="servi6" />
                           <label for="servi6">Direcciones específicas</label>
                         </p>
                       </div>
@@ -819,7 +965,7 @@
                       </div>
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="tfinfo[]" value="Transporte marítimo" id="tfinfo8" />
+                          <input type="checkbox" name="tfinfo[]" value="Transporte maritimo" id="tfinfo8" />
                           <label for="tfinfo8">Transporte marítimo</label>
                         </p>
                       </div>
@@ -831,7 +977,7 @@
                       </div>
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="tfinfo[]" value="Direcciones específicas" id="tfinfo10" />
+                          <input type="checkbox" name="tfinfo[]" value="Direcciones especificas" id="tfinfo10" />
                           <label for="tfinfo10">Direcciones específicas</label>
                         </p>
                       </div>

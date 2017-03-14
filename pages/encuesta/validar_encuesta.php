@@ -19,65 +19,57 @@ if(isset($_SESSION['usuario'])) {
    $grupo_actual = $grupo + 1;
  }
 
- echo $grupo_actual;
 
 
 
- $fecha = "";
- $tipo_consulta = "";
- $hora = "";
- $oficina = "";
- $edad = "";
- $sexo = "";
- $nacionalidad = "";
+       $fecha = "";
+       $tipo_consulta = "";
+       $hora = "";
+       $oficina = "";
+       $edad = "";
+       $sexo = "";
+       $nacionalidad = "";
+       $residencia = 0;
 
- $n_personas = $_POST['n_personas'];
+       $n_personas = $_POST['n_personas'];
 
-
-
-
-
-//
-
-/*switch($_POST['submit'] ) {
-    //case 'send':
-    default:*/
 
 
       if(isset($_POST['fecha'])) $fecha = $_POST['fecha'];;
       if(isset($_POST['encuesta'])) $tipo_consulta = $_POST['encuesta'];
       if(isset($_POST['horas'])) $hora = $_POST['horas'];
-      if(isset($_POST['oficina'])) $oficina = $_POST['oficina'];
-
-      echo $_POST['fecha'];
+      if(isset($_POST['oficinas'])) $oficina = $_POST['oficinas'];
 
 
-    //...
-  //  break;
-    // 'user':
-    //...
 
       for ($i=1; $i <= $n_personas; $i++) {
+
         $age = "edad" . $i;
         $sex = "sexo" . $i;
+        $nacion = "nacionalidad" . $i;
+        $res = "residencia" . $i;
 
-        $edad = $_POST['edad1'];
-        $sexo = $_POST[$sex];
 
-        echo $edad;
-        echo "\n".$sexo;
+        if(isset($_POST[$age])) $edad = $_POST[$age];
+        if(isset($_POST[$sex])) $sexo = $_POST[$sex];
+        if(isset($_POST[$nacion])) $nacionalidad = $_POST[$nacion];
+        //if recidencia == 1 reside else no reside
+        if(isset($_POST[$res])) $residencia = $_POST[$res];
+        if ($residencia == 1) {
+          $residencia = "Si";
+        }elseif ($residencia == 0) {
+          $residencia = "No";
+        }
+
+
+        //INSERTAMOS EN LA BASE DE datos
+        $visita_consulta = "INSERT INTO visita (grupo, consulta, hora, fecha, sexo, edad, nacionalidad, residencia, oficina) VALUES ( '".$grupo_actual."', '".$tipo_consulta."', '".$hora."', '".$fecha."', '".$sexo."', '".$edad."', '".$nacionalidad."', '".$residencia."', '".$oficina."')";
+        mysqli_query($link, $visita_consulta);
 
 
       }
-    //  break;
-//}*/
 
 
-
-    //$visita_consulta = "INSERT INTO visita (grupo, consulta, hora, fecha, sexo, edad, nacionalidad, residencia, oficina) VALUES ( '".$grupo_actual."', '".$tipo_consulta."', '".$hora."', '".$fecha."', '".."', '12', 'fdsgdf', 'si', 'fgsfdg') "
-
-
-//  }
 
 
 
@@ -159,12 +151,12 @@ if(isset($_SESSION['usuario'])) {
   $eventos = $_POST['eve'];
   for ($i=0; $i < count($eventos) ; $i++) {
     $consulta_eventos = "INSERT INTO informacion_guia (grupo, eventos) VALUES ('".$grupo_actual."', '".$eventos[$i]."')";
-    mysqli_query($link, $consulta_eventos) or die(mysqli_error($link));ofi
+    mysqli_query($link, $consulta_eventos) or die(mysqli_error($link));
   }
 
   //servicios_publicos TABLA: informacion_guia
   $servicios_publicos = $_POST['servi'];
-  for ($i=0; $i < count($servicios_publicos) ; $i++) {
+  for ($ifecha=0; $i < count($servicios_publicos) ; $i++) {
     $consulta_servicios_publicos = "INSERT INTO informacion_guia (grupo, servicios_publicos) VALUES ('".$grupo_actual."', '".$servicios_publicos[$i]."')";
     mysqli_query($link, $consulta_servicios_publicos) or die(mysqli_error($link));
   }
@@ -413,7 +405,6 @@ if(isset($_SESSION['usuario'])) {
 
 
 }
-
 
 
 ?>
