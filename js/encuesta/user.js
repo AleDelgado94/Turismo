@@ -105,13 +105,13 @@ function getAttrResidencia(val, id){
                   formu += "<h5>Nacionalidad</h5>";
                   formu += "<select name='nacion' onchange='getAttrNacionalidad(this.value,"+aux+")'>";
                     formu += "<option value='' disabled selected>Nacionalidad</option>";
-                    formu += "<option value='Española'>Española</option>";
-                    formu += "<option value='Británica'>Británica</option>";
+                    formu += "<option value='Espanola'>Española</option>";
+                    formu += "<option value='Britanica'>Británica</option>";
                     formu += "<option value='Alemana'>Alemana</option>";
                     formu += "<option value='Rusa'>Rusa</option>";
                     formu += "<option value='Canaria'>Canaria</option>";
                     formu += "<option value='Africana'>Africana</option>";
-                    formu += "<option value='Asiática'>Asiática</option>";
+                    formu += "<option value='Asiatica'>Asiática</option>";
                     formu += "<option value='Australiana'>Australiana</option>";
                     formu += "<option value='Austriaca'>Austriaca</option>";
                     formu += "<option value='Belga'>Belga</option>";
