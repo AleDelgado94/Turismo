@@ -25,6 +25,8 @@
     <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.date.css"/>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.min.css">
 
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">
     <title>Turismo - Base de datos</title>
@@ -157,18 +159,11 @@
                     </div>
                     <div class="row">
                       <div class="col s12">
-                        <input type ="submit"/>
+                        <input id="boton_enviar" type ="submit"/>
                       </div>
                     </div>
                   </div>
 
-
-                </div>
-                <div class="row">
-
-                </div>
-
-                <div class="row">
 
                 </div>
               </form>
@@ -180,7 +175,75 @@
 
             <!--INICIO DE CONSULTAR INCIDENCIAS-->
             <div id="consultar" class="col s12">
-              Vamos Campeón
+              <div class="row">
+                <div class="col s12 m12 l4">
+                  <div class="row">
+                    <div class="col s12 m12 l6 left-align">
+                      <select name="oficinas" onchange="cambio(this.value, oficina)">
+                        <option  value="" disabled selected>Oficina</option>
+                        <option  value="Alcala">Alcalá</option>
+                        <option  value="Playa San Juan">Playa San Juan</option>
+                        <option  value="Guia Casco">Guía Casco</option>
+                      </select>
+                      <input id="oficina" type="hidden" name="oficina">
+                    </div>
+                    <div class="col s12 m12 l6 left-align">
+                      <select name="lugares" onchange="cambio(this.value, lugar)">
+                        <option  value="" disabled selected>Lugar</option>
+                        <option  value="Alcala">Alcalá</option>
+                        <option  value="Playa San Juan">Playa San Juan</option>
+                        <option  value="Guia Casco">Guía Casco</option>
+                        <option  value="Chio">Chío</option>
+                      </select>
+                      <input id="lugar" type="hidden" name="lugar">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12 m12 l6">
+                      De: <input type="date" class="datepicker" placeholder="Fecha">
+                    </div>
+                    <div class="col s12 m12 l6">
+                      Hasta: <input type="date" class="datepicker" placeholder="Fecha">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col 12 m12 l2">
+                      <input id="boton_enviar" type ="submit"/>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m12 l8">
+                  <div class="row">
+                    <table>
+                     <thead>
+                       <tr>
+                           <th data-field="id">Titulo</th>
+                           <th data-field="name">Lugar</th>
+                           <th data-field="price">Direccion</th>
+                           <th data-field="price">Oficina</th>
+                           <th data-field="price">Fecha</th>
+                           <th data-field="price">Descripcion</th>
+                           <th data-field="price">Resuelta</th>
+
+                       </tr>
+                     </thead>
+
+                     <tbody>
+                       <tr>
+                         <td>Ejemplo</td>
+                         <td>Ejemplo</td>
+                         <td>Ejemplo</td>
+                       </tr>
+
+                     </tbody>
+                   </table>
+                  </div>
+
+                </div>
+
+              </div>
+
             </div>
             <!--FINAL DE CONSULTAR INCIDENCIAS-->
           </div>
