@@ -13,7 +13,7 @@ body {
 
 .tab-modi{
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .tabs .tab a {
@@ -45,4 +45,22 @@ body {
   height: 2px;
   background-color: #409bc7;
   will-change: left, right;
+}
+
+#boton_enviar{
+    padding:10px 20px;
+    background:#0AE615;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: auto;
+    width: auto;
+}
+
+#boton_enviar:hover{
+  background: #04AB0D;
 }
