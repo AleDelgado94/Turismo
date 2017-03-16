@@ -2,8 +2,8 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 16-03-2017 a las 14:59:44
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-03-2017 a las 18:53:40
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -61,8 +61,8 @@ CREATE TABLE `informacion_guia` (
 
 CREATE TABLE `informacion_tenerife` (
   `grupo` int(11) NOT NULL,
-  `info` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci ROW_FORMAT=COMPACT;
+  `info` varchar(255) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -75,6 +75,13 @@ CREATE TABLE `login` (
   `USUARIO` varchar(255) CHARACTER SET utf8 NOT NULL,
   `PASS` varchar(255) CHARACTER SET utf8 NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `login`
+--
+
+INSERT INTO `login` (`ID`, `USUARIO`, `PASS`) VALUES
+(7, 'admin', '$6$rounds=5000$usesomesillystri$CxCU5QvU0p1SaHRtRF19k069bVIno31x7tGvjWy7aAx2CTGqwzjLl.EG4BJiylHSQMVE5oTkyhDwIBPjdBhVP0');
 
 -- --------------------------------------------------------
 
@@ -163,6 +170,17 @@ CREATE TABLE `stock_municipio` (
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci ROW_FORMAT=COMPACT;
 
+--
+-- Volcado de datos para la tabla `stock_municipio`
+--
+
+INSERT INTO `stock_municipio` (`material`, `cantidad`) VALUES
+('callejero', 100),
+('folleto_eventos_municipales', 100),
+('folleto_ocio', 100),
+('guias_turisticas', 100),
+('mapa_senderos', 100);
+
 -- --------------------------------------------------------
 
 --
@@ -173,6 +191,14 @@ CREATE TABLE `stock_otras_islas` (
   `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `stock_otras_islas`
+--
+
+INSERT INTO `stock_otras_islas` (`material`, `cantidad`) VALUES
+('mapas', 100),
+('otros', 100);
 
 -- --------------------------------------------------------
 
@@ -185,6 +211,15 @@ CREATE TABLE `stock_otros_municipios` (
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `stock_otros_municipios`
+--
+
+INSERT INTO `stock_otros_municipios` (`material`, `cantidad`) VALUES
+('callejero', 100),
+('folleto_ocio', 100),
+('otros', 100);
+
 -- --------------------------------------------------------
 
 --
@@ -196,6 +231,15 @@ CREATE TABLE `stock_promocional` (
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `stock_promocional`
+--
+
+INSERT INTO `stock_promocional` (`material`, `cantidad`) VALUES
+('folleto_bus', 100),
+('otros_promocional', 100),
+('periodico_revista', 100);
+
 -- --------------------------------------------------------
 
 --
@@ -206,6 +250,22 @@ CREATE TABLE `stock_turismo_tenerife` (
   `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `stock_turismo_tenerife`
+--
+
+INSERT INTO `stock_turismo_tenerife` (`material`, `cantidad`) VALUES
+('gastronomia_tenerife', 100),
+('guia_de_tenerife', 100),
+('mapa_block_sur', 100),
+('mapa_tenerife', 100),
+('tenerife_cetaceos', 100),
+('tenerife_coche', 100),
+('tenerife_familia', 100),
+('tenerife_natural_rural', 100),
+('tenerife_pie', 100),
+('tradiciones_tenerife', 100);
 
 -- --------------------------------------------------------
 
@@ -286,17 +346,17 @@ ALTER TABLE `visita`
 -- AUTO_INCREMENT de la tabla `incidencias`
 --
 ALTER TABLE `incidencias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
