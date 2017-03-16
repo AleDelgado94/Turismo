@@ -259,10 +259,6 @@
                         if(isset($_COOKIE['fecha_fin'])) $FECHA_FIN = $_COOKIE['fecha_fin'];
 
 
-                        echo $OFICINA;
-                        echo $LUGAR;
-                        echo $FECHA_INICIO;
-                        echo $FECHA_FIN;
 
                         $link = require("../connect_db.php");
 
@@ -280,7 +276,7 @@
                         }elseif ($OFICINA == '') {
                           $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE
                           lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
-                        }elseif ($LUGAR = '') {
+                        }elseif ($LUGAR == '') {
                           $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA."' AND
                           fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
                         }else {
@@ -358,7 +354,7 @@
                         }elseif ($OFICINA == '') {
                           $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE
                           lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
-                        }elseif ($LUGAR = '') {
+                        }elseif ($LUGAR == '') {
                           $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA."' AND
                           fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
                         }else {
