@@ -269,8 +269,67 @@
 
                         $link = require("../connect_db.php");
 
-                        $consulta_incidencia = "SELECT titulo, lugar, direccion, oficina, fecha, descripcion, resuelt FROM incidencias WHERE oficina='".$OFICINA." AND
-                        lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."'";
+                        $consulta_incidencia = "SELECT titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA." AND
+                        lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
+
+
+
+                        if($incidencias = mysqli_query($link, $consulta_incidencia)){
+
+                          while ($fila = mysqli_fetch_assoc($incidencias)) {
+
+                            echo "
+                              <tr>
+                                <td> ".$fila['titulo']." </td> <!-- TITULO -->
+                                <td> ".$fila['lugar']." </td> <!-- LUGAR  -->
+                                <td> ".$fila['direccion']." </td> <!-- DIRECCION -->
+                                <td> ".$fila['oficina']." </td> <!-- OFICINA -->
+                                <td> ".$fila['fecha']." </td> <!-- FECHA -->
+                                <td> ".$fila['descripcion']." </td> <!-- DESCRIPCION -->
+                                <td> ".$fila['resuelta']." </td> <!-- RESUELTA -->
+                                <td> <form action='resolver.php' method='post'>
+                                  <input type='submit' name='submit' value='Resolver'/>
+                                </form>
+                                </td> <!-- RESUELTA -->
+                              </tr>";
+                          }
+                        }
+                      ?>
+                      </tbody>
+                   </table>
+                  </div>
+
+
+                  <div class="row">
+                    <h4 class="left-align">Incidencias resueltas</h4>
+
+
+                    <table>
+                     <thead>
+                       <tr>
+                           <th data-field="id">Titulo</th>
+                           <th data-field="name">Lugar</th>
+                           <th data-field="price">Direccion</th>
+                           <th data-field="price">Oficina</th>
+                           <th data-field="price">Fecha</th>
+                           <th data-field="price">Descripcion</th>
+                           <th data-field="price">Resuelta</th>
+
+                       </tr>
+                     </thead>
+
+                     <tbody>
+
+                     <?php
+                        /************ MOSTRAR RESULTADOS CONSULTA INCIDENCIAS ****************/
+
+
+
+
+
+                        $consulta_incidencia = "SELECT titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA." AND
+                        lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
+
 
 
                         if($incidencias = mysqli_query($link, $consulta_incidencia)){
