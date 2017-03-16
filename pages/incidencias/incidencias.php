@@ -188,6 +188,7 @@
 
             <!--INICIO DE CONSULTAR INCIDENCIAS-->
             <div id="consultar" class="col s12">
+
               <div class="row">
                 <div class="col s12 m12 l4">
                   <h4 class="left-align">Consultar</h4>
@@ -212,7 +213,9 @@
                       <input id="lugar_consulta_incidencia" type="hidden" name="lugar">
                     </div>
                   </div>
+
                   <div class="row">
+
                     <div class="col s12 m12 l6">
                         <input type="text" id="datepicker" placeholder="Día">
                     </div>

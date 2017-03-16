@@ -407,7 +407,6 @@
 
   <!--ALOJAMIENTOOOOOOOOOOOOOOOOOOOO-->
               <div id="test2" class="col s12 m12 l12">
-
                 <!-- PRIMERA FILA -->
                   <div class="row">
                     <!-- PRIMERA COLUMNA -->
@@ -1249,7 +1248,7 @@
     <script type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="../../js/encuesta/inicio.js"></script>
     <script type="text/javascript" src="../../js/encuesta/user.js"></script>
-  
+
 
 
 
