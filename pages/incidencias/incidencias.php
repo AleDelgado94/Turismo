@@ -18,16 +18,13 @@
 <html lang="es">
   <head>
 
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../../css/font-awesome.css"/>
     <link type="text/css" rel="stylesheet" href="../../css/main.css"/>
     <link type="text/css" rel="stylesheet" href="../../css/incidencias/incidencias.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="icon" type="../../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
-    <!--<link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.css"/>
-    <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.date.css"/>
-  -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

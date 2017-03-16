@@ -6,16 +6,10 @@ $(document).ready(function() {
   $('#textarea1').trigger('autoresize');
   $('select').material_select();
   $('ul.tabs').tabs();
-    $( function() {
-      $( ".datepicker" ).datepicker();
-      $.datepicker.setDefaults({
-        //showOn: "both",
-        //buttonImageOnly: true,
-        //buttonImage: "calendar.gif",
-        //buttonText: "Calendario"
-      });
-      $.datepicker.setDefaults( $.datepicker.regional.es );
-    } );
+
+  $( function() {
+    $( ".datepicker" ).datepicker();
+  });
 
     $.datepicker.regional.es = {
        closeText: 'Cerrar',
@@ -31,13 +25,14 @@ $(document).ready(function() {
        dateFormat: 'yy-mm-dd',
        firstDay: 1,
        isRTL: false,
-       showMonthAfterYear: true,
-       yearSuffix: ''
+       yearSuffix: '',
+       changeMonth: true,
+       changeYear: true,
+       showButtonPanel: true
+
      };
     $.datepicker.setDefaults($.datepicker.regional.es);
-      $(function () {
-      $("#fecha").datepicker();
-    });
+
 
 });
 

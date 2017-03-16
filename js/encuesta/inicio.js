@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 
     $( function() {
-      $( ".datepicker" ).datepicker();
+      $( ".fecha" ).datepicker();
     });
 
 
@@ -12,6 +12,8 @@ $(document).ready(function(){
       $.datepicker.regional.es = {
          closeText: 'Cerrar',
          prevText: '< Ant',
+         changeMonth: true,
+         changeYear: true,
          nextText: 'Sig >',
          currentText: 'Hoy',
          monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -24,8 +26,7 @@ $(document).ready(function(){
          firstDay: 1,
          isRTL: false,
          yearSuffix: '',
-         changeMonth: true,
-         changeYear: true,
+
          showButtonPanel: true
 
        };
