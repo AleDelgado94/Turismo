@@ -36,3 +36,13 @@ var user = getElementById('user');
 //function select_user(){
   user.value = usuarios.options[usuarios.selectedIndex].value;
 //}*/
+
+
+function ofi(val) {
+  document.getElementById('oficina').value = val;
+}
+
+
+function place(val){
+  document.getElementById('lugar').value = val;
+}

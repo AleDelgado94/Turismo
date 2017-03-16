@@ -10,3 +10,32 @@ $(document).ready(function() {
      selectYears: 15 // Creates a dropdown of 15 years to control year
    });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function ofi(val) {
+  document.getElementById('oficina').value = val;
+}
+
+
+function place(val){
+  document.getElementById('lugar').value = val;
+}
