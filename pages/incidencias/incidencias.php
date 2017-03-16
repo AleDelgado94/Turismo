@@ -206,10 +206,10 @@
                   <div class="row">
 
                     <div class="col s12 m12 l6">
-                        <input type="text" class="datepicker" name="fecha_ini" placeholder="Día">
+                        <input type="text" class="datepicker" id="fecha_ini" name="fecha_ini" placeholder="Día">
                     </div>
                     <div class="col s12 m12 l6">
-                        <input type="text" class="datepicker" name="fecha_fin" placeholder="Día">
+                        <input type="text" class="datepicker" id="fecha_fin" name="fecha_fin" placeholder="Día">
                     </div>
                   </div>
                   <div class="row">
@@ -259,10 +259,34 @@
                         if(isset($_COOKIE['fecha_fin'])) $FECHA_FIN = $_COOKIE['fecha_fin'];
 
 
+                        echo $OFICINA;
+                        echo $LUGAR;
+                        echo $FECHA_INICIO;
+                        echo $FECHA_FIN;
+
                         $link = require("../connect_db.php");
 
-                        $consulta_incidencia = "SELECT titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA." AND
-                        lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
+                        if($FECHA_INICIO == "" && $FECHA_FIN == ""){
+                          $FECHA_FIN = '9999-12-31';
+                        }elseif ($FECHA_FIN == "") {
+                          $FECHA_FIN = '9999-12-31';
+                        }
+
+
+
+                        if ($OFICINA == "" && $LUGAR == "") {
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias
+                          WHERE fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
+                        }elseif ($OFICINA == '') {
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE
+                          lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
+                        }elseif ($LUGAR = '') {
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA."' AND
+                          fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
+                        }else {
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA."' AND
+                          lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
+                        }
 
 
 
@@ -278,7 +302,12 @@
                                 <td> ".$fila['oficina']." </td> <!-- OFICINA -->
                                 <td> ".$fila['fecha']." </td> <!-- FECHA -->
                                 <td> ".$fila['descripcion']." </td> <!-- DESCRIPCION -->
-                                <td> ".$fila['resuelta']."</td> <!-- RESUELTA -->
+                                <td> <form  action='resolver.php' method='post'>
+
+
+                                  <input type='hidden' name='id_incidencia' value='".$fila['id']."'>
+                                  <input id='resolv' type='submit' name='send_incidencia' value='Resolver'/>
+                                </form> </td> <!-- RESUELTA -->
                               </tr>";
                           }
                         }
@@ -286,6 +315,9 @@
                       </tbody>
                    </table>
                   </div>
+
+
+
 
 
                   <div class="row">
@@ -301,7 +333,6 @@
                            <th data-field="price">Oficina</th>
                            <th data-field="price">Fecha</th>
                            <th data-field="price">Descripcion</th>
-                           <th data-field="price">Resuelta</th>
 
                        </tr>
                      </thead>
@@ -332,7 +363,6 @@
                                 <td> ".$fila['oficina']." </td> <!-- OFICINA -->
                                 <td> ".$fila['fecha']." </td> <!-- FECHA -->
                                 <td> ".$fila['descripcion']." </td> <!-- DESCRIPCION -->
-                                <td> ".$fila['resuelta']." </td> <!-- RESUELTA -->
                               </tr>";
                           }
                         }
@@ -417,7 +447,10 @@
         Fecha_inicio = fecha_inicio.value;
         Fecha_final = fecha_final.value;
 
-        document.cookie = 'oficina=' + Oficina + ',lugar=' + Lugar + ',fecha_ini=' + Fecha_inicio + ',fecha_fin=' + Fecha_final;
+        document.cookie = 'oficina=' + Oficina;
+        document.cookie = 'lugar=' + Lugar;
+        document.cookie = 'fecha_ini=' + Fecha_inicio;
+        document.cookie = 'fecha_fin=' + Fecha_final;
 
         window.location="incidencias.php";
       }
