@@ -22,12 +22,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="icon" type="../../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
 
-    <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.min.css"/>
-    <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.css"/>
-    <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.date.css"/>-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
 
 
 
@@ -117,7 +115,9 @@
                     <br>
                     <div class="row">
                       <div class="col s12 m12 l6 ">
-                        <input type="text" class="datepicker" placeholder="Día">
+
+                        <input type="text" id="datepicker" class="datepicker" placeholder="Día">
+
                       </div>
                     </div>
 
