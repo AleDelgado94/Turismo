@@ -117,7 +117,7 @@
                     <br>
                     <div class="row">
                       <div class="col s12 m12 l6 ">
-                        <input type="text" id="datepicker" placeholder="Día">
+                        <input type="text" class="datepicker" placeholder="Día">
                       </div>
                     </div>
 

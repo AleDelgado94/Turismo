@@ -126,7 +126,7 @@
 
                     <div class="row">
                       <div class="col s12 m12 l12">
-                          <input type="text" id="datepicker" name="fecha" placeholder="Día">
+                          <input type="text" class="datepicker" name="fecha" placeholder="Día">
                       </div>
                     </div>
 
@@ -206,10 +206,10 @@
                   <div class="row">
 
                     <div class="col s12 m12 l6">
-                        <input type="text" id="datepicker" name="fecha_ini" placeholder="Día">
+                        <input type="text" class="datepicker" name="fecha_ini" placeholder="Día">
                     </div>
                     <div class="col s12 m12 l6">
-                        <input type="text" id="datepicker" name="fecha_fin" placeholder="Día">
+                        <input type="text" class="datepicker" name="fecha_fin" placeholder="Día">
                     </div>
                   </div>
                   <div class="row">

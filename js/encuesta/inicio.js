@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('ul.tabs').tabs();
 
       $( function() {
-        $( "#datepicker" ).datepicker();
+        $( ".datepicker" ).datepicker();
         $.datepicker.setDefaults({
           showOn: "both",
           buttonImageOnly: true,

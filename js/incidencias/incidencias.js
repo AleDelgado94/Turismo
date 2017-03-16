@@ -9,10 +9,10 @@ $(document).ready(function() {
     $( function() {
       $( ".datepicker" ).datepicker();
       $.datepicker.setDefaults({
-        showOn: "both",
-        buttonImageOnly: true,
-        buttonImage: "calendar.gif",
-        buttonText: "Calendario"
+        //showOn: "both",
+        //buttonImageOnly: true,
+        //buttonImage: "calendar.gif",
+        //buttonText: "Calendario"
       });
       $.datepicker.setDefaults( $.datepicker.regional.es );
     } );
