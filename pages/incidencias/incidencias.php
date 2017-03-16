@@ -7,6 +7,21 @@
 
    if(isset($_SESSION['usuario'])) {
      $username = $_SESSION['usuario'];
+
+
+
+     function consult($oficina, $lugar, $fecha_inicio, $fecha_final)
+     {
+       echo $oficina;
+       echo $lugar;
+       echo $fecha_inicio;
+       echo $fecha_final;
+     }
+
+
+
+
+
 ?>
        <!-- Aquí ponemos todo el código HTML de nuestra página restringida, desde <html> a </html>-->
 
@@ -107,7 +122,7 @@
 
                     <div class="row">
                       <div class="col s12 m12 l12 left-align">
-                        <select name="oficinas" onchange="cambio(this.value, oficina)">
+                        <select name="oficinas" onchange="cambio(this.value)">
                           <option  value="" disabled selected>Oficina</option>
                           <option  value="Alcala">Alcalá</option>
                           <option  value="Playa San Juan">Playa San Juan</option>
@@ -177,44 +192,53 @@
             <div id="consultar" class="col s12">
               <div class="row">
                 <div class="col s12 m12 l4">
+                  <h4 class="left-align">Consultar</h4>
                   <div class="row">
                     <div class="col s12 m12 l6 left-align">
-                      <select name="oficinas" onchange="cambio(this.value, oficina)">
+                      <select name="oficinas" onchange="ofi(this.value)">
                         <option  value="" disabled selected>Oficina</option>
                         <option  value="Alcala">Alcalá</option>
                         <option  value="Playa San Juan">Playa San Juan</option>
                         <option  value="Guia Casco">Guía Casco</option>
                       </select>
-                      <input id="oficina" type="hidden" name="oficina">
+                      <input id="oficina_consulta_incidencia" type="hidden" name="oficina">
                     </div>
                     <div class="col s12 m12 l6 left-align">
-                      <select name="lugares" onchange="cambio(this.value, lugar)">
+                      <select name="lugares" onchange="place(this.value)">
                         <option  value="" disabled selected>Lugar</option>
                         <option  value="Alcala">Alcalá</option>
                         <option  value="Playa San Juan">Playa San Juan</option>
                         <option  value="Guia Casco">Guía Casco</option>
                         <option  value="Chio">Chío</option>
                       </select>
-                      <input id="lugar" type="hidden" name="lugar">
+                      <input id="lugar_consulta_incidencia" type="hidden" name="lugar">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col s12 m12 l6">
-                      De: <input type="date" class="datepicker" placeholder="Fecha">
+                      De: <input type="date" class="datepicker" id="fecha_ini" name="fecha_ini" placeholder="Fecha">
                     </div>
                     <div class="col s12 m12 l6">
-                      Hasta: <input type="date" class="datepicker" placeholder="Fecha">
+                      Hasta: <input type="date" class="datepicker" id="fecha_fin" name="fecha_fin" placeholder="Fecha">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col 12 m12 l2">
-                      <input id="boton_enviar" type ="submit"/>
+                      <input id="boton_enviar" type ="submit" value="Buscar" onclick="consult(oficina_consulta_incidencia, lugar_consulta_incidencia, fecha_ini, fecha_fin)"/>
                     </div>
                   </div>
                 </div>
 
-                <div class="col s12 m12 l8">
+
+
+              </div>
+
+              <div class="row">
+                <div class="col s12 m12 l12">
                   <div class="row">
+                    <h4 class="left-align">Incidencias no resueltas</h4>
+
+
                     <table>
                      <thead>
                        <tr>
@@ -230,18 +254,49 @@
                      </thead>
 
                      <tbody>
-                       <tr>
-                         <td>Ejemplo</td>
-                         <td>Ejemplo</td>
-                         <td>Ejemplo</td>
-                       </tr>
 
-                     </tbody>
+                     <?php
+                        /************ MOSTRAR RESULTADOS CONSULTA INCIDENCIAS ****************/
+
+                        $OFICINA = "";
+                        $LUGAR = "";
+                        $FECHA_INICIO = "";
+                        $FECHA_FIN = "";
+
+                        if(isset($_COOKIE['oficina'])) $OFICINA = $_COOKIE['oficina'];
+                        if(isset($_COOKIE['lugar'])) $LUGAR = $_COOKIE['lugar'];
+                        if(isset($_COOKIE['fecha_ini'])) $FECHA_INICIO = $_COOKIE['fecha_ini'];
+                        if(isset($_COOKIE['fecha_fin'])) $FECHA_FIN = $_COOKIE['fecha_fin'];
+
+
+                        $link = require("../connect_db.php");
+
+                        $consulta_incidencia = "SELECT titulo, lugar, direccion, oficina, fecha, descripcion, resuelt FROM incidencias WHERE oficina='".$OFICINA." AND
+                        lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."'";
+
+
+                        if($incidencias = mysqli_query($link, $consulta_incidencia)){
+
+                          while ($fila = mysqli_fetch_assoc($incidencias)) {
+
+                            echo "
+                              <tr>
+                                <td> ".$fila['titulo']." </td> <!-- TITULO -->
+                                <td> ".$fila['lugar']." </td> <!-- LUGAR  -->
+                                <td> ".$fila['direccion']." </td> <!-- DIRECCION -->
+                                <td> ".$fila['oficina']." </td> <!-- OFICINA -->
+                                <td> ".$fila['fecha']." </td> <!-- FECHA -->
+                                <td> ".$fila['descripcion']." </td> <!-- DESCRIPCION -->
+                                <td> ".$fila['resuelta']." </td> <!-- RESUELTA -->
+                              </tr>";
+                          }
+                        }
+                      ?>
+                      </tbody>
                    </table>
                   </div>
 
                 </div>
-
               </div>
 
             </div>
@@ -303,6 +358,33 @@
     <script type="text/javascript" src="../../js/encuesta/translations/es_ES.js"></script>
     <script type="text/javascript" src="../../js/incidencias/incidencias.js"></script>
     <script type="text/javascript" src="../../js/index.js"></script>
+    <script type="text/javascript">
+      function ofi(val) {
+        console.log(val);
+        document.getElementById('oficina_consulta_incidencia').value = val;
+      }
+      function place(val){
+        document.getElementById('lugar_consulta_incidencia').value = val;
+      }
+
+      var Oficina, Lugar, Fecha_inicio, Fecha_final;
+
+      function consult(oficina, lugar, fecha_inicio, fecha_final)
+      {
+        Oficina = oficina.value;
+        Lugar = lugar.value;
+        Fecha_inicio = fecha_inicio.value;
+        Fecha_final = fecha_final.value;
+
+        document.cookie = 'oficina=' + Oficina + ',lugar=' + Lugar + ',fecha_ini=' + Fecha_inicio + ',fecha_fin=' + Fecha_final;
+
+        window.location="incidencias.php";
+      }
+
+
+
+    </script>
+
 
   </body>
 </html>
