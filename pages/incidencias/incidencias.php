@@ -36,11 +36,12 @@
     <link type="text/css" rel="stylesheet" href="../../css/incidencias/incidencias.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="../../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.css"/>
+    <!--<link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.css"/>
     <link type="text/css" rel="stylesheet" href="../../css/encuesta/themes/default.date.css"/>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.min.css">
-
-
+  -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">
@@ -136,10 +137,7 @@
 
                     <div class="row">
                       <div class="col s12 m12 l12">
-                        <div id="datepicker"></div>
-                        <div id="datos">
-                          <input type='text' name='fecha' id='fecha' value="<?php echo date('d/m/y');?>" readonly />
-                        </div>
+                          <input type="text" id="datepicker" placeholder="Día">
                       </div>
                     </div>
 
@@ -216,10 +214,10 @@
                   </div>
                   <div class="row">
                     <div class="col s12 m12 l6">
-                      De: <input type="date" class="datepicker" id="fecha_ini" name="fecha_ini" placeholder="Fecha">
+                        <input type="text" id="datepicker" placeholder="Día">
                     </div>
                     <div class="col s12 m12 l6">
-                      Hasta: <input type="date" class="datepicker" id="fecha_fin" name="fecha_fin" placeholder="Fecha">
+                        <input type="text" id="datepicker" placeholder="Día">
                     </div>
                   </div>
                   <div class="row">
@@ -352,10 +350,6 @@
     <script type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="../../js/encuesta/inicio.js"></script>
     <script type="text/javascript" src="../../js/encuesta/user.js"></script>
-    <script type="text/javascript" src="../../js/encuesta/legacy.js"></script>
-    <script type="text/javascript" src="../../js/encuesta/picker.js"></script>
-    <script type="text/javascript" src="../../js/encuesta/picker.date.js"></script>
-    <script type="text/javascript" src="../../js/encuesta/translations/es_ES.js"></script>
     <script type="text/javascript" src="../../js/incidencias/incidencias.js"></script>
     <script type="text/javascript" src="../../js/index.js"></script>
     <script type="text/javascript">

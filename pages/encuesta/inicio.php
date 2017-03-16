@@ -1249,10 +1249,7 @@
     <script type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="../../js/encuesta/inicio.js"></script>
     <script type="text/javascript" src="../../js/encuesta/user.js"></script>
-    <!--<script type="text/javascript" src="../../js/encuesta/legacy.js"></script>
-    <script type="text/javascript" src="../../js/encuesta/picker.js"></script>
-    <script type="text/javascript" src="../../js/encuesta/picker.date.js"></script>
-    <script type="text/javascript" src="../../js/encuesta/translations/es_ES.js"></script>-->
+  
 
 
 
