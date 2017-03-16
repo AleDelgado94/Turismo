@@ -88,7 +88,7 @@
           </form>
 
       <form class="col s12 m3" action="validar_encuesta.php" method="post">
-              <input class="#00e676 green accent-3 enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
+              <input id="add_enviar" class="enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
 
 
 
@@ -216,7 +216,7 @@
 
                         <div class="row">
                           <div class="col s12 m12 l12 left-align">
-                            <a class="waves-effect waves-light btn #00e676 green accent-3" id="add_user">Añadir</a>
+                            <a class="waves-effect waves-light btn #1b5e20 green darken-4" id="add_user">Añadir</a>
                             <!--<a class="btn-floating waves-effect " id="add_user"><i class="material-icons">add</i></a>-->
                           </div>
 

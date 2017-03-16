@@ -67,9 +67,9 @@
             $username
             </span>"; ?></li>
             <li><i class="material-icons">replay</i><a href="main.php">&nbsp; Inicio</a></li>
-            <li><i class="material-icons">mode_edit</i><a href="#">&nbsp; Encuesta</a></li>
+            <li><i class="material-icons">mode_edit</i><a href="encuesta/inicio.php">&nbsp; Encuesta</a></li>
             <li><i class="material-icons">trending_up</i><a href="#">&nbsp; Consultar estadísticas</a></li>
-            <li><i class="material-icons">new_releases</i><a href="#">&nbsp; Incidencias</a></li>
+            <li><i class="material-icons">new_releases</i><a href="incidencias/incidencias.php">&nbsp; Incidencias</a></li>
             <?php
               if($username == 'admin'){
                 echo "<li><i class='material-icons'>contacts</i><a href='#'>&nbsp; Gestión de usuario</a></li>";
