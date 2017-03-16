@@ -75,7 +75,7 @@
             <li><i class="material-icons">mode_edit</i><a href="#">&nbsp; Encuesta</a></li>
             <li><i class="material-icons">trending_up</i><a href="#">&nbsp; Consultar estadísticas</a></li>
             <li><i class="material-icons">shopping_cart</i><a href="../stock/stock.php">&nbsp; Stock</a></li>
-            <li><i class="material-icons">new_releases</i><a href="#">&nbsp; Incidencias</a></li>
+            <li><i class="material-icons">new_releases</i><a href="../incidencias/incidencias.php">&nbsp; Incidencias</a></li>
             <?php
               if($username == 'admin'){
                 echo "<li> <i class='material-icons'>contacts</i><a href='../gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
@@ -89,7 +89,7 @@
           </form>
 
       <form class="col s12 m3" action="validar_encuesta.php" method="post">
-              <input class="#00e676 green accent-3 enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
+              <input id="add_enviar" class="enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
 
 
 
@@ -217,7 +217,7 @@
 
                         <div class="row">
                           <div class="col s12 m12 l12 left-align">
-                            <a class="waves-effect waves-light btn #00e676 green accent-3" id="add_user">Añadir</a>
+                            <a class="waves-effect waves-light btn #1b5e20 green darken-4" id="add_user">Añadir</a>
                             <!--<a class="btn-floating waves-effect " id="add_user"><i class="material-icons">add</i></a>-->
                           </div>
 

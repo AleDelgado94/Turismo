@@ -75,23 +75,23 @@
             <li><i class="material-icons">new_releases</i><a href="incidencias.php">&nbsp; Incidencias</a></li>
             <?php
               if($username == 'admin'){
-                echo "<li> <i class='material-icons'>contacts</i><a href='gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
+                echo "<li> <i class='material-icons'>contacts</i><a href='../gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
               }
              ?>
 
           </ul>
-          <form class="col s12 m3 l3" action="cerrar_sesion.php" method="post">
+          <form class="col s12 m3 l3" action="../cerrar_sesion.php" method="post">
             <input type="submit" name="cerrar" value="Cerrar Sesión">
           </form>
         </div>
-        <div class="col s12 m9 l9 ">
+        <div class="col s12 m8 l8">
 
           <!-- INICIO DE LAS TABS-->
-          <div class="row">
+          <div class="row ">
             <div class="col s12">
               <ul class="tabs tab-modi">
-                <li class="tab col s6"><a class="active" href="#anadir">Añadir</a></li>
-                <li class="tab col s6"><a href="#consultar">Consultar</a></li>
+                <li class="tab col s6 m6 l6"><a class="active" href="#consultar">Consultar</a></li>
+                <li class="tab col s5 m6 l6"><a href="#anadir">Añadir</a></li>
               </ul>
             </div>
             <!--INICIO AÑADIR INCIDENCIAS-->
@@ -152,7 +152,7 @@
                     </div>
                     <div class="row">
                       <div class="input-field col s12 m12 l12">
-                        <textarea id="textarea1" name="descripcion" class="materialize-textarea"></textarea>
+                        <textarea id="textarea1" name="descripcion" type="text" class="materialize-textarea"></textarea>
                         <label for="textarea1">Descripción</label>
                       </div>
                     </div>
@@ -226,7 +226,7 @@
                     <h4 class="left-align">Incidencias no resueltas</h4>
 
 
-                    <table>
+                    <table class="responsive-table">
                      <thead>
                        <tr>
                            <th data-field="id">Titulo</th>
@@ -256,10 +256,6 @@
                         if(isset($_COOKIE['fecha_fin'])) $FECHA_FIN = $_COOKIE['fecha_fin'];
 
 
-                        echo $OFICINA;
-                        echo $LUGAR;
-                        echo $FECHA_INICIO;
-                        echo $FECHA_FIN;
 
                         $link = require("../connect_db.php");
 
@@ -277,7 +273,7 @@
                         }elseif ($OFICINA == '') {
                           $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE
                           lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
-                        }elseif ($LUGAR = '') {
+                        }elseif ($LUGAR == '') {
                           $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA."' AND
                           fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 0";
                         }else {
@@ -321,7 +317,7 @@
                     <h4 class="left-align">Incidencias resueltas</h4>
 
 
-                    <table>
+                    <table class="responsive-table">
                      <thead>
                        <tr>
                            <th data-field="id">Titulo</th>
@@ -343,8 +339,25 @@
 
 
 
-                        $consulta_incidencia = "SELECT titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA." AND
-                        lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
+                        if($FECHA_INICIO == "" && $FECHA_FIN == ""){
+                          $FECHA_FIN = '9999-12-31';
+                        }elseif ($FECHA_FIN == "") {
+                          $FECHA_FIN = '9999-12-31';
+                        }
+
+                        if ($OFICINA == "" && $LUGAR == "") {
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias
+                          WHERE fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
+                        }elseif ($OFICINA == '') {
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE
+                          lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
+                        }elseif ($LUGAR == '') {
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA."' AND
+                          fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
+                        }else {
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA."' AND
+                          lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
+                        }
 
 
 
@@ -359,7 +372,7 @@
                                 <td> ".$fila['direccion']." </td> <!-- DIRECCION -->
                                 <td> ".$fila['oficina']." </td> <!-- OFICINA -->
                                 <td> ".$fila['fecha']." </td> <!-- FECHA -->
-                                <td> ".$fila['descripcion']." </td> <!-- DESCRIPCION -->
+                                <td> <p class='responsive'> ".$fila['descripcion']." </p> </td> <!-- DESCRIPCION -->
                               </tr>";
                           }
                         }

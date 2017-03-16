@@ -26,7 +26,7 @@ if(isset($_SESSION['usuario'])) {
   $consulta = "INSERT INTO incidencias (titulo, fecha, lugar, direccion, descripcion, oficina) VALUES ('". $titulo ."', '". $fecha ."', '".$lugar."', '".$direccion."', '".$descripcion."', '".$oficina."');";
   mysqli_query($link, $consulta) or die(mysqli_error($link));
 
-  header("Location: ../main.php");
+  header("Location: incidencias.php");
 
 
 }

@@ -47,9 +47,10 @@ body {
   will-change: left, right;
 }
 
+
 #resolv{
   padding:7px 12px;
-  background:#0AE615;
+  background:#04AB0D;
   color: black;
   font-size: 14px;
   font-weight: bold;
@@ -63,7 +64,7 @@ body {
 
 #boton_enviar{
     padding:10px 20px;
-    background:#0AE615;
+    background:#04AB0D;
     color: white;
     font-size: 14px;
     font-weight: bold;
@@ -76,5 +77,5 @@ body {
 }
 
 #boton_enviar:hover{
-  background: #04AB0D;
+  background: #0AE615;
 }
