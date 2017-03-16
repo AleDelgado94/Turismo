@@ -10,17 +10,6 @@
 
 
 
-     function consult($oficina, $lugar, $fecha_inicio, $fecha_final)
-     {
-       echo $oficina;
-       echo $lugar;
-       echo $fecha_inicio;
-       echo $fecha_final;
-     }
-
-
-
-
 
 ?>
        <!-- Aquí ponemos todo el código HTML de nuestra página restringida, desde <html> a </html>-->
@@ -137,7 +126,7 @@
 
                     <div class="row">
                       <div class="col s12 m12 l12">
-                          <input type="text" id="datepicker" placeholder="Día">
+                          <input type="text" id="datepicker" name="fecha" placeholder="Día">
                       </div>
                     </div>
 
@@ -214,10 +203,10 @@
                   </div>
                   <div class="row">
                     <div class="col s12 m12 l6">
-                        <input type="text" id="datepicker" placeholder="Día">
+                        <input type="text" id="datepicker" name="fecha_ini" placeholder="Día">
                     </div>
                     <div class="col s12 m12 l6">
-                        <input type="text" id="datepicker" placeholder="Día">
+                        <input type="text" id="datepicker" name="fecha_fin" placeholder="Día">
                     </div>
                   </div>
                   <div class="row">
@@ -286,11 +275,7 @@
                                 <td> ".$fila['oficina']." </td> <!-- OFICINA -->
                                 <td> ".$fila['fecha']." </td> <!-- FECHA -->
                                 <td> ".$fila['descripcion']." </td> <!-- DESCRIPCION -->
-                                <td> ".$fila['resuelta']." </td> <!-- RESUELTA -->
-                                <td> <form action='resolver.php' method='post'>
-                                  <input type='submit' name='submit' value='Resolver'/>
-                                </form>
-                                </td> <!-- RESUELTA -->
+                                <td> ".$fila['resuelta']."</td> <!-- RESUELTA -->
                               </tr>";
                           }
                         }
