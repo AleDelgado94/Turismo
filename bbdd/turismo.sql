@@ -2,8 +2,8 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 16-03-2017 a las 18:53:40
+-- Servidor: localhost
+-- Tiempo de generación: 17-03-2017 a las 15:35:59
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -34,7 +34,9 @@ CREATE TABLE `incidencias` (
   `direccion` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `oficina` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `resuelta` tinyint(1) NOT NULL
+  `resuelta` tinyint(1) NOT NULL,
+  `resolucion` text COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -61,8 +63,8 @@ CREATE TABLE `informacion_guia` (
 
 CREATE TABLE `informacion_tenerife` (
   `grupo` int(11) NOT NULL,
-  `info` varchar(255) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
+  `info` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -81,7 +83,13 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`ID`, `USUARIO`, `PASS`) VALUES
-(7, 'admin', '$6$rounds=5000$usesomesillystri$CxCU5QvU0p1SaHRtRF19k069bVIno31x7tGvjWy7aAx2CTGqwzjLl.EG4BJiylHSQMVE5oTkyhDwIBPjdBhVP0');
+(1, 'admin', '$6$rounds=5000$usesomesillystri$CxCU5QvU0p1SaHRtRF19k069bVIno31x7tGvjWy7aAx2CTGqwzjLl.EG4BJiylHSQMVE5oTkyhDwIBPjdBhVP0'),
+(9, 'Mary', '$6$rounds=5000$usesomesillystri$uqAnZ7Rf2wzpQWfxowVepbULFaVnuqTpnpOmz5dOEoIvygbbBOgo5uAc4lWNyJfi2b9m2c6qbZmRRv3YeEqwy1'),
+(7, 'Ana', '$6$rounds=5000$usesomesillystri$PspS9mYjMNZeMvnfDMzIN6s/EgKDTCZoO1ztguN9PqKDP2G.yLY6HF9KWcY6wKZHLyApWfedCJNRx2ECrZyFO/'),
+(8, 'Irma', '$6$rounds=5000$usesomesillystri$Rxh39fKjiVX9r3kCFNDIBZSuTxW0S35oEOwJ.ky.GvT8ySKqcCDust11o.gEeksASE/xGMPWPMXfKfEEz0I0r0'),
+(10, 'Silvia', '$6$rounds=5000$usesomesillystri$RJRGCzD9z8e1ixDbkntuN9kbS3FnjNcO2EPwfO5brSqbnHs33625oIYem2yWtYheEgnHAoi.Om0ZgLTNKILHM1'),
+(11, 'Concejal', '$6$rounds=5000$usesomesillystri$5x9JJYwDRafdTNiSpMsIN5HG8JOqhbf8W84KeVAF9E0suGPkg34Dv9J2KeJfjXCLhyuoxE5/Ff941x/MNQsoq/'),
+(12, 'Invitado', '$6$rounds=5000$usesomesillystri$2FJ.4rKsXT5myesOAoJRVk8NX/T7eKjY0dNGyo5G/8o4mJ3tlo6xW1Tkthk/z2P8lbUPg/7BTrduIuG/Ck7YJ1');
 
 -- --------------------------------------------------------
 
@@ -175,11 +183,11 @@ CREATE TABLE `stock_municipio` (
 --
 
 INSERT INTO `stock_municipio` (`material`, `cantidad`) VALUES
-('callejero', 100),
+('callejero', 5),
 ('folleto_eventos_municipales', 100),
 ('folleto_ocio', 100),
 ('guias_turisticas', 100),
-('mapa_senderos', 100);
+('mapa_senderos', 89);
 
 -- --------------------------------------------------------
 
@@ -216,9 +224,9 @@ CREATE TABLE `stock_otros_municipios` (
 --
 
 INSERT INTO `stock_otros_municipios` (`material`, `cantidad`) VALUES
-('callejero', 100),
-('folleto_ocio', 100),
-('otros', 100);
+('callejero', 96),
+('folleto_ocio', 95),
+('otros', 50);
 
 -- --------------------------------------------------------
 
@@ -236,9 +244,9 @@ CREATE TABLE `stock_promocional` (
 --
 
 INSERT INTO `stock_promocional` (`material`, `cantidad`) VALUES
-('folleto_bus', 100),
-('otros_promocional', 100),
-('periodico_revista', 100);
+('folleto_bus', 95),
+('otros_promocional', 97),
+('periodico_revista', 95);
 
 -- --------------------------------------------------------
 
@@ -260,11 +268,11 @@ INSERT INTO `stock_turismo_tenerife` (`material`, `cantidad`) VALUES
 ('guia_de_tenerife', 100),
 ('mapa_block_sur', 100),
 ('mapa_tenerife', 100),
-('tenerife_cetaceos', 100),
-('tenerife_coche', 100),
+('tenerife_cetaceos', 93),
+('tenerife_coche', 96),
 ('tenerife_familia', 100),
 ('tenerife_natural_rural', 100),
-('tenerife_pie', 100),
+('tenerife_pie', 97),
 ('tradiciones_tenerife', 100);
 
 -- --------------------------------------------------------
@@ -346,17 +354,17 @@ ALTER TABLE `visita`
 -- AUTO_INCREMENT de la tabla `incidencias`
 --
 ALTER TABLE `incidencias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
