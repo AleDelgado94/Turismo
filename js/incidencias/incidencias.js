@@ -27,7 +27,8 @@ $(document).ready(function() {
        yearSuffix: '',
        changeMonth: true,
        changeYear: true,
-       showButtonPanel: true
+       showButtonPanel: true,
+       yearRange: '2015:2050'
 
      };
     $.datepicker.setDefaults($.datepicker.regional.es);
