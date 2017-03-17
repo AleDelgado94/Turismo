@@ -73,7 +73,7 @@
             $oficina
             </span>"; ?></li>
             <li><i class="material-icons">replay</i><a href="../main.php">&nbsp; Inicio</a></li>
-            <li><i class="material-icons">mode_edit</i><a href="#">&nbsp; Encuesta</a></li>
+            <li><i class="material-icons">mode_edit</i><a href="inicio.php">&nbsp; Encuesta</a></li>
             <li><i class="material-icons">trending_up</i><a href="#">&nbsp; Consultar estadísticas</a></li>
             <li><i class="material-icons">shopping_cart</i><a href="../stock/stock.php">&nbsp; Stock</a></li>
             <li><i class="material-icons">new_releases</i><a href="../incidencias/incidencias.php">&nbsp; Incidencias</a></li>
@@ -108,8 +108,7 @@
             </div>
 
 
-
-              <div id="test1" class="col s12 ">
+              <div id="test1" name="pepito" class="col s12 ">
 
                 <div class="row">
                   <div class="col s12 m12 l4">
@@ -998,6 +997,9 @@
               <!--FIN DE INFORMACION SOLICITADA-->
 
               <!-- INICIO DE MATERIALES-->
+              <section name="seccion4">
+
+
             <div id="test4" class="col s12">
 
                 <div class="row">
@@ -1195,13 +1197,28 @@
                     </div>
                   </div>
                 </div>
-          </div>
-            <!-- Fin row tab-->
+              </div>
+
+          </section>
+            <!-- Fin MAteriales-->
             </div>
             <!-- fin columna grande -->
+
+
+
+
+
+
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <input id="add_enviar" class="enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
+                
+              </div>
+            </div>
           </div>
+
           </div>
-        <!--</form>-->
+        </form>
 
 
   </main>
