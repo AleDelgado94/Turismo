@@ -28,7 +28,8 @@ $(document).ready(function(){
          firstDay: 1,
          isRTL: false,
          yearSuffix: '',
-         showButtonPanel: true
+         showButtonPanel: true,
+         yearRange: '2015:2050'
 
        };
       $.datepicker.setDefaults($.datepicker.regional.es);
