@@ -1,9 +1,11 @@
+
+
 $(document).ready(function(){
     $('select').material_select();
     $('ul.tabs').tabs();
 
 
-    $( function() {
+    $(function() {
       $( ".fecha" ).datepicker();
     });
 
@@ -26,7 +28,6 @@ $(document).ready(function(){
          firstDay: 1,
          isRTL: false,
          yearSuffix: '',
-
          showButtonPanel: true
 
        };

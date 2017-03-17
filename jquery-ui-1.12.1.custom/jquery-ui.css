@@ -448,10 +448,25 @@ button.ui-button::-moz-focus-inner {
 .ui-datepicker .ui-datepicker-title select {
 	font-size: 1em;
 	margin: 1px 0;
+	position: relative;
 }
-.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-month{
+	width: 40%;
+	position: relative;
+	float: left;
+	color: black;
+	height: 10%;
+}
 .ui-datepicker select.ui-datepicker-year {
-	width: 45%;
+	width: 40%;
+	position: relative;
+	float: right;
+	margin-top: none;
+	color: black;
+	height: 10%;
+}
+.ui-datepicker select{
+	display: block;
 }
 .ui-datepicker table {
 	width: 100%;
