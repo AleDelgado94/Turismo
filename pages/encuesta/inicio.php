@@ -29,8 +29,6 @@
 
 
 
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">
     <title>Turismo - Base de datos</title>
@@ -117,7 +115,7 @@
                     <div class="row">
                       <div class="col s12 m12 l6 ">
 
-                        <input  type="text" id="datepicker" class="fecha" placeholder="Día">
+                        <input  type="text" id="datepicker" class="fecha" id="fecha" name="fecha" value="<?php echo date("Y-m-d"); ?>" placeholder="Día">
 
                       </div>
                     </div>
@@ -1249,6 +1247,7 @@
     <script type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="../../js/encuesta/inicio.js"></script>
     <script type="text/javascript" src="../../js/encuesta/user.js"></script>
+    
 
 
 

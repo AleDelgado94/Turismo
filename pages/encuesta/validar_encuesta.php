@@ -40,6 +40,8 @@ if(isset($_SESSION['usuario'])) {
       if(isset($_POST['horas'])) $hora = $_POST['horas'];
       if(isset($_POST['ofic'])) $oficina = $_POST['ofic'];
 
+      echo $fecha;
+
 
 
 
