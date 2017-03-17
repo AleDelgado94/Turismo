@@ -29,14 +29,14 @@ $users = mysqli_query($link, $consulta) or die(mysqli_error($link));
 
   <div class="row registro">
 
-    <form class="col s12" action="pages/autentica_usuario.php" method="post">
+    <form class="col s12 l12 m12" action="pages/autentica_usuario.php" method="post">
       <div class="row">
 
-        <div class="col l2 s12">
+        <div class="col l1 s12 m1">
           <i class="medium material-icons my-icon">perm_identity</i>
         </div>
 
-        <div class="input-field col l4 s12">
+        <div class="input-field col l3 s12 m3">
           <select name="users[]" >
             <option value="" disabled selected>Elija su usuario</option>
 
@@ -51,14 +51,30 @@ $users = mysqli_query($link, $consulta) or die(mysqli_error($link));
           </select>
         </div>
 
-        <div class="col l2 s12">
+        <div class="col l1 s12 m1">
           <i class="medium material-icons my-icon">vpn_key</i>
         </div>
 
-        <div class="input-field col l4 s12">
+        <div class="input-field col l3 s12 m3">
           <input id="password" type="password" class="validate" name="password">
           <label for="password">Contraseña</label>
         </div>
+
+        <div class="col l1 s12 m1">
+          <i class="medium material-icons my-icon">business</i>
+        </div>
+
+        <div class="input-field col s12 l3 m3">
+          <select name="ofice[]" onchange="cambio_oficina(this.value)">
+            <option value="" disabled selected>Oficina</option>
+            <option value="Guia Casco">Guía Casco</option>
+            <option value="Alcala">Alcalá</option>
+            <option value="Playa San Juan">Playa San Juan</option>
+          </select>
+          <input type="hidden" name="oficina_defecto" id="oficina_defecto" value="">
+
+        </div>
+
       </div>
       <div class="row">
         <div class="input-field col s12">
@@ -97,6 +113,11 @@ $users = mysqli_query($link, $consulta) or die(mysqli_error($link));
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+      function cambio_oficina(val){
+        document.getElementById('oficina_defecto').value = val;
+      }
+    </script>
 
   </body>
 </html>

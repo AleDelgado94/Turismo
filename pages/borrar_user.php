@@ -11,7 +11,7 @@
 
 
     if($users === TRUE){
-      header("Location: main.php");
+      header("Location: gestion_usuarios.php");
     }
     else{
       mysqli_close($link);

@@ -25,7 +25,7 @@
     $insertar = mysqli_query($link, $consulta) or die(mysqli_error($link));
 
     if($insertar === TRUE){
-      header("Location: main.php");
+      header("Location: gestion_usuarios.php");
     }
     else{
       mysqli_close($link);

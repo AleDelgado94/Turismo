@@ -3,6 +3,7 @@
   session_start(); //Iniciamos la sesión
   $link = require("connect_db.php");
   $username = $_POST['users'][0];
+  $oficina_defecto = $_POST['oficina_defecto'];
 
   $pass_encrypt = crypt($_POST['password'], '$6$rounds=5000$usesomesillystringforsalt$');
 
@@ -19,6 +20,9 @@
 
     //CREAMOS LAS SESIONES PARA LOS USUARIOS
     $_SESSION['usuario'] = $username;
+
+    //CREAMOS LAS SESISONES PARA LA oficina
+    $_SESSION['oficina_defecto'] = $oficina_defecto;
 
 
     //if(isset($_SESSION['usuario'])){

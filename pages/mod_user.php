@@ -13,7 +13,7 @@ if($old_user != 'admin'){
 
   if($mod === TRUE){
     mysqli_close($link);
-    header("Location: main.php");
+    header("Location: gestion_usuarios.php");
   }
   else {
     mysqli_close($link);

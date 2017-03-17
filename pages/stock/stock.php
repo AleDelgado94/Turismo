@@ -7,6 +7,7 @@
 
    if(isset($_SESSION['usuario'])) {
      $username = $_SESSION['usuario'];
+     $oficina = $_SESSION['oficina_defecto'];
 
 
      $link = require("../connect_db.php");
@@ -124,6 +125,9 @@
           <ul class="menu">
             <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
             $username
+            </span>"; ?></li>
+            <li><i class="material-icons">business</i><?php echo "<span class='usuario_panel'>&nbsp; Oficina:
+            $oficina
             </span>"; ?></li>
             <li><i class="material-icons">replay</i><a href="../main.php">&nbsp; Inicio</a></li>
             <li><i class="material-icons">mode_edit</i><a href="../encuesta/inicio.php">&nbsp; Encuesta</a></li>
@@ -348,7 +352,7 @@
           <div class="row">
             <input id="add_cant" type="submit" name="add_cant" value="Añadir">
             <scan>&nbsp;&nbsp;</scan>
-            <input id="delete_cant" type="submit" name="delete_cant" value="Eliminar">
+            <input id="delete_cant" type="submit" name="delete_cant" value="Descontar">
           </div>
         </form>
         </div>

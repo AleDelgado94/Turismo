@@ -7,6 +7,7 @@
 
    if(isset($_SESSION['usuario'])) {
      $username = $_SESSION['usuario'];
+     $oficina = $_SESSION['oficina_defecto'];
 ?>
        <!-- Aquí ponemos todo el código HTML de nuestra página restringida, desde <html> a </html>-->
 
@@ -67,6 +68,9 @@
           <ul class="menu">
             <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
             $username
+            </span>"; ?></li>
+            <li><i class="material-icons">business</i><?php echo "<span class='usuario_panel'>&nbsp; Oficina:
+            $oficina
             </span>"; ?></li>
             <li><i class="material-icons">replay</i><a href="../main.php">&nbsp; Inicio</a></li>
             <li><i class="material-icons">mode_edit</i><a href="#">&nbsp; Encuesta</a></li>
