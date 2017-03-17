@@ -134,7 +134,7 @@
                   </div>
 
 
-                  <div class="col s12 m12 l6">
+                  <div class="col s12 m12 l4">
                     <div class="row">
                       <div class="col s12 m12 12 left-align">
                         <label for="lugares">Lugar</label>
@@ -155,17 +155,34 @@
                         <label for="last_name">Dirección</label>
                       </div>
                     </div>
+
+
+                  </div>
+
+
+                  <div class="col s12 m12 l5 left-align">
+
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input id="email" type="email" name="email" class="validate">
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                      </div>
+                    </div>
+
                     <div class="row">
                       <div class="input-field col s12 m12 l12">
                         <textarea id="textarea1" name="descripcion" type="text" class="materialize-textarea"></textarea>
                         <label for="textarea1">Descripción</label>
                       </div>
                     </div>
+
+
                     <div class="row">
-                      <div class="col s12">
+                      <div class="col s12 right-align">
                         <input id="boton_enviar" type ="submit"/>
                       </div>
                     </div>
+
                   </div>
 
 
@@ -303,10 +320,24 @@
                                 <td> ".$fila['fecha']." </td> <!-- FECHA -->
                                 <td> ".$fila['descripcion']." </td> <!-- DESCRIPCION -->
                                 <td> <form  action='resolver.php' method='post'>
+                                  <div id='". $fila['id'] ."' class='modal'>
+                                    <div class='modal-content'>
+                                      <h4>". $fila['titulo'] ."</h4>
+                                      <div class='row'>
+                                          <div class='row'>
+                                            <div class='input-field col s12'>
+                                              <textarea id='resolucion".$fila['id']."' name='resolv' class='materialize-textarea'></textarea>
+                                              <label for='resolucion".$fila['id']."'>Resolución</label>
+                                            </div>
+                                          </div>
+                                      </div>
+                                        <input type='hidden' name='id_incidencia' value='".$fila['id']."'>
+                                        <input id='resolv' type='submit' name='send_incidencia' value='Resolver'/>
+                                    </div>
+                                  </div>
 
+                                  <a href='#".$fila['id']."' class='collection-item'>Resolver incidencia</a>
 
-                                  <input type='hidden' name='id_incidencia' value='".$fila['id']."'>
-                                  <input id='resolv' type='submit' name='send_incidencia' value='Resolver'/>
                                 </form> </td> <!-- RESUELTA -->
                               </tr>";
                           }
@@ -333,6 +364,7 @@
                            <th data-field="price">Oficina</th>
                            <th data-field="price">Fecha</th>
                            <th data-field="price">Descripcion</th>
+                           <th data-field="price">Resolución</th>
 
                        </tr>
                      </thead>
@@ -353,16 +385,16 @@
                         }
 
                         if ($OFICINA == "" && $LUGAR == "") {
-                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta, resolucion FROM incidencias
                           WHERE fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
                         }elseif ($OFICINA == '') {
-                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta, resolucion FROM incidencias WHERE
                           lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
                         }elseif ($LUGAR == '') {
-                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA."' AND
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta, resolucion FROM incidencias WHERE oficina='".$OFICINA."' AND
                           fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
                         }else {
-                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta FROM incidencias WHERE oficina='".$OFICINA."' AND
+                          $consulta_incidencia = "SELECT id, titulo, lugar, direccion, oficina, fecha, descripcion, resuelta, resolucion FROM incidencias WHERE oficina='".$OFICINA."' AND
                           lugar='".$LUGAR."' AND fecha BETWEEN '".$FECHA_INICIO."' AND '".$FECHA_FIN."' AND resuelta = 1";
                         }
 
@@ -380,6 +412,7 @@
                                 <td> ".$fila['oficina']." </td> <!-- OFICINA -->
                                 <td> ".$fila['fecha']." </td> <!-- FECHA -->
                                 <td> <p class='responsive'> ".$fila['descripcion']." </p> </td> <!-- DESCRIPCION -->
+                                <td> ".$fila['resolucion']."</td> <!-- Resolucion -->
                               </tr>";
                           }
                         }
@@ -472,7 +505,9 @@
         window.location="incidencias.php";
       }
 
-
+      $(document).ready(function(){
+        $('.modal').modal();
+      });
 
     </script>
 
