@@ -213,18 +213,15 @@
 
 
                         <div class="row">
-                          <div class="col s12 m12 l12 left-align">
-                            <a class="waves-effect waves-light btn #1b5e20 green darken-4" id="add_user">Añadir</a>
-                            <!--<a class="btn-floating waves-effect " id="add_user"><i class="material-icons">add</i></a>-->
+                          <div class="col s6 m12 l6 left-align">
+                            <a class="waves-effect waves-light btn #4caf50 green " id="add_user">Añadir</a>
                           </div>
+                          
+                          <div class="col s6 m12 l6 left-align">
+                            <a class="waves-effect waves-light btn #f44336 red" id="rm_user">Borrar</a>
+                          </div>
+                        </div>
 
-                        </div>
-                        <div class="row">
-                          <div class="col s12 m12 l12 left-align">
-                            <!--<a class="btn-floating waves-effect" id="rm_user"><i class="material-icons">replay</i></a>-->
-                            <a class="waves-effect waves-light btn #ef5350 red lighten-1" id="rm_user">Borrar</a>
-                          </div>
-                        </div>
 
                       </div>
 
@@ -1246,7 +1243,7 @@
     <script type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="../../js/encuesta/inicio.js"></script>
     <script type="text/javascript" src="../../js/encuesta/user.js"></script>
-    
+
 
 
 
