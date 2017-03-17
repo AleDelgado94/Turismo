@@ -206,18 +206,18 @@
 
                   <div class="col s12 m12 l6">
                     <div class="row">
-                      <div class="col s12 m6">
-                        <h5 class="left-align">Añadir visitante</h5>
+                      <div class="col s12 m6 l6">
+                        <h5 class="left-align">&nbsp;&nbsp;Visitante</h5>
 
                         <input type="hidden" name="n_personas" id="n_personas" value="0">
 
 
                         <div class="row">
-                          <div class="col s6 m12 l6 left-align">
+                          <div class="col s6 m10 l10 left-align">
                             <a class="waves-effect waves-light btn #4caf50 green " id="add_user">Añadir</a>
                           </div>
-                          
-                          <div class="col s6 m12 l6 left-align">
+
+                          <div class="col s6 m2 l2">
                             <a class="waves-effect waves-light btn #f44336 red" id="rm_user">Borrar</a>
                           </div>
                         </div>
