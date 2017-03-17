@@ -203,10 +203,10 @@
                   <div class="row">
 
                     <div class="col s12 m12 l6">
-                        <input type="text" class="datepicker" id="fecha_ini" name="fecha_ini" placeholder="Día">
+                        <input type="text" class="datepicker" id="fecha_ini" name="fecha_ini" placeholder="De:">
                     </div>
                     <div class="col s12 m12 l6">
-                        <input type="text" class="datepicker" id="fecha_fin" name="fecha_fin" placeholder="Día">
+                        <input type="text" class="datepicker" id="fecha_fin" name="fecha_fin" placeholder="Hasta:">
                     </div>
                   </div>
                   <div class="row">

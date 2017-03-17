@@ -390,16 +390,6 @@
                 </div>
 
 
-
-
-
-
-
-
-
-
-
-
   <!--ALOJAMIENTOOOOOOOOOOOOOOOOOOOO-->
               <div id="test2" class="col s12 m12 l12">
                 <!-- PRIMERA FILA -->
