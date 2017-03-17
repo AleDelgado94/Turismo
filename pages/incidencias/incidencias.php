@@ -112,6 +112,7 @@
 
                     <div class="row">
                       <div class="col s12 m12 l12 left-align">
+                        <label for="oficinas">Oficina</label>
                         <select name="oficinas" onchange="cambio(this.value)">
                           <option  value="" disabled selected>Oficina</option>
                           <option  value="Alcala">Alcalá</option>
@@ -136,6 +137,7 @@
                   <div class="col s12 m12 l6">
                     <div class="row">
                       <div class="col s12 m12 12 left-align">
+                        <label for="lugares">Lugar</label>
                         <select name="lugares" onchange="cambio(this.value, lugar)">
                           <option  value="" disabled selected>Lugar</option>
                           <option  value="Alcala">Alcalá</option>
@@ -183,6 +185,7 @@
                   <h4 class="left-align">Consultar</h4>
                   <div class="row">
                     <div class="col s12 m12 l6 left-align">
+                      <label for="oficinas">Oficina</label>
                       <select name="oficinas" onchange="ofi(this.value)">
                         <option  value="" disabled selected>Oficina</option>
                         <option  value="Alcala">Alcalá</option>
@@ -192,6 +195,7 @@
                       <input id="oficina_consulta_incidencia" type="hidden" name="oficina">
                     </div>
                     <div class="col s12 m12 l6 left-align">
+                      <label for="lugares">Lugar</label>
                       <select name="lugares" onchange="place(this.value)">
                         <option  value="" disabled selected>Lugar</option>
                         <option  value="Alcala">Alcalá</option>
