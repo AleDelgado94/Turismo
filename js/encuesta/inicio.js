@@ -3,7 +3,9 @@
 $(document).ready(function(){
     $('select').material_select();
     $('ul.tabs').tabs();
-
+    $("#btnContinue").click(function() {
+       $('ul.tabs').tabs('select_tab', 'test2');
+    });
 
     $(function() {
       $( ".fecha" ).datepicker();

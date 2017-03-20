@@ -109,7 +109,6 @@
 
 
               <div id="test1" name="pepito" class="col s12 ">
-
                 <div class="row">
                   <div class="col s12 m12 l4">
 
@@ -209,6 +208,11 @@
                           <option  value="Guia Casco">Guía Casco</option>
                         </select>
                         <input id="ofic" type="hidden" name="ofic" value="<?php echo $oficina;  ?>">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col s12 m12 l4 left-align">
+                        <input id="add_enviar" class="enviar_encuesta " type="submit" name="submit" value="Enviar encuesta">
                       </div>
                     </div>
                   </div>
@@ -610,7 +614,11 @@
                     </div>
 
                   </div>
-
+                  <div class="row">
+                    <div class="col s12 m12 l4 left-align">
+                      <input id="add_enviar" class="enviar_encuesta " type="submit" name="submit" value="Enviar encuesta">
+                    </div>
+                  </div>
 
               </div>
               <!-- FIN ALOJAMIENTOOOOOOOOOOOOOO-->
@@ -992,7 +1000,11 @@
 
 
                   </div>
-
+                  <div class="row">
+                    <div class="col s12 m12 l4 left-align">
+                      <input id="add_enviar" class="enviar_encuesta " type="submit" name="submit" value="Enviar encuesta">
+                    </div>
+                  </div>
               </div>
               <!--FIN DE INFORMACION SOLICITADA-->
 
@@ -1197,6 +1209,12 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col s12 m12 l4 left-align">
+                    <input id="add_enviar" class="enviar_encuesta " type="submit" name="submit" value="Enviar encuesta">
+                  </div>
+                </div>
+                
               </div>
 
           </section>
@@ -1207,14 +1225,17 @@
 
 
 
-
-
             <div class="row">
               <div class="col s12 m12 l12">
-                <input id="add_enviar" class="enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
-                
+                <ul class="tabs">
+
+                </ul>
+
+
               </div>
             </div>
+
+
           </div>
 
           </div>
