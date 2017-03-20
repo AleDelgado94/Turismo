@@ -1271,20 +1271,6 @@
             <!-- fin columna grande -->
 
 
-
-
-            <div class="row">
-              <div class="col s12 m12 l12">
-                <input id="add_enviar" class="enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
-                <ul class="tabs">
-
-                </ul>
-
-
-              </div>
-            </div>
-
-
           </div>
 
           </div>
