@@ -120,7 +120,8 @@
 
                           while($usu_delete = mysqli_fetch_assoc($users_delete)){
                             $user_delete = $usu_delete['usuario'];
-                            echo "<option type='text' value='$user_delete' name='$user_delete'>$user_delete</option>";
+                            if($user_delete != "admin")
+                              echo "<option type='text' value='$user_delete' name='$user_delete'>$user_delete</option>";
                           }
 
                           mysqli_free_result($users_delete);
