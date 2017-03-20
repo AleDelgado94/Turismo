@@ -192,7 +192,7 @@
 
                     <div class="row">
                       <div class="col s12 right-align">
-                        <input id="boton_enviar" type ="submit"/>
+                        <input id="boton_enviar" value="Añadir incidencia" type ="submit"/>
                       </div>
                     </div>
 
