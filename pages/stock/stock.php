@@ -121,7 +121,7 @@
 
   <main>
       <div class="row">
-        <div class="col s12 m3 l3 ">
+        <div class="col s12 m3 l2 ">
           <ul class="menu">
             <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
             $username
