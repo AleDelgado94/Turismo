@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-03-2017 a las 15:35:59
+-- Tiempo de generación: 20-03-2017 a las 15:05:10
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -63,8 +63,8 @@ CREATE TABLE `informacion_guia` (
 
 CREATE TABLE `informacion_tenerife` (
   `grupo` int(11) NOT NULL,
-  `info` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci ROW_FORMAT=COMPACT;
+  `info` varchar(255) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,7 @@ CREATE TABLE `login` (
   `ID` int(11) NOT NULL,
   `USUARIO` varchar(255) CHARACTER SET utf8 NOT NULL,
   `PASS` varchar(255) CHARACTER SET utf8 NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `login`
@@ -89,7 +89,7 @@ INSERT INTO `login` (`ID`, `USUARIO`, `PASS`) VALUES
 (8, 'Irma', '$6$rounds=5000$usesomesillystri$Rxh39fKjiVX9r3kCFNDIBZSuTxW0S35oEOwJ.ky.GvT8ySKqcCDust11o.gEeksASE/xGMPWPMXfKfEEz0I0r0'),
 (10, 'Silvia', '$6$rounds=5000$usesomesillystri$RJRGCzD9z8e1ixDbkntuN9kbS3FnjNcO2EPwfO5brSqbnHs33625oIYem2yWtYheEgnHAoi.Om0ZgLTNKILHM1'),
 (11, 'Concejal', '$6$rounds=5000$usesomesillystri$5x9JJYwDRafdTNiSpMsIN5HG8JOqhbf8W84KeVAF9E0suGPkg34Dv9J2KeJfjXCLhyuoxE5/Ff941x/MNQsoq/'),
-(12, 'Invitado', '$6$rounds=5000$usesomesillystri$2FJ.4rKsXT5myesOAoJRVk8NX/T7eKjY0dNGyo5G/8o4mJ3tlo6xW1Tkthk/z2P8lbUPg/7BTrduIuG/Ck7YJ1');
+(14, 'Invitado', '$6$rounds=5000$usesomesillystri$2FJ.4rKsXT5myesOAoJRVk8NX/T7eKjY0dNGyo5G/8o4mJ3tlo6xW1Tkthk/z2P8lbUPg/7BTrduIuG/Ck7YJ1');
 
 -- --------------------------------------------------------
 
@@ -99,9 +99,9 @@ INSERT INTO `login` (`ID`, `USUARIO`, `PASS`) VALUES
 
 CREATE TABLE `materiales_municipio` (
   `grupo` int(11) NOT NULL,
-  `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -111,9 +111,9 @@ CREATE TABLE `materiales_municipio` (
 
 CREATE TABLE `materiales_otras_islas` (
   `grupo` int(11) NOT NULL,
-  `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -123,9 +123,9 @@ CREATE TABLE `materiales_otras_islas` (
 
 CREATE TABLE `materiales_otros_municipios` (
   `grupo` int(11) NOT NULL,
-  `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -147,9 +147,9 @@ CREATE TABLE `material_promocional` (
 
 CREATE TABLE `material_turismo_tenerife` (
   `grupo` int(11) NOT NULL,
-  `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -159,13 +159,13 @@ CREATE TABLE `material_turismo_tenerife` (
 
 CREATE TABLE `perfil_alojamiento` (
   `grupo` int(11) NOT NULL,
-  `conocer` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `repite` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `alojamiento` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `motivo` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `municipio` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `tiempo` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `conocer` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `repite` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `alojamiento` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `motivo` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `municipio` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `tiempo` varchar(255) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -174,16 +174,16 @@ CREATE TABLE `perfil_alojamiento` (
 --
 
 CREATE TABLE `stock_municipio` (
-  `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 --
 -- Volcado de datos para la tabla `stock_municipio`
 --
 
 INSERT INTO `stock_municipio` (`material`, `cantidad`) VALUES
-('callejero', 5),
+('callejero', 1),
 ('folleto_eventos_municipales', 100),
 ('folleto_ocio', 100),
 ('guias_turisticas', 100),
@@ -196,9 +196,9 @@ INSERT INTO `stock_municipio` (`material`, `cantidad`) VALUES
 --
 
 CREATE TABLE `stock_otras_islas` (
-  `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 --
 -- Volcado de datos para la tabla `stock_otras_islas`
@@ -215,9 +215,9 @@ INSERT INTO `stock_otras_islas` (`material`, `cantidad`) VALUES
 --
 
 CREATE TABLE `stock_otros_municipios` (
-  `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 --
 -- Volcado de datos para la tabla `stock_otros_municipios`
@@ -235,9 +235,9 @@ INSERT INTO `stock_otros_municipios` (`material`, `cantidad`) VALUES
 --
 
 CREATE TABLE `stock_promocional` (
-  `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 --
 -- Volcado de datos para la tabla `stock_promocional`
@@ -255,9 +255,9 @@ INSERT INTO `stock_promocional` (`material`, `cantidad`) VALUES
 --
 
 CREATE TABLE `stock_turismo_tenerife` (
-  `material` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 --
 -- Volcado de datos para la tabla `stock_turismo_tenerife`
@@ -271,7 +271,7 @@ INSERT INTO `stock_turismo_tenerife` (`material`, `cantidad`) VALUES
 ('tenerife_cetaceos', 93),
 ('tenerife_coche', 96),
 ('tenerife_familia', 100),
-('tenerife_natural_rural', 100),
+('tenerife_natural_rural', 97),
 ('tenerife_pie', 97),
 ('tradiciones_tenerife', 100);
 
@@ -284,15 +284,15 @@ INSERT INTO `stock_turismo_tenerife` (`material`, `cantidad`) VALUES
 CREATE TABLE `visita` (
   `id` int(11) NOT NULL,
   `grupo` int(11) NOT NULL,
-  `consulta` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `hora` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `consulta` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `hora` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `fecha` date NOT NULL,
-  `sexo` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `edad` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
-  `nacionalidad` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `residencia` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `oficina` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci ROW_FORMAT=COMPACT;
+  `sexo` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `edad` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `nacionalidad` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `residencia` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `oficina` varchar(255) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci ROW_FORMAT=COMPACT;
 
 --
 -- Índices para tablas volcadas
@@ -354,17 +354,17 @@ ALTER TABLE `visita`
 -- AUTO_INCREMENT de la tabla `incidencias`
 --
 ALTER TABLE `incidencias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
