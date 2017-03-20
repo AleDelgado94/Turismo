@@ -131,8 +131,6 @@
 
               <div id="test1" class="col s12 ">
 
-
-
                 <div class="row">
                   <div class="col s12 m12 l4">
 
@@ -232,6 +230,11 @@
                           <option  value="Guia Casco">Guía Casco</option>
                         </select>
                         <input id="ofic" type="hidden" name="ofic" value="<?php echo $oficina;  ?>">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col s12 m12 l4 left-align">
+                        <input id="add_enviar" class="enviar_encuesta " type="submit" name="submit" value="Enviar encuesta">
                       </div>
                     </div>
                   </div>
@@ -647,6 +650,12 @@
                     <a id="sigtest2" class="btn waves-effect waves-light" href="#"><i class="material-icons right">fast_forward</i>Delante</a>
                   </div>
 
+                  <div class="row">
+                    <div class="col s12 m12 l4 left-align">
+                      <input id="add_enviar" class="enviar_encuesta " type="submit" name="submit" value="Enviar encuesta">
+                    </div>
+                  </div>
+
               </div>
               <!-- FIN ALOJAMIENTOOOOOOOOOOOOOO-->
 
@@ -1033,6 +1042,12 @@
                     <a id="sigtest3" class="btn waves-effect waves-light" href="#"><i class="material-icons right">fast_forward</i>Delante</a>
                   </div>
 
+
+                  <div class="row">
+                    <div class="col s12 m12 l4 left-align">
+                      <input id="add_enviar" class="enviar_encuesta " type="submit" name="submit" value="Enviar encuesta">
+                    </div>
+                  </div>
               </div>
               <!--FIN DE INFORMACION SOLICITADA-->
 
@@ -1242,6 +1257,12 @@
                   <a id="anttest4" class="btn waves-effect waves-light" href="#"><i class="material-icons left">fast_rewind</i>Atras</a>
                 </div>
 
+                <div class="row">
+                  <div class="col s12 m12 l4 left-align">
+                    <input id="add_enviar" class="enviar_encuesta " type="submit" name="submit" value="Enviar encuesta">
+                  </div>
+                </div>
+
               </div>
 
           </section>
@@ -1252,11 +1273,14 @@
 
 
 
-
-
             <div class="row">
               <div class="col s12 m12 l12">
                 <input id="add_enviar" class="enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
+                <ul class="tabs">
+
+                </ul>
+
+
               </div>
             </div>
 

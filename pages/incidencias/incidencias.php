@@ -140,10 +140,23 @@
                         <label for="lugares">Lugar</label>
                         <select name="lugares" onchange="cambio(this.value, lugar)">
                           <option  value="" disabled selected>Lugar</option>
+                          <option  value="Acojeja">Acojeja</option>
+                          <option  value="Agua Dulce">Agua Dulce</option>
                           <option  value="Alcala">Alcalá</option>
-                          <option  value="Playa San Juan">Playa San Juan</option>
-                          <option  value="Guia Casco">Guía Casco</option>
+                          <option  value="Aripe">Aripe</option>
+                          <option  value="Chiguergue">Chiguergue</option>
                           <option  value="Chio">Chío</option>
+                          <option  value="Chirche">Chiche</option>
+                          <option  value="Cueva del Polvo">Cueva del Polvo</option>
+                          <option  value="El Jaral">El Jaral</option>
+                          <option  value="El Pozo">El Pozo</option>
+                          <option  value="Fonsalia">Fonsalía</option>
+                          <option  value="Guia Casco">Guía Casco</option>
+                          <option  value="Piedra Hincada">Piedra Hincada</option>
+                          <option  value="Playa San Juan">Playa San Juan</option>
+                          <option  value="Tejina">Tejina</option>
+                          <option  value="Varadero">Varadero</option>
+                          <option  value="Verda de Esques">Vera de Esques</option>
                         </select>
                         <input id="lugar" type="hidden" name="lugar">
                       </div>
@@ -215,10 +228,23 @@
                       <label for="lugares">Lugar</label>
                       <select name="lugares" onchange="place(this.value)">
                         <option  value="" disabled selected>Lugar</option>
+                        <option  value="Acojeja">Acojeja</option>
+                        <option  value="Agua Dulce">Agua Dulce</option>
                         <option  value="Alcala">Alcalá</option>
-                        <option  value="Playa San Juan">Playa San Juan</option>
-                        <option  value="Guia Casco">Guía Casco</option>
+                        <option  value="Aripe">Aripe</option>
+                        <option  value="Chiguergue">Chiguergue</option>
                         <option  value="Chio">Chío</option>
+                        <option  value="Chirche">Chiche</option>
+                        <option  value="Cueva del Polvo">Cueva del Polvo</option>
+                        <option  value="El Jaral">El Jaral</option>
+                        <option  value="El Pozo">El Pozo</option>
+                        <option  value="Fonsalia">Fonsalía</option>
+                        <option  value="Guia Casco">Guía Casco</option>
+                        <option  value="Piedra Hincada">Piedra Hincada</option>
+                        <option  value="Playa San Juan">Playa San Juan</option>
+                        <option  value="Tejina">Tejina</option>
+                        <option  value="Varadero">Varadero</option>
+                        <option  value="Verda de Esques">Vera de Esques</option> 
                       </select>
                       <input id="lugar_consulta_incidencia" type="hidden" name="lugar">
                     </div>
