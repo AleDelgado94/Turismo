@@ -91,6 +91,26 @@ footer.page-footer-modi .footer-copyright-modi {
   background-color: rgba(51, 51, 51, 0.08);
 }
 
+
+.btn:focus, .btn-large:focus,
+.btn-floating:focus {
+  background-color: #409bc7;
+}
+
+.btn, .btn-large {
+  text-decoration: none;
+  color: #fff;
+  background-color: #409bc7;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+}
+
+.btn:hover, .btn-large:hover {
+  background-color: #409bc7;
+}
+
 #escudo-footer{
   padding-top: 10px;
   max-height: 100px;

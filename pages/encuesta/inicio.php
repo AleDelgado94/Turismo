@@ -27,6 +27,27 @@
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 
+    <style media="screen">
+      .btn:focus, .btn-large:focus,
+      .btn-floating:focus {
+        background-color: #409bc7;
+      }
+
+      .btn, .btn-large {
+        text-decoration: none;
+        color: #fff;
+        background-color: #409bc7;
+        text-align: center;
+        letter-spacing: .5px;
+        transition: .2s ease-out;
+        cursor: pointer;
+      }
+
+      .btn:hover, .btn-large:hover {
+        background-color: #409bc7;
+      }
+    </style>
+
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -108,7 +129,9 @@
             </div>
 
 
-              <div id="test1" name="pepito" class="col s12 ">
+              <div id="test1" class="col s12 ">
+
+
 
                 <div class="row">
                   <div class="col s12 m12 l4">
@@ -238,9 +261,6 @@
                     </div>
 
                      <div id="USER"></div>
-
-
-
 
                       <!-- PERSONAS MAX -->
                       <input type="hidden" name="edad1" id="edad1" value="">
@@ -393,11 +413,22 @@
                       <input type="hidden" name="nacionalidad30" id="nacionalidad30"  value="">
                       <input type="hidden" name="residencia30" id="residencia30"  value="">
 
+
+
+
+
                     </div>
 
                   </div>
 
-                </div>
+                  <div class="row right-align">
+                    <a id="sigtest1" class="btn waves-effect waves-light" href="#"><i class="material-icons right">fast_forward</i>Delante</a>
+                  </div>
+
+
+
+
+             </div>
 
 
   <!--ALOJAMIENTOOOOOOOOOOOOOOOOOOOO-->
@@ -611,6 +642,10 @@
 
                   </div>
 
+                  <div class="row right-align">
+                    <a id="anttest2" class="btn waves-effect waves-light" href="#"><i class="material-icons left">fast_rewind</i>Atras</a>
+                    <a id="sigtest2" class="btn waves-effect waves-light" href="#"><i class="material-icons right">fast_forward</i>Delante</a>
+                  </div>
 
               </div>
               <!-- FIN ALOJAMIENTOOOOOOOOOOOOOO-->
@@ -993,6 +1028,11 @@
 
                   </div>
 
+                  <div class="row right-align">
+                    <a id="anttest3" class="btn waves-effect waves-light" href="#"><i class="material-icons left">fast_rewind</i>Atras</a>
+                    <a id="sigtest3" class="btn waves-effect waves-light" href="#"><i class="material-icons right">fast_forward</i>Delante</a>
+                  </div>
+
               </div>
               <!--FIN DE INFORMACION SOLICITADA-->
 
@@ -1197,6 +1237,11 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="row right-align">
+                  <a id="anttest4" class="btn waves-effect waves-light" href="#"><i class="material-icons left">fast_rewind</i>Atras</a>
+                </div>
+
               </div>
 
           </section>
@@ -1212,9 +1257,10 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <input id="add_enviar" class="enviar_encuesta" type="submit" name="submit" value="Enviar encuesta">
-                
               </div>
             </div>
+
+
           </div>
 
           </div>
@@ -1262,6 +1308,29 @@
     <script type="text/javascript" src="../../js/encuesta/inicio.js"></script>
     <script type="text/javascript" src="../../js/encuesta/user.js"></script>
 
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $('ul.tabs').tabs();
+      $("#sigtest1").click(function() {
+        $('ul.tabs').tabs('select_tab', 'test2');
+      });
+      $("#sigtest2").click(function() {
+        $('ul.tabs').tabs('select_tab', 'test3');
+      });
+      $("#anttest2").click(function() {
+        $('ul.tabs').tabs('select_tab', 'test1');
+      });
+      $("#sigtest3").click(function() {
+        $('ul.tabs').tabs('select_tab', 'test4');
+      });
+      $("#anttest3").click(function() {
+        $('ul.tabs').tabs('select_tab', 'test2');
+      });
+      $("#anttest4").click(function() {
+        $('ul.tabs').tabs('select_tab', 'test3');
+      });
+    });
+    </script>
 
 
 
