@@ -13,6 +13,7 @@
      $users = mysqli_query($link, $consulta) or die(mysqli_error($link));
 
 
+
 ?>
        <!-- Aquí ponemos todo el código HTML de nuestra página restringida, desde <html> a </html>-->
 
@@ -107,14 +108,33 @@
                   <div class="collapsible-header center">Eliminar usuario existente</div>
                   <div class="collapsible-body">
                     <form action="borrar_user.php" method="post">
-                      <span>Usuario: </span>
-                      <input type="text" name="delete_user" value="">
-                      <input type="submit" name="create_user" value="Borrar">
+
+
+                      <select id="users_delete" name="users_delete">
+                        <option value="" disabled selected>Usuario</option>
+
+                        <?php
+
+                          $consulta_delete = "SELECT usuario FROM login;";
+                          $users_delete = mysqli_query($link, $consulta_delete) or die(mysqli_error($link));
+
+                          while($usu_delete = mysqli_fetch_assoc($users_delete)){
+                            $user_delete = $usu_delete['usuario'];
+                            echo "<option type='text' value='$user_delete' name='$user_delete'>$user_delete</option>";
+                          }
+
+                          mysqli_free_result($users_delete);
+                         ?>
+                      </select>
+
+                      <input type="submit" name="delete_usuario" value="Borrar">
                     </form>
                   </div>
                 </li>
               </ul>
             </div>
+
+
 
             <div class="col s12 m3 l3">
               <ul class="collapsible container-fluid" data-collapsible="accordion">
@@ -193,6 +213,11 @@
     <script type="text/javascript" src="../js/materialize.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript" src="../js/gestion_usuario.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('select').material_select();
+      });
+    </script>
 
   </body>
 </html>

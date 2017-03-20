@@ -2,7 +2,8 @@
 
   $link = require("connect_db.php");
 
-  $usuario = $_POST['delete_user'];
+  $usuario = $_POST['users_delete'];
+
 
   $consulta = "DELETE FROM login WHERE usuario ='". $usuario ."';";
   if($usuario != 'admin'){
