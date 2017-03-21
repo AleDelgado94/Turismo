@@ -28,6 +28,11 @@
     <link type="text/css" rel="stylesheet" href="../../jquery-ui-1.12.1.custom/jquery-ui.css"/>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style media="screen">
+      .dropdown-content li > a, .dropdown-content li > span {
+        color: #409BC7 !important;
+      }
+    </style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">

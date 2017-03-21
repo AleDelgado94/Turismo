@@ -22,6 +22,11 @@
     <link type="text/css" rel="stylesheet" href="../css/main.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="../image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
+    <style media="screen">
+    .dropdown-content li > a, .dropdown-content li > span {
+      color: #409BC7 !important;
+    }
+    </style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">

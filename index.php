@@ -19,6 +19,11 @@ $users = mysqli_query($link, $consulta) or die(mysqli_error($link));
     <link type="text/css" rel="stylesheet" href="css/font-awesome.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/png" href="http://www.guiadeisora.org/corp/wp-content/themes/FoundationPress-master/assets/img/icons/favicon.ico" />
+    <style media="screen">
+      .dropdown-content li > a, .dropdown-content li > span {
+        color: #409BC7 !important;
+      }
+    </style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
