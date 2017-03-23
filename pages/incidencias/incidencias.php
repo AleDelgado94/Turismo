@@ -161,7 +161,7 @@
                           <option  value="Playa San Juan">Playa San Juan</option>
                           <option  value="Tejina">Tejina</option>
                           <option  value="Varadero">Varadero</option>
-                          <option  value="Verda de Esques">Vera de Esques</option>
+                          <option  value="Verda de Erques">Vera de Erques</option>
                         </select>
                         <input id="lugar" type="hidden" name="lugar">
                       </div>
@@ -249,7 +249,7 @@
                         <option  value="Playa San Juan">Playa San Juan</option>
                         <option  value="Tejina">Tejina</option>
                         <option  value="Varadero">Varadero</option>
-                        <option  value="Verda de Esques">Vera de Esques</option>
+                        <option  value="Verda de Erques">Vera de Erques</option>
                       </select>
                       <input id="lugar_consulta_incidencia" type="hidden" name="lugar">
                     </div>
