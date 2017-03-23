@@ -7,6 +7,7 @@
 
    if(isset($_SESSION['usuario'])) {
      $username = $_SESSION['usuario'];
+     $oficina = $_SESSION['oficina_defecto'];
 
      $link = require("connect_db.php");
      $consulta = "SELECT usuario FROM login;";
@@ -72,9 +73,13 @@
             <li><i class="material-icons">perm_identity</i><?php echo "<span class='usuario_panel'>&nbsp; Usuario:
             $username
             </span>"; ?></li>
+            <li><i class="material-icons">business</i><?php echo "<span class='usuario_panel'>&nbsp; Oficina:
+            $oficina
+            </span>"; ?></li>
             <li><i class="material-icons">replay</i><a href="main.php">&nbsp; Inicio</a></li>
             <li><i class="material-icons">mode_edit</i><a href="encuesta/inicio.php">&nbsp; Encuesta</a></li>
             <li><i class="material-icons">trending_up</i><a href="#">&nbsp; Consultar estadísticas</a></li>
+            <li><i class="material-icons">shopping_cart</i><a href="stock/stock.php">&nbsp; Stock</a></li>
             <li><i class="material-icons">new_releases</i><a href="incidencias/incidencias.php">&nbsp; Incidencias</a></li>
             <?php
               if($username == 'admin'){
