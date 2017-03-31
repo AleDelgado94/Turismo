@@ -151,7 +151,7 @@
                           <option  value="Aripe">Aripe</option>
                           <option  value="Chiguergue">Chiguergue</option>
                           <option  value="Chio">Chío</option>
-                          <option  value="Chirche">Chiche</option>
+                          <option  value="Chirche">Chirche</option>
                           <option  value="Cueva del Polvo">Cueva del Polvo</option>
                           <option  value="El Jaral">El Jaral</option>
                           <option  value="El Pozo">El Pozo</option>
@@ -235,11 +235,11 @@
                         <option  value="" disabled selected>Lugar</option>
                         <option  value="Acojeja">Acojeja</option>
                         <option  value="Agua Dulce">Agua Dulce</option>
-                        <option  value="Alcala">Alcalá</option>
+      Enventos                  <option  value="Alcala">Alcalá</option>
                         <option  value="Aripe">Aripe</option>
                         <option  value="Chiguergue">Chiguergue</option>
                         <option  value="Chio">Chío</option>
-                        <option  value="Chirche">Chiche</option>
+                        <option  value="Chirche">Chirche</option>
                         <option  value="Cueva del Polvo">Cueva del Polvo</option>
                         <option  value="El Jaral">El Jaral</option>
                         <option  value="El Pozo">El Pozo</option>
