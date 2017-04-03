@@ -172,15 +172,14 @@
               <div class="row">
                 <div class="col s12 m12 l12">
                   <div class="row">
-                    <h5 class="left-align">Observaciones</h5>
+                    <h5 class="left-align">Ocupación Hotelera</h5>
 
 
                     <table class="responsive-table">
                      <thead>
                        <tr>
-                           <th data-field="id">Id</th>
-                           <th data-field="name">Observacion</th>
-                           <th data-field="name">Eliminar</th>
+                           <th data-field="name">Hotel</th>
+                           <th data-field="name">Ocupacion</th>
 
                        </tr>
                      </thead>
@@ -193,7 +192,7 @@
 
                         $link = require("../connect_db.php");
 
-                        $consulta_observacion= "SELECT * FROM observaciones;";
+                        $consulta_observacion= "SELECT hotel,ocupacion FROM ocupacion_hoteles;";
 
 
                         if($observaciones = mysqli_query($link, $consulta_observacion)){
@@ -202,15 +201,10 @@
 
                             echo "
                               <tr>
-                                <td> ".$fila['id']." </td> <!-- TITULO -->
-                                <td> ".$fila['observacion']." </td> <!-- LUGAR  -->
-                                <td> <form  action='eliminar.php' method='post'>
-
-                                  <input type='hidden' name='id_observacion' value='".$fila['id']."'>
-                                  <input id='delete' type='submit' name='eleminar_observacion' value='Eliminar'/>
+                                <td> ".$fila['hotel']." </td> <!-- TITULO -->
+                                <td> ".$fila['ocupacion']." </td> <!-- LUGAR  -->
 
 
-                                </form> </td> <!-- RESUELTA -->
                               </tr>";
                           }
                         }
