@@ -453,13 +453,6 @@
 
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" name="alo1[]" value="Redes sociales" id="conoce1" />
-                          <label for="conoce1">Playas</label>
-                        </p>
-                      </div>
-
-                      <div class="row-modi">
-                        <p>
                           <input type="checkbox" name="alo1[]" value="Web" id="conoce2"  />
                           <label for="conoce2">Web</label>
                         </p>
@@ -570,6 +563,7 @@
                       </div>
 
                       <div class="row-modi">
+
                         <p>
                           <input name="alo4[]" value="Clima" type="checkbox" id="motivo1"  />
                           <label for="motivo1">Clima</label>
@@ -602,7 +596,12 @@
                           <label for="motivo5">Gastronomía</label>
                         </p>
                       </div>
-
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="alo4[]" value="Playas" id="motivo6" />
+                          <label for="motivo6">Playas</label>
+                        </p>
+                      </div>
                     </div>
 
                     <!-- SEGUNDA COLUMNA -->
