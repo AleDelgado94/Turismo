@@ -132,7 +132,8 @@
 
                     <div class="row">
                       <div class="col s12 m12 l12">
-                          <input type="text" class="datepicker" name="fecha" placeholder="Día">
+                          <!--<input type="text" class="datepicker" name="fecha" placeholder="Día">-->
+                          <input type="text" class="datepicker" id="datepicker" class="fecha" id="fecha" name="fecha" value="<?php echo date("Y-m-d"); ?>" placeholder="Día">
                       </div>
                     </div>
 
@@ -235,7 +236,7 @@
                         <option  value="" disabled selected>Lugar</option>
                         <option  value="Acojeja">Acojeja</option>
                         <option  value="Agua Dulce">Agua Dulce</option>
-      Enventos                  <option  value="Alcala">Alcalá</option>
+                        <option  value="Alcala">Alcalá</option>
                         <option  value="Aripe">Aripe</option>
                         <option  value="Chiguergue">Chiguergue</option>
                         <option  value="Chio">Chío</option>
