@@ -173,8 +173,52 @@
                 <div class="col s12 m12 l12">
                   <div class="row">
                     <h5 class="left-align">Ocupación Hotelera</h5>
+                    <div class="col s12 m12 l2">
+                      <select name="hotel[]">
+                        <option value="" disabled selected>Hotel</option>
+                        <option value="Allegro Isora">Allegro Isora</option>
+                        <option value="Bahia Flamengo">Bahía Flamengo</option>
+                        <option value="Palacio de Isora">Palacio de Isora</option>
+                        <option value="Ritz Carlton Abama">Ritz Carlton Abama</option>
+                      </select>
+                      <label>Hotel</label>
+                    </div>
 
+                    <div class="col s12 m12 l2">
+                      <select name="mes[]">
+                        <option value="" disabled selected>Mes</option>
+                        <option value="Enero">Enero</option>
+                        <option value="Febrero">Febrero</option>
+                        <option value="Marzo">Marzo</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Mayo">Mayo</option>
+                        <option value="Junio">Junio</option>
+                        <option value="Julio">Julio</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Septiembre">Septiembre</option>
+                        <option value="Octubre">Octubre</option>
+                        <option value="Noviembre">Noviembre</option>
+                        <option value="Diciembre">Diciembre</option>
+                      </select>
+                      <label>mes</label>
 
+                    </div>
+                    <div class="col s12 m12 l2">
+                      <select name="year[]">
+                        <?php
+                          for ($i=2017; $i<=2050; $i++) {
+                            echo "<option value='$i'>$i</option>";
+                          }
+                         ?>
+
+                      </select>
+                      <label>year</label>
+
+                    </div>
+                    <div class="col s12 m12 l2">
+                      <input id="boton_enviar" value="Consulta" type ="submit"/>
+                    </div>
+                    <!--
                     <table class="responsive-table">
                      <thead>
                        <tr>
@@ -189,7 +233,7 @@
                      <?php
                         /************ MOSTRAR RESULTADOS CONSULTA INCIDENCIAS ****************/
 
-
+                        /*
                         $link = require("../connect_db.php");
 
                         $consulta_observacion= "SELECT hotel,ocupacion FROM ocupacion_hoteles;";
@@ -208,10 +252,10 @@
                               </tr>";
                           }
                         }
-
+                        */
                       ?>
                       </tbody>
-                   </table>
+                   </table>-->
                   </div>
 
                 </div>

@@ -37,6 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">
     <title>Turismo - Base de datos</title>
+
   </head>
   <body>
 
@@ -136,14 +137,12 @@
                 <div class="col s12 m12 l12">
                   <div class="row">
                     <h5 class="left-align">Observaciones</h5>
-
-
-                    <table class="responsive-table">
+                    <table class="striped responsive-table" width="50%">
                      <thead>
                        <tr>
-                           <th data-field="id">Id</th>
-                           <th data-field="name">Observacion</th>
-                           <th data-field="name">Eliminar</th>
+
+                           <th data-field="name" class="col_obser">Observacion</th>
+                           <th data-field="name" class="">Eliminar</th>
 
                        </tr>
                      </thead>
@@ -165,7 +164,7 @@
 
                             echo "
                               <tr>
-                                <td> ".$fila['id']." </td> <!-- TITULO -->
+
                                 <td> ".$fila['observacion']." </td> <!-- LUGAR  -->
                                 <td> <form  action='eliminar.php' method='post'>
 
