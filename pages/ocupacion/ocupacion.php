@@ -173,89 +173,108 @@
                 <div class="col s12 m12 l12">
                   <div class="row">
                     <h5 class="left-align">Ocupación Hotelera</h5>
-                    <div class="col s12 m12 l2">
-                      <select name="hotel[]">
-                        <option value="" disabled selected>Hotel</option>
-                        <option value="Allegro Isora">Allegro Isora</option>
-                        <option value="Bahia Flamengo">Bahía Flamengo</option>
-                        <option value="Palacio de Isora">Palacio de Isora</option>
-                        <option value="Ritz Carlton Abama">Ritz Carlton Abama</option>
-                      </select>
-                      <label>Hotel</label>
-                    </div>
 
-                    <div class="col s12 m12 l2">
-                      <select name="mes[]">
-                        <option value="" disabled selected>Mes</option>
-                        <option value="Enero">Enero</option>
-                        <option value="Febrero">Febrero</option>
-                        <option value="Marzo">Marzo</option>
-                        <option value="Abril">Abril</option>
-                        <option value="Mayo">Mayo</option>
-                        <option value="Junio">Junio</option>
-                        <option value="Julio">Julio</option>
-                        <option value="Agosto">Agosto</option>
-                        <option value="Septiembre">Septiembre</option>
-                        <option value="Octubre">Octubre</option>
-                        <option value="Noviembre">Noviembre</option>
-                        <option value="Diciembre">Diciembre</option>
-                      </select>
-                      <label>mes</label>
+                      <div class="col s12 m12 l2">
+                        <select name="hoteles" onchange="hot(this.value)">
+                          <option value="Hotel">Hotel</option>
+                          <option value="Allegro Isora">Allegro Isora</option>
+                          <option value="Bahia Flamengo">Bahía Flamengo</option>
+                          <option value="Palacio de Isora">Palacio de Isora</option>
+                          <option value="Ritz Carlton Abama">Ritz Carlton Abama</option>
+                          <option value="Todos">Todos</option>
+                        </select>
+                        <label>Hotel</label>
+                        <input id="hotel_consulta" type="hidden" name="hotel">
+                      </div>
 
-                    </div>
-                    <div class="col s12 m12 l2">
-                      <select name="year[]">
-                        <?php
-                          for ($i=2017; $i<=2050; $i++) {
-                            echo "<option value='$i'>$i</option>";
-                          }
-                         ?>
+                      <div class="col s12 m12 l2">
+                        <select name="meses" onchange="mounth(this.value)">
+                          <option value="Mes">Mes</option>
+                          <option value="Enero">Enero</option>
+                          <option value="Febrero">Febrero</option>
+                          <option value="Marzo">Marzo</option>
+                          <option value="Abril">Abril</option>
+                          <option value="Mayo">Mayo</option>
+                          <option value="Junio">Junio</option>
+                          <option value="Julio">Julio</option>
+                          <option value="Agosto">Agosto</option>
+                          <option value="Septiembre">Septiembre</option>
+                          <option value="Octubre">Octubre</option>
+                          <option value="Noviembre">Noviembre</option>
+                          <option value="Diciembre">Diciembre</option>
+                          <option value="Todos">Todos</option>
+                        </select>
+                        <label>mes</label>
+                        <input id="mes_consulta" type="hidden" name="mes">
+                      </div>
+                      <div class="col s12 m12 l2">
+                        <select name="years" onchange="date(this.value)">
+                          <?php
+                            for ($i=2017; $i<=2050; $i++) {
+                              echo "<option value='$i'>$i</option>";
+                            }
+                           ?>
 
-                      </select>
-                      <label>year</label>
+                        </select>
+                        <label>year</label>
+                        <input id="year_consulta" type="hidden" name="year">
 
-                    </div>
-                    <div class="col s12 m12 l2">
-                      <input id="boton_enviar" value="Consulta" type ="submit"/>
-                    </div>
-                    <!--
-                    <table class="responsive-table">
-                     <thead>
-                       <tr>
-                           <th data-field="name">Hotel</th>
-                           <th data-field="name">Ocupacion</th>
-
-                       </tr>
-                     </thead>
-
-                     <tbody>
-
-                     <?php
-                        /************ MOSTRAR RESULTADOS CONSULTA INCIDENCIAS ****************/
-
-                        /*
-                        $link = require("../connect_db.php");
-
-                        $consulta_observacion= "SELECT hotel,ocupacion FROM ocupacion_hoteles;";
+                      </div>
+                      <div class="col s12 m12 l2">
+                        <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult(hotel_consulta,mes_consulta,year_consulta)"/>
+                      </div>
 
 
-                        if($observaciones = mysqli_query($link, $consulta_observacion)){
+                      <table class="responsive-table">
+                       <thead>
+                         <tr>
+                             <th data-field="name">Hotel</th>
+                             <th data-field="name">Ocupacion</th>
 
-                          while ($fila = mysqli_fetch_assoc($observaciones)) {
+                         </tr>
+                       </thead>
 
-                            echo "
-                              <tr>
-                                <td> ".$fila['hotel']." </td> <!-- TITULO -->
-                                <td> ".$fila['ocupacion']." </td> <!-- LUGAR  -->
+                       <tbody>
+                         <?php
+                           $link = require("../connect_db.php");
+
+                           $hotel = "";
+                           $mes = "";
+                           $year = "";
+
+                           if(isset($_COOKIE['hotel']))
+                            $hotel = $_COOKIE['hotel'];
+                           if(isset($_COOKIE['mes']))
+                            $mes = $_COOKIE['mes'];
+                           if(isset($_COOKIE['year']))
+                            $year = $_COOKIE['year'];
+
+                            echo "$hotel $mes $year";
+
+                            $consulta = "SELECT hotel,ocupacion
+                                         FROM ocupacion_hoteles
+                                         WHERE hotel='".$hotel."' AND mes='".$mes."' AND ano='".$year."';";
+                            $ocupacion = mysqli_query($link,$consulta);
+                            while($fila = mysqli_fetch_assoc($ocupacion)){
+                              echo"
+                               <tr>
+                               <td>".$fila['hotel']."</td>
+                               <td>".$fila['ocupacion']."</td>
+                               </tr>
+                              ";
+                            }
+                           /*if($hotel != 'Otros'){
+                             if($mes != 'Otros'){
+
+                               }
+                             }*/
 
 
-                              </tr>";
-                          }
-                        }
-                        */
-                      ?>
-                      </tbody>
-                   </table>-->
+                          ?>
+
+                       </tbody>
+
+                     </table>
                   </div>
 
                 </div>
@@ -317,29 +336,29 @@
     <script type="text/javascript" src="../../js/ocupacion/ocupacion.js"></script>
     <script type="text/javascript" src="../../js/index.js"></script>
     <script type="text/javascript">
-      function ofi(val) {
+      function hot(val) {
         console.log(val);
-        document.getElementById('oficina_consulta_incidencia').value = val;
+        document.getElementById('hotel_consulta').value = val;
       }
-      function place(val){
-        document.getElementById('lugar_consulta_incidencia').value = val;
+      function mounth(val){
+        document.getElementById('mes_consulta').value = val;
       }
+      function date(val){
+        document.getElementById('year_consulta').value = val;
+      }
+      var Hotel, Mes, Year;
 
-      var Oficina, Lugar, Fecha_inicio, Fecha_final;
-
-      function consult(oficina, lugar, fecha_inicio, fecha_final)
+      function consult(hotel, mes, year)
       {
-        Oficina = oficina.value;
-        Lugar = lugar.value;
-        Fecha_inicio = fecha_inicio.value;
-        Fecha_final = fecha_final.value;
+        Hotel = hotel.value;
+        Mes = mes.value;
+        Year = year.value;
 
-        document.cookie = 'oficina=' + Oficina;
-        document.cookie = 'lugar=' + Lugar;
-        document.cookie = 'fecha_ini=' + Fecha_inicio;
-        document.cookie = 'fecha_fin=' + Fecha_final;
+        document.cookie = 'hotel=' + Hotel;
+        document.cookie = 'mes=' + Mes;
+        document.cookie = 'year=' + Year;
 
-        window.location="incidencias.php";
+        window.location="ocupacion.php";
       }
 
       $(document).ready(function(){
