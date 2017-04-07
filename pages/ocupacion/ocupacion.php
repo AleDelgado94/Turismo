@@ -266,7 +266,7 @@
                             $hotel="Todos";
                           if($mes=="")
                             $mes="Todos";
-                          if($mes="Mes")
+                          if($mes=="Mes")
                             $mes="Todos";
 
                           //echo "$hotel $mes $year";
@@ -275,6 +275,7 @@
                          if($hotel != 'Todos'){
                            //cuando se selecciona un mes
                            if($mes != 'Todos'){
+                             //echo "Estoy aqui";
                                $consulta = "SELECT hotel,ocupacion
                                             FROM ocupacion_hoteles
                                             WHERE hotel='".$hotel."' AND mes='".$mes."' AND ano='".$year."';";
