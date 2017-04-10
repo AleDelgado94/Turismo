@@ -72,7 +72,7 @@
             </span>"; ?></li>
             <li><i class="material-icons">replay</i><a href="main.php">&nbsp; Inicio</a></li>
             <li><i class="material-icons">mode_edit</i><a href="encuesta/inicio.php">&nbsp; Encuesta</a></li>
-            <li><i class="material-icons">trending_up</i><a href="#">&nbsp; Consultar estadísticas</a></li>
+            <li><i class="material-icons">trending_up</i><a href="estadisticas/estadisticas.php">&nbsp; Consultar estadísticas</a></li>
             <li><i class="material-icons">shopping_cart</i><a href="stock/stock.php">&nbsp; Stock</a></li>
             <li><i class="material-icons">new_releases</i><a href="incidencias/incidencias.php">&nbsp; Incidencias</a></li>
             <li><i class="material-icons">info</i><a href="observaciones/observaciones.php">&nbsp; Observaciones</a></li>
