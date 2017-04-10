@@ -67,12 +67,12 @@ function getAttrResidencia(val, id){
             formu += "<div class='row'>";
             formu += "<div class='col s12 m6 l6 left-align'>";
                 formu += "<h5>Edad</h5>";
-                formu += "<div class='row'>"
+                formu += "<div class='row'>";
                   formu += "<input onchange='getAttr(this.value,"+ aux +")'  type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='0a12' id='0a12"+aux+"' />";
                   formu += "<label for='0a12"+aux+"'>0 a 12 años</label>";
                 formu += "</div>";
 
-                formu += "<div class='row'>"
+                formu += "<div class='row'>";
                   formu += "<input onchange='getAttr(this.value,"+aux+")' type='radio' name='edad"+aux+"' class='with-gap'  onclick='uncheckRadio(this)' value='13a30' id='13a30"+aux+"' />";
                   formu += "<label for='13a30"+aux+"'>13 a 30 años</label>";
                 formu += "</div>";

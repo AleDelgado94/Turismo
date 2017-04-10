@@ -120,43 +120,46 @@
                   <input id="persona_consulta" type="hidden" name="persona">
                 </div>
               </div>
+
+              <div style="display:none;" id="countries" class="row">
+                <div class="col s12 m8 l8" >
+                  <select name='nacion' onchange="nacion(this.value)">
+                       <option value='' disabled selected>Nacionalidades</option>
+                       <option value='Espanola'>Española</option>
+                       <option value='Canaria'>Canaria</option>
+                       <option value='Britanica'>Británica</option>
+                       <option value='Alemana'>Alemana</option>
+                       <option value='Rusa'>Rusa</option>
+                       <option value='Africana'>Africana</option>
+                       <option value='Asiatica'>Asiática</option>
+                       <option value='Australiana'>Australiana</option>
+                       <option value='Austriaca'>Austriaca</option>
+                       <option value='Belga'>Belga</option>
+                       <option value='Canadiense'>Canadiense</option>
+                       <option value='Checa'>Checa</option>
+                       <option value='China'>China</option>
+                       <option value='Danesa'>Danesa</option>
+                       <option value='Eslovena'>Eslovena</option>
+                       <option value='Estadounidense'>Estadounidense</option>
+                    <option value='Otros'>Otros</option>
+                   </select>
+                  <label>Nacionalidades</label>
+                  <input id="nacion_consulta" type="hidden" name="persona">
+                </div>
+              </div>
               <div class="row">
-                <div class="col s12 m12 l5">
-                  <select name="meses" onchange="mounth(this.value)">
-                    <option value="Mes">Mes</option>
-                    <option value="Enero">Enero</option>
-                    <option value="Febrero">Febrero</option>
-                    <option value="Marzo">Marzo</option>
-                    <option value="Abril">Abril</option>
-                    <option value="Mayo">Mayo</option>
-                    <option value="Junio">Junio</option>
-                    <option value="Julio">Julio</option>
-                    <option value="Agosto">Agosto</option>
-                    <option value="Septiembre">Septiembre</option>
-                    <option value="Octubre">Octubre</option>
-                    <option value="Noviembre">Noviembre</option>
-                    <option value="Diciembre">Diciembre</option>
-                    <option value="Todos">Todos</option>
-                  </select>
-                  <label>mes</label>
-                  <input id="mes_consulta" type="hidden" name="mes">
+                <div class="col s12 m12 l3">
+                    <input type="text" class="datepicker" id="fecha_ini" name="fecha_ini" placeholder="De:">
                 </div>
                 <div class="col s12 m12 l3">
-                  <select name="years" onchange="date(this.value)">
-                    <?php
-                      for ($i=2017; $i<=2050; $i++) {
-                        echo "<option value='$i'>$i</option>";
-                      }
-                     ?>
-                  </select>
-                  <label>year</label>
-                  <input id="year_consulta" type="hidden" name="year">
+                    <input type="text" class="datepicker" id="fecha_fin" name="fecha_fin" placeholder="Hasta:">
                 </div>
+
               </div>
 
               <div class="row">
                 <div class="col s12 m12 l2">
-                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult(persona_consulta,mes_consulta,year_consulta)"/>
+                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult(persona_consulta,nacion_consulta,fecha_ini,fecha_fin)"/>
                 </div>
               </div>
             </div>
@@ -178,51 +181,74 @@
 
           </div>
           <div class="row">
-            <table class=" col s12 m12 l10">
-              <thead>
-                <tr>
-                  <th>Tipo</th>
-                  <th>Resultado</th>
-                </tr>
-              </thead>
 
-              <tbody>
 
                 <?php
                   $link = require("../connect_db.php");
 
                   $persona = "Nacionalidad";
-                  $mes = "Todos";
-                  $year=date("Y");
+
 
 
 
                   if(isset($_COOKIE['persona']))
                    $persona = $_COOKIE['persona'];
-                  if(isset($_COOKIE['mes']))
-                   $mes = $_COOKIE['mes'];
-                  if(isset($_COOKIE['year'])){
-                    $year = $_COOKIE['year'];
-                    if($year == "")
-                       $year=date("Y");
-                  }
 
+                  if(isset($_COOKIE['nacion']))
+                    $nacion = $_COOKIE['nacion'];
+
+                  if(isset($_COOKIE['fecha_inicio'])){
+                    $fecha_inicio = $_COOKIE['fecha_inicio'];
+                    //echo "Fecha de inicio $fecha_inicio";
+                  }
+                  if(isset($_COOKIE['fecha_final'])){
+                    $fecha_final = $_COOKIE['fecha_final'];
+                    //echo "Fecha de inicio $fecha_inicio";
+                  }
 
                   if($persona=="")
                     $persona="Nacionalidad";
-                  if($mes=="")
-                    $mes="Todos";
-                  if($mes=="Mes")
-                    $mes="Todos";
-                  if ($year=='Año')
-                    $year=date("Y");
 
-                  echo "$persona $mes $year";
+
+                  //echo "$persona $nacion de $fecha_inicio hasta $fecha_final";
 
                   if($persona == "Nacionalidad"){
-                    if ($mes != "Todos") {
-                      
+                    if($nacion==""){
+                      $consulta= "SELECT nacionalidad,COUNT(*) as numero
+                                  FROM visita
+                                  WHERE fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
+                                  GROUP BY nacionalidad";
                     }
+                    else{
+                      $consulta= "SELECT nacionalidad,COUNT(*) as numero
+                                  FROM visita
+                                  WHERE nacionalidad = '".$nacion."' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
+                                  GROUP BY nacionalidad";
+                    }
+
+                      $nacionalidad = mysqli_query($link,$consulta);
+                      echo "
+                      <table class='col s12 m12 l5'>
+                        <thead>
+                          <tr>
+                            <th>Nacionalidad</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      while($fila = mysqli_fetch_assoc($nacionalidad)){
+                        echo"
+
+                         <tr>
+                         <td>".$fila['nacionalidad']."</td>
+                         <td>".$fila['numero']."</td>
+                         </tr>
+
+                        ";
+                      }
+                      echo "</tbody>";
                   }
 
                   else if($persona == "Visitas"){
@@ -244,7 +270,7 @@
 
 
                  ?>
-              </tbody>
+
 
             </table>
           </div>
@@ -300,23 +326,37 @@
       function person(val) {
         console.log(val);
         document.getElementById('persona_consulta').value = val;
+
+        if(val=="Nacionalidad"){
+
+           var aux = document.getElementById("countries");
+           aux.style.display = "";
+
+        }
+        else {
+          var aux = document.getElementById("countries");
+          aux.style.display = "none";
+        }
+
+
+
       }
-      function mounth(val){
-        document.getElementById('mes_consulta').value = val;
+      function nacion(val) {
+        document.getElementById('nacion_consulta').value=val;
       }
-      function date(val){
-        document.getElementById('year_consulta').value = val;
-      }
+
       var Persona, Mes, Year;
 
-      function consult(persona, mes, year)
+      function consult(persona,nacion, fe_ini, fe_fin)
       {
         Persona = persona.value;
-        Mes = mes.value;
-        Year = year.value;
-
+        Nacion = nacion.value;
+        Inicial= fe_ini.value;
+        Final = fe_fin.value;
         document.cookie = 'persona=' + Persona;
-        document.cookie = 'mes=' + Mes;
+        document.cookie = 'nacion=' + Nacion;
+        document.cookie = 'fecha_inicio=' + Inicial;
+        document.cookie = 'fecha_final=' + Final;
         document.cookie = 'year=' + Year;
 
         window.location="estadisticas.php";
