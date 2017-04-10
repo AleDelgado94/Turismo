@@ -244,7 +244,7 @@
 
                          $hotel = "Todos";
                          $mes = "Todos";
-
+                         $year=date("Y");
 
                          if(isset($_COOKIE['hotel']))
                           $hotel = $_COOKIE['hotel'];
@@ -254,8 +254,6 @@
                            $year = $_COOKIE['year'];
                            if($year == "")
                               $year=date("Y");
-
-
                          }
 
 
@@ -268,6 +266,8 @@
                             $mes="Todos";
                           if($mes=="Mes")
                             $mes="Todos";
+                          if ($year=='Año')
+                            $year=date("Y");
 
                           //echo "$hotel $mes $year";
 
@@ -369,7 +369,7 @@
                                                             "#01DFD7","#0174DF","#FF00FF","#000000",
                                                             "#BDBDBD","#08088A","#8A0808","#088A08"));
 
-                               $graph->title->Set("Media anual de cada hotel");
+                               $graph->title->Set("Media por mes $hotel");
                                $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                // Display the graph
                                $graph->Stroke("../../images/graficas/grafica1.jpg");
