@@ -186,10 +186,10 @@
                 <?php
                   $link = require("../connect_db.php");
 
-                  $persona = "";
+                  $persona = "Nacionalidad";
                   $nacion = "";
-                  $fecha_inicio="";
-                  $fecha_final="";
+                  $fecha_inicio="2000/01/01";
+                  $fecha_final="2000/01/01";
                   $grafica="";
 
 
@@ -210,12 +210,17 @@
 
                   if($persona=="")
                     $persona="Nacionalidad";
-
+                  if($fecha_inicio=="")
+                    $fecha_inicio="2000/01/01";
+                  if($fecha_final=="")
+                    $fecha_final="2000/01/01";
 
                   //echo "$persona $nacion de $fecha_inicio hasta $fecha_final";
 
                   if($persona == "Nacionalidad"){
                     if($nacion=="" || $nacion =="Todas"){
+
+
                       $consulta= "SELECT nacionalidad,COUNT(*) as numero
                                   FROM visita
                                   WHERE fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
@@ -224,50 +229,52 @@
                       $filas = mysqli_fetch_assoc($nacionalidad);
                       $numero_filas = mysqli_num_rows($nacionalidad);
                       //echo "Numero de filas: $numero_filas";
-                      if($numero_filas >0)
+                      if($numero_filas >0){
                         $grafica = TRUE;
+                        $data2 = array();
+                        $paises = array();
+                        $nacionalidad = mysqli_query($link,$consulta);
+
+                        while($filas = mysqli_fetch_assoc($nacionalidad)){
+                          array_push($data2,$filas['numero']);
+                          array_push($paises,$filas['nacionalidad']);
+                        }
+                        ;
+
+                        require_once ('../../jpgraph/src/jpgraph.php');
+                        require_once ('../../jpgraph/src/jpgraph_pie.php');
+
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(500,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Nacionalidades");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
 
 
-                      $data2 = array();
-                      $paises = array();
-                      $nacionalidad = mysqli_query($link,$consulta);
 
-                      while($filas = mysqli_fetch_assoc($nacionalidad)){
-                        array_push($data2,$filas['numero']);
-                        array_push($paises,$filas['nacionalidad']);
+                        // Create
+                        $p1 = new PiePlot($data2);
+                        $graph->Add($p1);
+
+
+                        $legends = $paises;
+                        $p1->SetLegends($legends);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        $graph->Stroke("../../images/graficas/grafica1.jpg");
                       }
-                      ;
-
-                      require_once ('../../jpgraph/src/jpgraph.php');
-                      require_once ('../../jpgraph/src/jpgraph_pie.php');
-
-
-                      // Create the Pie Graph.
-                      $graph = new PieGraph(500,500);
-
-                      $theme_class = new VividTheme();
-                      $graph->SetTheme($theme_class);
-                      // Set A title for the plot
-                      $graph->title->Set("Nacionalidades");
-                      $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
-                      $graph->SetBox(true);
 
 
 
-                      // Create
-                      $p1 = new PiePlot($data2);
-                      $graph->Add($p1);
 
-
-                      $legends = $paises;
-                      $p1->SetLegends($legends);
-                      $p1->ShowBorder();
-                      $p1->SetColor('black');
-                      $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
-                      $p1->value->SetColor('black');
-                      $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
-                      $graph->legend->SetColor('black');
-                      $graph->Stroke("../../images/graficas/grafica1.jpg");
                     }
                     else{
                       $consulta= "SELECT nacionalidad,COUNT(*) as numero
