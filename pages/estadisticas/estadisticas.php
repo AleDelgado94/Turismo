@@ -124,7 +124,7 @@
               <div style="display:none;" id="countries" class="row">
                 <div class="col s12 m8 l8" >
                   <select name='nacion' onchange="nacion(this.value)">
-                       <option value='' disabled selected>Nacionalidades</option>
+                       <option value='Todas'>Todas</option>
                        <option value='Espanola'>Española</option>
                        <option value='Canaria'>Canaria</option>
                        <option value='Britanica'>Británica</option>
@@ -186,9 +186,11 @@
                 <?php
                   $link = require("../connect_db.php");
 
-                  $persona = "Nacionalidad";
-
-
+                  $persona = "";
+                  $nacion = "";
+                  $fecha_inicio="";
+                  $fecha_final="";
+                  $grafica="";
 
 
                   if(isset($_COOKIE['persona']))
@@ -213,11 +215,59 @@
                   //echo "$persona $nacion de $fecha_inicio hasta $fecha_final";
 
                   if($persona == "Nacionalidad"){
-                    if($nacion==""){
+                    if($nacion=="" || $nacion =="Todas"){
                       $consulta= "SELECT nacionalidad,COUNT(*) as numero
                                   FROM visita
                                   WHERE fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
                                   GROUP BY nacionalidad";
+                      $nacionalidad = mysqli_query($link,$consulta);
+                      $filas = mysqli_fetch_assoc($nacionalidad);
+                      $numero_filas = mysqli_num_rows($nacionalidad);
+                      //echo "Numero de filas: $numero_filas";
+                      if($numero_filas >0)
+                        $grafica = TRUE;
+
+
+                      $data2 = array();
+                      $paises = array();
+                      $nacionalidad = mysqli_query($link,$consulta);
+
+                      while($filas = mysqli_fetch_assoc($nacionalidad)){
+                        array_push($data2,$filas['numero']);
+                        array_push($paises,$filas['nacionalidad']);
+                      }
+                      ;
+
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+
+
+                      // Create the Pie Graph.
+                      $graph = new PieGraph(500,500);
+
+                      $theme_class = new VividTheme();
+                      $graph->SetTheme($theme_class);
+                      // Set A title for the plot
+                      $graph->title->Set("Nacionalidades");
+                      $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                      $graph->SetBox(true);
+
+
+
+                      // Create
+                      $p1 = new PiePlot($data2);
+                      $graph->Add($p1);
+
+
+                      $legends = $paises;
+                      $p1->SetLegends($legends);
+                      $p1->ShowBorder();
+                      $p1->SetColor('black');
+                      $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                      $p1->value->SetColor('black');
+                      $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                      $graph->legend->SetColor('black');
+                      $graph->Stroke("../../images/graficas/grafica1.jpg");
                     }
                     else{
                       $consulta= "SELECT nacionalidad,COUNT(*) as numero
@@ -248,31 +298,170 @@
 
                         ";
                       }
-                      echo "</tbody>";
+                      echo "</tbody>
+                            </table>
+                      ";
+                      if($grafica == TRUE){
+                        echo "
+                        <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.jpg'/>
+                        </div>";
+                      }
                   }
 
-                  else if($persona == "Visitas"){
+                  if($persona == "Visitas"){
+                    $consulta= "SELECT COUNT(DISTINCT grupo) as numero
+                                FROM visita
+                                WHERE fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'";
 
+                    $visitas = mysqli_query($link,$consulta);
+                    $fila2 = mysqli_fetch_assoc($visitas);
+                    echo "
+                    <table class='col s12 m12 l2'>
+                      <tbody>
+                        <tr>
+                          <th>Número de visitas:</th>
+                          <th>".$fila2['numero']."</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                    ";
                   }
-                  else if($persona == "Visitantes"){
+                  if($persona == "Visitantes"){
+                    $consulta= "SELECT COUNT(DISTINCT id) as numero
+                                FROM visita
+                                WHERE fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'";
 
+                    $visitantes = mysqli_query($link,$consulta);
+                    $fila3 = mysqli_fetch_assoc($visitantes);
+                    echo "
+                    <table class='col s12 m12 l2'>
+                      <tbody>
+                        <tr>
+                          <th>Número de visitantes:</th>
+                          <th>".$fila3['numero']."</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                    ";
                   }
-                  else if($persona == "Edad"){
+                  if($persona == "Edad"){
+                    //SELECT edad,COUNT(edad) FROM visita WHERE fecha BETWEEN '2017/04/01' AND '2017/04/11' GROUP BY edad
+                    $consulta= "SELECT edad,COUNT(edad) as numero
+                                FROM visita
+                                WHERE fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
+                                GROUP BY edad";
+                    //De 13 a 30
+                    $consulta2= "SELECT edad,COUNT(edad) as numero
+                                 FROM visita
+                                 WHERE edad='13a30' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
+                                 GROUP BY edad";
+                    $edad2=mysqli_query($link,$consulta2);
+                    $filas2= mysqli_fetch_assoc($edad2);
+                    //echo "de 13 a 30: ".$filas2['numero']."";
 
+                    //De 31 a 50
+                    $consulta3= "SELECT edad,COUNT(edad) as numero
+                                 FROM visita
+                                 WHERE edad='31a50' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
+                                 GROUP BY edad";
+                    $edad3=mysqli_query($link,$consulta3);
+                    $filas3= mysqli_fetch_assoc($edad3);
+                    //echo "de 31 a 50: ".$filas3['numero']."";
+
+                    //De 50 o mas
+                    $consulta4= "SELECT edad,COUNT(edad) as numero
+                                 FROM visita
+                                 WHERE edad='50mas' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
+                                 GROUP BY edad";
+                    $edad4=mysqli_query($link,$consulta4);
+                    $filas4= mysqli_fetch_assoc($edad4);
+                    //echo "de 50 mas: ".$filas4['numero']."";
+
+                    $edad = mysqli_query($link,$consulta);
+                    $filas = mysqli_fetch_assoc($edad);
+                    $numero_filas = mysqli_num_rows($edad);
+                    //echo "Numero de filas: $numero_filas";
+                    if($numero_filas >0)
+                      $grafica = TRUE;
+
+
+
+
+                    require_once ('../../jpgraph/src/jpgraph.php');
+                    require_once ('../../jpgraph/src/jpgraph_pie.php');
+                    //echo $filas2['numero']+$filas3['numero']+$filas4['numero'];
+                    if(($filas2['numero']+$filas3['numero']+$filas4['numero'])>0){
+                      $data=array($filas2['numero'],$filas3['numero'],$filas4['numero']);
+                      // Create the Pie Graph.
+                      $graph = new PieGraph(500,500);
+
+                      $theme_class = new VividTheme();
+                      $graph->SetTheme($theme_class);
+                      // Set A title for the plot
+                      $graph->title->Set("Edades");
+                      $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                      $graph->SetBox(true);
+
+                      // Create
+                      $p1 = new PiePlot($data);
+                      $graph->Add($p1);
+
+                      $p1->SetLegends(array("13 a 30","31 a 50","50 o mas"));
+                      $p1->ShowBorder();
+                      $p1->SetColor('black');
+                      $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                      $p1->value->SetColor('black');
+                      $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                      $graph->legend->SetColor('black');
+                      $graph->Stroke("../../images/graficas/grafica1.jpg");
+
+
+                      echo "
+                      <table class='col s12 m12 l5'>
+                        <thead>
+                          <tr>
+                            <th>Rango edad</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                           <tr>
+                             <td>13 a 30 años</td>
+                             <td>".$filas2['numero']."</td>
+                           </tr>
+                           <tr>
+                             <td>31 a 50 años</td>
+                             <td>".$filas3['numero']."</td>
+                           </tr>
+                           <tr>
+                             <td>50 o más años</td>
+                             <td>".$filas4['numero']."</td>
+                           </tr>
+                        </tbody>
+                      </table>
+                      ";
+                    }
+                    else {
+                      echo "
+                      <div class='col s12 m12 l3'>
+                        <p>No se han encontrado datos</p>
+                      </div>";
+
+                    }
+
+                    if($grafica == TRUE){
+                      echo "
+                      <div class='col s12 m12 l3'>
+                          <img src='../../images/graficas/grafica1.jpg'/>
+                      </div>";
+                    }
                   }
-
-
-
-
-
-
-
-
 
                  ?>
 
 
-            </table>
           </div>
           <!--FINAL DE LAS ESTADISTICAS-->
         </div>
