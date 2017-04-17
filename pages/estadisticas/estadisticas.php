@@ -190,7 +190,21 @@
                        <option value='13-15'>13-15</option>
                    </select>
                   <label>Horario</label>
-                  <input id="horario_consulta" type="hidden" name="horario_consulta">
+                  <input id="opcion" type="hidden" name="opcion">
+                </div>
+              </div>
+
+              <!-- Si Oficina-->
+              <div style="display:none;" id="oficina" class="row">
+                <div class="col s12 m8 l8" >
+                  <select name='oficinas' onchange="oficina(this.value)">
+                       <option value='Todas'>Todas</option>
+                       <option value='Guia Casco'>Guía Casco</option>
+                       <option value='Alcala'>Alcalá</option>
+                       <option value='Playa San Juan'>Playa San Juan</option>
+                   </select>
+                  <label>Horario</label>
+                  <input id="opcion" type="hidden" name="opcion">
                 </div>
               </div>
 
@@ -204,7 +218,7 @@
               </div>
               <div class="row">
                 <div class="col s12 m12 l2">
-                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult2(tipo_consulta,horario_consulta,fecha_ini2,fecha_fin2)"/>
+                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult2(tipo_consulta,opcion,fecha_ini2,fecha_fin2)"/>
                 </div>
               </div>
             </div>
@@ -548,7 +562,7 @@
                   $link = require("../connect_db.php");
 
                   $tipo_consulta = "";
-                  $horario = "";
+                  $opcion = "";
                   $fecha_inicio="2000/01/01";
                   $fecha_final="2000/01/01";
                   $grafica="";
@@ -557,8 +571,10 @@
                   if(isset($_COOKIE['tipo_consulta']))
                    $tipo_consulta = $_COOKIE['tipo_consulta'];
 
-                  if(isset($_COOKIE['horario']))
-                    $horario = $_COOKIE['horario'];
+                  if(isset($_COOKIE['opcion']))
+                    $opcion = $_COOKIE['opcion'];
+                    if($opcion=="")
+                      $opcion="Todas";
 
                   if(isset($_COOKIE['fecha_inicio2'])){
                     $fecha_inicio = $_COOKIE['fecha_inicio2'];
@@ -575,9 +591,236 @@
                   if($fecha_final=="")
                     $fecha_final="2000/01/01";
 
-                  echo "$tipo_consulta $horario de $fecha_inicio hasta $fecha_final";
+                  echo "$tipo_consulta $opcion de $fecha_inicio hasta $fecha_final";
+
+
+                  if($tipo_consulta == "Horario"){
+
+                    if($opcion=="Todas"){
+                      $consulta1= "SELECT hora, COUNT(hora) as numero
+                                  FROM visita
+                                  WHERE hora != '' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
+                                  GROUP BY hora";
+                      $hora=mysqli_query($link,$consulta1);
+                      $numero_filas = mysqli_num_rows($hora);
+
+                      $consulta2 ="SELECT COUNT(hora) as numero
+                                  FROM visita
+                                  WHERE hora = '9-11' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'";
+
+
+                      $hora2=mysqli_query($link,$consulta2);
+                      $fila2=mysqli_fetch_assoc($hora2);
+
+                      $consulta3 ="SELECT COUNT(hora) as numero
+                                  FROM visita
+                                  WHERE hora = '11-13' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'";
+
+
+                      $hora3=mysqli_query($link,$consulta3);
+                      $fila3=mysqli_fetch_assoc($hora3);
+
+                      $consulta4 ="SELECT COUNT(hora) as numero
+                                  FROM visita
+                                  WHERE hora = '13-15' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'";
+
+
+                      $hora4=mysqli_query($link,$consulta4);
+                      $fila4=mysqli_fetch_assoc($hora4);
+
+                      //echo "Numero de filas: $numero_filas";
+                      //$data = array();
+                      if($numero_filas >0){
+                        $grafica = TRUE;
+
+                        echo "
+                        <table class='col s12 m12 l5'>
+                          <thead>
+                            <tr>
+                              <th>Tramo Horario</th>
+                              <th>Número</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                        ";
+                        while($fila = mysqli_fetch_assoc($hora)){
+                          echo"
+
+                           <tr>
+                           <td>".$fila['hora']."</td>
+                           <td>".$fila['numero']."</td>
+                           </tr>
+
+                          ";
+                          //array_push($data,$fila['numero']);
+                        }
+                        echo "</tbody>
+                              </table>
+                        ";
+
+                        require_once ('../../jpgraph/src/jpgraph.php');
+                        require_once ('../../jpgraph/src/jpgraph_pie.php');
+                          //echo $fila4['numero'];
+
+                          $data=array($fila2['numero'],$fila3['numero'],$fila4['numero']);
+                          // Create the Pie Graph.
+                          $graph = new PieGraph(500,500);
+
+                          $theme_class = new VividTheme();
+                          $graph->SetTheme($theme_class);
+                          // Set A title for the plot
+                          $graph->title->Set("Tramo Horario");
+                          $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                          $graph->SetBox(true);
+
+                          // Create
+                          $p1 = new PiePlot($data);
+                          $graph->Add($p1);
+
+                          $p1->SetLegends(array("9 a 11","11 a 13","13 a 15"));
+                          $p1->ShowBorder();
+                          $p1->SetColor('black');
+                          $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                          $p1->value->SetColor('black');
+                          $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                          $graph->legend->SetColor('black');
+                          $graph->Stroke("../../images/graficas/grafica1.jpg");
+
+
+                        if($grafica == TRUE){
+                          echo "
+                          <div class='col s12 m12 l3'>
+                              <img src='../../images/graficas/grafica1.jpg'/>
+                          </div>";
+                        }
+
+                      }
+                    }
+
+                    if($opcion=="9-11"){
+                      $consulta2 ="SELECT COUNT(hora) as numero
+                                  FROM visita
+                                  WHERE hora = '9-11' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'";
+
+
+                      $hora2=mysqli_query($link,$consulta2);
+
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Tramo Horario</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      while($fila2 = mysqli_fetch_assoc($hora2)){
+                        echo"
+
+                         <tr>
+                         <td>9-11</td>
+                         <td>".$fila2['numero']."</td>
+                         </tr>
+
+                        ";
+
+                      }
+                      echo "</tbody>
+                            </table>
+                      ";
+
+                    }
+                    if($opcion=="11-13"){
+                      $consulta2 ="SELECT COUNT(hora) as numero
+                                  FROM visita
+                                  WHERE hora = '11-13' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'";
+
+
+                      $hora2=mysqli_query($link,$consulta2);
+
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Tramo Horario</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      while($fila2 = mysqli_fetch_assoc($hora2)){
+                        echo"
+
+                         <tr>
+                         <td>11-13</td>
+                         <td>".$fila2['numero']."</td>
+                         </tr>
+
+                        ";
+
+                      }
+                      echo "</tbody>
+                            </table>
+                      ";
+
+                    }
+
+                    if($opcion=="13-15"){
+                      $consulta2 ="SELECT COUNT(hora) as numero
+                                  FROM visita
+                                  WHERE hora = '13-15' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'";
+
+
+                      $hora2=mysqli_query($link,$consulta2);
+
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Tramo Horario</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      while($fila2 = mysqli_fetch_assoc($hora2)){
+                        echo"
+
+                         <tr>
+                         <td>13-15</td>
+                         <td>".$fila2['numero']."</td>
+                         </tr>
+
+                        ";
+                      }
+                      echo "</tbody>
+                            </table>
+                      ";
+                    }
+
+                  }
+                  if ($tipo_consulta=="Tipo") {
+
+
+
+                  }
+                  if ($tipo_consulta=="Oficina") {
+
+
+
+                  }
+                  if($tipo_consulta=="Edad"){
+
+                  }
+
+
                 }
-                //
+                //fin del segundo if
                 ?>
 
 
@@ -678,13 +921,16 @@
       function consulta(val){
         document.getElementById("tipo_consulta").value=val;
         if(val =="Horario"){
-
-           var aux = document.getElementById("horario");
-           aux.style.display = "";
+           document.getElementById("horario").style.display="";
+           document.getElementById("oficina").style.display = "none";
         }
-        else {
-          var aux = document.getElementById("horario");
-          aux.style.display = "none";
+        else if(val = "Oficina"){
+          document.getElementById("horario").style.display="none";
+          document.getElementById("oficina").style.display = "";
+        }
+        else if(val=""){
+          document.getElementById("horario").style.display = "none";
+          document.getElementById("oficina").style.display = "none";
         }
 
       }
@@ -692,22 +938,33 @@
       function horario(val){
         document.getElementById("horario_consulta").value=val;
       }
-      var Consulta, Horario, FInicial, FFinal;
-      function consult2(consulta,horario,fe_ini,fe_fin){
-
+      var Consulta, Opcion, FInicial, FFinal;
+      function consult2(consulta,opcion,fe_ini,fe_fin){
+        //deleteAllCookies();
         Consulta = consulta.value;
-        Horario = horario.value;
+        Opcion = opcion.value;
         FInicial = fe_ini.value;
         FFinal = fe_fin.value;
 
         document.cookie = 'tipo_consulta=' + Consulta;
-        document.cookie = 'horario=' + Horario;
+        document.cookie = 'opcion=' + Opcion;
         document.cookie = 'fecha_inicio2=' + FInicial;
         document.cookie = 'fecha_final2=' + FFinal;
         window.location="estadisticas.php";
 
       }
 
+
+      function deleteAllCookies() {
+        var cookies = document.cookie.split(";");
+
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      }
+}
 
       $(document).ready(function(){
         $('.modal').modal();
