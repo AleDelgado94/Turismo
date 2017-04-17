@@ -164,6 +164,53 @@
               </div>
             </div>
             <!--Fin Personas-->
+            <!--Consulta-->
+            <div class="col s12 m4 l4">
+              <h5>Consulta</h5>
+              <div class="row">
+                <div class="col s12 m8 l8">
+                  <select name="consultas" onchange="consulta(this.value)">
+                    <option value="" disabled selected>Consultas</option>
+                    <option value="Horario">Tramo horario</option>
+                    <option value="Tipo">Tipo de consulta</option>
+                    <option value="Oficina">Oficina</option>
+                    <option value="Edad">Edad</option>
+                  </select>
+                  <label>Consulta</label>
+                  <input id="tipo_consulta" type="hidden" name="tipo_consulta">
+                </div>
+              </div>
+              <!--Si Tramo Horario-->
+              <div style="display:none;" id="horario" class="row">
+                <div class="col s12 m8 l8" >
+                  <select name='horarios' onchange="horario(this.value)">
+                       <option value='Todas'>Todas</option>
+                       <option value='9-11'>9-11</option>
+                       <option value='11-13'>11-13</option>
+                       <option value='13-15'>13-15</option>
+                   </select>
+                  <label>Horario</label>
+                  <input id="horario_consulta" type="hidden" name="horario_consulta">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col s12 m12 l3">
+                    <input type="text" class="datepicker" id="fecha_ini2" name="fecha_ini2" placeholder="De:">
+                </div>
+                <div class="col s12 m12 l3">
+                    <input type="text" class="datepicker" id="fecha_fin2" name="fecha_fin2" placeholder="Hasta:">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12 m12 l2">
+                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult2(tipo_consulta,horario_consulta,fecha_ini2,fecha_fin2)"/>
+                </div>
+              </div>
+            </div>
+            <!--Fin Consulta-->
+
+
             <!--Materiales-->
             <div class="col s12 m4 l4">
               <h5>Materiales</h5>
@@ -171,19 +218,14 @@
             </div>
             <!--Fin Materiales-->
 
-            <!--Consulta-->
-            <div class="col s12 m4 l4">
-              <h5>Consulta</h5>
 
-
-            </div>
-            <!--Fin Consulta-->
 
           </div>
           <div class="row">
 
 
                 <?php
+                if($_COOKIE['persona']!=""){
                   $link = require("../connect_db.php");
 
                   $persona = "Nacionalidad";
@@ -245,7 +287,7 @@
                         require_once ('../../jpgraph/src/jpgraph_pie.php');
 
                         // Create the Pie Graph.
-                        $graph = new PieGraph(500,500);
+                        $graph = new PieGraph(500,600);
 
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
@@ -385,6 +427,15 @@
                     $filas4= mysqli_fetch_assoc($edad4);
                     //echo "de 50 mas: ".$filas4['numero']."";
 
+                    //De 0 a 12
+                    $consulta5= "SELECT edad,COUNT(edad) as numero
+                                 FROM visita
+                                 WHERE edad='0a12' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
+                                 GROUP BY edad";
+                    $edad5=mysqli_query($link,$consulta5);
+                    $filas5= mysqli_fetch_assoc($edad5);
+                    //echo "de 0 a 12: ".$filas5['numero']."";
+
                     $edad = mysqli_query($link,$consulta);
                     $filas = mysqli_fetch_assoc($edad);
                     $numero_filas = mysqli_num_rows($edad);
@@ -398,8 +449,8 @@
                     require_once ('../../jpgraph/src/jpgraph.php');
                     require_once ('../../jpgraph/src/jpgraph_pie.php');
                     //echo $filas2['numero']+$filas3['numero']+$filas4['numero'];
-                    if(($filas2['numero']+$filas3['numero']+$filas4['numero'])>0){
-                      $data=array($filas2['numero'],$filas3['numero'],$filas4['numero']);
+                    if(($filas2['numero']+$filas3['numero']+$filas4['numero']+$filas5['numero'])>0){
+                      $data=array($filas5['numero'],$filas2['numero'],$filas3['numero'],$filas4['numero']);
                       // Create the Pie Graph.
                       $graph = new PieGraph(500,500);
 
@@ -414,7 +465,7 @@
                       $p1 = new PiePlot($data);
                       $graph->Add($p1);
 
-                      $p1->SetLegends(array("13 a 30","31 a 50","50 o mas"));
+                      $p1->SetLegends(array("0 a 12","13 a 30","31 a 50","50 o mas"));
                       $p1->ShowBorder();
                       $p1->SetColor('black');
                       $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
@@ -435,16 +486,40 @@
 
                         <tbody>
                            <tr>
-                             <td>13 a 30 años</td>
-                             <td>".$filas2['numero']."</td>
+                             <td>0 a 12 años</td>";
+                             if($filas5['numero'] == "")
+                              echo" <td>0</td>";
+                             else
+                               echo "<td>".$filas5['numero']."</td>";
+
+                        echo"
                            </tr>
                            <tr>
-                             <td>31 a 50 años</td>
-                             <td>".$filas3['numero']."</td>
+                             <td>13 a 30 años</td>";
+                             if($filas2['numero'] == "")
+                              echo" <td>0</td>";
+                             else
+                               echo "<td>".$filas2['numero']."</td>";
+
+                          echo "
                            </tr>
                            <tr>
-                             <td>50 o más años</td>
-                             <td>".$filas4['numero']."</td>
+                             <td>31 a 50 años</td>";
+                             if($filas3['numero'] == "")
+                              echo" <td>0</td>";
+                             else
+                               echo "<td>".$filas3['numero']."</td>";
+
+                          echo"
+                           </tr>
+                           <tr>
+                             <td>50 o más años</td>";
+                             if($filas4['numero'] == "")
+                              echo" <td>0</td>";
+                             else
+                               echo "<td>".$filas4['numero']."</td>";
+
+                          echo"
                            </tr>
                         </tbody>
                       </table>
@@ -465,8 +540,45 @@
                       </div>";
                     }
                   }
+                }//fin del primer if
 
-                 ?>
+                if ($_COOKIE['tipo_consulta']!="") {
+
+
+                  $link = require("../connect_db.php");
+
+                  $tipo_consulta = "";
+                  $horario = "";
+                  $fecha_inicio="2000/01/01";
+                  $fecha_final="2000/01/01";
+                  $grafica="";
+
+
+                  if(isset($_COOKIE['tipo_consulta']))
+                   $tipo_consulta = $_COOKIE['tipo_consulta'];
+
+                  if(isset($_COOKIE['horario']))
+                    $horario = $_COOKIE['horario'];
+
+                  if(isset($_COOKIE['fecha_inicio2'])){
+                    $fecha_inicio = $_COOKIE['fecha_inicio2'];
+                    //echo "Fecha de inicio $fecha_inicio";
+                  }
+                  if(isset($_COOKIE['fecha_final2'])){
+                    $fecha_final = $_COOKIE['fecha_final2'];
+                    //echo "Fecha de inicio $fecha_final";
+                  }
+
+
+                  if($fecha_inicio=="")
+                    $fecha_inicio="2000/01/01";
+                  if($fecha_final=="")
+                    $fecha_final="2000/01/01";
+
+                  echo "$tipo_consulta $horario de $fecha_inicio hasta $fecha_final";
+                }
+                //
+                ?>
 
 
           </div>
@@ -557,6 +669,45 @@
 
         window.location="estadisticas.php";
       }
+
+
+
+
+
+
+      function consulta(val){
+        document.getElementById("tipo_consulta").value=val;
+        if(val =="Horario"){
+
+           var aux = document.getElementById("horario");
+           aux.style.display = "";
+        }
+        else {
+          var aux = document.getElementById("horario");
+          aux.style.display = "none";
+        }
+
+      }
+
+      function horario(val){
+        document.getElementById("horario_consulta").value=val;
+      }
+      var Consulta, Horario, FInicial, FFinal;
+      function consult2(consulta,horario,fe_ini,fe_fin){
+
+        Consulta = consulta.value;
+        Horario = horario.value;
+        FInicial = fe_ini.value;
+        FFinal = fe_fin.value;
+
+        document.cookie = 'tipo_consulta=' + Consulta;
+        document.cookie = 'horario=' + Horario;
+        document.cookie = 'fecha_inicio2=' + FInicial;
+        document.cookie = 'fecha_final2=' + FFinal;
+        window.location="estadisticas.php";
+
+      }
+
 
       $(document).ready(function(){
         $('.modal').modal();
