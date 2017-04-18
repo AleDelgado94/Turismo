@@ -358,7 +358,7 @@
 
                     }
                     else if($numero_paises != ""){
-                      echo "estoy aqui $numero_paises";
+                      //echo "estoy aqui $numero_paises";
                       //SELECT nacionalidad,COUNT(*) as numero FROM visita WHERE fecha BETWEEN '2017/04/01' AND '2017/04/18' GROUP BY nacionalidad ORDER BY numero DESC LIMIT 5
                       $consulta="SELECT nacionalidad,COUNT(*) as numero
                                  FROM visita
