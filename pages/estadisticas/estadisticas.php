@@ -141,10 +141,14 @@
                        <option value='Danesa'>Danesa</option>
                        <option value='Eslovena'>Eslovena</option>
                        <option value='Estadounidense'>Estadounidense</option>
-                    <option value='Otros'>Otros</option>
+                       <option value='Otros'>Otros</option>
                    </select>
                   <label>Nacionalidades</label>
                   <input id="nacion_consulta" type="hidden" name="persona">
+
+                </div>
+                <div class="col s12 m4 l3">
+                   <input id="numero_paises" type="number" name="numero_paises" placeholder="Número" min="0">
                 </div>
               </div>
               <div class="row">
@@ -159,7 +163,7 @@
 
               <div class="row">
                 <div class="col s12 m12 l2">
-                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult(persona_consulta,nacion_consulta,fecha_ini,fecha_fin)"/>
+                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult(persona_consulta,nacion_consulta,numero_paises,fecha_ini,fecha_fin)"/>
                 </div>
               </div>
             </div>
@@ -261,13 +265,15 @@
                   $fecha_inicio="2000/01/01";
                   $fecha_final="2000/01/01";
                   $grafica="";
-
+                  $numero_paises="";
 
                   if(isset($_COOKIE['persona']))
                    $persona = $_COOKIE['persona'];
 
                   if(isset($_COOKIE['nacion']))
                     $nacion = $_COOKIE['nacion'];
+                    if($nacion =="")
+                      $nacion="Todas";
 
                   if(isset($_COOKIE['fecha_inicio'])){
                     $fecha_inicio = $_COOKIE['fecha_inicio'];
@@ -278,6 +284,11 @@
                     //echo "Fecha de inicio $fecha_inicio";
                   }
 
+                  if(isset($_COOKIE['numero_paises'])){
+                    $numero_paises = $_COOKIE['numero_paises'];
+                  }
+
+
                   if($persona=="")
                     $persona="Nacionalidad";
                   if($fecha_inicio=="")
@@ -285,10 +296,10 @@
                   if($fecha_final=="")
                     $fecha_final="2000/01/01";
 
-                  //echo "$persona $nacion de $fecha_inicio hasta $fecha_final";
+                  //echo "$persona $nacion de $fecha_inicio hasta $fecha_final $numero_paises";
 
                   if($persona == "Nacionalidad"){
-                    if($nacion=="" || $nacion =="Todas"){
+                    if($nacion =="Todas" && $numero_paises==""){
 
 
                       $consulta= "SELECT nacionalidad,COUNT(*) as numero
@@ -309,7 +320,7 @@
                           array_push($data2,$filas['numero']);
                           array_push($paises,$filas['nacionalidad']);
                         }
-                        ;
+
 
                         require_once ('../../jpgraph/src/jpgraph.php');
                         require_once ('../../jpgraph/src/jpgraph_pie.php');
@@ -344,6 +355,63 @@
 
 
 
+
+                    }
+                    else if($numero_paises != ""){
+                      echo "estoy aqui $numero_paises";
+                      //SELECT nacionalidad,COUNT(*) as numero FROM visita WHERE fecha BETWEEN '2017/04/01' AND '2017/04/18' GROUP BY nacionalidad ORDER BY numero DESC LIMIT 5
+                      $consulta="SELECT nacionalidad,COUNT(*) as numero
+                                 FROM visita
+                                 WHERE fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
+                                 GROUP BY nacionalidad
+                                 ORDER BY numero DESC
+                                 LIMIT ".$numero_paises.";";
+                      $nacionalidad = mysqli_query($link,$consulta);
+                      $filas = mysqli_fetch_assoc($nacionalidad);
+                      $numero_filas = mysqli_num_rows($nacionalidad);
+                      //echo "Numero de filas: $numero_filas";
+                      if($numero_filas >0){
+                        $grafica = TRUE;
+                        $data2 = array();
+                        $paises = array();
+                        $nacionalidad = mysqli_query($link,$consulta);
+
+                        while($filas = mysqli_fetch_assoc($nacionalidad)){
+                          array_push($data2,$filas['numero']);
+                          array_push($paises,$filas['nacionalidad']);
+                        }
+
+
+                        require_once ('../../jpgraph/src/jpgraph.php');
+                        require_once ('../../jpgraph/src/jpgraph_pie.php');
+
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(500,600);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Nacionalidades");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+
+
+                        // Create
+                        $p1 = new PiePlot($data2);
+                        $graph->Add($p1);
+
+
+                        $legends = $paises;
+                        $p1->SetLegends($legends);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        $graph->Stroke("../../images/graficas/grafica1.jpg");
+                      }
 
                     }
                     else{
@@ -1384,16 +1452,20 @@
       function nacion(val) {
         document.getElementById('nacion_consulta').value=val;
       }
+      function numero_paises(val) {
+        document.getElementById('numero_paises').value=val;
+      }
 
-      var Persona, Mes, Year;
+      var Persona, Mes, Year, Numero;
 
-      function consult(persona,nacion, fe_ini, fe_fin)
+      function consult(persona,nacion,numero, fe_ini, fe_fin)
       {
         Persona = persona.value;
         Nacion = nacion.value;
         Inicial= fe_ini.value;
         Final = fe_fin.value;
-
+        //Numero = numero.value;
+        Numero = document.getElementById("numero_paises").value;
         //liberar otras cookies
         document.cookie = 'tipo_consulta=""';
         document.cookie = 'hora=""';
@@ -1407,6 +1479,7 @@
         document.cookie = 'fecha_inicio=' + Inicial;
         document.cookie = 'fecha_final=' + Final;
         document.cookie = 'year=' + Year;
+        document.cookie = 'numero_paises='+ Numero;
 
         window.location="estadisticas.php";
       }
@@ -1487,6 +1560,17 @@
 
       $(document).ready(function(){
         $('.modal').modal();
+        document.cookie = 'persona=""';
+        document.cookie = 'nacion=""';
+        document.cookie = 'fecha_inicio=""';
+        document.cookie = 'fecha_final=""';
+        document.cookie = 'year=""';
+        document.cookie = 'tipo_consulta=""';
+        document.cookie = 'hora=""';
+        document.cookie = 'oficina =""';
+        document.cookie = 'tipo =""';
+        document.cookie = 'fecha_inicio2=""';
+        document.cookie = 'fecha_final2=""';
       });
 
     </script>
