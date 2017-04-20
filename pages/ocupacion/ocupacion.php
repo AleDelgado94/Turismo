@@ -135,7 +135,6 @@
                       <option value="Diciembre">Diciembre</option>
                     </select>
                     <label>mes</label>
-
                   </div>
                   <div class="col s12 m12 l2">
                     <select name="year[]">
@@ -190,6 +189,7 @@
                       <div class="col s12 m12 l2">
                         <select name="meses" onchange="mounth(this.value)">
                           <option value="Mes">Mes</option>
+                          <option value="Trimestral">Trimestral</option>
                           <option value="Enero">Enero</option>
                           <option value="Febrero">Febrero</option>
                           <option value="Marzo">Marzo</option>
@@ -207,6 +207,29 @@
                         <label>mes</label>
                         <input id="mes_consulta" type="hidden" name="mes">
                       </div>
+
+                      <div style="display:none" id="primer_mes_select" class="col s12 m12 l2">
+                        <select name="meses" onchange="primer_mes(this.value)">
+                          <option value=""disabled selected>Desde</option>
+                          <option value="Enero">Enero</option>
+                          <option value="Febrero">Febrero</option>
+                          <option value="Marzo">Marzo</option>
+                          <option value="Abril">Abril</option>
+                          <option value="Mayo">Mayo</option>
+                          <option value="Junio">Junio</option>
+                          <option value="Julio">Julio</option>
+                          <option value="Agosto">Agosto</option>
+                          <option value="Septiembre">Septiembre</option>
+                          <option value="Octubre">Octubre</option>
+                          <option value="Noviembre">Noviembre</option>
+                          <option value="Diciembre">Diciembre</option>
+                          <option value="Todos">Todos</option>
+                        </select>
+                        <label>mes</label>
+                        <input id="primer_mes" type="hidden" name="primer_mes">
+                      </div>
+
+
                       <div class="col s12 m12 l2">
                         <select name="years" onchange="date(this.value)">
                           <option  value="" disabled selected>Año</option>
@@ -222,30 +245,23 @@
 
                       </div>
                       <div class="col s12 m12 l2">
-                        <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult(hotel_consulta,mes_consulta,year_consulta)"/>
+                        <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult(hotel_consulta,mes_consulta,year_consulta, primer_mes)"/>
                       </div>
 
 
 
                   </div>
                   <div class="row">
-                    <table class="responsive-table col s12 m8 l4">
-                     <thead>
-                       <tr>
-                           <th data-field="name">Hotel</th>
-                           <th data-field="name">Ocupacion</th>
 
-                       </tr>
-                     </thead>
 
-                     <tbody>
+
                        <?php
                          $link = require("../connect_db.php");
 
-                         $hotel = "Todos";
-                         $mes = "Todos";
+                         $hotel = "";
+                         $mes = "";
                          $year=date("Y");
-
+                         $primer_mes="";
                          if(isset($_COOKIE['hotel']))
                           $hotel = $_COOKIE['hotel'];
                          if(isset($_COOKIE['mes']))
@@ -256,6 +272,8 @@
                               $year=date("Y");
                          }
 
+                         if(isset($_COOKIE['primer_mes']))
+                          $primer_mes = $_COOKIE['primer_mes'];
 
 
                           if($hotel=="")
@@ -268,11 +286,11 @@
                             $mes="Todos";
                           if ($year=='Año')
                             $year=date("Y");
-
+                          //if($primer_mes=="")
 
                           //$year ="2017";
 
-                          //echo "$hotel $mes $year";
+                          echo "$hotel $mes $year $primer_mes";
 
                           //Cuando se selecciona un hotel
                          if($hotel != 'Todos'){
@@ -288,10 +306,20 @@
                                if ($numero_filas > 0) {
                                  while($fila = mysqli_fetch_assoc($ocupacion)){
                                    echo"
-                                    <tr>
-                                    <td>".$fila['hotel']."</td>
-                                    <td>".$fila['ocupacion']."%</td>
-                                    </tr>
+                                   <table class='responsive-table col s12 m8 l4'>
+                                    <thead>
+                                      <tr>
+                                        <th data-field='name'>Hotel</th>
+                                        <th data-field='name'>Ocupacion</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>".$fila['hotel']."</td>
+                                        <td>".$fila['ocupacion']."%</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
                                    ";
                                  }
                                }
@@ -299,21 +327,31 @@
                              }
                              //cuando no se seleccione un mes
                              else{
-                                $consulta = "SELECT hotel, AVG(ocupacion)
+                                $consulta = "SELECT hotel, CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                             FROM ocupacion_hoteles
                                             WHERE hotel = '".$hotel."' AND ano='".$year."';";
                                 $ocupacion = mysqli_query($link,$consulta);
                                 $numero_filas = mysqli_num_rows($ocupacion);
                                 //echo "Numero de filas = $numero_filas";
-                                $fila = mysqli_fetch_assoc($ocupacion);
+                                //echo"estoy aqui";
 
-                                if ($fila['AVG(ocupacion)'] != "") {
+                                if ($numero_filas > 0) {
                                   while($fila = mysqli_fetch_assoc($ocupacion)){
                                     echo"
-                                     <tr>
-                                     <td>".$fila['hotel']."</td>
-                                     <td>".$fila['AVG(ocupacion)']."%</td>
-                                     </tr>
+                                    <table class='col s12 m4 l4'>
+                                     <thead>
+                                       <tr>
+                                         <th data-field='name'>Hotel</th>
+                                         <th data-field='name'>Media anual</th>
+                                       </tr>
+                                     </thead>
+                                     <tbody>
+                                       <tr>
+                                         <td>".$fila['hotel']."</td>
+                                         <td>".$fila['ocupacion']."%</td>
+                                       </tr>
+                                     </tbody>
+                                   </table>
                                     ";
                                   }
 
@@ -323,25 +361,25 @@
 
                                   for ($i=0; $i <12 ; $i++) {
                                     //echo $meses[$i];
-                                    $consultas[$i] = "SELECT hotel, AVG(ocupacion)
+                                    $consultas[$i] = "SELECT hotel, CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                                  FROM ocupacion_hoteles
                                                  WHERE hotel = '".$hotel."' AND mes='".$meses[$i]."' AND ano='".$year."';";
                                    $aux = $consultas[$i];
                                    $ocupacion = mysqli_query($link,$aux);
                                    $datos_mes[$i]= mysqli_fetch_assoc($ocupacion);
-                                   //echo $datos_mes[$i]['AVG(ocupacion)'];
+                                   //echo $datos_mes[$i]['ocupacion'];
                                  }
 
                                  require_once ('../../jpgraph/src/jpgraph.php');
                                  require_once ('../../jpgraph/src/jpgraph_bar.php');
 
                                  // Some data
-                                  $data1y = array($datos_mes[0]['AVG(ocupacion)'],$datos_mes[1]['AVG(ocupacion)'],
-                                                  $datos_mes[2]['AVG(ocupacion)'],$datos_mes[3]['AVG(ocupacion)'],
-                                                  $datos_mes[4]['AVG(ocupacion)'],$datos_mes[5]['AVG(ocupacion)'],
-                                                  $datos_mes[6]['AVG(ocupacion)'],$datos_mes[7]['AVG(ocupacion)'],
-                                                  $datos_mes[8]['AVG(ocupacion)'],$datos_mes[9]['AVG(ocupacion)'],
-                                                  $datos_mes[10]['AVG(ocupacion)'],$datos_mes[11]['AVG(ocupacion)']);
+                                  $data1y = array($datos_mes[0]['ocupacion'],$datos_mes[1]['ocupacion'],
+                                                  $datos_mes[2]['ocupacion'],$datos_mes[3]['ocupacion'],
+                                                  $datos_mes[4]['ocupacion'],$datos_mes[5]['ocupacion'],
+                                                  $datos_mes[6]['ocupacion'],$datos_mes[7]['ocupacion'],
+                                                  $datos_mes[8]['ocupacion'],$datos_mes[9]['ocupacion'],
+                                                  $datos_mes[10]['ocupacion'],$datos_mes[11]['ocupacion']);
 
 
 
@@ -357,12 +395,12 @@
                                  $graph->SetBox(false);
 
                                  $graph->ygrid->SetFill(false);
-                                 $graph->xaxis->SetTickLabels(array($datos_mes[0]['AVG(ocupacion)']."%\nEnero",$datos_mes[1]['AVG(ocupacion)']."%\nFebrero",
-                                                                    $datos_mes[2]['AVG(ocupacion)']."%\nMarzo",$datos_mes[3]['AVG(ocupacion)']."%\nAbril",
-                                                                    $datos_mes[4]['AVG(ocupacion)']."%\nMayo",$datos_mes[5]['AVG(ocupacion)']."%\nJunio",
-                                                                    $datos_mes[6]['AVG(ocupacion)']."%\nJulio",$datos_mes[7]['AVG(ocupacion)']."%\nAgosto",
-                                                                    $datos_mes[8]['AVG(ocupacion)']."%\nSeptiembre",$datos_mes[9]['AVG(ocupacion)']."%\nOctubre",
-                                                                    $datos_mes[10]['AVG(ocupacion)']."%\nNoviembre",$datos_mes[11]['AVG(ocupacion)']."%\nDiciembre",));
+                                 $graph->xaxis->SetTickLabels(array($datos_mes[0]['ocupacion']."%\nEnero",$datos_mes[1]['ocupacion']."%\nFebrero",
+                                                                    $datos_mes[2]['ocupacion']."%\nMarzo",$datos_mes[3]['ocupacion']."%\nAbril",
+                                                                    $datos_mes[4]['ocupacion']."%\nMayo",$datos_mes[5]['ocupacion']."%\nJunio",
+                                                                    $datos_mes[6]['ocupacion']."%\nJulio",$datos_mes[7]['ocupacion']."%\nAgosto",
+                                                                    $datos_mes[8]['ocupacion']."%\nSeptiembre",$datos_mes[9]['ocupacion']."%\nOctubre",
+                                                                    $datos_mes[10]['ocupacion']."%\nNoviembre",$datos_mes[11]['ocupacion']."%\nDiciembre",));
                                  $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,11);
                                  $graph->yaxis->HideLine(false);
                                  $graph->yaxis->HideTicks(false,false);
@@ -388,11 +426,11 @@
                                  $graph->Stroke("../../images/graficas/grafica1.jpg");
 
                                  echo "
-                                   <tr>
-                                   <td>
-                                   <br><br><img src='../../images/graficas/grafica1.jpg'/>
-                                   </td>
-                                   </tr>
+                                   <div class='col s12 m8 l8'>
+                                      <img src='../../images/graficas/grafica1.jpg'/>
+                                   </div>
+
+
                                    ";
                                 }
 
@@ -405,46 +443,46 @@
                             //cuando se selecciona un mes
                             if ($mes != 'Todos') {
 
-                             $consulta ="SELECT AVG(ocupacion)
+                             $consulta ="SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                          FROM ocupacion_hoteles
                                          WHERE mes ='".$mes."' AND ano ='".$year."';";
                              $ocupacion = mysqli_query($link,$consulta);
                              $numero_filas = mysqli_num_rows($ocupacion);
                              //echo "Numero de filas = $numero_filas";
-                             $fila = mysqli_fetch_assoc($ocupacion);
-                             if ($fila['AVG(ocupacion)'] != "") {
+                             //$fila = mysqli_fetch_assoc($ocupacion);
+                             if ($numero_filas >0) {
                                while($fila = mysqli_fetch_assoc($ocupacion)){
                                  echo"
-                                  <tr>
-                                  <td>Media Hoteles $mes</td>
-                                  <td>".$fila['AVG(ocupacion)']."%</td>
-                                  </tr>
+                                 <div class='col s12 m2 l4'>
+                                    <p>Media de ".$mes.": ".$fila['ocupacion']."%</p>
+                                 </div>
+
                                  ";
                                }
 
                                //media anual del Allegro
-                               $consulta2 = "SELECT AVG(ocupacion)
+                               $consulta2 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                             FROM ocupacion_hoteles
                                             WHERE hotel = 'Allegro Isora' AND mes='".$mes."' AND ano='".$year."';";
                                $media_Allegro = mysqli_query($link,$consulta2);
                                $fila2 = mysqli_fetch_assoc($media_Allegro);
 
                                //media anual del Flamengo
-                               $consulta3 = "SELECT AVG(ocupacion)
+                               $consulta3 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                             FROM ocupacion_hoteles
                                             WHERE hotel = 'Bahia Flamengo' AND mes='".$mes."' AND ano='".$year."';";
                                $media_Flamengo = mysqli_query($link,$consulta3);
                                $fila3 = mysqli_fetch_assoc($media_Flamengo);
 
                                //media anual del Palacio
-                               $consulta4 = "SELECT AVG(ocupacion)
+                               $consulta4 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                             FROM ocupacion_hoteles
                                             WHERE hotel = 'Palacio de Isora' AND mes='".$mes."' AND ano='".$year."';";
                                $media_Palacio = mysqli_query($link,$consulta4);
                                $fila4 = mysqli_fetch_assoc($media_Palacio);
 
                                //media anual del Abama
-                               $consulta5 = "SELECT AVG(ocupacion)
+                               $consulta5 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                             FROM ocupacion_hoteles
                                             WHERE hotel = 'Ritz Carlton Abama' AND mes='".$mes."' AND ano='".$year."';";
                                $media_Abama = mysqli_query($link,$consulta5);
@@ -460,7 +498,7 @@
                                require_once ('../../jpgraph/src/jpgraph_bar.php');
 
                                // Some data
-                               $data1y=array($fila2['AVG(ocupacion)'],$fila3['AVG(ocupacion)'],$fila4['AVG(ocupacion)'],$fila5['AVG(ocupacion)']);
+                               $data1y=array($fila2['ocupacion'],$fila3['ocupacion'],$fila4['ocupacion'],$fila5['ocupacion']);
 
 
 
@@ -476,7 +514,7 @@
                                $graph->SetBox(false);
 
                                $graph->ygrid->SetFill(false);
-                               $graph->xaxis->SetTickLabels(array($fila2['AVG(ocupacion)']."%\nAllegro Isora",$fila3['AVG(ocupacion)']."%\nFlamengo",$fila4['AVG(ocupacion)']."%\nPalacio Isora",$fila5['AVG(ocupacion)']."%\nAbama"));
+                               $graph->xaxis->SetTickLabels(array($fila2['ocupacion']."%\nAllegro Isora",$fila3['ocupacion']."%\nFlamengo",$fila4['ocupacion']."%\nPalacio Isora",$fila5['ocupacion']."%\nAbama"));
                                //$graph->xaxis->SetTickLabels(array(10,25,36,10));
                                $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,11);
                                $graph->yaxis->HideLine(false);
@@ -501,11 +539,12 @@
                                $graph->Stroke("../../images/graficas/grafica1.jpg");
 
                                echo "
-                                 <tr>
-                                 <td>
-                                 <br><br><img src='../../images/graficas/grafica1.jpg'/>
-                                 </td>
-                                 </tr>
+                               <br><br><br>
+                                <div class='row'>
+                                  <div class='col s12 m12 l12'>
+                                    <img src='../../images/graficas/grafica1.jpg'/>
+                                  </div>
+                                </div>
                                  ";
                              }
 
@@ -513,46 +552,44 @@
                             }
                             //cuando no se selecciona ningun mes
                             else{
-                              $consulta ="SELECT AVG(ocupacion)
+                              $consulta ="SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                           FROM ocupacion_hoteles
                                           WHERE ano ='".$year."';";
                               $ocupacion = mysqli_query($link,$consulta);
                               $numero_filas = mysqli_num_rows($ocupacion);
-                              $fila = mysqli_fetch_assoc($ocupacion);
-                              if ($fila['AVG(ocupacion)'] != "") {
+                              if ($numero_filas >0) {
                                 while($fila = mysqli_fetch_assoc($ocupacion)){
                                   echo"
-                                   <tr>
-                                   <td>Media Hoteles Anual</td>
-                                   <td>".$fila['AVG(ocupacion)']."%</td>
-                                   </tr>
+                                    <div class='col s12 m2 l4'>
+                                       <p>Media de ".$year.": ".$fila['ocupacion']."%</p>
+                                    </div>
                                   ";
                                 }
 
 
                                 //media anual del Allegro
-                                $consulta2 = "SELECT AVG(ocupacion)
+                                $consulta2 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                              FROM ocupacion_hoteles
                                              WHERE hotel = 'Allegro Isora' AND ano='".$year."';";
                                 $media_Allegro = mysqli_query($link,$consulta2);
                                 $fila2 = mysqli_fetch_assoc($media_Allegro);
 
                                 //media anual del Flamengo
-                                $consulta3 = "SELECT AVG(ocupacion)
+                                $consulta3 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                              FROM ocupacion_hoteles
                                              WHERE hotel = 'Bahia Flamengo' AND ano='".$year."';";
                                 $media_Flamengo = mysqli_query($link,$consulta3);
                                 $fila3 = mysqli_fetch_assoc($media_Flamengo);
 
                                 //media anual del Palacio
-                                $consulta4 = "SELECT AVG(ocupacion)
+                                $consulta4 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                              FROM ocupacion_hoteles
                                              WHERE hotel = 'Palacio de Isora' AND ano='".$year."';";
                                 $media_Palacio = mysqli_query($link,$consulta4);
                                 $fila4 = mysqli_fetch_assoc($media_Palacio);
 
                                 //media anual del Abama
-                                $consulta5 = "SELECT AVG(ocupacion)
+                                $consulta5 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                              FROM ocupacion_hoteles
                                              WHERE hotel = 'Ritz Carlton Abama' AND ano='".$year."';";
                                 $media_Abama = mysqli_query($link,$consulta5);
@@ -568,7 +605,7 @@
                                 require_once ('../../jpgraph/src/jpgraph_bar.php');
 
                                 // Some data
-                                $data1y=array($fila2['AVG(ocupacion)'],$fila3['AVG(ocupacion)'],$fila4['AVG(ocupacion)'],$fila5['AVG(ocupacion)']);
+                                $data1y=array($fila2['ocupacion'],$fila3['ocupacion'],$fila4['ocupacion'],$fila5['ocupacion']);
 
 
 
@@ -584,7 +621,7 @@
                                 $graph->SetBox(false);
 
                                 $graph->ygrid->SetFill(false);
-                                $graph->xaxis->SetTickLabels(array($fila2['AVG(ocupacion)']."%\nAllegro Isora",$fila3['AVG(ocupacion)']."%\nFlamengo",$fila4['AVG(ocupacion)']."%\nPalacio Isora",$fila5['AVG(ocupacion)']."%\nAbama"));
+                                $graph->xaxis->SetTickLabels(array($fila2['ocupacion']."%\nAllegro Isora",$fila3['ocupacion']."%\nFlamengo",$fila4['ocupacion']."%\nPalacio Isora",$fila5['ocupacion']."%\nAbama"));
                                 //$graph->xaxis->SetTickLabels(array(10,25,36,10));
                                 $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,11);
                                 $graph->yaxis->HideLine(false);
@@ -609,11 +646,12 @@
                                 $graph->Stroke("../../images/graficas/grafica1.jpg");
 
                                 echo "
-                                  <tr>
-                                  <td>
-                                  <br><br><img src='../../images/graficas/grafica1.jpg'/>
-                                  </td>
-                                  </tr>
+                                <br><br><br>
+                                 <div class='row'>
+                                   <div class='col s12 m12 l12'>
+                                     <img src='../../images/graficas/grafica1.jpg'/>
+                                   </div>
+                                 </div>
                                   ";
                               }
 
@@ -623,9 +661,7 @@
 
                         ?>
 
-                     </tbody>
 
-                   </table>
 
                   </div>
 
@@ -694,27 +730,38 @@
       }
       function mounth(val){
         document.getElementById('mes_consulta').value = val;
+        if(val =="Trimestral")
+          document.getElementById('primer_mes_select').style.display="block";
+
+      }
+      function primer_mes(val){
+        document.getElementById('primer_mes').value=val;
       }
       function date(val){
         document.getElementById('year_consulta').value = val;
       }
+
+
       var Hotel, Mes, Year;
 
-      function consult(hotel, mes, year)
+      function consult(hotel, mes, year, primer)
       {
         Hotel = hotel.value;
         Mes = mes.value;
         Year = year.value;
-
+        Primer_mes = primer.value;
         document.cookie = 'hotel=' + Hotel;
         document.cookie = 'mes=' + Mes;
         document.cookie = 'year=' + Year;
-
+        document.cookie = 'primer='+ Primer_mes;
         window.location="ocupacion.php";
       }
 
       $(document).ready(function(){
         $('.modal').modal();
+        //document.cookie = 'hotel=';
+        //document.cookie = 'mes=';
+        //document.cookie = 'year=';
       });
 
     </script>
