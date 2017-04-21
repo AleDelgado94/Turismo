@@ -9,6 +9,18 @@
      $username = $_SESSION['usuario'];
      $oficina = $_SESSION['oficina_defecto'];
 
+     //ERROR REPORTING
+     error_reporting(E_ALL);
+
+     //INCLUDE PATH
+     //ini_set('include_path', ini_get('include_path').';../../Classes/');
+
+     //PHPExcel
+     include '../../Classes/PHPExcel.php';
+     include '../../Classes/PHPExcel/Writer/Excel2007.php';
+
+
+
 
 
 ?>
