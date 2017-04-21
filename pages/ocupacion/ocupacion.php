@@ -488,6 +488,7 @@
                                             WHERE hotel = '".$hotel."' AND ano='".$year."';";
                                 $ocupacion = mysqli_query($link,$consulta);
                                 $numero_filas = mysqli_num_rows($ocupacion);
+                                $media_total_hotel_todos = "";
                                 //echo "Numero de filas = $numero_filas";
                                 //echo"estoy aqui";
 
@@ -511,6 +512,7 @@
                                      </tbody>
                                    </table>
                                     ";
+                                    $media_total_hotel_todos = $fila['ocupacion'];
                                     $grafica=true;
                                   }
 
@@ -593,9 +595,32 @@
                                        <div class='col s12 m12 l2'>
                                          <input id='' value='Generar PDF' type ='submit' onclick=''/>
                                        </div>
-                                       <div class='col s12 m12 l2'>
-                                         <input id='boton_enviar' value='Generar EXCEL' type ='submit' onclick=''/>
-                                       </div>
+                                       <form action='generar_excel_hotel_todos.php' method='POST'>
+
+
+                                         <input type='hidden' value='".$hotel."' name='nombre_hotel'/>
+                                         <input type='hidden' value='".$datos_mes[0]['ocupacion']."' name='por_Enero'/>
+                                         <input type='hidden' value='".$datos_mes[1]['ocupacion']."' name='por_Febrero'/>
+                                         <input type='hidden' value='".$datos_mes[2]['ocupacion']."' name='por_Marzo'/>
+                                         <input type='hidden' value='".$datos_mes[3]['ocupacion']."' name='por_Abril'/>
+                                         <input type='hidden' value='".$datos_mes[4]['ocupacion']."' name='por_Mayo'/>
+                                         <input type='hidden' value='".$datos_mes[5]['ocupacion']."' name='por_Junio'/>
+                                         <input type='hidden' value='".$datos_mes[6]['ocupacion']."' name='por_Julio'/>
+                                         <input type='hidden' value='".$datos_mes[7]['ocupacion']."' name='por_Agosto'/>
+                                         <input type='hidden' value='".$datos_mes[8]['ocupacion']."' name='por_Septiembre'/>
+                                         <input type='hidden' value='".$datos_mes[9]['ocupacion']."' name='por_Octubre'/>
+                                         <input type='hidden' value='".$datos_mes[10]['ocupacion']."' name='por_Noviembre'/>
+                                         <input type='hidden' value='".$datos_mes[11]['ocupacion']."' name='por_Diciembre'/>
+                                         <input type='hidden' value='".$year."' name='year_ocu'/>
+                                         <input type='hidden' value='".$media_total_hotel_todos."' name='media_total'/>
+
+
+
+
+                                         <div class='col s12 m12 l2'>
+                                           <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                                         </div>
+                                       </form>
                                      </div>
                                      ";
                                  }
@@ -737,6 +762,7 @@
                                           WHERE ano ='".$year."';";
                               $ocupacion = mysqli_query($link,$consulta);
                               $numero_filas = mysqli_num_rows($ocupacion);
+                              $total_media = "";
                               if ($numero_filas >0) {
                                 $grafica=true;
                                 while($fila = mysqli_fetch_assoc($ocupacion)){
@@ -745,6 +771,7 @@
                                        <p>Media de <b>".$year."</b> de todos los hoteles es: ".$fila['ocupacion']."%</p>
                                     </div>
                                   ";
+                                  $total_media = $fila['ocupacion'];
                                 }
 
 
@@ -825,7 +852,6 @@
                                   $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                   // Display the graph
                                   $graph->Stroke("../../images/graficas/grafica1.jpg");
-
                                   echo "
                                   <br><br><br>
                                    <div class='row'>
@@ -845,7 +871,7 @@
                                        <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
                                        <input type='hidden' value='".$fila5['ocupacion']."' name='por_Abama'/>
                                        <input type='hidden' value='".$year."' name='year_ocu'/>
-                                       <input type='hidden' value='".$fila['ocupacion']."' name='media_total'/>
+                                       <input type='hidden' value='".$total_media."' name='media_total'/>
 
 
 
