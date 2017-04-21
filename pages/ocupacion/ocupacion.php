@@ -9,18 +9,6 @@
      $username = $_SESSION['usuario'];
      $oficina = $_SESSION['oficina_defecto'];
 
-     //ERROR REPORTING
-     error_reporting(E_ALL);
-
-     //INCLUDE PATH
-     //ini_set('include_path', ini_get('include_path').';../../Classes/');
-
-     //PHPExcel
-     include '../../Classes/PHPExcel.php';
-     include '../../Classes/PHPExcel/Writer/Excel2007.php';
-
-
-
 
 
 ?>
@@ -846,9 +834,24 @@
                                      <div class='col s12 m12 l2'>
                                        <input id='' value='Generar PDF' type ='submit' onclick=''/>
                                      </div>
-                                     <div class='col s12 m12 l2'>
-                                       <input id='boton_enviar' value='Generar EXCEL' type ='submit' onclick=''/>
-                                     </div>
+                                     <form action='generar_excel.php' method='POST'>
+
+
+                                       <input type='hidden' value='".$fila2['ocupacion']."' name='por_Allegro'/>
+                                       <input type='hidden' value='".$fila3['ocupacion']."' name='por_Flamengo'/>
+                                       <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
+                                       <input type='hidden' value='".$fila5['ocupacion']."' name='por_Abama'/>
+                                       <input type='hidden' value='".$year."' name='year_ocu'/>
+                                       <input type='hidden' value='".$fila['ocupacion']."' name='media_total'/>
+
+
+
+
+                                       <div class='col s12 m12 l2'>
+                                         <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                                       </div>
+                                     </form>
+
                                    </div>
                                     ";
                                 }
@@ -957,6 +960,11 @@
         window.location="ocupacion.php";
       }
 
+
+
+
+
+
       $(document).ready(function(){
         $('.modal').modal();
         document.cookie = 'hotel=""';
@@ -964,6 +972,8 @@
         document.cookie = 'year=""';
         document.cookie = 'primero=""';
       });
+
+
 
     </script>
 
