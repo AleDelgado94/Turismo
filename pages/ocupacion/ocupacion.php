@@ -917,9 +917,10 @@
 
       $(document).ready(function(){
         $('.modal').modal();
-        //document.cookie = 'hotel=';
-        //document.cookie = 'mes=';
-        //document.cookie = 'year=';
+        document.cookie = 'hotel=""';
+        document.cookie = 'mes=""';
+        document.cookie = 'year=""';
+        document.cookie = 'primero=""';
       });
 
     </script>
