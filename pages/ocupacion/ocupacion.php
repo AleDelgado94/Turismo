@@ -257,6 +257,7 @@
 
                        <?php
                          $link = require("../connect_db.php");
+                         //require_once ('../../dompdf/autoload.inc.php');
 
                          $hotel = "";
                          $mes = "";
@@ -432,6 +433,8 @@
                                  $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                  // Display the graph
                                  $graph->Stroke("../../images/graficas/grafica1.jpg");
+
+
 
                                  echo "
                                    <div class='col s12 m8 l8'>
