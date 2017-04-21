@@ -437,7 +437,14 @@
                                    <div class='col s12 m8 l8'>
                                       <img src='../../images/graficas/grafica1.jpg'/>
                                    </div>
-
+                                   <div class='row'>
+                                     <div class='col s12 m12 l2'>
+                                       <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                     </div>
+                                     <div class='col s12 m12 l2'>
+                                       <input id='boton_enviar' value='Generar EXCEL' type ='submit' onclick=''/>
+                                     </div>
+                                   </div>
 
                                    ";
                                }
@@ -579,7 +586,14 @@
                                         <img src='../../images/graficas/grafica1.jpg'/>
                                      </div>
 
-
+                                     <div class='row'>
+                                       <div class='col s12 m12 l2'>
+                                         <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                       </div>
+                                       <div class='col s12 m12 l2'>
+                                         <input id='boton_enviar' value='Generar EXCEL' type ='submit' onclick=''/>
+                                       </div>
+                                     </div>
                                      ";
                                  }
 
@@ -698,6 +712,14 @@
                                       <img src='../../images/graficas/grafica1.jpg'/>
                                     </div>
                                   </div>
+                                  <div class='row'>
+                                    <div class='col s12 m12 l2'>
+                                      <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                    </div>
+                                    <div class='col s12 m12 l2'>
+                                      <input id='boton_enviar' value='Generar EXCEL' type ='submit' onclick=''/>
+                                    </div>
+                                  </div>
                                    ";
                                }
 
@@ -806,6 +828,14 @@
                                    <div class='row'>
                                      <div class='col s12 m12 l12'>
                                        <img src='../../images/graficas/grafica1.jpg'/>
+                                     </div>
+                                   </div>
+                                   <div class='row'>
+                                     <div class='col s12 m12 l2'>
+                                       <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                     </div>
+                                     <div class='col s12 m12 l2'>
+                                       <input id='boton_enviar' value='Generar EXCEL' type ='submit' onclick=''/>
                                      </div>
                                    </div>
                                     ";
