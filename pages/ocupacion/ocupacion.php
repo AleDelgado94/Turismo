@@ -253,26 +253,15 @@
                   </div>
                   <div class="row">
 
-                      <?php
-                      /*require_once ('../../dompdf/autoload.inc.php');
+                    <?php
+                  /*  require('../../fpdf181/fpdf.php');
 
-                      // reference the Dompdf namespace
-                        use Dompdf\Dompdf;
-
-                        // instantiate and use the dompdf class
-                        $dompdf = new Dompdf();
-                        $dompdf->loadHtml('hello world');
-
-                        // (Optional) Setup the paper size and orientation
-                        $dompdf->setPaper('A4', 'landscape');
-
-                        // Render the HTML as PDF
-                        $dompdf->render();
-
-                        // Output the generated PDF to Browser
-                        $dompdf->stream();*/
-
-                       ?>
+                    $pdf = new FPDF();
+                    $pdf->AddPage();
+                    $pdf->SetFont('Arial','B',16);
+                    $pdf->Cell(40,10,'¡Hola, Mundo!');
+                    $pdf->Output('F','../../pdf/prueba.pdf');*/
+                    ?>
 
                        <?php
                          $link = require("../connect_db.php");
