@@ -32,7 +32,7 @@ if(isset($_SESSION['usuario'])) {
   else if($mes=="Mayo"){
     $num_mes="05";
   }
-  else if($mes=="Juni"){
+  else if($mes=="Junio"){
     $num_mes="06";
   }
   else if($mes=="Julio"){

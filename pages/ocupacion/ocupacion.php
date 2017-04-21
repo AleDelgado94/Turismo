@@ -295,15 +295,159 @@
                           //$year ="2017";
                           //$mes="Enero";
                           //echo "$hotel $mes $year $primer_mes";
-/*
+
                           if($mes =="Trimestral"){
-                            $hotel=="";
-                            $mes="";
-                            $year="";
 
-                            echo "hola";
+                            if($primer_mes=="Enero"){
+                              $fecha="$year/01/01";
+                              $fecha_final="$year/03/01";
+                            }
+                            else if($primer_mes=="Febrero"){
+                              $fecha="$year/02/01";
+                              $fecha_final="$year/04/01";
+                            }
+                            else if($primer_mes=="Marzo"){
+                              $fecha="$year/03/01";
+                              $fecha_final="$year/05/01";
+                            }
+                            else if($primer_mes=="Abril"){
+                              $fecha="$year/04/01";
+                              $fecha_final="$year/06/01";
+                            }
+                            else if($primer_mes=="Mayo"){
+                              $fecha="$year/05/01";
+                              $fecha_final="$year/07/01";
+                            }
+                            else if($primer_mes=="Junio"){
+                              $fecha="$year/06/01";
+                              $fecha_final="$year/08/01";
+                            }
+                            else if($primer_mes=="Julio"){
+                              $fecha="$year/07/01";
+                              $fecha_final="$year/09/01";
+                            }
+                            else if($primer_mes=="Agosto"){
+                              $fecha="$year/08/01";
+                              $fecha_final="$year/10/01";
+                            }
+                            else if($primer_mes=="Septiembre"){
+                              $fecha="$year/09/01";
+                              $fecha_final="$year/11/01";
+                            }
+                            else if($primer_mes=="Octubre"){
+                              $fecha="$year/10/01";
+                              $fecha_final="$year/12/01";
+                            }
+                            else if($primer_mes=="Noviembre"){
+                              $fecha="$year/11/01";
+                              $year_dos=$year+1;
+                              $fecha_final="$year_dos/01/01";
+                            }
+                            else if($primer_mes=="Diciembre"){
+                              $fecha="$year/12/01";
+                              $year_dos=$year+1;
+                              $fecha_final="$year_dos/02/01";
+                            }
 
-                          }*/
+
+                            if($hotel != "Todos" || $hotel!= ""){
+                              $grafica = false;
+                              $consulta = "SELECT mes, CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
+                                           FROM ocupacion_hoteles
+                                           WHERE hotel = '".$hotel."' AND fecha BETWEEN '".$fecha."' AND '".$fecha_final."'
+                                           GROUP BY mes
+                                           ORDER BY fecha";
+
+                               $trimestral = mysqli_query($link,$consulta);
+                               if(mysqli_num_rows($trimestral)>0){
+                                 $grafica=true;
+                                 echo"
+                                 <table class='col s12 m4 l4'>
+                                  <thead>
+                                    <tr>
+                                      <th data-field='name'>Mes</th>
+                                      <th data-field='name'>Media ocupacional</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                ";
+                                $array_ocupacion = array();
+                                $array_mes=array();
+                                 while($fila=mysqli_fetch_assoc($trimestral)){
+                                   echo "
+                                   <tr>
+                                     <td>".$fila['mes']."</td>
+                                     <td>".$fila['ocupacion']."%</td>
+                                   </tr>
+                                   ";
+                                   array_push($array_ocupacion,$fila['ocupacion']);
+                                   array_push($array_mes,$fila['mes']);
+                                 }
+                                 echo "
+                                   </tbody>
+                                 </table>
+                                 ";
+                               }
+
+                               if($grafica==true){
+                                 require_once ('../../jpgraph/src/jpgraph.php');
+                                 require_once ('../../jpgraph/src/jpgraph_bar.php');
+
+                                 // Some data
+                                 $data1y=$array_ocupacion;
+
+
+                                 // Create the graph. These two calls are always required
+                                 $graph = new Graph(400,400,'auto');
+                                 $graph->SetScale("textlin");
+
+                                 $theme_class=new UniversalTheme;
+                                 $graph->SetTheme($theme_class);
+
+                                 $graph->yaxis->SetTickPositions(array(0,30,40,50,60,65,70,75,80,85,90,95,100));
+                                 $graph->yaxis->SetFont(FF_ARIAL,FS_BOLD,12);
+                                 $graph->SetBox(false);
+
+                                 $graph->ygrid->SetFill(false);
+                                 $graph->xaxis->SetTickLabels(array($array_ocupacion[0]."%\n".$array_mes[0],$array_ocupacion[1]."%\n".$array_mes[1],$array_ocupacion[2]."%\n".$array_mes[2]));
+                                 //$graph->xaxis->SetTickLabels(array(10,25,36,10));
+                                 $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,11);
+                                 $graph->yaxis->HideLine(false);
+                                 $graph->yaxis->HideTicks(false,false);
+
+                                 // Create the bar plots
+                                 $b1plot = new BarPlot($data1y);
+
+
+                                 // Create the grouped bar plot
+                                 $gbplot = new GroupBarPlot(array($b1plot));
+                                 // ...and add it to the graPH
+                                 $graph->Add($gbplot);
+
+
+                                 $b1plot->SetColor("white");
+                                 $b1plot->SetFillColor(array("#FFB70E","#FCFF00","#00AFFF"));
+
+                                 $graph->title->Set("Media de ".$mes." de cada hotel");
+                                 $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                                 // Display the graph
+                                 $graph->Stroke("../../images/graficas/grafica1.jpg");
+
+                                 echo "
+                                   <div class='col s12 m8 l8'>
+                                      <img src='../../images/graficas/grafica1.jpg'/>
+                                   </div>
+
+
+                                   ";
+                               }
+                            }
+
+
+                          }
+
+
+                        else{
 
                           //Cuando se selecciona un hotel
                          if($hotel != 'Todos'){
@@ -670,7 +814,7 @@
 
                             }
                           }
-
+                        }
                         ?>
 
 
@@ -744,6 +888,8 @@
         document.getElementById('mes_consulta').value = val;
         if(val =="Trimestral")
           document.getElementById('primer_mes_select').style.display="block";
+        else
+          document.getElementById('primer_mes_select').style.display="none";
 
       }
       function primer_mes(val){
