@@ -17,29 +17,26 @@ $excel->getProperties()->setTitle("Ocupación");
 
 $excel->setActiveSheetIndex(0);
 $excel->getActiveSheet()->SetCellValue('A1', 'Media anual de cada hotel');
-$excel->getActiveSheet()->SetCellValue('B1', 'Año');
+$excel->getActiveSheet()->SetCellValue('A2', 'Año');
 $excel->getActiveSheet()->SetCellValue('B2', $_POST['year_ocu']);
-$excel->getActiveSheet()->SetCellValue('D1', 'Hoteles');
-$excel->getActiveSheet()->SetCellValue('D2', 'Media %');
+$excel->getActiveSheet()->SetCellValue('A4', 'Hoteles');
+$excel->getActiveSheet()->SetCellValue('B4', 'Media %');
 
-$excel->getActiveSheet()->SetCellValue('E1', 'Allegro Isora');
-$excel->getActiveSheet()->SetCellValue('E2', $_POST['por_Allegro']);
+$excel->getActiveSheet()->SetCellValue('A5', 'Allegro Isora');
+$excel->getActiveSheet()->SetCellValue('B5', $_POST['por_Allegro']);
 
-$excel->getActiveSheet()->SetCellValue('F1', 'Bahía Flamengo');
-$excel->getActiveSheet()->SetCellValue('F2', $_POST['por_Flamengo']);
+$excel->getActiveSheet()->SetCellValue('A6', 'Bahía Flamengo');
+$excel->getActiveSheet()->SetCellValue('B6', $_POST['por_Flamengo']);
 
-$excel->getActiveSheet()->SetCellValue('G1', 'Ritz Carlton Abama');
-$excel->getActiveSheet()->SetCellValue('G2', $_POST['por_Abama']);
+$excel->getActiveSheet()->SetCellValue('A7', 'Ritz Carlton Abama');
+$excel->getActiveSheet()->SetCellValue('B7', $_POST['por_Abama']);
 
-$excel->getActiveSheet()->SetCellValue('H1', 'Palacio Isora');
-$excel->getActiveSheet()->SetCellValue('H2', $_POST['por_Palacio']);
+$excel->getActiveSheet()->SetCellValue('A8', 'Palacio Isora');
+$excel->getActiveSheet()->SetCellValue('B8', $_POST['por_Palacio']);
 
-$excel->getActiveSheet()->SetCellValue('J1', 'Media total');
-$excel->getActiveSheet()->SetCellValue('J2', $_POST['media_total']);
+$excel->getActiveSheet()->SetCellValue('A10', 'Media total');
+$excel->getActiveSheet()->SetCellValue('B10', $_POST['media_total']);
 
-
-
-$excel->getActiveSheet()->setTitle('Simple');
 
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="ocupacion.xlsx"');
