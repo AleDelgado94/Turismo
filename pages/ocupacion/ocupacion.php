@@ -464,12 +464,28 @@
                                      <div class='col s12 m12 l2'>
                                        <input id='' value='Generar PDF' type ='submit' onclick=''/>
                                      </div>
-                                     <div class='col s12 m12 l2'>
-                                       <input id='boton_enviar' value='Generar EXCEL' type ='submit' onclick=''/>
-                                     </div>
+                                     <form action='generar_excel_trimestral.php' method='POST'>
+
+
+
+                                       <input type='hidden' value='".$hotel."' name='hotel'/>
+                                       <input type='hidden' value='".$array_mes[0]."' name='mes1'/>
+                                       <input type='hidden' value='".$array_mes[1]."' name='mes2'/>
+                                       <input type='hidden' value='".$array_mes[2]."' name='mes3'/>
+                                       <input type='hidden' value='".$array_ocupacion[0]."' name='mes1_ocu'/>
+                                       <input type='hidden' value='".$array_ocupacion[1]."' name='mes2_ocu'/>
+                                       <input type='hidden' value='".$array_ocupacion[2]."' name='mes3_ocu'/>
+                                       <input type='hidden' value='".$year."' name='year_ocu'/>
+
+
+                                       <div class='col s12 m12 l2'>
+                                         <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                                       </div>
+                                     </form>
                                    </div>
 
                                    ";
+                                   //<input type='hidden' value='".$total_media."' name='media_total'/>
                                }
                             }
 
@@ -661,6 +677,8 @@
                                          WHERE mes ='".$mes."' AND ano ='".$year."';";
                              $ocupacion = mysqli_query($link,$consulta);
                              $numero_filas = mysqli_num_rows($ocupacion);
+                             $total_media = "";
+                             $mes_actual = "";
                              //echo "Numero de filas = $numero_filas";
                              //$fila = mysqli_fetch_assoc($ocupacion);
                              if ($numero_filas >0) {
@@ -670,8 +688,10 @@
                                  <div class='col s12 m2 l4'>
                                     <p>Media de <b>".$mes."</b> de <b>".$year."</b> de todos los hoteles es: <b>".$fila['ocupacion']."%<b></p>
                                  </div>
-
                                  ";
+                                 $total_media = $fila['ocupacion'];
+                                 $mes_actual = $mes;
+
                                }
 
                                //media anual del Allegro
@@ -764,9 +784,24 @@
                                     <div class='col s12 m12 l2'>
                                       <input id='' value='Generar PDF' type ='submit' onclick=''/>
                                     </div>
-                                    <div class='col s12 m12 l2'>
-                                      <input id='boton_enviar' value='Generar EXCEL' type ='submit' onclick=''/>
-                                    </div>
+                                    <form action='generar_excel_todos_mes.php' method='POST'>
+
+
+                                      <input type='hidden' value='".$fila2['ocupacion']."' name='por_Allegro'/>
+                                      <input type='hidden' value='".$fila3['ocupacion']."' name='por_Flamengo'/>
+                                      <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
+                                      <input type='hidden' value='".$fila5['ocupacion']."' name='por_Abama'/>
+                                      <input type='hidden' value='".$mes_actual."' name='mes_ocu'/>
+                                      <input type='hidden' value='".$year."' name='year_ocu'/>
+                                      <input type='hidden' value='".$total_media."' name='media_total'/>
+
+
+
+
+                                      <div class='col s12 m12 l2'>
+                                        <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                                      </div>
+                                    </form>
                                   </div>
                                    ";
                                }
