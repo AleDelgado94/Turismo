@@ -70,7 +70,6 @@ function getAttrResidencia(val, id){
       aux = document.getElementById("number_people").value;
       document.getElementById("number_people").value = "";
 
-      console.log(aux);
 
       document.getElementById('n_personas').value = aux;
 
