@@ -350,6 +350,7 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.jpg");
                         $graph->Stroke("../../images/graficas/grafica1.jpg");
                       }
 
@@ -410,6 +411,7 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.jpg");
                         $graph->Stroke("../../images/graficas/grafica1.jpg");
                       }
 
@@ -568,6 +570,7 @@
                       $p1->value->SetColor('black');
                       $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                       $graph->legend->SetColor('black');
+                      @unlink("../../images/graficas/grafica1.jpg");
                       $graph->Stroke("../../images/graficas/grafica1.jpg");
 
 
@@ -778,6 +781,7 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
+                          @unlink("../../images/graficas/grafica1.jpg");
                           $graph->Stroke("../../images/graficas/grafica1.jpg");
 
 
@@ -987,6 +991,7 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
+                          @unlink("../../images/graficas/grafica1.jpg");
                           $graph->Stroke("../../images/graficas/grafica1.jpg");
 
 
@@ -1211,6 +1216,7 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
+                          @unlink("../../images/graficas/grafica1.jpg");
                           $graph->Stroke("../../images/graficas/grafica1.jpg");
 
 

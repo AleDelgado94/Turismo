@@ -440,7 +440,10 @@
                                  $graph->title->Set("Media de ".$mes." de cada hotel");
                                  $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                  // Display the graph
+                                 @unlink("../../images/graficas/grafica1.jpg");
                                  $graph->Stroke("../../images/graficas/grafica1.jpg");
+
+
 
 
 
@@ -609,6 +612,7 @@
                                    $graph->title->Set("Media por mes $hotel");
                                    $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                    // Display the graph
+                                   @unlink("../../images/graficas/grafica1.jpg");
                                    $graph->Stroke("../../images/graficas/grafica1.jpg");
 
                                    echo "
@@ -760,6 +764,7 @@
                                  $graph->title->Set("Media de ".$mes." de cada hotel");
                                  $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                  // Display the graph
+                                 @unlink("../../images/graficas/grafica1.jpg");
                                  $graph->Stroke("../../images/graficas/grafica1.jpg");
 
                                  echo "
@@ -895,6 +900,7 @@
                                   $graph->title->Set("Media anual de cada hotel");
                                   $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                   // Display the graph
+                                  @unlink("../../images/graficas/grafica1.jpg");
                                   $graph->Stroke("../../images/graficas/grafica1.jpg");
                                   echo "
                                   <br><br><br>
