@@ -1702,10 +1702,41 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
+                        $arr1 = serialize($conocer);
+                        $arr2 = serialize($numero);
+
                         echo "
                           <div class='col s12 m12 l3'>
                             <img src='../../images/graficas/grafica1.png'/>
                           </div>
+                        </div>";
+
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_conocer.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_conocer.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
                         </div>";
                     }
                   }
@@ -1777,10 +1808,42 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
+                        $arr1 = serialize($repite);
+                        $arr2 = serialize($numero);
+
+
                         echo "
                           <div class='col s12 m12 l3'>
                             <img src='../../images/graficas/grafica1.png'/>
                           </div>
+                        </div>";
+
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_repite.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_repite.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
                         </div>";
                     }
 
@@ -1857,10 +1920,41 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
+                        $arr1 = serialize($alojamiento_tipo);
+                        $arr2 = serialize($numero);
+
                         echo "
                           <div class='col s12 m12 l3'>
                             <img src='../../images/graficas/grafica1.png'/>
                           </div>
+                        </div>";
+
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_tipo.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_tipo.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
                         </div>";
                     }
 
@@ -1938,6 +2032,34 @@
                           <div class='col s12 m12 l3'>
                             <img src='../../images/graficas/grafica1.png'/>
                           </div>
+                        </div>";
+
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_motivo.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_motivo.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
                         </div>";
                     }
                   }
