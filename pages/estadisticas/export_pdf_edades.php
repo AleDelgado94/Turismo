@@ -52,18 +52,25 @@ class PDF extends FPDF
 
 } // FIN Class PDF
 
+
+$desde = $_POST['desde'];
+$hasta = $_POST['hasta'];
+
 //$pdf = new FPDF();
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Media anual de cada hotel');
+$pdf->Cell(40,10,'Edades');
+$pdf->LN();
+$pdf->Cell(50,10, 'Desde: ' . $desde . ' Hasta: ' . $hasta);
+$pdf->LN();
 
 //$fechas = "Año: " . $_POST['year_ocu'];
 
 //$pdf->Cell(50,10, $fechas);
 
-$hoteles = array('Hoteles', 'Allegro Isora', 'Bahía Flamengo', 'Palacio Isora', 'Ritz Carlton Abama', 'Total');
-$ocupacion = array('Media (%)', $_POST['por_Allegro'], $_POST['por_Flamengo'], $_POST['por_Palacio'], $_POST['por_Abama'], $_POST['media_total']);
+$hoteles = array('Years', utf8_decode('0 to 12 years'), utf8_decode('13 to 30 years'), utf8_decode('31 to 50 years'), utf8_decode('50 or more years'));
+$ocupacion = array('Average (%)', $_POST['edad1'], $_POST['edad2'], $_POST['edad3'], $_POST['edad4']);
 
 
 
@@ -73,7 +80,7 @@ $pdf->datosVerticales($ocupacion);
 $pdf->LN();
 $pdf->Image("../../images/graficas/grafica1.png");
 
-$pdf->Output('Ocupacion.pdf','D');
+$pdf->Output('Edades.pdf','D');
 
 
  ?>

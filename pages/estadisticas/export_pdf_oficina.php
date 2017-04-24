@@ -52,18 +52,25 @@ class PDF extends FPDF
 
 } // FIN Class PDF
 
+
+$desde = $_POST['desde'];
+$hasta = $_POST['hasta'];
+
 //$pdf = new FPDF();
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Media anual de cada hotel');
+$pdf->Cell(40,10,'Oficina');
+$pdf->LN();
+$pdf->Cell(50,10, 'Desde: ' . $desde . ' Hasta: ' . $hasta);
+$pdf->LN();
 
 //$fechas = "Año: " . $_POST['year_ocu'];
 
 //$pdf->Cell(50,10, $fechas);
 
-$hoteles = array('Hoteles', 'Allegro Isora', 'Bahía Flamengo', 'Palacio Isora', 'Ritz Carlton Abama', 'Total');
-$ocupacion = array('Media (%)', $_POST['por_Allegro'], $_POST['por_Flamengo'], $_POST['por_Palacio'], $_POST['por_Abama'], $_POST['media_total']);
+$hoteles = array('Oficina', utf8_decode('Guía Casco'), utf8_decode('Alcalá'), utf8_decode('Playa de San Juan'));
+$ocupacion = array(utf8_decode('Numero'), $_POST['ofi1'], $_POST['ofi2'], $_POST['ofi3']);
 
 
 
@@ -73,7 +80,7 @@ $pdf->datosVerticales($ocupacion);
 $pdf->LN();
 $pdf->Image("../../images/graficas/grafica1.png");
 
-$pdf->Output('Ocupacion.pdf','D');
+$pdf->Output('Oficina.pdf','D');
 
 
  ?>

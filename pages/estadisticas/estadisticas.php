@@ -87,6 +87,7 @@
             <?php
               if($username == 'admin'){
                 echo "<li> <i class='material-icons'>contacts</i><a href='../gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
+                echo "<li><i class='material-icons'>library_books</i><a href='../gestion_hotelera.php'>&nbsp; Gestión hotelera</a></li>";
               }
              ?>
 
@@ -413,8 +414,8 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.jpg");
-                        $graph->Stroke("../../images/graficas/grafica1.jpg");
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
                       }
 
 
@@ -474,8 +475,8 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.jpg");
-                        $graph->Stroke("../../images/graficas/grafica1.jpg");
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
                       }
 
                     }
@@ -520,15 +521,23 @@
                       if($grafica == TRUE){
                         echo "
                         <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.jpg'/>
+                            <img src='../../images/graficas/grafica1.png'/>
                         </div>
                         </div> ";
 
                         echo "
                         <div class='row'>
-                          <div class='col s12 m12 l2'>
-                            <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                          </div>
+                          <form action='export_pdf_nacionalidades.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                            <input type='hidden' value='".$paises_serializados."' name='nacionalidades'/>
+                            <input type='hidden' value='".$numero_serializados."' name='num_person_nacionalidad'/>
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
                           <form action='excel_nacionalidades.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio."' name='desde'/>
@@ -666,8 +675,8 @@
                       $p1->value->SetColor('black');
                       $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                       $graph->legend->SetColor('black');
-                      @unlink("../../images/graficas/grafica1.jpg");
-                      $graph->Stroke("../../images/graficas/grafica1.jpg");
+                      @unlink("../../images/graficas/grafica1.png");
+                      $graph->Stroke("../../images/graficas/grafica1.png");
 
 
                       echo "
@@ -732,15 +741,26 @@
                     if($grafica == TRUE){
                       echo "
                       <div class='col s12 m12 l3'>
-                          <img src='../../images/graficas/grafica1.jpg'/>
+                          <img src='../../images/graficas/grafica1.png'/>
                       </div>
                       </div>";
 
                       echo "
                       <div class='row'>
-                        <div class='col s12 m12 l2'>
-                          <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                        </div>
+                        <form action='export_pdf_edades.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                          <input type='hidden' value='".$filas5['numero']."' name='edad1'/>
+                          <input type='hidden' value='".$filas2['numero']."' name='edad2'/>
+                          <input type='hidden' value='".$filas3['numero']."' name='edad3'/>
+                          <input type='hidden' value='".$filas4['numero']."' name='edad4'/>
+
+                          <div class='col s12 m12 l2'>
+                            <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                          </div>
+                        </form>
+
                         <form action='excel_edades.php' method='POST'>
 
                         <input type='hidden' value='".$fecha_inicio."' name='desde'/>
@@ -901,22 +921,31 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
-                          @unlink("../../images/graficas/grafica1.jpg");
-                          $graph->Stroke("../../images/graficas/grafica1.jpg");
+                          @unlink("../../images/graficas/grafica1.png");
+                          $graph->Stroke("../../images/graficas/grafica1.png");
 
 
                         if($grafica == TRUE){
                           echo "
                           <div class='col s12 m12 l3'>
-                              <img src='../../images/graficas/grafica1.jpg'/>
+                              <img src='../../images/graficas/grafica1.png'/>
                           </div>
                           </div>";
 
                           echo "
                           <div class='row'>
-                            <div class='col s12 m12 l2'>
-                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                            </div>
+                            <form action='export_pdf_tramo_horario.php' method='POST'>
+
+                              <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                              <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                              <input type='hidden' value='".$fila2['numero']."' name='tramo1'/>
+                              <input type='hidden' value='".$fila3['numero']."' name='tramo2'/>
+                              <input type='hidden' value='".$fila4['numero']."' name='tramo3'/>
+
+                              <div class='col s12 m12 l2'>
+                                <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              </div>
+                            </form>
                             <form action='excel_tramo_horario.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio."' name='desde'/>
@@ -1138,22 +1167,31 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
-                          @unlink("../../images/graficas/grafica1.jpg");
-                          $graph->Stroke("../../images/graficas/grafica1.jpg");
+                          @unlink("../../images/graficas/grafica1.png");
+                          $graph->Stroke("../../images/graficas/grafica1.png");
 
 
                         if($grafica == TRUE){
                           echo "
                           <div class='col s12 m12 l3'>
-                              <img src='../../images/graficas/grafica1.jpg'/>
+                              <img src='../../images/graficas/grafica1.png'/>
                           </div>
                           </div>";
 
                           echo "
                           <div class='row'>
-                            <div class='col s12 m12 l2'>
-                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                            </div>
+                            <form action='export_pdf_oficina.php' method='POST'>
+
+                              <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                              <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                              <input type='hidden' value='".$fila2['numero']."' name='ofi1'/>
+                              <input type='hidden' value='".$fila3['numero']."' name='ofi2'/>
+                              <input type='hidden' value='".$fila4['numero']."' name='ofi3'/>
+
+                              <div class='col s12 m12 l2'>
+                                <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              </div>
+                            </form>
                             <form action='excel_oficina.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio."' name='desde'/>
@@ -1388,22 +1426,33 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
-                          @unlink("../../images/graficas/grafica1.jpg");
-                          $graph->Stroke("../../images/graficas/grafica1.jpg");
+                          @unlink("../../images/graficas/grafica1.png");
+                          $graph->Stroke("../../images/graficas/grafica1.png");
 
 
                         if($grafica == TRUE){
                           echo "
                           <div class='col s12 m12 l3'>
-                              <img src='../../images/graficas/grafica1.jpg'/>
+                              <img src='../../images/graficas/grafica1.png'/>
                           </div>
                           </div>";
 
                           echo "
                           <div class='row'>
-                            <div class='col s12 m12 l2'>
-                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                            </div>
+                            <form action='export_pdf_tipo_consulta.php' method='POST'>
+
+                              <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                              <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                              <input type='hidden' value='".$fila2['numero']."' name='tipo1'/>
+                              <input type='hidden' value='".$fila3['numero']."' name='tipo2'/>
+                              <input type='hidden' value='".$fila4['numero']."' name='tipo3'/>
+                              <input type='hidden' value='".$fila5['numero']."' name='tipo4'/>
+
+                              <div class='col s12 m12 l2'>
+                                <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              </div>
+                            </form>
+                          <form action='excel_oficina.php' method='POST'>
                             <form action='excel_tipo_consulta.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio."' name='desde'/>

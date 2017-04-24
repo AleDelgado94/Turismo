@@ -52,18 +52,32 @@ class PDF extends FPDF
 
 } // FIN Class PDF
 
+
+$desde = $_POST['desde'];
+$hasta = $_POST['hasta'];
+$nacionalidades = unserialize($_POST['nacionalidades']);
+$numero_personas = unserialize($_POST['num_person_nacionalidad']);
+
 //$pdf = new FPDF();
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Media anual de cada hotel');
+$pdf->Cell(40,10, utf8_decode('Número de personas según la nacionalidad'));
+$pdf->LN();
+$pdf->Cell(50,10, 'Desde: ' . $desde . ' Hasta: ' . $hasta);
+$pdf->LN();
 
-//$fechas = "Año: " . $_POST['year_ocu'];
 
-//$pdf->Cell(50,10, $fechas);
+$hoteles = array('Nacionalidad');
+$ocupacion = array(utf8_decode('Número'));
 
-$hoteles = array('Hoteles', 'Allegro Isora', 'Bahía Flamengo', 'Palacio Isora', 'Ritz Carlton Abama', 'Total');
-$ocupacion = array('Media (%)', $_POST['por_Allegro'], $_POST['por_Flamengo'], $_POST['por_Palacio'], $_POST['por_Abama'], $_POST['media_total']);
+for ($i=0; $i < count($nacionalidades); $i++) {
+  array_push($hoteles, $nacionalidades[$i]);
+}
+
+for ($i=0; $i < count($numero_personas); $i++) {
+  array_push($ocupacion, $numero_personas[$i]);
+}
 
 
 
@@ -73,7 +87,7 @@ $pdf->datosVerticales($ocupacion);
 $pdf->LN();
 $pdf->Image("../../images/graficas/grafica1.png");
 
-$pdf->Output('Ocupacion.pdf','D');
+$pdf->Output('Nacionalidades.pdf','D');
 
 
  ?>

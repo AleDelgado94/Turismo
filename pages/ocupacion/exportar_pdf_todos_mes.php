@@ -56,7 +56,7 @@ class PDF extends FPDF
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Media anual de cada hotel');
+$pdf->Cell(40,10,'Media anual todos los hoteles en el'. utf8_decode(" año ") . $_POST['year_ocu']);
 
 //$fechas = "Año: " . $_POST['year_ocu'];
 
