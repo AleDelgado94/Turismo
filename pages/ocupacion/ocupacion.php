@@ -767,9 +767,20 @@
                                     </div>
                                   </div>
                                   <div class='row'>
-                                    <div class='col s12 m12 l2'>
-                                      <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                                    </div>
+
+                                    <form action='exportar_pdf.php' method='POST'>
+                                      <input type='hidden' value='".$fila2['ocupacion']."' name='por_Allegro'/>
+                                      <input type='hidden' value='".$fila3['ocupacion']."' name='por_Flamengo'/>
+                                      <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
+                                      <input type='hidden' value='".$fila5['ocupacion']."' name='por_Abama'/>
+                                      <input type='hidden' value='".$mes_actual."' name='mes_ocu'/>
+                                      <input type='hidden' value='".$year."' name='year_ocu'/>
+                                      <input type='hidden' value='".$total_media."' name='media_total'/>
+                                      <div class='col s12 m12 l2'>
+                                        <input id='boton_enviar_pdf' value='Generar PDF' type ='submit'/>
+                                      </div>
+                                    </form>
+
                                     <form action='generar_excel_todos_mes.php' method='POST'>
 
 
@@ -780,9 +791,6 @@
                                       <input type='hidden' value='".$mes_actual."' name='mes_ocu'/>
                                       <input type='hidden' value='".$year."' name='year_ocu'/>
                                       <input type='hidden' value='".$total_media."' name='media_total'/>
-
-
-
 
                                       <div class='col s12 m12 l2'>
                                         <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
