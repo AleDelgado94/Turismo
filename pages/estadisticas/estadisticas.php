@@ -105,10 +105,10 @@
           </div>
           <div class="row">
             <!-- Personas-->
-            <div class="col s12 m4 l4">
+            <div class="col s12 m4 l2">
               <h5>Personas</h5>
               <div class="row">
-                <div class="col s12 m8 l8">
+                <div class="col s12 m12 l12">
                   <select name="personas" onchange="person(this.value)">
                     <option value="" disabled selected>Personas</option>
                     <option value="Nacionalidad">Nacionalidad</option>
@@ -147,15 +147,15 @@
                   <input id="nacion_consulta" type="hidden" name="persona">
 
                 </div>
-                <div class="col s12 m4 l3">
-                   <input id="numero_paises" type="number" name="numero_paises" placeholder="Número" min="0">
+                <div class="col s12 m4 l4">
+                   <input id="numero_paises" type="number" name="numero_paises" placeholder="Núm" min="0">
                 </div>
               </div>
               <div class="row">
-                <div class="col s12 m12 l3">
+                <div class="col s12 m12 l6">
                     <input type="text" class="datepicker" id="fecha_ini" name="fecha_ini" placeholder="De:">
                 </div>
-                <div class="col s12 m12 l3">
+                <div class="col s12 m12 l6">
                     <input type="text" class="datepicker" id="fecha_fin" name="fecha_fin" placeholder="Hasta:">
                 </div>
 
@@ -169,10 +169,10 @@
             </div>
             <!--Fin Personas-->
             <!--Consulta-->
-            <div class="col s12 m4 l4">
+            <div class="col s12 m4 l2">
               <h5>Consulta</h5>
               <div class="row">
-                <div class="col s12 m8 l8">
+                <div class="col s12 m8 l12">
                   <select name="consultas" onchange="consulta(this.value)">
                     <option value="" disabled selected>Consultas</option>
                     <option value="Horario">Tramo horario</option>
@@ -227,10 +227,10 @@
               </div>
 
               <div class="row">
-                <div class="col s12 m12 l3">
+                <div class="col s12 m12 l6">
                     <input type="text" class="datepicker" id="fecha_ini2" name="fecha_ini2" placeholder="De:">
                 </div>
-                <div class="col s12 m12 l3">
+                <div class="col s12 m12 l6">
                     <input type="text" class="datepicker" id="fecha_fin2" name="fecha_fin2" placeholder="Hasta:">
                 </div>
               </div>
@@ -242,11 +242,65 @@
             </div>
             <!--Fin Consulta-->
 
+            <!--Perfil y alojamiento-->
+            <div class="col s12 m2 l2">
+              <h5>Perfil Alojamiento</h5>
+              <div class="row">
+                <div class="col s12 m8 l12" >
+                  <select name='alojamientos' onchange="alojamiento(this.value)">
+                       <option value="" disabled selected> Perfil alojamiento</option>
+                       <option value='Como'>Cómo conocieron el municipio</option>
+                       <option value='Repite Visita'>Repite visita</option>
+                       <option value='Tipo de alojamiento'>Tipo de alojamiento</option>
+                       <option value='Motivo de visita'>Motivo de visita</option>
+                       <option value='Se aloja'>¿Se aloja?</option>
+                       <option value='Tiempo de estancia'>Tiempo de estancia</option>
+                   </select>
+                  <label>Horario</label>
+                  <input id="alojamiento_consulta" type="hidden" name="alojamiento_consulta">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12 m12 l6">
+                    <input type="text" class="datepicker" id="fecha_ini3" name="fecha_ini3" placeholder="De:">
+                </div>
+                <div class="col s12 m12 l6">
+                    <input type="text" class="datepicker" id="fecha_fin3" name="fecha_fin3" placeholder="Hasta:">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12 m12 l2">
+                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult3(alojamiento_consulta,fecha_ini3,fecha_fin3)"/>
+                </div>
+              </div>
+            </div>
+            <!--Fin perfil y alojamiento-->
 
+
+            <!--Informacion-->
+            <div class="col s12 m2 l2">
+              <h5>Infomación</h5>
+              <div class="row">
+                <div class="col s12 m12 l6">
+                    <input type="text" class="datepicker" id="fecha_ini4" name="fecha_ini4" placeholder="De:">
+                </div>
+                <div class="col s12 m12 l6">
+                    <input type="text" class="datepicker" id="fecha_fin4" name="fecha_fin4" placeholder="Hasta:">
+                </div>
+              </div>
+            </div>
+            <!--Informacion-->
             <!--Materiales-->
-            <div class="col s12 m4 l4">
+            <div class="col s12 m2 l2">
               <h5>Materiales</h5>
-
+              <div class="row">
+                <div class="col s12 m12 l6">
+                    <input type="text" class="datepicker" id="fecha_ini5" name="fecha_ini5" placeholder="De:">
+                </div>
+                <div class="col s12 m12 l6">
+                    <input type="text" class="datepicker" id="fecha_fin5" name="fecha_fin5" placeholder="Hasta:">
+                </div>
+              </div>
             </div>
             <!--Fin Materiales-->
 
@@ -266,6 +320,8 @@
                   $fecha_final="2000/01/01";
                   $grafica="";
                   $numero_paises="";
+
+                  $alojamiento="";
 
 
                   if(isset($_COOKIE['persona']))
@@ -289,6 +345,9 @@
                     $numero_paises = $_COOKIE['numero_paises'];
                   }
 
+                  if(isset($_COOKIE['alojamiento'])){
+                    $alojamiento = $_COOKIE['alojamiento'];
+                  }
 
                   if($persona=="")
                     $persona="Nacionalidad";
@@ -298,6 +357,7 @@
                     $fecha_final="2000/01/01";
 
                   //echo "$persona $nacion de $fecha_inicio hasta $fecha_final $numero_paises";
+                  //echo "$alojamiento $fecha_inicio $fecha_final";
 
                   if($persona == "Nacionalidad"){
                     if($nacion =="Todas" && $numero_paises==""){
@@ -1517,7 +1577,47 @@
                 //fin del segundo if
 
 
+                //comienzo tercer if
+                if($alojamiento != ""){
+                  /*echo "Esto es alojamiento: $alojamiento";
+                  echo "hola";*/
+                  if($alojamiento == "Como"){
+                    echo "$alojamiento";
+                    //SELECT DISTINCT grupo, conocer, COUNT(grupo) FROM perfil_alojamiento NATURAL INNER JOIN visita WHERE conocer="Web" AND fecha BETWEEN '2017/04/01' AND '2017/04/31'
+                    //SELECT DISTINCT grupo, conocer, COUNT(grupo) FROM perfil_alojamiento NATURAL INNER JOIN visita WHERE conocer !="" AND fecha BETWEEN '2017/04/01' AND '2017/04/31' GROUP BY conocer
+                    $consulta="";
 
+
+                  }
+
+                  if($alojamiento =="Repite Visita"){
+                    echo "$alojamiento";
+
+                  }
+
+                  if($alojamiento =="Tipo de alojamiento"){
+                    echo "$alojamiento";
+
+                  }
+
+                  if($alojamiento =="Motivo de visita"){
+                    echo "$alojamiento";
+
+                  }
+
+                  if($alojamiento =="Se aloja"){
+                    echo "$alojamiento";
+
+                  }
+
+                  if($alojamiento =="Tiempo de estancia"){
+                    echo "$alojamiento";
+
+                  }
+
+                }
+
+                //fin tercer if
 
 
 
@@ -1616,6 +1716,8 @@
         document.cookie = 'tipo =""';
         document.cookie = 'fecha_inicio2=""';
         document.cookie = 'fecha_final2=""';
+        document.cookie = 'alojamiento=""';
+
 
         document.cookie = 'persona=' + Persona;
         document.cookie = 'nacion=' + Nacion;
@@ -1678,6 +1780,7 @@
         document.cookie = 'fecha_inicio=""';
         document.cookie = 'fecha_final=""';
         document.cookie = 'year=""';
+        document.cookie = 'alojamiento=""';
 
         document.cookie = 'tipo_consulta=' + Consulta;
         document.cookie = 'hora=' + Hora;
@@ -1689,6 +1792,21 @@
 
       }
 
+
+      function alojamiento(val){
+        document.getElementById('alojamiento_consulta').value = val;
+      }
+      function consult3(consulta,fe_ini,fe_fin){
+        var Alojamiento = consulta.value;
+        var FInicial2= fe_ini.value;
+        var FFinal2= fe_fin.value;
+
+        document.cookie = 'alojamiento=' + Alojamiento;
+        document.cookie = 'fecha_inicio=' + FInicial2;
+        document.cookie = 'fecha_final=' + FFinal2;
+        window.location = "estadisticas.php";
+
+      }
 
       function deleteAllCookies() {
         var cookies = document.cookie.split(";");
