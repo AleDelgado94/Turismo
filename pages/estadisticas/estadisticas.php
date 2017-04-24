@@ -442,9 +442,19 @@
                          <td>".$fila['nacionalidad']."</td>
                          <td>".$fila['numero']."</td>
                          </tr>
-
                         ";
                       }
+
+
+                      $paises_serializados = "";
+                      $paises_serializados = serialize($paises);
+                      echo $paises_serializados;
+
+                      $paises_deserializado = "";
+
+                      $paises_deserializado = unserialize($paises_serializados);
+                      echo $paises_deserializado[0];
+
                       echo "</tbody>
                             </table>
                       ";
@@ -452,9 +462,25 @@
                         echo "
                         <div class='col s12 m12 l3'>
                             <img src='../../images/graficas/grafica1.jpg'/>
+                        </div>
+
+                        <div class='row'>
+                          <div class='col s12 m12 l2'>
+                            <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                          </div>
+                          <form action='generar_excel_todos_mes.php' method='POST'>
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
                         </div>";
+
                       }
+
                   }
+
+
 
                   if($persona == "Visitas"){
                     $consulta= "SELECT COUNT(DISTINCT grupo) as numero
