@@ -551,7 +551,7 @@
                                 $media_total_hotel_todos = "";
                                 //echo "Numero de filas = $numero_filas";
                                 //echo"estoy aqui";
-
+                                $grafica = false;
                                 if ($numero_filas > 0) {
                                   while($fila = mysqli_fetch_assoc($ocupacion)){
                                     echo"
@@ -725,6 +725,7 @@
                              $mes_actual = "";
                              //echo "Numero de filas = $numero_filas";
                              //$fila = mysqli_fetch_assoc($ocupacion);
+                             $grafica = false;
                              if ($numero_filas >0) {
                                $grafica=true;
                                while($fila = mysqli_fetch_assoc($ocupacion)){
@@ -873,12 +874,15 @@
                               $ocupacion = mysqli_query($link,$consulta);
                               $numero_filas = mysqli_num_rows($ocupacion);
                               $total_media = "";
-                              if ($numero_filas >0) {
+                              $grafica = false;
+                              if (mysqli_num_rows($ocupacion) >0) {
                                 $grafica=true;
                                 while($fila = mysqli_fetch_assoc($ocupacion)){
+                                  
+
                                   echo"
                                     <div class='col s12 m2 l4'>
-                                       <p>Media de <b>".$year."</b> de todos los hoteles es: ".$fila['ocupacion']."%</p>
+                                       <p>Media de<b>".$year."</b> de todos los hoteles es: ".$fila['ocupacion']."%</p>
                                     </div>
                                   ";
                                   $total_media = $fila['ocupacion'];

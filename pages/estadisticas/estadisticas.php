@@ -2143,8 +2143,85 @@
                   }
 
                   if($alojamiento =="Tiempo de estancia"){
-                    echo "$alojamiento";
+                    //echo "$alojamiento";
 
+
+                    $consulta="SELECT tiempo, COUNT(tiempo) as numero
+                               FROM perfil_alojamiento NATURAL INNER JOIN visita
+                               WHERE tiempo!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY tiempo";
+
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <div class='row'>
+                        Desde el <b>".$fecha_inicio_alo."</b> hasta el <b>".$fecha_final_alo."</b>
+                      </div>
+
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Tiempo de estancia</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $tiempo=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['tiempo']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($tiempo,$fila['tiempo']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tiempo de alojamiento");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($tiempo);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+                    }
                   }
 
                 }
