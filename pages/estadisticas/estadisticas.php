@@ -449,12 +449,8 @@
 
                       $paises_serializados = "";
                       $paises_serializados = serialize($paises);
-                      //echo $paises_serializados;
-
-                      $paises_deserializado = "";
-
-                      $paises_deserializado = unserialize($paises_serializados);
-                      //echo $paises_deserializado[0];
+                      $numero_serializados = "";
+                      $numero_serializados = serialize($data2);
 
                       echo "</tbody>
                             </table>
@@ -471,7 +467,14 @@
                           <div class='col s12 m12 l2'>
                             <input id='' value='Generar PDF' type ='submit' onclick=''/>
                           </div>
-                          <form action='generar_excel_todos_mes.php' method='POST'>
+                          <form action='excel_nacionalidades.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                          <input type='hidden' value='".$paises_serializados."' name='nacionalidades'/>
+                          <input type='hidden' value='".$numero_serializados."' name='num_person_nacionalidad'/>
+
+
 
                             <div class='col s12 m12 l2'>
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
@@ -670,6 +673,28 @@
                           <img src='../../images/graficas/grafica1.jpg'/>
                       </div>
                       </div>";
+
+                      echo "
+                      <div class='row'>
+                        <div class='col s12 m12 l2'>
+                          <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                        </div>
+                        <form action='excel_edades.php' method='POST'>
+
+                        <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                        <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                        <input type='hidden' value='".$filas5['numero']."' name='edad1'/>
+                        <input type='hidden' value='".$filas2['numero']."' name='edad2'/>
+                        <input type='hidden' value='".$filas3['numero']."' name='edad3'/>
+                        <input type='hidden' value='".$filas4['numero']."' name='edad4'/>
+
+
+
+                          <div class='col s12 m12 l2'>
+                            <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                          </div>
+                        </form>
+                      </div>";
                     }
                   }
                 }//fin del primer if
@@ -824,6 +849,29 @@
                               <img src='../../images/graficas/grafica1.jpg'/>
                           </div>
                           </div>";
+
+                          echo "
+                          <div class='row'>
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                            <form action='excel_tramo_horario.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                            <input type='hidden' value='".$fila2['numero']."' name='tramo1'/>
+                            <input type='hidden' value='".$fila3['numero']."' name='tramo2'/>
+                            <input type='hidden' value='".$fila4['numero']."' name='tramo3'/>
+
+
+
+                              <div class='col s12 m12 l2'>
+                                <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                              </div>
+                            </form>
+                          </div>";
+
+
                         }
 
                       }
@@ -1037,6 +1085,27 @@
                           <div class='col s12 m12 l3'>
                               <img src='../../images/graficas/grafica1.jpg'/>
                           </div>
+                          </div>";
+
+                          echo "
+                          <div class='row'>
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                            <form action='excel_oficina.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                            <input type='hidden' value='".$fila2['numero']."' name='ofi1'/>
+                            <input type='hidden' value='".$fila3['numero']."' name='ofi2'/>
+                            <input type='hidden' value='".$fila4['numero']."' name='ofi3'/>
+
+
+
+                              <div class='col s12 m12 l2'>
+                                <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                              </div>
+                            </form>
                           </div>";
                         }
 
@@ -1267,6 +1336,28 @@
                               <img src='../../images/graficas/grafica1.jpg'/>
                           </div>
                           </div>";
+
+                          echo "
+                          <div class='row'>
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                            <form action='excel_tipo_consulta.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                            <input type='hidden' value='".$fila2['numero']."' name='tipo1'/>
+                            <input type='hidden' value='".$fila3['numero']."' name='tipo2'/>
+                            <input type='hidden' value='".$fila4['numero']."' name='tipo3'/>
+                            <input type='hidden' value='".$fila5['numero']."' name='tipo4'/>
+
+
+
+                              <div class='col s12 m12 l2'>
+                                <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                              </div>
+                            </form>
+                          </div>";
                         }
 
                       }
@@ -1433,7 +1524,7 @@
                 ?>
 
 
-          
+
           <!--FINAL DE LAS ESTADISTICAS-->
         </div>
       </div>
