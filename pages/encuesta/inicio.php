@@ -257,13 +257,23 @@
 
 
                         <div class="row">
-                          <div class="col s6 m10 l10 left-align">
-                            <a class="waves-effect waves-light btn #4caf50 green " id="add_user">Añadir</a>
+                          <div class="row">
+                            <div class="col s12 m12 l12">
+                              <input type="number" name="number_people" id="number_people" placeholder="Número de personas" min="0" max="30">
+                            </div>
                           </div>
 
-                          <div class="col s6 m2 l2">
-                            <a class="waves-effect waves-light btn #f44336 red" id="rm_user">Borrar</a>
+                          <div class="row">
+                            <div class="col s12 m6 l6 left-align">
+                              <a class="waves-effect waves-light btn #4caf50 green " id="add_user">Añadir</a>
+                            </div>
+
+                            <div class="col s12 m6 l6">
+                              <a class="waves-effect waves-light btn #f44336 red" id="rm_user">Borrar</a>
+                            </div>
                           </div>
+
+
                         </div>
 
 
