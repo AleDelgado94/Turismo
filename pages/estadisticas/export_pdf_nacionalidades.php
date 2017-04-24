@@ -55,22 +55,29 @@ class PDF extends FPDF
 
 $desde = $_POST['desde'];
 $hasta = $_POST['hasta'];
+$nacionalidades = unserialize($_POST['nacionalidades']);
+$numero_personas = unserialize($_POST['num_person_nacionalidad']);
 
 //$pdf = new FPDF();
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Edades');
+$pdf->Cell(40,10, utf8_decode('Número de personas según la nacionalidad'));
 $pdf->LN();
 $pdf->Cell(50,10, 'Desde: ' . $desde . ' Hasta: ' . $hasta);
 $pdf->LN();
 
-//$fechas = "Año: " . $_POST['year_ocu'];
 
-//$pdf->Cell(50,10, $fechas);
+$hoteles = array('Nacionalidad');
+$ocupacion = array(utf8_decode('Número'));
 
-$hoteles = array('Years', utf8_decode('0 to 12 years'), utf8_decode('13 to 30 years'), utf8_decode('31 to 50 years'), utf8_decode('50 or more years'));
-$ocupacion = array('Average (%)', $_POST['edad1'], $_POST['edad2'], $_POST['edad3'], $_POST['edad4']);
+for ($i=0; $i < count($nacionalidades); $i++) {
+  array_push($hoteles, $nacionalidades[$i]);
+}
+
+for ($i=0; $i < count($numero_personas); $i++) {
+  array_push($ocupacion, $numero_personas[$i]);
+}
 
 
 
@@ -80,7 +87,7 @@ $pdf->datosVerticales($ocupacion);
 $pdf->LN();
 $pdf->Image("../../images/graficas/grafica1.png");
 
-$pdf->Output('Edades.pdf','D');
+$pdf->Output('Nacionalidades.pdf','D');
 
 
  ?>

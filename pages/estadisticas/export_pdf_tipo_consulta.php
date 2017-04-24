@@ -60,7 +60,7 @@ $hasta = $_POST['hasta'];
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Edades');
+$pdf->Cell(40,10,'Tipo de consulta');
 $pdf->LN();
 $pdf->Cell(50,10, 'Desde: ' . $desde . ' Hasta: ' . $hasta);
 $pdf->LN();
@@ -69,8 +69,8 @@ $pdf->LN();
 
 //$pdf->Cell(50,10, $fechas);
 
-$hoteles = array('Years', utf8_decode('0 to 12 years'), utf8_decode('13 to 30 years'), utf8_decode('31 to 50 years'), utf8_decode('50 or more years'));
-$ocupacion = array('Average (%)', $_POST['edad1'], $_POST['edad2'], $_POST['edad3'], $_POST['edad4']);
+$hoteles = array('Tipo', utf8_decode('Corta'), utf8_decode('Larga'), utf8_decode('E-mail'), utf8_decode('Tlfn'));
+$ocupacion = array(utf8_decode('Numero'), $_POST['tipo1'], $_POST['tipo2'], $_POST['tipo3'], $_POST['tipo4']);
 
 
 
@@ -80,7 +80,7 @@ $pdf->datosVerticales($ocupacion);
 $pdf->LN();
 $pdf->Image("../../images/graficas/grafica1.png");
 
-$pdf->Output('Edades.pdf','D');
+$pdf->Output('Tipo.pdf','D');
 
 
  ?>

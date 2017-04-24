@@ -525,9 +525,17 @@
 
                         echo "
                         <div class='row'>
-                          <div class='col s12 m12 l2'>
-                            <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                          </div>
+                          <form action='export_pdf_nacionalidades.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                            <input type='hidden' value='".$paises_serializados."' name='nacionalidades'/>
+                            <input type='hidden' value='".$numero_serializados."' name='num_person_nacionalidad'/>
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
                           <form action='excel_nacionalidades.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio."' name='desde'/>
@@ -924,9 +932,18 @@
 
                           echo "
                           <div class='row'>
-                            <div class='col s12 m12 l2'>
-                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                            </div>
+                            <form action='export_pdf_tramo_horario.php' method='POST'>
+
+                              <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                              <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                              <input type='hidden' value='".$fila2['numero']."' name='tramo1'/>
+                              <input type='hidden' value='".$fila3['numero']."' name='tramo2'/>
+                              <input type='hidden' value='".$fila4['numero']."' name='tramo3'/>
+
+                              <div class='col s12 m12 l2'>
+                                <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              </div>
+                            </form>
                             <form action='excel_tramo_horario.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio."' name='desde'/>
@@ -1161,9 +1178,18 @@
 
                           echo "
                           <div class='row'>
-                            <div class='col s12 m12 l2'>
-                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                            </div>
+                            <form action='export_pdf_oficina.php' method='POST'>
+
+                              <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                              <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                              <input type='hidden' value='".$fila2['numero']."' name='ofi1'/>
+                              <input type='hidden' value='".$fila3['numero']."' name='ofi2'/>
+                              <input type='hidden' value='".$fila4['numero']."' name='ofi3'/>
+
+                              <div class='col s12 m12 l2'>
+                                <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              </div>
+                            </form>
                             <form action='excel_oficina.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio."' name='desde'/>
@@ -1411,9 +1437,20 @@
 
                           echo "
                           <div class='row'>
-                            <div class='col s12 m12 l2'>
-                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                            </div>
+                            <form action='export_pdf_tipo_consulta.php' method='POST'>
+
+                              <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                              <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                              <input type='hidden' value='".$fila2['numero']."' name='tipo1'/>
+                              <input type='hidden' value='".$fila3['numero']."' name='tipo2'/>
+                              <input type='hidden' value='".$fila4['numero']."' name='tipo3'/>
+                              <input type='hidden' value='".$fila5['numero']."' name='tipo4'/>
+
+                              <div class='col s12 m12 l2'>
+                                <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              </div>
+                            </form>
+                          <form action='excel_oficina.php' method='POST'>
                             <form action='excel_tipo_consulta.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio."' name='desde'/>
