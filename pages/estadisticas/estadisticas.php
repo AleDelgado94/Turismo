@@ -253,7 +253,7 @@
                        <option value='Repite Visita'>Repite visita</option>
                        <option value='Tipo de alojamiento'>Tipo de alojamiento</option>
                        <option value='Motivo de visita'>Motivo de visita</option>
-                       <option value='Se aloja'>¿Se aloja?</option>
+                       <option value='Se aloja'>Se aloja en el municipio</option>
                        <option value='Tiempo de estancia'>Tiempo de estancia</option>
                    </select>
                   <label>Horario</label>
@@ -358,6 +358,8 @@
 
                   //echo "$persona $nacion de $fecha_inicio hasta $fecha_final $numero_paises";
                   //echo "$alojamiento $fecha_inicio $fecha_final";
+                  $fecha_inicio_alo = $fecha_inicio;
+                  $fecha_final_alo = $fecha_final;
 
                   if($persona == "Nacionalidad"){
                     if($nacion =="Todas" && $numero_paises==""){
@@ -1557,8 +1559,8 @@
                         echo"
 
                          <tr>
-                         <td>Tfno</td>
-                         <td>".$fila2['numero']."</td>
+                           <td>Tfno</td>
+                           <td>".$fila2['numero']."</td>
                          </tr>
 
                         ";
@@ -1582,32 +1584,391 @@
                   /*echo "Esto es alojamiento: $alojamiento";
                   echo "hola";*/
                   if($alojamiento == "Como"){
-                    echo "$alojamiento";
-                    //SELECT DISTINCT grupo, conocer, COUNT(grupo) FROM perfil_alojamiento NATURAL INNER JOIN visita WHERE conocer="Web" AND fecha BETWEEN '2017/04/01' AND '2017/04/31'
-                    //SELECT DISTINCT grupo, conocer, COUNT(grupo) FROM perfil_alojamiento NATURAL INNER JOIN visita WHERE conocer !="" AND fecha BETWEEN '2017/04/01' AND '2017/04/31' GROUP BY conocer
-                    $consulta="";
+                    //echo "$alojamiento $fecha_inicio_alo $fecha_final_alo";
+                    $consulta="SELECT DISTINCT conocer, COUNT(grupo) as numero
+                    FROM perfil_alojamiento NATURAL INNER JOIN visita
+                    WHERE conocer !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                    GROUP BY conocer
+                    ORDER BY conocer";
 
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Cómo conocieron</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
 
+                        <tbody>
+                      ";
+                      $conocer=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['conocer']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($conocer,$fila['conocer']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(500,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($conocer);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+                    }
                   }
 
                   if($alojamiento =="Repite Visita"){
-                    echo "$alojamiento";
+                    //echo "$alojamiento";
+                    $consulta="SELECT repite, COUNT(repite) as numero
+                    FROM perfil_alojamiento NATURAL INNER JOIN visita
+                    WHERE repite!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                    GROUP BY repite";
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Visita</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $repite=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['repite']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($repite,$fila['repite']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(500,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($repite);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+                    }
+
+
 
                   }
 
                   if($alojamiento =="Tipo de alojamiento"){
-                    echo "$alojamiento";
+                    //echo "$alojamiento";
+
+                    $consulta="SELECT alojamiento, COUNT(alojamiento) as numero
+                    FROM perfil_alojamiento NATURAL INNER JOIN visita
+                    WHERE alojamiento!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                    GROUP BY alojamiento";
+
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Visita</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $alojamiento_tipo=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['alojamiento']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($alojamiento_tipo,$fila['alojamiento']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($alojamiento_tipo);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+                    }
 
                   }
 
                   if($alojamiento =="Motivo de visita"){
-                    echo "$alojamiento";
+                    //echo "$alojamiento";
+                    $consulta="SELECT motivo, COUNT(motivo) as numero
+                               FROM perfil_alojamiento NATURAL INNER JOIN visita
+                               WHERE motivo!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY motivo";
 
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Motivo</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $motivo=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['motivo']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($motivo,$fila['motivo']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($motivo);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+                    }
                   }
 
                   if($alojamiento =="Se aloja"){
-                    echo "$alojamiento";
+                    //echo "$alojamiento";
 
+
+                    $consulta="SELECT municipio, COUNT(municipio) as numero
+                               FROM perfil_alojamiento NATURAL INNER JOIN visita
+                               WHERE municipio!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY municipio";
+
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Se aloja en el municipio</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $municipio=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['municipio']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($municipio,$fila['municipio']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($municipio);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+                    }
                   }
 
                   if($alojamiento =="Tiempo de estancia"){
