@@ -56,22 +56,24 @@ class PDF extends FPDF
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Media anual de cada hotel');
+$pdf->Cell(40,10,'Media anual ' . $_POST['nombre_hotel'] . utf8_decode(" año ") . $_POST['year_ocu']);
 
 //$fechas = "Año: " . $_POST['year_ocu'];
 
 //$pdf->Cell(50,10, $fechas);
 
-$hoteles = array('Hoteles', 'Allegro Isora', 'Bahía Flamengo', 'Palacio Isora', 'Ritz Carlton Abama', 'Total');
-$ocupacion = array('Media (%)', $_POST['por_Allegro'], $_POST['por_Flamengo'], $_POST['por_Palacio'], $_POST['por_Abama'], $_POST['media_total']);
+$meses = array('Meses', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 'Total');
+$ocupacion = array('Media (%)', $_POST['por_Enero'], $_POST['por_Febrero'],$_POST['por_Marzo'],$_POST['por_Abril'],
+                  $_POST['por_Mayo'],$_POST['por_Junio'],$_POST['por_Julio'],$_POST['por_Agosto'],$_POST['por_Septiembre'],
+                  $_POST['por_Octubre'],$_POST['por_Noviembre'],$_POST['por_Diciembre'], $_POST['media_total']);
 
 
 
 
-$pdf->cabeceraVertical($hoteles);
+$pdf->cabeceraVertical($meses);
 $pdf->datosVerticales($ocupacion);
 $pdf->LN();
-$pdf->Image("../../images/graficas/grafica1.png");
+$pdf->Image("../../images/graficas/grafica1.png",null,null,200);
 
 $pdf->Output('Ocupacion.pdf','D');
 

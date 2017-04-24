@@ -87,6 +87,7 @@
             <?php
               if($username == 'admin'){
                 echo "<li> <i class='material-icons'>contacts</i><a href='../gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
+                echo "<li><i class='material-icons'>library_books</i><a href='../gestion_hotelera.php'>&nbsp; Gestión hotelera</a></li>";
               }
              ?>
 

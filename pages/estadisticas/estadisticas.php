@@ -87,6 +87,7 @@
             <?php
               if($username == 'admin'){
                 echo "<li> <i class='material-icons'>contacts</i><a href='../gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
+                echo "<li><i class='material-icons'>library_books</i><a href='../gestion_hotelera.php'>&nbsp; Gestión hotelera</a></li>";
               }
              ?>
 
@@ -351,8 +352,8 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.jpg");
-                        $graph->Stroke("../../images/graficas/grafica1.jpg");
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
                       }
 
 
@@ -412,8 +413,8 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.jpg");
-                        $graph->Stroke("../../images/graficas/grafica1.jpg");
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
                       }
 
                     }
@@ -458,7 +459,7 @@
                       if($grafica == TRUE){
                         echo "
                         <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.jpg'/>
+                            <img src='../../images/graficas/grafica1.png'/>
                         </div>
                         </div> ";
 
@@ -604,8 +605,8 @@
                       $p1->value->SetColor('black');
                       $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                       $graph->legend->SetColor('black');
-                      @unlink("../../images/graficas/grafica1.jpg");
-                      $graph->Stroke("../../images/graficas/grafica1.jpg");
+                      @unlink("../../images/graficas/grafica1.png");
+                      $graph->Stroke("../../images/graficas/grafica1.png");
 
 
                       echo "
@@ -670,15 +671,26 @@
                     if($grafica == TRUE){
                       echo "
                       <div class='col s12 m12 l3'>
-                          <img src='../../images/graficas/grafica1.jpg'/>
+                          <img src='../../images/graficas/grafica1.png'/>
                       </div>
                       </div>";
 
                       echo "
                       <div class='row'>
-                        <div class='col s12 m12 l2'>
-                          <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                        </div>
+                        <form action='export_pdf_edades.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final."' name='hasta'/>
+                          <input type='hidden' value='".$filas5['numero']."' name='edad1'/>
+                          <input type='hidden' value='".$filas2['numero']."' name='edad2'/>
+                          <input type='hidden' value='".$filas3['numero']."' name='edad3'/>
+                          <input type='hidden' value='".$filas4['numero']."' name='edad4'/>
+
+                          <div class='col s12 m12 l2'>
+                            <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                          </div>
+                        </form>
+
                         <form action='excel_edades.php' method='POST'>
 
                         <input type='hidden' value='".$fecha_inicio."' name='desde'/>
@@ -839,14 +851,14 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
-                          @unlink("../../images/graficas/grafica1.jpg");
-                          $graph->Stroke("../../images/graficas/grafica1.jpg");
+                          @unlink("../../images/graficas/grafica1.png");
+                          $graph->Stroke("../../images/graficas/grafica1.png");
 
 
                         if($grafica == TRUE){
                           echo "
                           <div class='col s12 m12 l3'>
-                              <img src='../../images/graficas/grafica1.jpg'/>
+                              <img src='../../images/graficas/grafica1.png'/>
                           </div>
                           </div>";
 
@@ -1076,14 +1088,14 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
-                          @unlink("../../images/graficas/grafica1.jpg");
-                          $graph->Stroke("../../images/graficas/grafica1.jpg");
+                          @unlink("../../images/graficas/grafica1.png");
+                          $graph->Stroke("../../images/graficas/grafica1.png");
 
 
                         if($grafica == TRUE){
                           echo "
                           <div class='col s12 m12 l3'>
-                              <img src='../../images/graficas/grafica1.jpg'/>
+                              <img src='../../images/graficas/grafica1.png'/>
                           </div>
                           </div>";
 
@@ -1326,14 +1338,14 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
-                          @unlink("../../images/graficas/grafica1.jpg");
-                          $graph->Stroke("../../images/graficas/grafica1.jpg");
+                          @unlink("../../images/graficas/grafica1.png");
+                          $graph->Stroke("../../images/graficas/grafica1.png");
 
 
                         if($grafica == TRUE){
                           echo "
                           <div class='col s12 m12 l3'>
-                              <img src='../../images/graficas/grafica1.jpg'/>
+                              <img src='../../images/graficas/grafica1.png'/>
                           </div>
                           </div>";
 

@@ -9,6 +9,8 @@
      $username = $_SESSION['usuario'];
      $oficina = $_SESSION['oficina_defecto'];
 
+     $link = require("../connect_db.php");
+
 
 
 ?>
@@ -86,6 +88,7 @@
             <?php
               if($username == 'admin'){
                 echo "<li> <i class='material-icons'>contacts</i><a href='../gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
+                echo "<li><i class='material-icons'>library_books</i><a href='../gestion_hotelera.php'>&nbsp; Gestión hotelera</a></li>";
               }
              ?>
 
@@ -110,11 +113,26 @@
                 <div class="row">
                   <div class="col s12 m12 l2">
                     <select name="hotel[]">
+
                       <option value="" disabled selected>Hotel</option>
-                      <option value="Allegro Isora">Allegro Isora</option>
+
+                      <?php
+                        $consulta_hoteles = "SELECT nombre FROM hoteles;";
+                        $name_hoteles = mysqli_query($link, $consulta_hoteles) or die(mysqli_error($link));
+
+                        while($hotel_ = mysqli_fetch_assoc($name_hoteles)){
+                          $name_hotel = $hotel_['nombre'];
+                          echo "<option value='$name_hotel' name='$name_hotel'>$name_hotel</option>";
+                        }
+                       ?>
+
+
+
+
+                      <!--<option value="Allegro Isora">Allegro Isora</option>
                       <option value="Bahia Flamengo">Bahía Flamengo</option>
                       <option value="Palacio de Isora">Palacio de Isora</option>
-                      <option value="Ritz Carlton Abama">Ritz Carlton Abama</option>
+                      <option value="Ritz Carlton Abama">Ritz Carlton Abama</option>-->
                     </select>
                     <label>Hotel</label>
                   </div>
@@ -176,10 +194,22 @@
                       <div class="col s12 m12 l2">
                         <select name="hoteles" onchange="hot(this.value)">
                           <option value="Hotel">Hotel</option>
-                          <option value="Allegro Isora">Allegro Isora</option>
+
+                          <!--<option value="Allegro Isora">Allegro Isora</option>
                           <option value="Bahia Flamengo">Bahía Flamengo</option>
                           <option value="Palacio de Isora">Palacio de Isora</option>
-                          <option value="Ritz Carlton Abama">Ritz Carlton Abama</option>
+                          <option value="Ritz Carlton Abama">Ritz Carlton Abama</option>-->
+
+                          <?php
+                            $consulta_hoteles = "SELECT nombre FROM hoteles;";
+                            $name_hoteles = mysqli_query($link, $consulta_hoteles) or die(mysqli_error($link));
+
+                            while($hotel_ = mysqli_fetch_assoc($name_hoteles)){
+                              $name_hotel = $hotel_['nombre'];
+                              echo "<option  value='$name_hotel' name='$name_hotel'>$name_hotel</option>";
+                            }
+                           ?>
+
                           <option value="Todos">Todos</option>
                         </select>
                         <label>Hotel</label>
@@ -432,8 +462,8 @@
                                  $graph->title->Set("Media de ".$mes." de cada hotel");
                                  $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                  // Display the graph
-                                 @unlink("../../images/graficas/grafica1.jpg");
-                                 $graph->Stroke("../../images/graficas/grafica1.jpg");
+                                 @unlink("../../images/graficas/grafica1.png");
+                                 $graph->Stroke("../../images/graficas/grafica1.png");
 
 
 
@@ -442,15 +472,25 @@
 
                                  echo "
                                    <div class='col s12 m8 l8'>
-                                      <img src='../../images/graficas/grafica1.jpg'/>
+                                      <img src='../../images/graficas/grafica1.png'/>
                                    </div>
                                    <div class='row'>
-                                     <div class='col s12 m12 l2'>
-                                       <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                                     </div>
+                                     <form action='exportar_pdf_trimestral.php', method='POST'>
+
+                                       <input type='hidden' value='".$hotel."' name='hotel'/>
+                                       <input type='hidden' value='".$array_mes[0]."' name='mes1'/>
+                                       <input type='hidden' value='".$array_mes[1]."' name='mes2'/>
+                                       <input type='hidden' value='".$array_mes[2]."' name='mes3'/>
+                                       <input type='hidden' value='".$array_ocupacion[0]."' name='mes1_ocu'/>
+                                       <input type='hidden' value='".$array_ocupacion[1]."' name='mes2_ocu'/>
+                                       <input type='hidden' value='".$array_ocupacion[2]."' name='mes3_ocu'/>
+                                       <input type='hidden' value='".$year."' name='year_ocu'/>
+
+                                        <div class='col s12 m12 l2'>
+                                          <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                        </div>
+                                     </form>
                                      <form action='generar_excel_trimestral.php' method='POST'>
-
-
 
                                        <input type='hidden' value='".$hotel."' name='hotel'/>
                                        <input type='hidden' value='".$array_mes[0]."' name='mes1'/>
@@ -604,18 +644,37 @@
                                    $graph->title->Set("Media por mes $hotel");
                                    $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                    // Display the graph
-                                   @unlink("../../images/graficas/grafica1.jpg");
-                                   $graph->Stroke("../../images/graficas/grafica1.jpg");
+                                   @unlink("../../images/graficas/grafica1.png");
+                                   $graph->Stroke("../../images/graficas/grafica1.png");
 
                                    echo "
                                      <div class='col s12 m8 l8'>
-                                        <img src='../../images/graficas/grafica1.jpg'/>
+                                        <img src='../../images/graficas/grafica1.png'/>
                                      </div>
 
                                      <div class='row'>
-                                       <div class='col s12 m12 l2'>
-                                         <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                                       </div>
+                                       <form action='exportar_pdf_hotel_todos.php', method='POST'>
+
+                                       <input type='hidden' value='".$hotel."' name='nombre_hotel'/>
+                                       <input type='hidden' value='".$datos_mes[0]['ocupacion']."' name='por_Enero'/>
+                                       <input type='hidden' value='".$datos_mes[1]['ocupacion']."' name='por_Febrero'/>
+                                       <input type='hidden' value='".$datos_mes[2]['ocupacion']."' name='por_Marzo'/>
+                                       <input type='hidden' value='".$datos_mes[3]['ocupacion']."' name='por_Abril'/>
+                                       <input type='hidden' value='".$datos_mes[4]['ocupacion']."' name='por_Mayo'/>
+                                       <input type='hidden' value='".$datos_mes[5]['ocupacion']."' name='por_Junio'/>
+                                       <input type='hidden' value='".$datos_mes[6]['ocupacion']."' name='por_Julio'/>
+                                       <input type='hidden' value='".$datos_mes[7]['ocupacion']."' name='por_Agosto'/>
+                                       <input type='hidden' value='".$datos_mes[8]['ocupacion']."' name='por_Septiembre'/>
+                                       <input type='hidden' value='".$datos_mes[9]['ocupacion']."' name='por_Octubre'/>
+                                       <input type='hidden' value='".$datos_mes[10]['ocupacion']."' name='por_Noviembre'/>
+                                       <input type='hidden' value='".$datos_mes[11]['ocupacion']."' name='por_Diciembre'/>
+                                       <input type='hidden' value='".$year."' name='year_ocu'/>
+                                       <input type='hidden' value='".$media_total_hotel_todos."' name='media_total'/>
+
+                                          <div class='col s12 m12 l2'>
+                                            <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                          </div>
+                                       </form>
                                        <form action='generar_excel_hotel_todos.php' method='POST'>
 
 
@@ -756,19 +815,20 @@
                                  $graph->title->Set("Media de ".$mes." de cada hotel");
                                  $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                  // Display the graph
-                                 @unlink("../../images/graficas/grafica1.jpg");
-                                 $graph->Stroke("../../images/graficas/grafica1.jpg");
+                                 @unlink("../../images/graficas/grafica1.png");
+                                 $graph->Stroke("../../images/graficas/grafica1.png");
 
                                  echo "
                                  <br><br><br>
                                   <div class='row'>
                                     <div class='col s12 m12 l12'>
-                                      <img src='../../images/graficas/grafica1.jpg'/>
+                                      <img src='../../images/graficas/grafica1.png'/>
                                     </div>
                                   </div>
                                   <div class='row'>
 
-                                    <form action='exportar_pdf.php' method='POST'>
+                                    <form action='exportar_pdf_todos_mes.php', method='POST'>
+
                                       <input type='hidden' value='".$fila2['ocupacion']."' name='por_Allegro'/>
                                       <input type='hidden' value='".$fila3['ocupacion']."' name='por_Flamengo'/>
                                       <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
@@ -776,9 +836,10 @@
                                       <input type='hidden' value='".$mes_actual."' name='mes_ocu'/>
                                       <input type='hidden' value='".$year."' name='year_ocu'/>
                                       <input type='hidden' value='".$total_media."' name='media_total'/>
-                                      <div class='col s12 m12 l2'>
-                                        <input id='boton_enviar_pdf' value='Generar PDF' type ='submit'/>
-                                      </div>
+
+                                       <div class='col s12 m12 l2'>
+                                         <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                       </div>
                                     </form>
 
                                     <form action='generar_excel_todos_mes.php' method='POST'>
@@ -900,19 +961,30 @@
                                   $graph->title->Set("Media anual de cada hotel");
                                   $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                   // Display the graph
-                                  @unlink("../../images/graficas/grafica1.jpg");
-                                  $graph->Stroke("../../images/graficas/grafica1.jpg");
+                                  @unlink("../../images/graficas/grafica1.png");
+                                  $graph->Stroke("../../images/graficas/grafica1.png");
                                   echo "
                                   <br><br><br>
                                    <div class='row'>
                                      <div class='col s12 m12 l12'>
-                                       <img src='../../images/graficas/grafica1.jpg'/>
+                                       <img src='../../images/graficas/grafica1.png'/>
                                      </div>
                                    </div>
                                    <div class='row'>
-                                     <div class='col s12 m12 l2'>
-                                       <input id='' value='Generar PDF' type ='submit' onclick=''/>
-                                     </div>
+                                      <form action='exportar_pdf.php', method='POST'>
+
+                                      <input type='hidden' value='".$fila2['ocupacion']."' name='por_Allegro'/>
+                                      <input type='hidden' value='".$fila3['ocupacion']."' name='por_Flamengo'/>
+                                      <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
+                                      <input type='hidden' value='".$fila5['ocupacion']."' name='por_Abama'/>
+                                      <input type='hidden' value='".$year."' name='year_ocu'/>
+                                      <input type='hidden' value='".$total_media."' name='media_total'/>
+
+                                       <div class='col s12 m12 l2'>
+                                         <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                       </div>
+                                      </form>
+
                                      <form action='generar_excel.php' method='POST'>
 
 

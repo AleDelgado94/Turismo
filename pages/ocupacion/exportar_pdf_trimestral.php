@@ -56,14 +56,14 @@ class PDF extends FPDF
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Media anual de cada hotel');
+$pdf->Cell(40,10,'Media anual de todos los hoteles en el'. utf8_decode(" año ") . $_POST['year_ocu']);
 
 //$fechas = "Año: " . $_POST['year_ocu'];
 
 //$pdf->Cell(50,10, $fechas);
 
-$hoteles = array('Hoteles', 'Allegro Isora', 'Bahía Flamengo', 'Palacio Isora', 'Ritz Carlton Abama', 'Total');
-$ocupacion = array('Media (%)', $_POST['por_Allegro'], $_POST['por_Flamengo'], $_POST['por_Palacio'], $_POST['por_Abama'], $_POST['media_total']);
+$hoteles = array('Hoteles', $_POST['mes1'], $_POST['mes2'], $_POST['mes3']);
+$ocupacion = array('Media (%)', $_POST['mes1_ocu'], $_POST['mes2_ocu'], $_POST['mes3_ocu']);
 
 
 
