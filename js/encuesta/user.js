@@ -42,6 +42,8 @@ function getAttrResidencia(val, id){
             document.getElementById('n_personas').value = aux;
         }
         aux = 0;
+
+        document.getElementById("number_people").value = "";
       });
 
     $("#add_user").click(function(e){
@@ -66,6 +68,7 @@ function getAttrResidencia(val, id){
 
     //  aux = aux+1;
       aux = document.getElementById("number_people").value;
+      document.getElementById("number_people").value = "";
 
       console.log(aux);
 
