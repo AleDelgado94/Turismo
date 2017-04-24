@@ -267,6 +267,7 @@
                   $grafica="";
                   $numero_paises="";
 
+
                   if(isset($_COOKIE['persona']))
                    $persona = $_COOKIE['persona'];
 
@@ -448,12 +449,12 @@
 
                       $paises_serializados = "";
                       $paises_serializados = serialize($paises);
-                      echo $paises_serializados;
+                      //echo $paises_serializados;
 
                       $paises_deserializado = "";
 
                       $paises_deserializado = unserialize($paises_serializados);
-                      echo $paises_deserializado[0];
+                      //echo $paises_deserializado[0];
 
                       echo "</tbody>
                             </table>
@@ -463,7 +464,9 @@
                         <div class='col s12 m12 l3'>
                             <img src='../../images/graficas/grafica1.jpg'/>
                         </div>
+                        </div> ";
 
+                        echo "
                         <div class='row'>
                           <div class='col s12 m12 l2'>
                             <input id='' value='Generar PDF' type ='submit' onclick=''/>
@@ -475,6 +478,7 @@
                             </div>
                           </form>
                         </div>";
+
 
                       }
 
@@ -516,6 +520,7 @@
                         </tr>
                       </tbody>
                     </table>
+                    </div>
                     ";
                   }
                   if($persona == "Edad"){
@@ -654,6 +659,7 @@
                       echo "
                       <div class='col s12 m12 l3'>
                         <p>No se han encontrado datos</p>
+                      </div>
                       </div>";
 
                     }
@@ -662,6 +668,7 @@
                       echo "
                       <div class='col s12 m12 l3'>
                           <img src='../../images/graficas/grafica1.jpg'/>
+                      </div>
                       </div>";
                     }
                   }
@@ -815,6 +822,7 @@
                           echo "
                           <div class='col s12 m12 l3'>
                               <img src='../../images/graficas/grafica1.jpg'/>
+                          </div>
                           </div>";
                         }
 
@@ -853,6 +861,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
 
                     }
@@ -888,6 +897,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
 
                     }
@@ -923,6 +933,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
                     }
 
@@ -1025,6 +1036,7 @@
                           echo "
                           <div class='col s12 m12 l3'>
                               <img src='../../images/graficas/grafica1.jpg'/>
+                          </div>
                           </div>";
                         }
 
@@ -1063,6 +1075,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
 
                     }
@@ -1099,6 +1112,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
 
                     }
@@ -1134,6 +1148,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
 
                     }
@@ -1250,6 +1265,7 @@
                           echo "
                           <div class='col s12 m12 l3'>
                               <img src='../../images/graficas/grafica1.jpg'/>
+                          </div>
                           </div>";
                         }
 
@@ -1288,6 +1304,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
 
                     }
@@ -1324,6 +1341,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
 
                     }
@@ -1360,6 +1378,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
 
                     }
@@ -1396,6 +1415,7 @@
                       }
                       echo "</tbody>
                             </table>
+                            </div>
                       ";
 
                     }
@@ -1413,7 +1433,7 @@
                 ?>
 
 
-          </div>
+          
           <!--FINAL DE LAS ESTADISTICAS-->
         </div>
       </div>
