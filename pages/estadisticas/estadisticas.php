@@ -2563,7 +2563,7 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        //$arr1 = serialize($conocer);
+                        $arr1 = serialize($recursos);
                         $arr2 = serialize($numero);
 
                         echo "
@@ -2571,10 +2571,10 @@
                             <img src='../../images/graficas/grafica1.png'/>
                           </div>
                         </div>";
-                        /*
+
                         echo "
                         <div class='row'>
-                          <form action='export_pdf_alojamiento_conocer.php' method='POST'>
+                          <form action='export_pdf_informacion_recursos.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                             <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -2586,7 +2586,7 @@
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
                             </div>
                           </form>
-                          <form action='excel_alojamiento_conocer.php' method='POST'>
+                          <form action='excel_informacion_recursos.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                           <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -2598,7 +2598,7 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";*/
+                        </div>";
                     }
                   }
 
@@ -2674,8 +2674,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        //$arr1 = serialize($repite);
-                      //  $arr2 = serialize($numero);
+                        $arr1 = serialize($aloja);
+                        $arr2 = serialize($numero);
 
 
                         echo "
@@ -2683,10 +2683,10 @@
                             <img src='../../images/graficas/grafica1.png'/>
                           </div>
                         </div>";
-                        /*
+
                         echo "
                         <div class='row'>
-                          <form action='export_pdf_alojamiento_repite.php' method='POST'>
+                          <form action='export_pdf_informacion_aloja.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                             <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -2698,7 +2698,7 @@
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
                             </div>
                           </form>
-                          <form action='excel_alojamiento_repite.php' method='POST'>
+                          <form action='excel_informacion_aloja.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                           <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -2710,7 +2710,7 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";*/
+                        </div>";
                     }
 
 
@@ -2791,8 +2791,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        //$arr1 = serialize($alojamiento_tipo);
-                        //$arr2 = serialize($numero);
+                        $arr1 = serialize($transporte);
+                        $arr2 = serialize($numero);
 
                         echo "
                           <div class='col s12 m12 l3'>
@@ -2800,9 +2800,9 @@
                           </div>
                         </div>";
 
-                      /*  echo "
+                        echo "
                         <div class='row'>
-                          <form action='export_pdf_alojamiento_tipo.php' method='POST'>
+                          <form action='export_pdf_informacion_transporte.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                             <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -2814,7 +2814,7 @@
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
                             </div>
                           </form>
-                          <form action='excel_alojamiento_tipo.php' method='POST'>
+                          <form action='excel_informacion_transporte.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                           <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -2826,7 +2826,7 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";*/
+                        </div>";
                     }
 
                   }
@@ -2904,15 +2904,18 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
+                        $arr1 = serialize($oci);
+                        $arr2 = serialize($numero);
+
                         echo "
                           <div class='col s12 m12 l3'>
                             <img src='../../images/graficas/grafica1.png'/>
                           </div>
                         </div>";
 
-                        /*echo "
+                        echo "
                         <div class='row'>
-                          <form action='export_pdf_alojamiento_motivo.php' method='POST'>
+                          <form action='export_pdf_informacion_ocio.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                             <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -2924,7 +2927,7 @@
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
                             </div>
                           </form>
-                          <form action='excel_alojamiento_motivo.php' method='POST'>
+                          <form action='excel_informacion_ocio.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                           <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -2936,7 +2939,7 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";*/
+                        </div>";
                     }
                   }
 
@@ -3128,8 +3131,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        //$arr1 = serialize($tiempo);
-                        //$arr2 = serialize($numero);
+                        $arr1 = serialize($servicios_publicos);
+                        $arr2 = serialize($numero);
 
                         echo "
                           <div class='col s12 m12 l3'>
@@ -3137,9 +3140,9 @@
                           </div>
                         </div>";
 
-                        /*echo "
+                        echo "
                         <div class='row'>
-                          <form action='export_pdf_alojamiento_testancia.php' method='POST'>
+                          <form action='export_pdf_informacion_servpublicos.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                             <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3151,7 +3154,7 @@
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
                             </div>
                           </form>
-                          <form action='excel_alojamiento_testancia.php' method='POST'>
+                          <form action='excel_informacion_servpublicos.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                           <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3163,7 +3166,7 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";*/
+                        </div>";
                     }
                   }
 
@@ -3241,8 +3244,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        //$arr1 = serialize($tiempo);
-                        //$arr2 = serialize($numero);
+                        $arr1 = serialize($informacion_tenerife);
+                        $arr2 = serialize($numero);
 
                         echo "
                           <div class='col s12 m12 l3'>
@@ -3250,9 +3253,9 @@
                           </div>
                         </div>";
 
-                        /*echo "
+                        echo "
                         <div class='row'>
-                          <form action='export_pdf_alojamiento_testancia.php' method='POST'>
+                          <form action='export_pdf_informacion_tenerife.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                             <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3264,7 +3267,7 @@
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
                             </div>
                           </form>
-                          <form action='excel_alojamiento_testancia.php' method='POST'>
+                          <form action='excel_informacion_tenerife.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                           <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3276,7 +3279,7 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";*/
+                        </div>";
                     }
                   }
 
