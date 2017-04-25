@@ -108,7 +108,7 @@
           <div class="row">
             <div class="col s12">
               <ul class="tabs tab-modi">
-                <li class="tab col s12 m3 l3"><a class="active" href="#test1">Personas</a></li>
+                <li class="tab col s12 m3 l3"><a href="#test1">Personas</a></li>
                 <li class="tab col s12 m2 l2"><a href="#test2">Consulta</a></li>
                 <li class="tab col s12 m2 l2"><a href="#test3">Perfil Alojamiento</a></li>
                 <li class="tab col s12 m2 l2"><a href="#test4">Información</a></li>
@@ -2355,8 +2355,8 @@
           <div class="col m4 l4 s12">
             <h5 class="white-text">Contacto</h5>
             <ul>
-              <li><i class="material-icons white-text">phone</i><a class="grey-text text-lighten-3"> Turismo: 666 666 666</a></li>
-              <li><i class="material-icons white-text">phone</i><a class="grey-text text-lighten-3"> Informática: 666 666 666</a></li>
+              <li><i class="material-icons white-text">phone</i><a class="grey-text text-lighten-3"> Turismo: 922 850 100 (3600)</a></li>
+              <li><i class="material-icons white-text">phone</i><a class="grey-text text-lighten-3"> Informática: 922 850 100 (3108)</a></li>
             </ul>
           </div>
         </div>
@@ -2373,6 +2373,28 @@
     <script type="text/javascript" src="../../js/estadisticas/estadisticas.js"></script>
     <script type="text/javascript" src="../../js/index.js"></script>
     <script type="text/javascript">
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+          }
+      }
+      return "";
+    }
+
+      $(document).ready(function(){
+       $('ul.tabs').tabs('select_tab', getCookie('last_tab'));
+      });
+
+
       function person(val) {
         console.log(val);
         document.getElementById('persona_consulta').value = val;
@@ -2424,7 +2446,7 @@
         document.cookie = 'fecha_final=' + Final;
         document.cookie = 'year=' + Year;
         document.cookie = 'numero_paises='+ Numero;
-
+        document.cookie = 'last_tab=test1';
         window.location="estadisticas.php";
       }
 
@@ -2487,6 +2509,7 @@
         document.cookie = 'tipo =' + Tipo;
         document.cookie = 'fecha_inicio2=' + FInicial;
         document.cookie = 'fecha_final2=' + FFinal;
+        document.cookie = 'last_tab=test2';
         window.location = "estadisticas.php";
 
       }
@@ -2503,7 +2526,9 @@
         document.cookie = 'alojamiento=' + Alojamiento;
         document.cookie = 'fecha_inicio=' + FInicial2;
         document.cookie = 'fecha_final=' + FFinal2;
+        document.cookie = 'last_tab=test3';
         window.location = "estadisticas.php";
+
 
       }
 
@@ -2531,6 +2556,7 @@
         document.cookie = 'tipo =""';
         document.cookie = 'fecha_inicio2=""';
         document.cookie = 'fecha_final2=""';
+        document.cookie = 'last_tab=""';
       });
 
     </script>
