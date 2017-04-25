@@ -2920,10 +2920,10 @@
                     //echo "$informacion";
 
 
-                    $consulta="SELECT DISTINCT ocio, COUNT(grupo) as numero
+                    $consulta="SELECT DISTINCT eventos, COUNT(grupo) as numero
                                FROM informacion_guia NATURAL INNER JOIN visita
-                               WHERE ocio !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
-                               GROUP BY ocio";
+                               WHERE eventos !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY eventos";
 
                     $grafica=false;
                     $alo = mysqli_query($link,$consulta);
@@ -3030,18 +3030,18 @@
                     }
                   }
 
-                  if($alojamiento =="Tiempo de estancia"){
-                    //echo "$alojamiento";
+                  if($informacion =="Servicios Publicos"){
+                    //echo "$informacion";
 
 
-                    $consulta="SELECT tiempo, COUNT(tiempo) as numero
-                               FROM perfil_alojamiento NATURAL INNER JOIN visita
-                               WHERE tiempo!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
-                               GROUP BY tiempo";
+                    $consulta="SELECT DISTINCT servicios_publicos, COUNT(grupo) as numero
+                               FROM informacion_guia NATURAL INNER JOIN visita
+                               WHERE servicios_publicos !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY servicios_publicos";
 
                     $grafica=false;
-                    $alo = mysqli_query($link,$consulta);
-                    if(mysqli_num_rows($alo) >0){
+                    $serv = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($serv) >0){
                       $grafica= true;
                       echo "
                       <div class='row'>
@@ -3051,23 +3051,23 @@
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
-                            <th>Tiempo de estancia</th>
+                            <th>Servicio Público</th>
                             <th>Número</th>
                           </tr>
                         </thead>
 
                         <tbody>
                       ";
-                      $tiempo=array();
+                      $servicios_publicos=array();
                       $numero=array();
-                      while($fila=mysqli_fetch_assoc($alo)){
+                      while($fila=mysqli_fetch_assoc($serv)){
                         echo "
                         <tr>
-                          <td>".$fila['tiempo']."</td>
+                          <td>".$fila['servicios_publicos']."</td>
                           <td>".$fila['numero']."</td>
                         </tr>
                         ";
-                        array_push($tiempo,$fila['tiempo']);
+                        array_push($servicios_publicos,$fila['servicios_publicos']);
                         array_push($numero,$fila['numero']);
                       }
                       echo "
@@ -3094,7 +3094,7 @@
                         $p1 = new PiePlot($numero);
                         $graph->Add($p1);
 
-                        $p1->SetLegends($tiempo);
+                        $p1->SetLegends($servicios_publicos);
                         $p1->ShowBorder();
                         $p1->SetColor('black');
                         $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
@@ -3104,8 +3104,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        $arr1 = serialize($tiempo);
-                        $arr2 = serialize($numero);
+                        //$arr1 = serialize($tiempo);
+                        //$arr2 = serialize($numero);
 
                         echo "
                           <div class='col s12 m12 l3'>
@@ -3113,7 +3113,7 @@
                           </div>
                         </div>";
 
-                        echo "
+                        /*echo "
                         <div class='row'>
                           <form action='export_pdf_alojamiento_testancia.php' method='POST'>
 
@@ -3139,7 +3139,120 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
+                        </div>";*/
+                    }
+                  }
+
+                  if($informacion =="Tenerife"){
+                    //echo "$informacion";
+
+
+                    $consulta="SELECT DISTINCT info, COUNT(grupo) as numero
+                               FROM informacion_tenerife NATURAL INNER JOIN visita
+                               WHERE info !='' AND fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               GROUP BY info";
+
+                    $grafica=false;
+                    $info_tene = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($info_tene) >0){
+                      $grafica= true;
+                      echo "
+                      <div class='row'>
+                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                      </div>
+
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Tenerife Información</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $informacion_tenerife=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($info_tene)){
+                        echo "
+                        <tr>
+                          <td>".$fila['info']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($informacion_tenerife,$fila['info']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Información Tenerife");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($informacion_tenerife);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        //$arr1 = serialize($tiempo);
+                        //$arr2 = serialize($numero);
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
                         </div>";
+
+                        /*echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_testancia.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_testancia.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";*/
                     }
                   }
 
