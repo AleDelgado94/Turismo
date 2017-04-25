@@ -99,179 +99,201 @@
         <div class="col s12 m10 l10">
 
           <!-- INICIO DE LAS ESTADISTICAS-->
-          <div class="row ">
+          <!--<div class="row ">
             <div class="col s12">
               <h4>Estadísticas</h4>
             </div>
-          </div>
+          </div>-->
+
+          <div class="row">
+            <div class="col s12">
+              <ul class="tabs tab-modi">
+                <li class="tab col s12 m3 l3"><a class="active" href="#test1">Personas</a></li>
+                <li class="tab col s12 m2 l2"><a href="#test2">Consulta</a></li>
+                <li class="tab col s12 m2 l2"><a href="#test3">Perfil Alojamiento</a></li>
+                <li class="tab col s12 m2 l2"><a href="#test4">Información</a></li>
+                <li class="tab col s12 m3 l3"><a href="#test5">Materiales</a></li>
+              </ul>
+            </div>
+
+
+
+
           <div class="row">
             <!-- Personas-->
-            <div class="col s12 m4 l2">
-              <h5>Personas</h5>
-              <div class="row">
-                <div class="col s12 m12 l12">
-                  <select name="personas" onchange="person(this.value)">
-                    <option value="" disabled selected>Personas</option>
-                    <option value="Nacionalidad">Nacionalidad</option>
-                    <option value="Visitas">Número de visitas</option>
-                    <option value="Visitantes">Número de visitantes</option>
-                    <option value="Edad">Edad</option>
-                  </select>
-                  <label>Persona</label>
-                  <input id="persona_consulta" type="hidden" name="persona">
-                </div>
-              </div>
-
-              <div style="display:none;" id="countries" class="row">
-                <div class="col s12 m8 l8" >
-                  <select name='nacion' onchange="nacion(this.value)">
-                       <option value='Todas'>Todas</option>
-                       <option value='Espanola'>Española</option>
-                       <option value='Canaria'>Canaria</option>
-                       <option value='Britanica'>Británica</option>
-                       <option value='Alemana'>Alemana</option>
-                       <option value='Rusa'>Rusa</option>
-                       <option value='Africana'>Africana</option>
-                       <option value='Asiatica'>Asiática</option>
-                       <option value='Australiana'>Australiana</option>
-                       <option value='Austriaca'>Austriaca</option>
-                       <option value='Belga'>Belga</option>
-                       <option value='Canadiense'>Canadiense</option>
-                       <option value='Checa'>Checa</option>
-                       <option value='China'>China</option>
-                       <option value='Danesa'>Danesa</option>
-                       <option value='Eslovena'>Eslovena</option>
-                       <option value='Estadounidense'>Estadounidense</option>
-                       <option value='Otros'>Otros</option>
-                   </select>
-                  <label>Nacionalidades</label>
-                  <input id="nacion_consulta" type="hidden" name="persona">
-
-                </div>
-                <div class="col s12 m4 l4">
-                   <input id="numero_paises" type="number" name="numero_paises" placeholder="Núm" min="0">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_ini" name="fecha_ini" placeholder="De:">
-                </div>
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_fin" name="fecha_fin" placeholder="Hasta:">
+            <div id="test1">
+              <div class="col s12 m4 l4">
+                <h5>Personas</h5>
+                <div class="row">
+                  <div class="col s12 m12 l12">
+                    <select name="personas" onchange="person(this.value)">
+                      <option value="" disabled selected>Personas</option>
+                      <option value="Nacionalidad">Nacionalidad</option>
+                      <option value="Visitas">Número de visitas</option>
+                      <option value="Visitantes">Número de visitantes</option>
+                      <option value="Edad">Edad</option>
+                    </select>
+                    <label>Persona</label>
+                    <input id="persona_consulta" type="hidden" name="persona">
+                  </div>
                 </div>
 
-              </div>
+                <div style="display:none;" id="countries" class="row">
+                  <div class="col s12 m8 l8" >
+                    <select name='nacion' onchange="nacion(this.value)">
+                         <option value='Todas'>Todas</option>
+                         <option value='Espanola'>Española</option>
+                         <option value='Canaria'>Canaria</option>
+                         <option value='Britanica'>Británica</option>
+                         <option value='Alemana'>Alemana</option>
+                         <option value='Rusa'>Rusa</option>
+                         <option value='Africana'>Africana</option>
+                         <option value='Asiatica'>Asiática</option>
+                         <option value='Australiana'>Australiana</option>
+                         <option value='Austriaca'>Austriaca</option>
+                         <option value='Belga'>Belga</option>
+                         <option value='Canadiense'>Canadiense</option>
+                         <option value='Checa'>Checa</option>
+                         <option value='China'>China</option>
+                         <option value='Danesa'>Danesa</option>
+                         <option value='Eslovena'>Eslovena</option>
+                         <option value='Estadounidense'>Estadounidense</option>
+                         <option value='Otros'>Otros</option>
+                     </select>
+                    <label>Nacionalidades</label>
+                    <input id="nacion_consulta" type="hidden" name="persona">
 
-              <div class="row">
-                <div class="col s12 m12 l2">
-                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult(persona_consulta,nacion_consulta,numero_paises,fecha_ini,fecha_fin)"/>
+                  </div>
+                  <div class="col s12 m4 l4">
+                     <input id="numero_paises" type="number" name="numero_paises" placeholder="Núm" min="0">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_ini" name="fecha_ini" placeholder="De:">
+                  </div>
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_fin" name="fecha_fin" placeholder="Hasta:">
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col s12 m12 l2">
+                    <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult(persona_consulta,nacion_consulta,numero_paises,fecha_ini,fecha_fin)"/>
+                  </div>
                 </div>
               </div>
             </div>
             <!--Fin Personas-->
+
             <!--Consulta-->
-            <div class="col s12 m4 l2">
-              <h5>Consulta</h5>
-              <div class="row">
-                <div class="col s12 m8 l12">
-                  <select name="consultas" onchange="consulta(this.value)">
-                    <option value="" disabled selected>Consultas</option>
-                    <option value="Horario">Tramo horario</option>
-                    <option value="Oficina">Oficina</option>
-                    <option value="Tipo">Tipo de consulta</option>
-                  </select>
-                  <label>Consulta</label>
-                  <input id="tipo_consulta" type="hidden" name="tipo_consulta">
+            <div id="test2">
+              <div class="col s12 m4 l4">
+                <h5>Consulta</h5>
+                <div class="row">
+                  <div class="col s12 m8 l12">
+                    <select name="consultas" onchange="consulta(this.value)">
+                      <option value="" disabled selected>Consultas</option>
+                      <option value="Horario">Tramo horario</option>
+                      <option value="Oficina">Oficina</option>
+                      <option value="Tipo">Tipo de consulta</option>
+                    </select>
+                    <label>Consulta</label>
+                    <input id="tipo_consulta" type="hidden" name="tipo_consulta">
+                  </div>
                 </div>
-              </div>
-              <!--Si Tramo Horario-->
-              <div style="display:none;" id="horario" class="row">
-                <div class="col s12 m8 l8" >
-                  <select name='horarios' onchange="horario(this.value)">
-                       <option value='Todas'>Todas</option>
-                       <option value='9-11'>9-11</option>
-                       <option value='11-13'>11-13</option>
-                       <option value='13-15'>13-15</option>
-                   </select>
-                  <label>Horario</label>
-                  <input id="opcion1" type="hidden" name="opcion1">
+                <!--Si Tramo Horario-->
+                <div style="display:none;" id="horario" class="row">
+                  <div class="col s12 m8 l8" >
+                    <select name='horarios' onchange="horario(this.value)">
+                         <option value='Todas'>Todas</option>
+                         <option value='9-11'>9-11</option>
+                         <option value='11-13'>11-13</option>
+                         <option value='13-15'>13-15</option>
+                     </select>
+                    <label>Horario</label>
+                    <input id="opcion1" type="hidden" name="opcion1">
+                  </div>
                 </div>
-              </div>
 
-              <!-- Si Oficina-->
-              <div style="display:none;" id="oficina" class="row">
-                <div class="col s12 m8 l8" >
-                  <select name='oficinas' onchange="oficina(this.value)">
-                       <option value='Todas'>Todas</option>
-                       <option value='Guia Casco'>Guía Casco</option>
-                       <option value='Alcala'>Alcalá</option>
-                       <option value='Playa San Juan'>Playa San Juan</option>
-                   </select>
-                  <label>Horario</label>
-                  <input id="opcion2" type="hidden" name="opcion2">
+                <!-- Si Oficina-->
+                <div style="display:none;" id="oficina" class="row">
+                  <div class="col s12 m8 l8" >
+                    <select name='oficinas' onchange="oficina(this.value)">
+                         <option value='Todas'>Todas</option>
+                         <option value='Guia Casco'>Guía Casco</option>
+                         <option value='Alcala'>Alcalá</option>
+                         <option value='Playa San Juan'>Playa San Juan</option>
+                     </select>
+                    <label>Horario</label>
+                    <input id="opcion2" type="hidden" name="opcion2">
+                  </div>
                 </div>
-              </div>
 
-              <!-- Si tipo-->
-              <div style="display:none;" id="tipo" class="row">
-                <div class="col s12 m8 l8" >
-                  <select name='tipos' onchange="tipo(this.value)">
-                       <option value='Todas'>Todas</option>
-                       <option value='Corta'>Corta</option>
-                       <option value='Larga'>Larga</option>
-                       <option value='E-mail'>E-mail</option>
-                       <option value='Tfno'>Tfno</option>
-                   </select>
-                  <label>Tipos</label>
-                  <input id="opcion3" type="hidden" name="opcion3">
+                <!-- Si tipo-->
+                <div style="display:none;" id="tipo" class="row">
+                  <div class="col s12 m8 l8" >
+                    <select name='tipos' onchange="tipo(this.value)">
+                         <option value='Todas'>Todas</option>
+                         <option value='Corta'>Corta</option>
+                         <option value='Larga'>Larga</option>
+                         <option value='E-mail'>E-mail</option>
+                         <option value='Tfno'>Tfno</option>
+                     </select>
+                    <label>Tipos</label>
+                    <input id="opcion3" type="hidden" name="opcion3">
+                  </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_ini2" name="fecha_ini2" placeholder="De:">
+                <div class="row">
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_ini2" name="fecha_ini2" placeholder="De:">
+                  </div>
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_fin2" name="fecha_fin2" placeholder="Hasta:">
+                  </div>
                 </div>
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_fin2" name="fecha_fin2" placeholder="Hasta:">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col s12 m12 l2">
-                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult2(tipo_consulta,opcion1,opcion2,opcion3,fecha_ini2,fecha_fin2)"/>
+                <div class="row">
+                  <div class="col s12 m12 l2">
+                    <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult2(tipo_consulta,opcion1,opcion2,opcion3,fecha_ini2,fecha_fin2)"/>
+                  </div>
                 </div>
               </div>
             </div>
             <!--Fin Consulta-->
 
             <!--Perfil y alojamiento-->
-            <div class="col s12 m2 l2">
-              <h5>Perfil Alojamiento</h5>
-              <div class="row">
-                <div class="col s12 m8 l12" >
-                  <select name='alojamientos' onchange="alojamiento(this.value)">
-                       <option value="" disabled selected> Perfil alojamiento</option>
-                       <option value='Como'>Cómo conocieron el municipio</option>
-                       <option value='Repite Visita'>Repite visita</option>
-                       <option value='Tipo de alojamiento'>Tipo de alojamiento</option>
-                       <option value='Motivo de visita'>Motivo de visita</option>
-                       <option value='Se aloja'>Se aloja en el municipio</option>
-                       <option value='Tiempo de estancia'>Tiempo de estancia</option>
-                   </select>
-                  <label>Horario</label>
-                  <input id="alojamiento_consulta" type="hidden" name="alojamiento_consulta">
+            <div id="test3">
+              <div class="col s12 m4 l4">
+                <h5>Perfil Alojamiento</h5>
+                <div class="row">
+                  <div class="col s12 m8 l12" >
+                    <select name='alojamientos' onchange="alojamiento(this.value)">
+                         <option value="" disabled selected> Perfil alojamiento</option>
+                         <option value='Como'>Cómo conocieron el municipio</option>
+                         <option value='Repite Visita'>Repite visita</option>
+                         <option value='Tipo de alojamiento'>Tipo de alojamiento</option>
+                         <option value='Motivo de visita'>Motivo de visita</option>
+                         <option value='Se aloja'>Se aloja en el municipio</option>
+                         <option value='Tiempo de estancia'>Tiempo de estancia</option>
+                     </select>
+                    <label>Horario</label>
+                    <input id="alojamiento_consulta" type="hidden" name="alojamiento_consulta">
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_ini3" name="fecha_ini3" placeholder="De:">
+                <div class="row">
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_ini3" name="fecha_ini3" placeholder="De:">
+                  </div>
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_fin3" name="fecha_fin3" placeholder="Hasta:">
+                  </div>
                 </div>
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_fin3" name="fecha_fin3" placeholder="Hasta:">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col s12 m12 l2">
-                  <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult3(alojamiento_consulta,fecha_ini3,fecha_fin3)"/>
+                <div class="row">
+                  <div class="col s12 m12 l2">
+                    <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult3(alojamiento_consulta,fecha_ini3,fecha_fin3)"/>
+                  </div>
                 </div>
               </div>
             </div>
@@ -279,27 +301,31 @@
 
 
             <!--Informacion-->
-            <div class="col s12 m2 l2">
-              <h5>Infomación</h5>
-              <div class="row">
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_ini4" name="fecha_ini4" placeholder="De:">
-                </div>
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_fin4" name="fecha_fin4" placeholder="Hasta:">
+            <div id="test4">
+              <div class="col s12 m4 l4">
+                <h5>Infomación</h5>
+                <div class="row">
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_ini4" name="fecha_ini4" placeholder="De:">
+                  </div>
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_fin4" name="fecha_fin4" placeholder="Hasta:">
+                  </div>
                 </div>
               </div>
             </div>
             <!--Informacion-->
             <!--Materiales-->
-            <div class="col s12 m2 l2">
-              <h5>Materiales</h5>
-              <div class="row">
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_ini5" name="fecha_ini5" placeholder="De:">
-                </div>
-                <div class="col s12 m12 l6">
-                    <input type="text" class="datepicker" id="fecha_fin5" name="fecha_fin5" placeholder="Hasta:">
+            <div id="test5">
+              <div class="col s12 m4 l4">
+                <h5>Materiales</h5>
+                <div class="row">
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_ini5" name="fecha_ini5" placeholder="De:">
+                  </div>
+                  <div class="col s12 m12 l6">
+                      <input type="text" class="datepicker" id="fecha_fin5" name="fecha_fin5" placeholder="Hasta:">
+                  </div>
                 </div>
               </div>
             </div>
@@ -308,6 +334,8 @@
 
 
           </div>
+
+        </div>
           <div class="row">
 
 
