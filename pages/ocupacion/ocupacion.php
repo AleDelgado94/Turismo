@@ -734,20 +734,48 @@
                              //$fila = mysqli_fetch_assoc($ocupacion);
                              $grafica = false;
                              if ($numero_filas >0) {
-                               $grafica=true;
+
                                while($fila = mysqli_fetch_assoc($ocupacion)){
-                                 echo"
-                                 <div class='col s12 m2 l4'>
-                                    <p>Media de <b>".$mes."</b> de <b>".$year."</b> de todos los hoteles es: <b>".$fila['ocupacion']."%<b></p>
-                                 </div>
-                                 ";
-                                 $total_media = $fila['ocupacion'];
-                                 $mes_actual = $mes;
+                                 if($fila['ocupacion']!=""){
+                                   $grafica=true;
+                                   echo"
+                                   <div class='col s12 m2 l4'>
+                                      <p>Media de <b>".$mes."</b> de <b>".$year."</b> de todos los hoteles es: <b>".$fila['ocupacion']."%<b></p>
+                                   </div>
+                                   ";
+                                   $total_media = $fila['ocupacion'];
+                                   $mes_actual = $mes;
+                                 }
+
 
                                }
+                               $consulta_hoteles= "SELECT nombre FROM `hoteles`";
+                               $hoteles=mysqli_query($link,$consulta_hoteles);
+                               if(mysqli_num_rows($hoteles)>0){
+                                 $array_hoteles=array();
+                                 while ($fila=mysqli_fetch_assoc($hoteles)) {
+                                   array_push($array_hoteles,$fila['nombre']);
+                                 }
+                               }
+                               //$hoteles=array("Allegro Isora","Bahia Flamengo","Palacio de Isora","Ritz Carlton Abama");
+                               $numero_hoteles=count($array_hoteles);
+                               echo $numero_hoteles;
+                               $array_medias= array();
+                               for ($i=0; $i < $numero_hoteles; $i++) {
+                                 $consulta = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
+                                              FROM ocupacion_hoteles
+                                              WHERE hotel = '".$array_hoteles[$i]."' AND mes='".$mes."' AND ano='".$year."';";
+                                  $media= mysqli_query($link,$consulta);
+                                  $fila = mysqli_fetch_assoc($media);
+                                  echo $fila['ocupacion']." ";
+                                  array_push($array_medias,$fila['ocupacion']);
+                               }
+                               echo "Hotel $array_hoteles[0] $array_hoteles[1] $array_hoteles[2] $array_hoteles[3]";
+                               echo "Medias $array_medias[0] $array_medias[1] $array_medias[2] $array_medias[3]";
+
 
                                //media anual del Allegro
-                               $consulta2 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
+                               /*$consulta2 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                             FROM ocupacion_hoteles
                                             WHERE hotel = 'Allegro Isora' AND mes='".$mes."' AND ano='".$year."';";
                                $media_Allegro = mysqli_query($link,$consulta2);
@@ -772,7 +800,7 @@
                                             FROM ocupacion_hoteles
                                             WHERE hotel = 'Ritz Carlton Abama' AND mes='".$mes."' AND ano='".$year."';";
                                $media_Abama = mysqli_query($link,$consulta5);
-                               $fila5 = mysqli_fetch_assoc($media_Abama);
+                               $fila5 = mysqli_fetch_assoc($media_Abama);*/
 
 
                                //echo "Media del Allegro " .$fila2['AVG(ocupacion)'];
@@ -785,9 +813,9 @@
                                  require_once ('../../jpgraph/src/jpgraph_bar.php');
 
                                  // Some data
-                                 $data1y=array($fila2['ocupacion'],$fila3['ocupacion'],$fila4['ocupacion'],$fila5['ocupacion']);
+                                 //$data1y=array($fila2['ocupacion'],$fila3['ocupacion'],$fila4['ocupacion'],$fila5['ocupacion']);
 
-
+                                 $data1y=$array_medias;
 
                                  // Create the graph. These two calls are always required
                                  $graph = new Graph(500,500,'auto');
@@ -801,7 +829,8 @@
                                  $graph->SetBox(false);
 
                                  $graph->ygrid->SetFill(false);
-                                 $graph->xaxis->SetTickLabels(array($fila2['ocupacion']."%\nAllegro Isora",$fila3['ocupacion']."%\nFlamengo",$fila4['ocupacion']."%\nPalacio Isora",$fila5['ocupacion']."%\nAbama"));
+                                 //$graph->xaxis->SetTickLabels(array($fila2['ocupacion']."%\nAllegro Isora",$fila3['ocupacion']."%\nFlamengo",$fila4['ocupacion']."%\nPalacio Isora",$fila5['ocupacion']."%\nAbama"));
+                                 $graph->xaxis->SetTickLabels($array_hoteles);
                                  //$graph->xaxis->SetTickLabels(array(10,25,36,10));
                                  $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,11);
                                  $graph->yaxis->HideLine(false);
@@ -825,7 +854,7 @@
                                  // Display the graph
                                  @unlink("../../images/graficas/grafica1.png");
                                  $graph->Stroke("../../images/graficas/grafica1.png");
-
+/*
                                  echo "
                                  <br><br><br>
                                   <div class='row'>
@@ -866,7 +895,7 @@
                                       </div>
                                     </form>
                                   </div>
-                                   ";
+                                   ";*/
                                }
 
                              }
