@@ -759,7 +759,6 @@
                                }
                                //$hoteles=array("Allegro Isora","Bahia Flamengo","Palacio de Isora","Ritz Carlton Abama");
                                $numero_hoteles=count($array_hoteles);
-                               echo $numero_hoteles;
                                $array_medias= array();
                                for ($i=0; $i < $numero_hoteles; $i++) {
                                  $consulta = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
@@ -767,46 +766,9 @@
                                               WHERE hotel = '".$array_hoteles[$i]."' AND mes='".$mes."' AND ano='".$year."';";
                                   $media= mysqli_query($link,$consulta);
                                   $fila = mysqli_fetch_assoc($media);
-                                  echo $fila['ocupacion']." ";
                                   array_push($array_medias,$fila['ocupacion']);
                                }
-                               echo "Hotel $array_hoteles[0] $array_hoteles[1] $array_hoteles[2] $array_hoteles[3]";
-                               echo "Medias $array_medias[0] $array_medias[1] $array_medias[2] $array_medias[3]";
 
-
-                               //media anual del Allegro
-                               /*$consulta2 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
-                                            FROM ocupacion_hoteles
-                                            WHERE hotel = 'Allegro Isora' AND mes='".$mes."' AND ano='".$year."';";
-                               $media_Allegro = mysqli_query($link,$consulta2);
-                               $fila2 = mysqli_fetch_assoc($media_Allegro);
-
-                               //media anual del Flamengo
-                               $consulta3 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
-                                            FROM ocupacion_hoteles
-                                            WHERE hotel = 'Bahia Flamengo' AND mes='".$mes."' AND ano='".$year."';";
-                               $media_Flamengo = mysqli_query($link,$consulta3);
-                               $fila3 = mysqli_fetch_assoc($media_Flamengo);
-
-                               //media anual del Palacio
-                               $consulta4 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
-                                            FROM ocupacion_hoteles
-                                            WHERE hotel = 'Palacio de Isora' AND mes='".$mes."' AND ano='".$year."';";
-                               $media_Palacio = mysqli_query($link,$consulta4);
-                               $fila4 = mysqli_fetch_assoc($media_Palacio);
-
-                               //media anual del Abama
-                               $consulta5 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
-                                            FROM ocupacion_hoteles
-                                            WHERE hotel = 'Ritz Carlton Abama' AND mes='".$mes."' AND ano='".$year."';";
-                               $media_Abama = mysqli_query($link,$consulta5);
-                               $fila5 = mysqli_fetch_assoc($media_Abama);*/
-
-
-                               //echo "Media del Allegro " .$fila2['AVG(ocupacion)'];
-                               //echo " Media del Flamengo " .$fila3['AVG(ocupacion)'];
-                               //echo " Media del Palacio " .$fila4['AVG(ocupacion)'];
-                               //echo " Media del Abama " .$fila5['AVG(ocupacion)'];
 
                                if($grafica==true){
                                  require_once ('../../jpgraph/src/jpgraph.php');
@@ -816,9 +778,16 @@
                                  //$data1y=array($fila2['ocupacion'],$fila3['ocupacion'],$fila4['ocupacion'],$fila5['ocupacion']);
 
                                  $data1y=$array_medias;
+                                 $array_hotel_media = array();
+
+                                 for ($i=0; $i < count($array_hoteles); $i++) {
+                                   array_push($array_hotel_media, $array_medias[$i]."%\n".$array_hoteles[$i]);
+                                 }
+
+
 
                                  // Create the graph. These two calls are always required
-                                 $graph = new Graph(500,500,'auto');
+                                 $graph = new Graph(600,500,'auto');
                                  $graph->SetScale("textlin");
 
                                  $theme_class=new UniversalTheme;
@@ -830,8 +799,7 @@
 
                                  $graph->ygrid->SetFill(false);
                                  //$graph->xaxis->SetTickLabels(array($fila2['ocupacion']."%\nAllegro Isora",$fila3['ocupacion']."%\nFlamengo",$fila4['ocupacion']."%\nPalacio Isora",$fila5['ocupacion']."%\nAbama"));
-                                 $graph->xaxis->SetTickLabels($array_hoteles);
-                                 //$graph->xaxis->SetTickLabels(array(10,25,36,10));
+                                 $graph->xaxis->SetTickLabels($array_hotel_media);
                                  $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,11);
                                  $graph->yaxis->HideLine(false);
                                  $graph->yaxis->HideTicks(false,false);
@@ -854,7 +822,11 @@
                                  // Display the graph
                                  @unlink("../../images/graficas/grafica1.png");
                                  $graph->Stroke("../../images/graficas/grafica1.png");
-/*
+
+                                 $arr1 = serialize($array_hoteles);
+                                 $arr2 = serialize($array_medias);
+
+
                                  echo "
                                  <br><br><br>
                                   <div class='row'>
@@ -866,10 +838,8 @@
 
                                     <form action='exportar_pdf_todos_mes.php', method='POST'>
 
-                                      <input type='hidden' value='".$fila2['ocupacion']."' name='por_Allegro'/>
-                                      <input type='hidden' value='".$fila3['ocupacion']."' name='por_Flamengo'/>
-                                      <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
-                                      <input type='hidden' value='".$fila5['ocupacion']."' name='por_Abama'/>
+                                      <input type='hidden' value='".$arr1."' name='arr1'/>
+                                      <input type='hidden' value='".$arr2."' name='arr2'/>
                                       <input type='hidden' value='".$mes_actual."' name='mes_ocu'/>
                                       <input type='hidden' value='".$year."' name='year_ocu'/>
                                       <input type='hidden' value='".$total_media."' name='media_total'/>
@@ -881,11 +851,8 @@
 
                                     <form action='generar_excel_todos_mes.php' method='POST'>
 
-
-                                      <input type='hidden' value='".$fila2['ocupacion']."' name='por_Allegro'/>
-                                      <input type='hidden' value='".$fila3['ocupacion']."' name='por_Flamengo'/>
-                                      <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
-                                      <input type='hidden' value='".$fila5['ocupacion']."' name='por_Abama'/>
+                                      <input type='hidden' value='".$arr1."' name='arr1'/>
+                                      <input type='hidden' value='".$arr2."' name='arr2'/>
                                       <input type='hidden' value='".$mes_actual."' name='mes_ocu'/>
                                       <input type='hidden' value='".$year."' name='year_ocu'/>
                                       <input type='hidden' value='".$total_media."' name='media_total'/>
@@ -895,7 +862,7 @@
                                       </div>
                                     </form>
                                   </div>
-                                   ";*/
+                                   ";
                                }
 
                              }
@@ -925,7 +892,31 @@
                                   }
                                 }
 
+                                $consulta_hoteles= "SELECT nombre FROM `hoteles`";
+                                $hoteles=mysqli_query($link,$consulta_hoteles);
+                                if(mysqli_num_rows($hoteles)>0){
+                                  $array_hoteles=array();
+                                  while ($fila=mysqli_fetch_assoc($hoteles)) {
+                                    array_push($array_hoteles,$fila['nombre']);
+                                  }
+                                }
+                                //$hoteles=array("Allegro Isora","Bahia Flamengo","Palacio de Isora","Ritz Carlton Abama");
+                                $numero_hoteles=count($array_hoteles);
+                                $array_medias= array();
+                                for ($i=0; $i < $numero_hoteles; $i++) {
+                                  $consulta = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
+                                               FROM ocupacion_hoteles
+                                               WHERE hotel = '".$array_hoteles[$i]."' AND ano='".$year."';";
+                                   $media= mysqli_query($link,$consulta);
+                                   $fila = mysqli_fetch_assoc($media);
+                                   array_push($array_medias,$fila['ocupacion']);
+                                }
 
+
+
+
+
+                                /*
                                 //media anual del Allegro
                                 $consulta2 = "SELECT CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                              FROM ocupacion_hoteles
@@ -952,7 +943,7 @@
                                              FROM ocupacion_hoteles
                                              WHERE hotel = 'Ritz Carlton Abama' AND ano='".$year."';";
                                 $media_Abama = mysqli_query($link,$consulta5);
-                                $fila5 = mysqli_fetch_assoc($media_Abama);
+                                $fila5 = mysqli_fetch_assoc($media_Abama);*/
 
 
                                 //echo "Media del Allegro " .$fila2['AVG(ocupacion)'];
@@ -964,12 +955,17 @@
                                   require_once ('../../jpgraph/src/jpgraph_bar.php');
 
                                   // Some data
-                                  $data1y=array($fila2['ocupacion'],$fila3['ocupacion'],$fila4['ocupacion'],$fila5['ocupacion']);
+                                  //$data1y=array($fila2['ocupacion'],$fila3['ocupacion'],$fila4['ocupacion'],$fila5['ocupacion']);
+                                  $data1y=$array_medias;
+                                  $array_hotel_media = array();
 
+                                  for ($i=0; $i < count($array_hoteles); $i++) {
+                                    array_push($array_hotel_media, $array_medias[$i]."%\n".$array_hoteles[$i]);
+                                  }
 
 
                                   // Create the graph. These two calls are always required
-                                  $graph = new Graph(500,500,'auto');
+                                  $graph = new Graph(600,500,'auto');
                                   $graph->SetScale("textlin");
 
                                   $theme_class=new UniversalTheme;
@@ -980,8 +976,8 @@
                                   $graph->SetBox(false);
 
                                   $graph->ygrid->SetFill(false);
-                                  $graph->xaxis->SetTickLabels(array($fila2['ocupacion']."%\nAllegro Isora",$fila3['ocupacion']."%\nFlamengo",$fila4['ocupacion']."%\nPalacio Isora",$fila5['ocupacion']."%\nAbama"));
-                                  //$graph->xaxis->SetTickLabels(array(10,25,36,10));
+                                  //$graph->xaxis->SetTickLabels(array($fila2['ocupacion']."%\nAllegro Isora",$fila3['ocupacion']."%\nFlamengo",$fila4['ocupacion']."%\nPalacio Isora",$fila5['ocupacion']."%\nAbama"));
+                                  $graph->xaxis->SetTickLabels($array_hotel_media);
                                   $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,11);
                                   $graph->yaxis->HideLine(false);
                                   $graph->yaxis->HideTicks(false,false);
@@ -999,11 +995,16 @@
                                   $b1plot->SetColor("white");
                                   $b1plot->SetFillColor(array("#FFB70E","#FCFF00","#00AFFF","#E72222"));
 
-                                  $graph->title->Set("Media anual de cada hotel");
+                                  $graph->title->Set("Media anual " . $year . " de cada hotel");
                                   $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                   // Display the graph
                                   @unlink("../../images/graficas/grafica1.png");
                                   $graph->Stroke("../../images/graficas/grafica1.png");
+
+                                  $arr1 = serialize($array_hoteles);
+                                  $arr2 = serialize($array_medias);
+
+
                                   echo "
                                   <br><br><br>
                                    <div class='row'>
@@ -1014,10 +1015,9 @@
                                    <div class='row'>
                                       <form action='exportar_pdf.php', method='POST'>
 
-                                      <input type='hidden' value='".$fila2['ocupacion']."' name='por_Allegro'/>
-                                      <input type='hidden' value='".$fila3['ocupacion']."' name='por_Flamengo'/>
-                                      <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
-                                      <input type='hidden' value='".$fila5['ocupacion']."' name='por_Abama'/>
+
+                                      <input type='hidden' value='".$arr1."' name='arr1'/>
+                                      <input type='hidden' value='".$arr2."' name='arr2'/>
                                       <input type='hidden' value='".$year."' name='year_ocu'/>
                                       <input type='hidden' value='".$total_media."' name='media_total'/>
 
@@ -1029,12 +1029,11 @@
                                      <form action='generar_excel.php' method='POST'>
 
 
-                                       <input type='hidden' value='".$fila2['ocupacion']."' name='por_Allegro'/>
-                                       <input type='hidden' value='".$fila3['ocupacion']."' name='por_Flamengo'/>
-                                       <input type='hidden' value='".$fila4['ocupacion']."' name='por_Palacio'/>
-                                       <input type='hidden' value='".$fila5['ocupacion']."' name='por_Abama'/>
-                                       <input type='hidden' value='".$year."' name='year_ocu'/>
-                                       <input type='hidden' value='".$total_media."' name='media_total'/>
+
+                                     <input type='hidden' value='".$arr1."' name='arr1'/>
+                                     <input type='hidden' value='".$arr2."' name='arr2'/>
+                                     <input type='hidden' value='".$year."' name='year_ocu'/>
+                                     <input type='hidden' value='".$total_media."' name='media_total'/>
 
 
 

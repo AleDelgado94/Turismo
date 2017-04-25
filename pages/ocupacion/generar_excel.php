@@ -14,28 +14,36 @@ $excel = new PHPExcel();
 $excel->getProperties()->setCreator("Ayto. Guía de Isora");
 $excel->getProperties()->setTitle("Ocupación");
 
+$arr1 = unserialize($_POST['arr1']);
+$arr2 = unserialize($_POST['arr2']);
+
 
 $excel->setActiveSheetIndex(0);
-$excel->getActiveSheet()->SetCellValue('A1', 'Media anual de cada hotel');
-$excel->getActiveSheet()->SetCellValue('A2', 'Año');
-$excel->getActiveSheet()->SetCellValue('B2', $_POST['year_ocu']);
-$excel->getActiveSheet()->SetCellValue('A4', 'Hoteles');
-$excel->getActiveSheet()->SetCellValue('B4', 'Media %');
+$excel->getActiveSheet()->SetCellValue('A1', 'Tiempo de estancia');
+$excel->getActiveSheet()->SetCellValue('A3', 'Año:');
 
-$excel->getActiveSheet()->SetCellValue('A5', 'Allegro Isora');
-$excel->getActiveSheet()->SetCellValue('B5', $_POST['por_Allegro']);
+$excel->getActiveSheet()->SetCellValue('B3', $_POST['year_ocu']);
 
-$excel->getActiveSheet()->SetCellValue('A6', 'Bahía Flamengo');
-$excel->getActiveSheet()->SetCellValue('B6', $_POST['por_Flamengo']);
+$excel->getActiveSheet()->SetCellValue('A6', 'Tiempo');
+$excel->getActiveSheet()->SetCellValue('B6', 'Número');
 
-$excel->getActiveSheet()->SetCellValue('A7', 'Ritz Carlton Abama');
-$excel->getActiveSheet()->SetCellValue('B7', $_POST['por_Abama']);
 
-$excel->getActiveSheet()->SetCellValue('A8', 'Palacio Isora');
-$excel->getActiveSheet()->SetCellValue('B8', $_POST['por_Palacio']);
+$pos_ini = 7;
+for ($i=0; $i < count($arr1); $i++) {
+  $excel->getActiveSheet()->SetCellValue('A'.$pos_ini, $arr1[$i]);
+  $pos_ini++;
+}
 
-$excel->getActiveSheet()->SetCellValue('A10', 'Media total');
-$excel->getActiveSheet()->SetCellValue('B10', $_POST['media_total']);
+$pos_ini = 7;
+for ($i=0; $i < count($arr2); $i++) {
+  $excel->getActiveSheet()->SetCellValue('B'.$pos_ini, $arr2[$i]);
+  $pos_ini++;
+}
+
+$pos_fin = 7 + count($arr1);
+$excel->getActiveSheet()->SetCellValue('A'.$pos_fin, 'Total');
+$excel->getActiveSheet()->SetCellValue('B'.$pos_fin, $_POST['media_total']);
+
 
 
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
