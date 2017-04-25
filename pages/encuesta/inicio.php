@@ -858,48 +858,48 @@
                       </div>
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" class="eve[]" value="Gastronomicos" id="eve1" />
-                          <label for="eve1">Gastronómicos</label>
+                          <input type="checkbox" name="events[]" value="Gastronomicos" id="events1" />
+                          <label for="events1">Gastronómicos</label>
                         </p>
                       </div>
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" class="eve[]" value="Fiestas" id="eve2" />
-                          <label for="eve2">Fiestas</label>
+                          <input type="checkbox" name="events[]" value="Fiestas" id="events2" />
+                          <label for="events2">Fiestas</label>
                         </p>
                       </div>
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" class="eve[]" value="Miradas Doc" id="eve3" />
-                          <label for="eve3">Miradas Doc</label>
-                        </p>
-                      </div>
-
-                      <div class="row-modi">
-                        <p>
-                          <input type="checkbox" class="eve[]" value="Pascua Florida" id="eve4" />
-                          <label for="eve4">Pascua Florida</label>
+                          <input type="checkbox" name="events[]" value="Miradas Doc" id="events3" />
+                          <label for="events3">Miradas Doc</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" class="eve[]" value="Eventos Culturales" id="eve5" />
-                          <label for="eve5">Eventos Culturales</label>
+                          <input type="checkbox" name="events[]" value="Pascua Florida" id="events4" />
+                          <label for="events4">Pascua Florida</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" class="eve[]" value="Eventos tradicionales" id="eve6" />
-                          <label for="eve6">Eventos tradicionales</label>
+                          <input type="checkbox" name="events[]" value="Eventos Culturales" id="events5" />
+                          <label for="events5">Eventos Culturales</label>
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p>
-                          <input type="checkbox" class="eve[]" value="Otros" id="eve7" />
-                          <label for="eve7">Otros</label>
+                          <input type="checkbox" name="events[]" value="Eventos tradicionales" id="events6" />
+                          <label for="events6">Eventos tradicionales</label>
+                        </p>
+                      </div>
+
+                      <div class="row-modi">
+                        <p>
+                          <input type="checkbox" name="events[]" value="Otros" id="events7" />
+                          <label for="events7">Otros</label>
                         </p>
                       </div>
 
