@@ -341,11 +341,30 @@
               <div class="col s12 m4 l4">
                 <h5>Materiales</h5>
                 <div class="row">
+                  <div class="col s12 m8 l12" >
+                    <select name='materiales' onchange="material(this.value)">
+                         <option value="" disabled selected> Materiales</option>
+                         <option value='Municipio'>Municipio</option>
+                         <option value='Otros Municipios'>Otros Municipios</option>
+                         <option value='Otras Islas'>Otras Islas</option>
+                         <option value='Tenerife'>Tenerife</option>
+                         <option value='Material Promocional'>Material Promocional</option>
+                     </select>
+                    <label>Información</label>
+                    <input id="materiales_consulta" type="hidden" name="materiales_consulta">
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col s12 m12 l6">
                       <input type="text" class="datepicker" id="fecha_ini5" name="fecha_ini5" placeholder="De:">
                   </div>
                   <div class="col s12 m12 l6">
                       <input type="text" class="datepicker" id="fecha_fin5" name="fecha_fin5" placeholder="Hasta:">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12 l2">
+                    <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult5(materiales_consulta,fecha_ini5,fecha_fin5)"/>
                   </div>
                 </div>
               </div>
@@ -372,6 +391,7 @@
                   $numero_paises="";
                   $alojamiento="";
                   $informacion="";
+                  $material="";
 
                   if(isset($_COOKIE['persona']))
                    $persona = $_COOKIE['persona'];
@@ -400,6 +420,9 @@
                   if(isset($_COOKIE['informacion'])){
                     $informacion = $_COOKIE['informacion'];
                   }
+                  if(isset($_COOKIE['material'])){
+                    $material = $_COOKIE['material'];
+                  }
 
                   if($persona=="")
                     $persona="Nacionalidad";
@@ -411,6 +434,7 @@
                   //echo "$persona $nacion de $fecha_inicio hasta $fecha_final $numero_paises";
                   //echo "$alojamiento $fecha_inicio $fecha_final";
                   //echo "$informacion $fecha_inicio $fecha_final";
+                  //echo "$material $fecha_inicio $fecha_final";
                   $fecha_inicio_alo = $fecha_inicio;
                   $fecha_final_alo = $fecha_final;
                   $fecha_inicio_info = $fecha_inicio;
@@ -2926,35 +2950,35 @@
                                GROUP BY eventos";
 
                     $grafica=false;
-                    $alo = mysqli_query($link,$consulta);
-                    if(mysqli_num_rows($alo) >0){
+                    $eve = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($eve) >0){
                       $grafica= true;
                       echo "
                       <div class='row'>
                         <p>
-                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                          Desde: <b>".$fecha_inicio_info."</b><br>Hasta: <b>".$fecha_final_info."</b>
                         </p>
                       </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
-                            <th>Se aloja en el municipio</th>
+                            <th>Eventos</th>
                             <th>Número</th>
                           </tr>
                         </thead>
 
                         <tbody>
                       ";
-                      $municipio=array();
+                      $eventos=array();
                       $numero=array();
-                      while($fila=mysqli_fetch_assoc($alo)){
+                      while($fila=mysqli_fetch_assoc($eve)){
                         echo "
                         <tr>
-                          <td>".$fila['municipio']."</td>
+                          <td>".$fila['eventos']."</td>
                           <td>".$fila['numero']."</td>
                         </tr>
                         ";
-                        array_push($municipio,$fila['municipio']);
+                        array_push($eventos,$fila['eventos']);
                         array_push($numero,$fila['numero']);
                       }
                       echo "
@@ -2973,7 +2997,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->Set("Eventos Solicitados");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -2981,7 +3005,7 @@
                         $p1 = new PiePlot($numero);
                         $graph->Add($p1);
 
-                        $p1->SetLegends($municipio);
+                        $p1->SetLegends($eventos);
                         $p1->ShowBorder();
                         $p1->SetColor('black');
                         $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
@@ -2991,8 +3015,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        $arr1 = serialize($municipio);
-                        $arr2 = serialize($numero);
+                        //$arr1 = serialize($municipio);
+                        //$arr2 = serialize($numero);
 
                         echo "
                           <div class='col s12 m12 l3'>
@@ -3000,7 +3024,7 @@
                           </div>
                         </div>";
 
-                        echo "
+                        /*echo "
                         <div class='row'>
                           <form action='export_pdf_alojamiento_sealoja.php' method='POST'>
 
@@ -3026,7 +3050,7 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";
+                        </div>";*/
                     }
                   }
 
@@ -3260,7 +3284,14 @@
 
 
                 //fin cuarto if
+                //inicio quinto if
 
+                if($material!=""){
+                  if($material=="Municipio")
+
+
+                }
+                //final quinto if
 
                 ?>
 
@@ -3486,6 +3517,23 @@
         document.cookie = 'fecha_inicio=' + FInicial3;
         document.cookie = 'fecha_final=' + FFinal3;
         document.cookie = 'last_tab=test4';
+        window.location = "estadisticas.php";
+
+
+      }
+
+      function material(val){
+        document.getElementById('materiales_consulta').value = val;
+      }
+      function consult5(consulta,fe_ini,fe_fin){
+        var Material = consulta.value;
+        var FInicial3= fe_ini.value;
+        var FFinal3= fe_fin.value;
+
+        document.cookie = 'material=' + Material;
+        document.cookie = 'fecha_inicio=' + FInicial3;
+        document.cookie = 'fecha_final=' + FFinal3;
+        document.cookie = 'last_tab=test5';
         window.location = "estadisticas.php";
 
 
