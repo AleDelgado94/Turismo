@@ -1082,35 +1082,35 @@
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="callejero">Callejero</scan>
-                        <input placeholder="0" type="number" name="callejero">
+                        <input placeholder="0" type="number" name="callejero" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="mapa_senderos">Mapa de senderos</scan>
-                        <input placeholder="0" type="number" name="mapa_senderos">
+                        <input placeholder="0" type="number" name="mapa_senderos" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="guias_turisticas">Guías turísticas</scan>
-                        <input placeholder="0" type="number" name="guias_turisticas">
+                        <input placeholder="0" type="number" name="guias_turisticas" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="folleto_eventos_municipales">Folleto eventos municipales</scan>
-                        <input placeholder="0" type="number" name="folleto_eventos_municipales">
+                        <input placeholder="0" type="number" name="folleto_eventos_municipales" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="folleto_ocio">Folleto ocio</scan>
-                        <input placeholder="0" type="number" name="folleto_ocio">
+                        <input placeholder="0" type="number" name="folleto_ocio" min="0">
                       </p>
                     </div>
 
@@ -1123,19 +1123,19 @@
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="callejero_otros">Callejero</scan>
-                        <input placeholder="0" type="number" name="callejero_otros">
+                        <input placeholder="0" type="number" name="callejero_otros" min="0">
                       </p>
                     </div>
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="folleto_ocio_otros">Folleto ocio</scan>
-                        <input placeholder="0" type="number" name="folleto_ocio_otros">
+                        <input placeholder="0" type="number" name="folleto_ocio_otros" min="0">
                       </p>
                     </div>
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="otros_otros">Otros</scan>
-                        <input placeholder="0" type="number" name="otros_otros">
+                        <input placeholder="0" type="number" name="otros_otros" min="0">
                       </p>
                     </div>
                   </div>
@@ -1148,14 +1148,14 @@
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="mapas_islas">Mapas</scan>
-                        <input placeholder="0" type="number" name="mapa_islas">
+                        <input placeholder="0" type="number" name="mapa_islas" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="otros_islas">Otros</scan>
-                        <input placeholder="0" type="number" name="otros_islas">
+                        <input placeholder="0" type="number" name="otros_islas" min="0">
                       </p>
                     </div>
                 </div>
@@ -1171,70 +1171,70 @@
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="mapa_tenerife">Mapa Tenerife</scan>
-                        <input placeholder="0" type="number" name="mapa_tenerife">
+                        <input placeholder="0" type="number" name="mapa_tenerife" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="mapa_block_sur">Mapa block zona sur</scan>
-                        <input placeholder="0" type="number" name="mapa_block_sur">
+                        <input placeholder="0" type="number" name="mapa_block_sur" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="tenerife_coche">Tenerife en coche</scan>
-                        <input placeholder="0" type="number" name="tenerife_coche">
+                        <input placeholder="0" type="number" name="tenerife_coche" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="tradiciones_tenerife">Tradiciones en Tenerife</scan>
-                        <input placeholder="0" type="number" name="tradiciones_tenerife">
+                        <input placeholder="0" type="number" name="tradiciones_tenerife" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="tenerife_pie">Tenerife a pie</scan>
-                        <input placeholder="0" type="number" name="tenerife_pie">
+                        <input placeholder="0" type="number" name="tenerife_pie" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="tenerife_cetaceos">Tenerife avistamiento de cetáceos</scan>
-                        <input placeholder="0" type="number" name="tenerife_cetaceos">
+                        <input placeholder="0" type="number" name="tenerife_cetaceos" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="guia_de_tenerife">Guía de Tenerife</scan>
-                        <input placeholder="0" type="number" name="guia_de_tenerife">
+                        <input placeholder="0" type="number" name="guia_de_tenerife" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="gastronomia_tenerife">Gastronomía en Tenerife</scan>
-                        <input placeholder="0" type="number" name="gastronomia_tenerife">
+                        <input placeholder="0" type="number" name="gastronomia_tenerife" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="tenerife_natural_rural">Tenerife Natural y Rural</scan>
-                        <input placeholder="0" type="number" name="tenerife_natural_rural">
+                        <input placeholder="0" type="number" name="tenerife_natural_rural" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
                         <scan for="tenerife_familia">Tenerife en familia</scan>
-                        <input placeholder="0" type="number" name="tenerife_familia">
+                        <input placeholder="0" type="number" name="tenerife_familia" min="0">
                       </p>
                     </div>
 
@@ -1249,21 +1249,21 @@
                       <div class="row-modi">
                         <p class="range-field">
                           <scan for="periodico_revista">Periódico/Revista</scan>
-                          <input placeholder="0" type="number" name="periodico_revista">
+                          <input placeholder="0" type="number" name="periodico_revista" min="0">
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p class="range-field">
                           <scan for="folleto_bus">Folleto Bus</scan>
-                          <input placeholder="0" type="number" name="folleto_bus">
+                          <input placeholder="0" type="number" name="folleto_bus" min="0">
                         </p>
                       </div>
 
                       <div class="row-modi">
                         <p class="range-field">
                           <scan for="otros_promocional">Otros</scan>
-                          <input placeholder="0" type="number" name="otros_promocional">
+                          <input placeholder="0" type="number" name="otros_promocional" min="0">
                         </p>
                       </div>
                     </div>
