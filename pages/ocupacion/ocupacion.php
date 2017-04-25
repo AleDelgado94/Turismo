@@ -383,6 +383,11 @@
 
                             if($hotel != "Todos" || $hotel!= ""){
                               $grafica = false;
+                              if($primer_mes==""){
+                                $fecha="$year/01/01";
+                                $fecha_final="$year/03/01";
+                              }
+
                               $consulta = "SELECT mes, CAST(AVG(ocupacion) AS DECIMAL(10,2)) AS ocupacion
                                            FROM ocupacion_hoteles
                                            WHERE hotel = '".$hotel."' AND fecha BETWEEN '".$fecha."' AND '".$fecha_final."'
@@ -396,7 +401,7 @@
                                  <table class='col s12 m4 l4'>
                                   <thead>
                                     <tr>
-                                      <th data-field='name'>Mes</th>
+                                      <th data-field='name'>".$year." Mes</th>
                                       <th data-field='name'>Media ocupacional</th>
                                     </tr>
                                   </thead>
@@ -429,7 +434,7 @@
 
 
                                  // Create the graph. These two calls are always required
-                                 $graph = new Graph(400,400,'auto');
+                                 $graph = new Graph(600,400,'auto');
                                  $graph->SetScale("textlin");
 
                                  $theme_class=new UniversalTheme;
@@ -459,7 +464,7 @@
                                  $b1plot->SetColor("white");
                                  $b1plot->SetFillColor(array("#FFB70E","#FCFF00","#00AFFF"));
 
-                                 $graph->title->Set("Media de ".$mes." de cada hotel");
+                                 $graph->title->Set("Media de ".$mes." del ".$hotel." del año ".$year."");
                                  $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                  // Display the graph
                                  @unlink("../../images/graficas/grafica1.png");
@@ -554,26 +559,28 @@
                                 $grafica = false;
                                 if ($numero_filas > 0) {
                                   while($fila = mysqli_fetch_assoc($ocupacion)){
-                                    echo"
-                                    <table class='col s12 m4 l4'>
-                                     <thead>
-                                       <tr>
-                                         <th data-field='name'>Hotel</th>
-                                         <th data-field='name'>Media anual</th>
-                                         <th data-field='name'>Año</th>
-                                       </tr>
-                                     </thead>
-                                     <tbody>
-                                       <tr>
-                                         <td>".$fila['hotel']."</td>
-                                         <td>".$fila['ocupacion']."%</td>
-                                         <td>".$year."</td>
-                                       </tr>
-                                     </tbody>
-                                   </table>
-                                    ";
-                                    $media_total_hotel_todos = $fila['ocupacion'];
-                                    $grafica=true;
+                                    if($fila['ocupacion']!=""){
+                                      echo"
+                                      <table class='col s12 m4 l4'>
+                                       <thead>
+                                         <tr>
+                                           <th data-field='name'>Hotel</th>
+                                           <th data-field='name'>Media anual</th>
+                                           <th data-field='name'>Año</th>
+                                         </tr>
+                                       </thead>
+                                       <tbody>
+                                         <tr>
+                                           <td>".$fila['hotel']."</td>
+                                           <td>".$fila['ocupacion']."%</td>
+                                           <td>".$year."</td>
+                                         </tr>
+                                       </tbody>
+                                     </table>
+                                      ";
+                                      $media_total_hotel_todos = $fila['ocupacion'];
+                                      $grafica=true;
+                                    }
                                   }
 
                                   $meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
@@ -876,16 +883,17 @@
                               $total_media = "";
                               $grafica = false;
                               if (mysqli_num_rows($ocupacion) >0) {
-                                $grafica=true;
-                                while($fila = mysqli_fetch_assoc($ocupacion)){
-                                  
 
-                                  echo"
-                                    <div class='col s12 m2 l4'>
-                                       <p>Media de<b>".$year."</b> de todos los hoteles es: ".$fila['ocupacion']."%</p>
-                                    </div>
-                                  ";
-                                  $total_media = $fila['ocupacion'];
+                                while($fila = mysqli_fetch_assoc($ocupacion)){
+                                  if($fila['ocupacion'] != ""){
+                                    $grafica=true;
+                                    echo"
+                                      <div class='col s12 m2 l4'>
+                                         <p>Media de <b>".$year."</b> de todos los hoteles es: ".$fila['ocupacion']."%</p>
+                                      </div>
+                                    ";
+                                    $total_media = $fila['ocupacion'];
+                                  }
                                 }
 
 
