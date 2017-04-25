@@ -151,8 +151,9 @@ if(isset($_SESSION['usuario'])) {
   }
 
   //eventos TABLA: informacion_guia
-  $eventos = $_POST['eve'];
+  $eventos = $_POST['events'];
   for ($i=0; $i < count($eventos) ; $i++) {
+    //echo $eventos[$i];
     $consulta_eventos = "INSERT INTO informacion_guia (grupo, eventos) VALUES ('".$grupo_actual."', '".$eventos[$i]."')";
     mysqli_query($link, $consulta_eventos) or die(mysqli_error($link));
   }
