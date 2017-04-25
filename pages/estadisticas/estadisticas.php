@@ -2508,7 +2508,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->Set("Alojamentos Solicitados");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -2569,39 +2569,39 @@
 
                   }
 
-                  if($alojamiento =="Tipo de alojamiento"){
-                    //echo "$alojamiento";
+                  if($informacion =="Transporte"){
+                    //echo "$informacion";
 
-                    $consulta="SELECT alojamiento, COUNT(alojamiento) as numero
-                    FROM perfil_alojamiento NATURAL INNER JOIN visita
-                    WHERE alojamiento!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
-                    GROUP BY alojamiento";
+                    $consulta="SELECT DISTINCT transporte, COUNT(grupo) as numero
+                    FROM informacion_guia NATURAL INNER JOIN visita
+                    WHERE transporte !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                    GROUP BY transporte";
 
                     $grafica=false;
-                    $alo = mysqli_query($link,$consulta);
-                    if(mysqli_num_rows($alo) >0){
+                    $trans = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($trans) >0){
                       $grafica= true;
                       echo "
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
-                            <th>Visita</th>
+                            <th>Transporte</th>
                             <th>Número</th>
                           </tr>
                         </thead>
 
                         <tbody>
                       ";
-                      $alojamiento_tipo=array();
+                      $transporte=array();
                       $numero=array();
-                      while($fila=mysqli_fetch_assoc($alo)){
+                      while($fila=mysqli_fetch_assoc($trans)){
                         echo "
                         <tr>
-                          <td>".$fila['alojamiento']."</td>
+                          <td>".$fila['transporte']."</td>
                           <td>".$fila['numero']."</td>
                         </tr>
                         ";
-                        array_push($alojamiento_tipo,$fila['alojamiento']);
+                        array_push($transporte,$fila['transporte']);
                         array_push($numero,$fila['numero']);
                       }
                       echo "
@@ -2620,7 +2620,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->Set("Transporte Solicitados");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -2628,7 +2628,7 @@
                         $p1 = new PiePlot($numero);
                         $graph->Add($p1);
 
-                        $p1->SetLegends($alojamiento_tipo);
+                        $p1->SetLegends($transporte);
                         $p1->ShowBorder();
                         $p1->SetColor('black');
                         $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
@@ -2638,8 +2638,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        $arr1 = serialize($alojamiento_tipo);
-                        $arr2 = serialize($numero);
+                        //$arr1 = serialize($alojamiento_tipo);
+                        //$arr2 = serialize($numero);
 
                         echo "
                           <div class='col s12 m12 l3'>
@@ -2647,7 +2647,7 @@
                           </div>
                         </div>";
 
-                        echo "
+                      /*  echo "
                         <div class='row'>
                           <form action='export_pdf_alojamiento_tipo.php' method='POST'>
 
@@ -2673,43 +2673,43 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";
+                        </div>";*/
                     }
 
                   }
 
-                  if($alojamiento =="Motivo de visita"){
-                    //echo "$alojamiento";
-                    $consulta="SELECT motivo, COUNT(motivo) as numero
-                               FROM perfil_alojamiento NATURAL INNER JOIN visita
-                               WHERE motivo!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
-                               GROUP BY motivo";
+                  if($informacion =="Ocio"){
+                    //echo "$informacion";
+                    $consulta="SELECT DISTINCT ocio, COUNT(grupo) as numero
+                               FROM informacion_guia NATURAL INNER JOIN visita
+                               WHERE ocio !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY ocio";
 
                     $grafica=false;
-                    $alo = mysqli_query($link,$consulta);
-                    if(mysqli_num_rows($alo) >0){
+                    $ocio = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($ocio) >0){
                       $grafica= true;
                       echo "
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
-                            <th>Motivo</th>
+                            <th>Ocio</th>
                             <th>Número</th>
                           </tr>
                         </thead>
 
                         <tbody>
                       ";
-                      $motivo=array();
+                      $oci=array();
                       $numero=array();
-                      while($fila=mysqli_fetch_assoc($alo)){
+                      while($fila=mysqli_fetch_assoc($ocio)){
                         echo "
                         <tr>
-                          <td>".$fila['motivo']."</td>
+                          <td>".$fila['ocio']."</td>
                           <td>".$fila['numero']."</td>
                         </tr>
                         ";
-                        array_push($motivo,$fila['motivo']);
+                        array_push($oci,$fila['ocio']);
                         array_push($numero,$fila['numero']);
                       }
                       echo "
@@ -2728,7 +2728,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->Set("Ocio Solicitado");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -2736,7 +2736,7 @@
                         $p1 = new PiePlot($numero);
                         $graph->Add($p1);
 
-                        $p1->SetLegends($motivo);
+                        $p1->SetLegends($oci);
                         $p1->ShowBorder();
                         $p1->SetColor('black');
                         $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
@@ -2752,7 +2752,7 @@
                           </div>
                         </div>";
 
-                        echo "
+                        /*echo "
                         <div class='row'>
                           <form action='export_pdf_alojamiento_motivo.php' method='POST'>
 
@@ -2778,18 +2778,18 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";
+                        </div>";*/
                     }
                   }
 
-                  if($alojamiento =="Se aloja"){
-                    //echo "$alojamiento";
+                  if($informacion =="Eventos"){
+                    //echo "$informacion";
 
 
-                    $consulta="SELECT municipio, COUNT(municipio) as numero
-                               FROM perfil_alojamiento NATURAL INNER JOIN visita
-                               WHERE municipio!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
-                               GROUP BY municipio";
+                    $consulta="SELECT DISTINCT ocio, COUNT(grupo) as numero
+                               FROM informacion_guia NATURAL INNER JOIN visita
+                               WHERE ocio !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY ocio";
 
                     $grafica=false;
                     $alo = mysqli_query($link,$consulta);
