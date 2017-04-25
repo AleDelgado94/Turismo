@@ -543,6 +543,13 @@
 
                       $nacionalidad = mysqli_query($link,$consulta);
                       echo "
+
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
+
                       <table class='col s12 m12 l5'>
                         <thead>
                           <tr>
@@ -622,6 +629,12 @@
                     $visitas = mysqli_query($link,$consulta);
                     $fila2 = mysqli_fetch_assoc($visitas);
                     echo "
+
+                    <div class='row'>
+                      <p>
+                        Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                      </p>
+                    </div>
                     <table class='col s12 m12 l2'>
                       <tbody>
                         <tr>
@@ -640,6 +653,12 @@
                     $visitantes = mysqli_query($link,$consulta);
                     $fila3 = mysqli_fetch_assoc($visitantes);
                     echo "
+
+                    <div class='row'>
+                      <p>
+                        Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                      </p>
+                    </div>
                     <table class='col s12 m12 l2'>
                       <tbody>
                         <tr>
@@ -734,6 +753,11 @@
 
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l5'>
                         <thead>
                           <tr>
@@ -924,6 +948,11 @@
                         $grafica = TRUE;
 
                         echo "
+                        <div class='row'>
+                          <p>
+                            Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                          </p>
+                        </div>
                         <table class='col s12 m12 l5'>
                           <thead>
                             <tr>
@@ -1031,6 +1060,11 @@
                       $hora2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1067,6 +1101,11 @@
                       $hora2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1104,6 +1143,11 @@
                       $hora2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1170,6 +1214,11 @@
                         $grafica = TRUE;
 
                         echo "
+                        <div class='row'>
+                          <p>
+                            Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                          </p>
+                        </div>
                         <table class='col s12 m12 l5'>
                           <thead>
                             <tr>
@@ -1275,6 +1324,11 @@
                       $oficina2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1312,6 +1366,11 @@
                       $oficina2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1348,6 +1407,11 @@
                       $oficina2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1429,6 +1493,11 @@
                         $grafica = TRUE;
 
                         echo "
+                        <div class='row'>
+                          <p>
+                            Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                          </p>
+                        </div>
                         <table class='col s12 m12 l5'>
                           <thead>
                             <tr>
@@ -1537,6 +1606,11 @@
                       $tipo2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1574,6 +1648,11 @@
                       $tipo2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1611,6 +1690,11 @@
                       $tipo2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1648,6 +1732,11 @@
                       $tipo2=mysqli_query($link,$consulta2);
 
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio."</b><br>Hasta: <b>".$fecha_final."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1699,6 +1788,11 @@
                     if(mysqli_num_rows($alo) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1738,7 +1832,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->Set("Cómo conocieron el municipio");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -1806,6 +1900,11 @@
                     if(mysqli_num_rows($alo) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1844,7 +1943,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->Set("Repite Visita");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -1918,6 +2017,11 @@
                     if(mysqli_num_rows($alo) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -1956,7 +2060,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->Set("Tipo de alojamiento");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -2026,6 +2130,11 @@
                     if(mysqli_num_rows($alo) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -2064,7 +2173,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->Set("Motivo de la visita");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -2132,6 +2241,11 @@
                     if(mysqli_num_rows($alo) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -2170,7 +2284,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->Set("Se aloja en el municipio");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -2242,7 +2356,7 @@
                       $grafica= true;
                       echo "
                       <div class='row'>
-                        Desde el <b>".$fecha_inicio_alo."</b> hasta el <b>".$fecha_final_alo."</b>
+                        Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
                       </div>
 
                       <table class='col s12 m12 l3'>
@@ -2283,7 +2397,7 @@
                         $theme_class = new VividTheme();
                         $graph->SetTheme($theme_class);
                         // Set A title for the plot
-                        $graph->title->Set("Tiempo de alojamiento");
+                        $graph->title->Set("Tiempo de estancia");
                         $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                         $graph->SetBox(true);
 
@@ -2363,6 +2477,11 @@
                     if(mysqli_num_rows($info) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -2470,6 +2589,11 @@
                     if(mysqli_num_rows($info) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -2582,6 +2706,11 @@
                     if(mysqli_num_rows($alo) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -2690,6 +2819,11 @@
                     if(mysqli_num_rows($alo) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
@@ -2796,6 +2930,11 @@
                     if(mysqli_num_rows($alo) >0){
                       $grafica= true;
                       echo "
+                      <div class='row'>
+                        <p>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_alo."</b>
+                        </p>
+                      </div>
                       <table class='col s12 m12 l3'>
                         <thead>
                           <tr>
