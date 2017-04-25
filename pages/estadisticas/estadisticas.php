@@ -3018,8 +3018,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        //$arr1 = serialize($municipio);
-                        //$arr2 = serialize($numero);
+                        $arr1 = serialize($eventos);
+                        $arr2 = serialize($numero);
 
                         echo "
                           <div class='col s12 m12 l3'>
@@ -3027,9 +3027,9 @@
                           </div>
                         </div>";
 
-                        /*echo "
+                        echo "
                         <div class='row'>
-                          <form action='export_pdf_alojamiento_sealoja.php' method='POST'>
+                          <form action='export_pdf_informacion_eventos.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                             <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3041,7 +3041,7 @@
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
                             </div>
                           </form>
-                          <form action='excel_alojamiento_sealoja.php' method='POST'>
+                          <form action='excel_informacion_eventos.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                           <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3053,7 +3053,7 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";*/
+                        </div>";
                     }
                   }
 
