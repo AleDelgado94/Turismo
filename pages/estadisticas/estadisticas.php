@@ -305,11 +305,32 @@
               <div class="col s12 m4 l4">
                 <h5>Infomación</h5>
                 <div class="row">
+                  <div class="col s12 m8 l12" >
+                    <select name='informaciones' onchange="informacion(this.value)">
+                         <option value="" disabled selected> Informacion</option>
+                         <option value='Recursos'>Recursos</option>
+                         <option value='Alojamiento'>Alojamiento</option>
+                         <option value='Transporte'>Transporte</option>
+                         <option value='Ocio'>Ocio</option>
+                         <option value='Eventos'>Eventos</option>
+                         <option value='Servicios Publicos'>Servicios Públicos</option>
+                         <option value='Tenerife'>Tenerife</option>
+                     </select>
+                    <label>Información</label>
+                    <input id="informacion_consulta" type="hidden" name="informacion_consulta">
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col s12 m12 l6">
                       <input type="text" class="datepicker" id="fecha_ini4" name="fecha_ini4" placeholder="De:">
                   </div>
                   <div class="col s12 m12 l6">
                       <input type="text" class="datepicker" id="fecha_fin4" name="fecha_fin4" placeholder="Hasta:">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12 l2">
+                    <input id="boton_enviar" value="Buscar" type ="submit" onclick="consult4(informacion_consulta,fecha_ini4,fecha_fin4)"/>
                   </div>
                 </div>
               </div>
@@ -349,9 +370,8 @@
                   $fecha_final="2000/01/01";
                   $grafica="";
                   $numero_paises="";
-
                   $alojamiento="";
-
+                  $informacion="";
 
                   if(isset($_COOKIE['persona']))
                    $persona = $_COOKIE['persona'];
@@ -377,6 +397,9 @@
                   if(isset($_COOKIE['alojamiento'])){
                     $alojamiento = $_COOKIE['alojamiento'];
                   }
+                  if(isset($_COOKIE['informacion'])){
+                    $informacion = $_COOKIE['informacion'];
+                  }
 
                   if($persona=="")
                     $persona="Nacionalidad";
@@ -387,8 +410,11 @@
 
                   //echo "$persona $nacion de $fecha_inicio hasta $fecha_final $numero_paises";
                   //echo "$alojamiento $fecha_inicio $fecha_final";
+                  //echo "$informacion $fecha_inicio $fecha_final";
                   $fecha_inicio_alo = $fecha_inicio;
                   $fecha_final_alo = $fecha_final;
+                  $fecha_inicio_info = $fecha_inicio;
+                  $fecha_final_info = $fecha_final;
 
                   if($persona == "Nacionalidad"){
                     if($nacion =="Todas" && $numero_paises==""){
@@ -2317,7 +2343,671 @@
                 }
 
                 //fin tercer if
+                //incio cuarto if
+                if($informacion != ""){
+                  /*echo "Esto es informacion: $informacion";
+                  echo "hola";*/
+                  if($informacion == "Recursos"){
+                    //echo "$informacion $fecha_inicio_info $fecha_final_info";
+                    $consulta="SELECT DISTINCT recursos, COUNT(grupo) as numero
+                    FROM informacion_guia NATURAL INNER JOIN visita
+                    WHERE recursos !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                    GROUP BY recursos";
+                    /*SELECT DISTINCT recursos, COUNT(grupo) as numero
+                    FROM informacion_guia NATURAL INNER JOIN visita
+                    WHERE recursos !='' AND fecha BETWEEN '2017/01/01' AND '2017/04/30'
+                    GROUP BY recursos;*/
 
+                    $grafica=false;
+                    $info = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($info) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Recursos</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $recursos=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($info)){
+                        echo "
+                        <tr>
+                          <td>".$fila['recursos']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($recursos,$fila['recursos']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(500,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Recursos Solicitados");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($recursos);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        //$arr1 = serialize($conocer);
+                        $arr2 = serialize($numero);
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+                        /*
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_conocer.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_conocer.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";*/
+                    }
+                  }
+
+                  if($informacion =="Alojamiento"){
+                    //echo "$informacion";
+                    $consulta="SELECT DISTINCT alojamiento, COUNT(grupo) as numero
+                    FROM informacion_guia NATURAL INNER JOIN visita
+                    WHERE alojamiento !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                    GROUP BY alojamiento";
+                    $grafica=false;
+                    $info = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($info) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Alojamiento</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $aloja=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($info)){
+                        echo "
+                        <tr>
+                          <td>".$fila['alojamiento']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($aloja,$fila['alojamiento']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(600,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($aloja);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        //$arr1 = serialize($repite);
+                      //  $arr2 = serialize($numero);
+
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+                        /*
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_repite.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_repite.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";*/
+                    }
+
+
+
+                  }
+
+                  if($alojamiento =="Tipo de alojamiento"){
+                    //echo "$alojamiento";
+
+                    $consulta="SELECT alojamiento, COUNT(alojamiento) as numero
+                    FROM perfil_alojamiento NATURAL INNER JOIN visita
+                    WHERE alojamiento!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                    GROUP BY alojamiento";
+
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Visita</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $alojamiento_tipo=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['alojamiento']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($alojamiento_tipo,$fila['alojamiento']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($alojamiento_tipo);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        $arr1 = serialize($alojamiento_tipo);
+                        $arr2 = serialize($numero);
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_tipo.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_tipo.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";
+                    }
+
+                  }
+
+                  if($alojamiento =="Motivo de visita"){
+                    //echo "$alojamiento";
+                    $consulta="SELECT motivo, COUNT(motivo) as numero
+                               FROM perfil_alojamiento NATURAL INNER JOIN visita
+                               WHERE motivo!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY motivo";
+
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Motivo</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $motivo=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['motivo']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($motivo,$fila['motivo']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($motivo);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_motivo.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_motivo.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";
+                    }
+                  }
+
+                  if($alojamiento =="Se aloja"){
+                    //echo "$alojamiento";
+
+
+                    $consulta="SELECT municipio, COUNT(municipio) as numero
+                               FROM perfil_alojamiento NATURAL INNER JOIN visita
+                               WHERE municipio!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY municipio";
+
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Se aloja en el municipio</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $municipio=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['municipio']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($municipio,$fila['municipio']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tipo de consulta");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($municipio);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        $arr1 = serialize($municipio);
+                        $arr2 = serialize($numero);
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_sealoja.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_sealoja.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";
+                    }
+                  }
+
+                  if($alojamiento =="Tiempo de estancia"){
+                    //echo "$alojamiento";
+
+
+                    $consulta="SELECT tiempo, COUNT(tiempo) as numero
+                               FROM perfil_alojamiento NATURAL INNER JOIN visita
+                               WHERE tiempo!='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
+                               GROUP BY tiempo";
+
+                    $grafica=false;
+                    $alo = mysqli_query($link,$consulta);
+                    if(mysqli_num_rows($alo) >0){
+                      $grafica= true;
+                      echo "
+                      <div class='row'>
+                        Desde el <b>".$fecha_inicio_alo."</b> hasta el <b>".$fecha_final_alo."</b>
+                      </div>
+
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Tiempo de estancia</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $tiempo=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($alo)){
+                        echo "
+                        <tr>
+                          <td>".$fila['tiempo']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($tiempo,$fila['tiempo']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Tiempo de alojamiento");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($tiempo);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        $arr1 = serialize($tiempo);
+                        $arr2 = serialize($numero);
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+
+                        echo "
+                        <div class='row'>
+                          <form action='export_pdf_alojamiento_testancia.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_alojamiento_testancia.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";
+                    }
+                  }
+
+                }
+
+
+                //fin cuarto if
 
 
                 ?>
@@ -2527,6 +3217,23 @@
         document.cookie = 'fecha_inicio=' + FInicial2;
         document.cookie = 'fecha_final=' + FFinal2;
         document.cookie = 'last_tab=test3';
+        window.location = "estadisticas.php";
+
+
+      }
+
+      function informacion(val){
+        document.getElementById('informacion_consulta').value = val;
+      }
+      function consult4(consulta,fe_ini,fe_fin){
+        var Informacion = consulta.value;
+        var FInicial3= fe_ini.value;
+        var FFinal3= fe_fin.value;
+
+        document.cookie = 'informacion=' + Informacion;
+        document.cookie = 'fecha_inicio=' + FInicial3;
+        document.cookie = 'fecha_final=' + FFinal3;
+        document.cookie = 'last_tab=test4';
         window.location = "estadisticas.php";
 
 
