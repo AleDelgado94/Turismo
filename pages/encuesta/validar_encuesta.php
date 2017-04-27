@@ -42,7 +42,7 @@ if(isset($_SESSION['usuario'])) {
 
       echo $fecha;
 
-
+      $group_visita = false;
 
 
       for ($i=1; $i <= $n_personas; $i++) {
@@ -67,7 +67,11 @@ if(isset($_SESSION['usuario'])) {
 
         //INSERTAMOS EN LA BASE DE datos
         $visita_consulta = "INSERT INTO visita (grupo, consulta, hora, fecha, sexo, edad, nacionalidad, residencia, oficina) VALUES ( '".$grupo_actual."', '".$tipo_consulta."', '".$hora."', '".$fecha."', '".$sexo."', '".$edad."', '".$nacionalidad."', '".$residencia."', '".$oficina."')";
-        mysqli_query($link, $visita_consulta);
+        if(mysqli_query($link, $visita_consulta)){
+          $group_visita = true;
+        }
+
+
 
 
       }
@@ -78,8 +82,7 @@ if(isset($_SESSION['usuario'])) {
 
 
 
-
-
+if ($group_visita == true) {
   //PERFIL Y ALOJAMIENTO
   $conocer = $_POST['alo1'];
   //conocer TABLA: perfil_alojamiento
@@ -392,7 +395,7 @@ if(isset($_SESSION['usuario'])) {
     mysqli_query($link, $consulta) or die(mysqli_error($link));
 
   }
-
+}
 
   header("Location: inicio.php");
 
