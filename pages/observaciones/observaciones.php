@@ -114,7 +114,7 @@
                     <div class="row">
                       <div class="input-field col s12 m12 l12">
                         <textarea id="textarea1" name="observacion" type="text" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Observacion</label>
+                        <label for="textarea1">Observación</label>
                       </div>
                     </div>
                     <div class="row">
@@ -142,7 +142,7 @@
                      <thead>
                        <tr>
 
-                           <th data-field="name" class="col_obser">Observacion</th>
+                           <th data-field="name" class="col_obser">Observación</th>
                            <th data-field="name" class="">Eliminar</th>
 
                        </tr>
