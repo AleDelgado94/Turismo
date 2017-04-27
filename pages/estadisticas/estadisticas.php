@@ -423,7 +423,7 @@
                   //echo "$material $fecha_inicio $fecha_final";
                   $fecha_inicio_alo = $fecha_inicio;
                   $fecha_final_alo = $fecha_final;
-                  $fecha_inicio_info = $fecha_inicio;
+                  $fecha_inicio_alo = $fecha_inicio;
                   $fecha_final_info = $fecha_final;
                   if($persona == "Nacionalidad"){
                     if($nacion =="Todas" && $numero_paises==""){
@@ -2078,7 +2078,7 @@
                   /*echo "Esto es informacion: $informacion";
                   echo "hola";*/
                   if($informacion == "Recursos"){
-                    //echo "$informacion $fecha_inicio_info $fecha_final_info";
+                    //echo "$informacion $fecha_inicio_alo $fecha_final_info";
                     $consulta="SELECT DISTINCT recursos, COUNT(grupo) as numero
                     FROM informacion_guia NATURAL INNER JOIN visita
                     WHERE recursos !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_alo."'
@@ -2474,7 +2474,7 @@
                       echo "
                       <div class='row'>
                         <p>
-                          Desde: <b>".$fecha_inicio_info."</b><br>Hasta: <b>".$fecha_final_info."</b>
+                          Desde: <b>".$fecha_inicio_alo."</b><br>Hasta: <b>".$fecha_final_info."</b>
                         </p>
                       </div>
                       <table class='col s12 m12 l3'>
@@ -2653,7 +2653,7 @@
                     //echo "$informacion";
                     $consulta="SELECT DISTINCT info, COUNT(grupo) as numero
                                FROM informacion_tenerife NATURAL INNER JOIN visita
-                               WHERE info !='' AND fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               WHERE info !='' AND fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_info."'
                                GROUP BY info";
                     $grafica=false;
                     $info_tene = mysqli_query($link,$consulta);
@@ -2661,7 +2661,7 @@
                       $grafica= true;
                       echo "
                       <div class='row'>
-                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                        Desde el <b>".$fecha_inicio_alo."</b> hasta el <b>".$fecha_final_info."</b>
                       </div>
                       <table class='col s12 m12 l3'>
                         <thead>
@@ -2752,7 +2752,7 @@
                                GROUP BY material";
                     $vista="   CREATE VIEW V2 AS SELECT grupo, material,cantidad
                                FROM `materiales_municipio` NATURAL INNER JOIN visita
-                               WHERE fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               WHERE fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_info."'
                                GROUP by grupo, material";
                     $vista_consulta=mysqli_query($link,$vista);
                     $grafica=false;
@@ -2763,7 +2763,7 @@
                       $grafica= true;
                       echo "
                       <div class='row'>
-                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                        Desde el <b>".$fecha_inicio_alo."</b> hasta el <b>".$fecha_final_info."</b>
                       </div>
                       <table class='col s12 m12 l3'>
                         <thead>
@@ -2850,7 +2850,7 @@
                                GROUP BY material";
                     $vista="   CREATE VIEW V2 AS SELECT grupo, material,cantidad
                                FROM `materiales_otros_municipios` NATURAL INNER JOIN visita
-                               WHERE fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               WHERE fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_info."'
                                GROUP by grupo, material";
                     $vista_consulta=mysqli_query($link,$vista);
                     $grafica=false;
@@ -2861,7 +2861,7 @@
                       $grafica= true;
                       echo "
                       <div class='row'>
-                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                        Desde el <b>".$fecha_inicio_alo."</b> hasta el <b>".$fecha_final_info."</b>
                       </div>
                       <table class='col s12 m12 l3'>
                         <thead>
@@ -2948,7 +2948,7 @@
                                GROUP BY material";
                     $vista="   CREATE VIEW V2 AS SELECT grupo, material,cantidad
                                FROM  materiales_otras_islas NATURAL INNER JOIN visita
-                               WHERE fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               WHERE fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_info."'
                                GROUP by grupo, material";
                     $vista_consulta=mysqli_query($link,$vista);
                     $grafica=false;
@@ -2959,7 +2959,7 @@
                       $grafica= true;
                       echo "
                       <div class='row'>
-                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                        Desde el <b>".$fecha_inicio_alo."</b> hasta el <b>".$fecha_final_info."</b>
                       </div>
                       <table class='col s12 m12 l3'>
                         <thead>
@@ -3046,7 +3046,7 @@
                                GROUP BY material";
                     $vista="   CREATE VIEW V2 AS SELECT grupo, material,cantidad
                                FROM material_turismo_tenerife NATURAL INNER JOIN visita
-                               WHERE fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               WHERE fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_info."'
                                GROUP by grupo, material";
                     $vista_consulta=mysqli_query($link,$vista);
                     $grafica=false;
@@ -3057,7 +3057,7 @@
                       $grafica= true;
                       echo "
                       <div class='row'>
-                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                        Desde el <b>".$fecha_inicio_alo."</b> hasta el <b>".$fecha_final_info."</b>
                       </div>
                       <table class='col s12 m12 l3'>
                         <thead>
@@ -3144,7 +3144,7 @@
                                GROUP BY material";
                     $vista="   CREATE VIEW V2 AS SELECT grupo, material,cantidad
                                FROM `material_promocional` NATURAL INNER JOIN visita
-                               WHERE fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               WHERE fecha BETWEEN '".$fecha_inicio_alo."' AND '".$fecha_final_info."'
                                GROUP by grupo, material";
                     $vista_consulta=mysqli_query($link,$vista);
                     $grafica=false;
@@ -3155,7 +3155,7 @@
                       $grafica= true;
                       echo "
                       <div class='row'>
-                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                        Desde el <b>".$fecha_inicio_alo."</b> hasta el <b>".$fecha_final_info."</b>
                       </div>
                       <table class='col s12 m12 l3'>
                         <thead>
