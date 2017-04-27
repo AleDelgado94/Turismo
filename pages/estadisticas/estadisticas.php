@@ -3366,8 +3366,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        //$arr1 = serialize($informacion_tenerife);
-                        //$arr2 = serialize($numero);
+                        $arr1 = serialize($materiales_guia);
+                        $arr2 = serialize($numero);
 
                         echo "
                           <div class='col s12 m12 l3'>
@@ -3375,9 +3375,9 @@
                           </div>
                         </div>";
 
-                        /*echo "
+                        echo "
                         <div class='row'>
-                          <form action='export_pdf_informacion_tenerife.php' method='POST'>
+                          <form action='export_pdf_materiales_municipio.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                             <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3389,7 +3389,7 @@
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
                             </div>
                           </form>
-                          <form action='excel_informacion_tenerife.php' method='POST'>
+                          <form action='excel_materiales_municipio.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                           <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3401,7 +3401,9 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";*/
+                        </div>";
+
+
                     }
                   }
 
@@ -3481,8 +3483,8 @@
                         @unlink("../../images/graficas/grafica1.png");
                         $graph->Stroke("../../images/graficas/grafica1.png");
 
-                        //$arr1 = serialize($informacion_tenerife);
-                        //$arr2 = serialize($numero);
+                        $arr1 = serialize($materiales_guia);
+                        $arr2 = serialize($numero);
 
                         echo "
                           <div class='col s12 m12 l3'>
@@ -3490,9 +3492,9 @@
                           </div>
                         </div>";
 
-                        /*echo "
+                        echo "
                         <div class='row'>
-                          <form action='export_pdf_informacion_tenerife.php' method='POST'>
+                          <form action='export_pdf_materiales_otros_municipios.php' method='POST'>
 
                             <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                             <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3504,7 +3506,7 @@
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
                             </div>
                           </form>
-                          <form action='excel_informacion_tenerife.php' method='POST'>
+                          <form action='excel_materiales_otros_municipios.php' method='POST'>
 
                           <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
                           <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
@@ -3516,7 +3518,7 @@
                               <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
                             </div>
                           </form>
-                        </div>";*/
+                        </div>";
                     }
                   }
                   if ($material=="Otras Islas") {

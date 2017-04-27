@@ -1147,15 +1147,15 @@
 
                     <div class="row-modi">
                       <p class="range-field">
-                        <scan for="mapas_islas">Mapas</scan>
-                        <input placeholder="0" type="number" name="mapa_islas" min="0">
+                        <scan for="mapas_otras_islas">Mapas</scan>
+                        <input placeholder="0" type="number" name="mapa_otras_islas" min="0">
                       </p>
                     </div>
 
                     <div class="row-modi">
                       <p class="range-field">
-                        <scan for="otros_islas">Otros</scan>
-                        <input placeholder="0" type="number" name="otros_islas" min="0">
+                        <scan for="otros_otras_islas">Otros</scan>
+                        <input placeholder="0" type="number" name="otros_otras_islas" min="0">
                       </p>
                     </div>
                 </div>
