@@ -374,7 +374,7 @@
 
 
                 <?php
-                if($_COOKIE['persona']!=""){
+                if(isset($_COOKIE['persona']) && $_COOKIE['persona'] != ""){
                   $link = require("../connect_db.php");
                   $persona = "Nacionalidad";
                   $nacion = "";
@@ -787,7 +787,7 @@
                     }
                   }
                 }//fin del primer if
-                if ($_COOKIE['tipo_consulta']!="") {
+                if (isset($_COOKIE['tipo_consulta']) && $_COOKIE['tipo_consulta'] != "") {
                   $link = require("../connect_db.php");
                   $tipo_consulta = "";
                   $hora = "";
@@ -1501,7 +1501,7 @@
                 }
                 //fin del segundo if
                 //comienzo tercer if
-                if($alojamiento != ""){
+                if(isset($alojamiento) && $alojamiento != ""){
                   /*echo "Esto es alojamiento: $alojamiento";
                   echo "hola";*/
                   if($alojamiento == "Como"){
@@ -2074,7 +2074,7 @@
                 }
                 //fin tercer if
                 //incio cuarto if
-                if($informacion != ""){
+                if(isset($informacion) && $informacion != ""){
                   /*echo "Esto es informacion: $informacion";
                   echo "hola";*/
                   if($informacion == "Recursos"){
@@ -2745,7 +2745,7 @@
                 }
                 //fin cuarto if
                 //inicio quinto if
-                if($material!=""){
+                if(isset($material) && $material != ""){
                   if($material=="Municipio"){
                     $consulta="SELECT material, SUM(cantidad) as numero
                                FROM V2
