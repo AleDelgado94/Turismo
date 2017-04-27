@@ -3521,6 +3521,350 @@
                         </div>";
                     }
                   }
+                  if ($material=="Otras Islas") {
+                    $consulta="SELECT material, SUM(cantidad) as numero
+                               FROM V2
+                               GROUP BY material";
+                    $vista="   CREATE VIEW V2 AS SELECT grupo, material,cantidad
+                               FROM  materiales_otras_islas NATURAL INNER JOIN visita
+                               WHERE fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               GROUP by grupo, material";
+                    $vista_consulta=mysqli_query($link,$vista);
+                    $grafica=false;
+                    $material_guia = mysqli_query($link,$consulta);
+                    $borrar_vista="DROP VIEW V2";
+                    mysqli_query($link,$borrar_vista);
+                    if(mysqli_num_rows($material_guia) >0){
+                      $grafica= true;
+                      echo "
+                      <div class='row'>
+                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                      </div>
+
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Material Otras Islas</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $materiales_guia=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($material_guia)){
+                        echo "
+                        <tr>
+                          <td>".$fila['material']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($materiales_guia,$fila['material']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Materiales Otras Islas");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($materiales_guia);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        //$arr1 = serialize($informacion_tenerife);
+                        //$arr2 = serialize($numero);
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+
+                        /*echo "
+                        <div class='row'>
+                          <form action='export_pdf_informacion_tenerife.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_informacion_tenerife.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";*/
+                    }
+                  }
+
+                  if($material=="Tenerife"){
+                    $consulta="SELECT material, SUM(cantidad) as numero
+                               FROM V2
+                               GROUP BY material";
+                    $vista="   CREATE VIEW V2 AS SELECT grupo, material,cantidad
+                               FROM material_turismo_tenerife NATURAL INNER JOIN visita
+                               WHERE fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               GROUP by grupo, material";
+                    $vista_consulta=mysqli_query($link,$vista);
+                    $grafica=false;
+                    $material_guia = mysqli_query($link,$consulta);
+                    $borrar_vista="DROP VIEW V2";
+                    mysqli_query($link,$borrar_vista);
+                    if(mysqli_num_rows($material_guia) >0){
+                      $grafica= true;
+                      echo "
+                      <div class='row'>
+                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                      </div>
+
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Material Tenerife</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $materiales_guia=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($material_guia)){
+                        echo "
+                        <tr>
+                          <td>".$fila['material']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($materiales_guia,$fila['material']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Materiales Tenerife");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($materiales_guia);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        //$arr1 = serialize($informacion_tenerife);
+                        //$arr2 = serialize($numero);
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+
+                        /*echo "
+                        <div class='row'>
+                          <form action='export_pdf_informacion_tenerife.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_informacion_tenerife.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";*/
+                    }
+                  }
+
+                  if($material=="Material Promocional"){
+                    $consulta="SELECT material, SUM(cantidad) as numero
+                               FROM V2
+                               GROUP BY material";
+                    $vista="   CREATE VIEW V2 AS SELECT grupo, material,cantidad
+                               FROM `material_promocional` NATURAL INNER JOIN visita
+                               WHERE fecha BETWEEN '".$fecha_inicio_info."' AND '".$fecha_final_info."'
+                               GROUP by grupo, material";
+                    $vista_consulta=mysqli_query($link,$vista);
+                    $grafica=false;
+                    $material_guia = mysqli_query($link,$consulta);
+                    $borrar_vista="DROP VIEW V2";
+                    mysqli_query($link,$borrar_vista);
+                    if(mysqli_num_rows($material_guia) >0){
+                      $grafica= true;
+                      echo "
+                      <div class='row'>
+                        Desde el <b>".$fecha_inicio_info."</b> hasta el <b>".$fecha_final_info."</b>
+                      </div>
+
+                      <table class='col s12 m12 l3'>
+                        <thead>
+                          <tr>
+                            <th>Material Proomocional</th>
+                            <th>Número</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                      ";
+                      $materiales_guia=array();
+                      $numero=array();
+                      while($fila=mysqli_fetch_assoc($material_guia)){
+                        echo "
+                        <tr>
+                          <td>".$fila['material']."</td>
+                          <td>".$fila['numero']."</td>
+                        </tr>
+                        ";
+                        array_push($materiales_guia,$fila['material']);
+                        array_push($numero,$fila['numero']);
+                      }
+                      echo "
+
+                          </tbody>
+                        </table>
+                      ";
+                    }
+
+                    if($grafica==true){
+                      require_once ('../../jpgraph/src/jpgraph.php');
+                      require_once ('../../jpgraph/src/jpgraph_pie.php');
+                        // Create the Pie Graph.
+                        $graph = new PieGraph(800,500);
+
+                        $theme_class = new VividTheme();
+                        $graph->SetTheme($theme_class);
+                        // Set A title for the plot
+                        $graph->title->Set("Material Promocional");
+                        $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
+                        $graph->SetBox(true);
+
+                        // Create
+                        $p1 = new PiePlot($numero);
+                        $graph->Add($p1);
+
+                        $p1->SetLegends($materiales_guia);
+                        $p1->ShowBorder();
+                        $p1->SetColor('black');
+                        $p1->value->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $p1->value->SetColor('black');
+                        $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
+                        $graph->legend->SetColor('black');
+                        @unlink("../../images/graficas/grafica1.png");
+                        $graph->Stroke("../../images/graficas/grafica1.png");
+
+                        //$arr1 = serialize($informacion_tenerife);
+                        //$arr2 = serialize($numero);
+
+                        echo "
+                          <div class='col s12 m12 l3'>
+                            <img src='../../images/graficas/grafica1.png'/>
+                          </div>
+                        </div>";
+
+                        /*echo "
+                        <div class='row'>
+                          <form action='export_pdf_informacion_tenerife.php' method='POST'>
+
+                            <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                            <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                            <input type='hidden' value='".$arr1."' name='arr1'/>
+                            <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            </div>
+                          </form>
+                          <form action='excel_informacion_tenerife.php' method='POST'>
+
+                          <input type='hidden' value='".$fecha_inicio_alo."' name='desde'/>
+                          <input type='hidden' value='".$fecha_final_alo."' name='hasta'/>
+                          <input type='hidden' value='".$arr1."' name='arr1'/>
+                          <input type='hidden' value='".$arr2."' name='arr2'/>
+
+
+                            <div class='col s12 m12 l2'>
+                              <input id='boton_enviar' value='Generar EXCEL' type ='submit'/>
+                            </div>
+                          </form>
+                        </div>";*/
+                    }
+                  }
                 }
                 //final quinto if
 
