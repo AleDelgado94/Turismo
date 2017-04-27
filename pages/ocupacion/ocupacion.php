@@ -909,7 +909,7 @@
                                                WHERE hotel = '".$array_hoteles[$i]."' AND ano='".$year."';";
                                    $media= mysqli_query($link,$consulta);
                                    $fila = mysqli_fetch_assoc($media);
-                                   echo "$array_hoteles[$i] ".$fila['ocupacion']."";
+                                   //echo "$array_hoteles[$i] ".$fila['ocupacion']."";
                                    array_push($array_medias,$fila['ocupacion']);
                                 }
 
