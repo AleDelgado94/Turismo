@@ -254,7 +254,7 @@ if(isset($_SESSION['usuario'])) {
 
 
   //Otras islas
-  $mapas_islas = $_POST['mapas_islas'];
+  $mapas_islas = $_POST['mapa_otras_islas'];
   $consulta = "INSERT INTO materiales_otras_islas (grupo, material, cantidad) VALUES ('".$grupo_actual."', 'Mapas islas' ,'".$mapas_islas."')";
   if($mapas_islas != 0){
     mysqli_query($link, $consulta) or die(mysqli_error($link));
@@ -263,8 +263,8 @@ if(isset($_SESSION['usuario'])) {
 
   }
 
-  $otros_islas = $_POST['otros_islas'];
-  $consulta = "INSERT INTO materiales_otras_islas (grupo, material, cantidad) VALUES ('".$grupo_actual."', 'Otros' ,'".$callejero_otros."')";
+  $otros_islas = $_POST['otros_otras_islas'];
+  $consulta = "INSERT INTO materiales_otras_islas (grupo, material, cantidad) VALUES ('".$grupo_actual."', 'Otros' ,'".$otros_islas."')";
   if($otros_islas != 0){
     mysqli_query($link, $consulta) or die(mysqli_error($link));
     $consulta = "UPDATE stock_otras_islas SET cantidad = cantidad - ".$otros_islas." WHERE material = 'otros'";
