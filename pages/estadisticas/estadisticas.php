@@ -3309,7 +3309,22 @@
     }
       $(document).ready(function(){
        $('ul.tabs').tabs('select_tab', getCookie('last_tab'));
+       document.cookie = 'persona=""';
+       document.cookie = 'nacion=""';
+       document.cookie = 'fecha_inicio=""';
+       document.cookie = 'fecha_final=""';
+       document.cookie = 'year=""';
+       document.cookie = 'tipo_consulta=""';
+       document.cookie = 'hora=""';
+       document.cookie = 'oficina =""';
+       document.cookie = 'tipo =""';
+       document.cookie = 'fecha_inicio2=""';
+       document.cookie = 'fecha_final2=""';
+       document.cookie = 'last_tab=""';
+
+
       });
+
       function person(val) {
         console.log(val);
         document.getElementById('persona_consulta').value = val;
@@ -3345,6 +3360,14 @@
         document.cookie = 'fecha_inicio2=""';
         document.cookie = 'fecha_final2=""';
         document.cookie = 'alojamiento=""';
+        document.cookie = 'fecha_inicio=""' ;
+        document.cookie = 'fecha_final=""' ;
+        document.cookie = 'last_tab=""';
+        document.cookie = 'informacion=""';
+        document.cookie = 'material=""';
+
+
+
         document.cookie = 'persona=' + Persona;
         document.cookie = 'nacion=' + Nacion;
         document.cookie = 'fecha_inicio=' + Inicial;
@@ -3413,6 +3436,19 @@
         var Alojamiento = consulta.value;
         var FInicial2= fe_ini.value;
         var FFinal2= fe_fin.value;
+        document.cookie = 'tipo_consulta=""';
+        document.cookie = 'hora=""';
+        document.cookie = 'oficina =""';
+        document.cookie = 'tipo =""';
+        document.cookie = 'fecha_inicio2=""';
+        document.cookie = 'fecha_final2=""';
+        document.cookie = 'alojamiento=""';
+        document.cookie = 'fecha_inicio=""' ;
+        document.cookie = 'fecha_final=""' ;
+        document.cookie = 'last_tab=""';
+        document.cookie = 'informacion=""';
+        document.cookie = 'material=""';
+
         document.cookie = 'alojamiento=' + Alojamiento;
         document.cookie = 'fecha_inicio=' + FInicial2;
         document.cookie = 'fecha_final=' + FFinal2;
@@ -3426,6 +3462,19 @@
         var Informacion = consulta.value;
         var FInicial3= fe_ini.value;
         var FFinal3= fe_fin.value;
+        document.cookie = 'tipo_consulta=""';
+        document.cookie = 'hora=""';
+        document.cookie = 'oficina =""';
+        document.cookie = 'tipo =""';
+        document.cookie = 'fecha_inicio2=""';
+        document.cookie = 'fecha_final2=""';
+        document.cookie = 'alojamiento=""';
+        document.cookie = 'fecha_inicio=""' ;
+        document.cookie = 'fecha_final=""' ;
+        document.cookie = 'last_tab=""';
+        document.cookie = 'informacion=""';
+        document.cookie = 'material=""';
+
         document.cookie = 'informacion=' + Informacion;
         document.cookie = 'fecha_inicio=' + FInicial3;
         document.cookie = 'fecha_final=' + FFinal3;
@@ -3439,6 +3488,19 @@
         var Material = consulta.value;
         var FInicial3= fe_ini.value;
         var FFinal3= fe_fin.value;
+        document.cookie = 'tipo_consulta=""';
+        document.cookie = 'hora=""';
+        document.cookie = 'oficina =""';
+        document.cookie = 'tipo =""';
+        document.cookie = 'fecha_inicio2=""';
+        document.cookie = 'fecha_final2=""';
+        document.cookie = 'alojamiento=""';
+        document.cookie = 'fecha_inicio=""' ;
+        document.cookie = 'fecha_final=""' ;
+        document.cookie = 'last_tab=""';
+        document.cookie = 'informacion=""';
+        document.cookie = 'material=""';
+
         document.cookie = 'material=' + Material;
         document.cookie = 'fecha_inicio=' + FInicial3;
         document.cookie = 'fecha_final=' + FFinal3;
