@@ -517,6 +517,8 @@
                       }
                     }
                     else{
+                      $data2=array();
+                      $paises=array();
                       $consulta= "SELECT nacionalidad,COUNT(*) as numero
                                   FROM visita
                                   WHERE nacionalidad = '".$nacion."' AND fecha BETWEEN '".$fecha_inicio."' AND '".$fecha_final."'
