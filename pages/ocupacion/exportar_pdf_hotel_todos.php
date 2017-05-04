@@ -69,11 +69,14 @@ $ocupacion = array('Media (%)', $_POST['por_Enero'], $_POST['por_Febrero'],$_POS
 
 
 
+                  $nombre=$_POST["usuario_pdf"];
+
 
 $pdf->cabeceraVertical($meses);
 $pdf->datosVerticales($ocupacion);
 $pdf->LN();
-$pdf->Image("../../images/graficas/grafica1.png",null,null,200);
+$pdf->Image("../../images/graficas/grafica"."$nombre".".png",null,null,200);
+
 
 $pdf->Output('Ocupacion.pdf','D');
 

@@ -77,12 +77,14 @@ for ($i=0; $i < count($arr1); $i++) {
 array_push($hoteles, 'Total');
 array_push($ocupacion, $_POST['media_total']);
 
+$nombre=$_POST["usuario_pdf"];
+
 
 
 $pdf->cabeceraVertical($hoteles);
 $pdf->datosVerticales($ocupacion);
 $pdf->LN();
-$pdf->Image("../../images/graficas/grafica1.png");
+$pdf->Image("../../images/graficas/grafica"."$nombre".".png");
 
 $pdf->Output('Ocupacion.pdf','D');
 

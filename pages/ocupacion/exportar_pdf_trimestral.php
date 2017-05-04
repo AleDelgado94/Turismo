@@ -66,12 +66,14 @@ $hoteles = array('Hoteles', $_POST['mes1'], $_POST['mes2'], $_POST['mes3']);
 $ocupacion = array('Media (%)', $_POST['mes1_ocu'], $_POST['mes2_ocu'], $_POST['mes3_ocu']);
 
 
+$nombre=$_POST["usuario_pdf"];
+
 
 
 $pdf->cabeceraVertical($hoteles);
 $pdf->datosVerticales($ocupacion);
 $pdf->LN();
-$pdf->Image("../../images/graficas/grafica1.png");
+$pdf->Image("../../images/graficas/grafica"."$nombre".".png");
 
 $pdf->Output('Ocupacion.pdf','D');
 

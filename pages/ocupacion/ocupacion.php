@@ -467,8 +467,8 @@
                                  $graph->title->Set("Media de ".$mes." del ".$hotel." del año ".$year."");
                                  $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                  // Display the graph
-                                 @unlink("../../images/graficas/grafica1.png");
-                                 $graph->Stroke("../../images/graficas/grafica1.png");
+                                 @unlink("../../images/graficas/grafica"."$username".".png");
+                                 $graph->Stroke("../../images/graficas/grafica"."$username".".png");
 
 
 
@@ -477,7 +477,7 @@
 
                                  echo "
                                    <div class='col s12 m8 l8'>
-                                      <img src='../../images/graficas/grafica1.png'/>
+                                      <img src='../../images/graficas/grafica"."$username".".png'/>
                                    </div>
                                    <div class='row'>
                                      <form action='exportar_pdf_trimestral.php', method='POST'>
@@ -493,6 +493,7 @@
 
                                         <div class='col s12 m12 l2'>
                                           <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                          <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                                         </div>
                                      </form>
                                      <form action='generar_excel_trimestral.php' method='POST'>
@@ -651,12 +652,12 @@
                                    $graph->title->Set("Media por mes $hotel");
                                    $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                    // Display the graph
-                                   @unlink("../../images/graficas/grafica1.png");
-                                   $graph->Stroke("../../images/graficas/grafica1.png");
+                                   @unlink("../../images/graficas/grafica"."$username".".png");
+                                   $graph->Stroke("../../images/graficas/grafica"."$username".".png");
 
                                    echo "
                                      <div class='col s12 m8 l8'>
-                                        <img src='../../images/graficas/grafica1.png'/>
+                                        <img src='../../images/graficas/grafica"."$username".".png'/>
                                      </div>
 
                                      <div class='row'>
@@ -680,6 +681,7 @@
 
                                           <div class='col s12 m12 l2'>
                                             <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                            <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                                           </div>
                                        </form>
                                        <form action='generar_excel_hotel_todos.php' method='POST'>
@@ -820,8 +822,8 @@
                                  $graph->title->Set("Media de ".$mes." de cada hotel");
                                  $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                  // Display the graph
-                                 @unlink("../../images/graficas/grafica1.png");
-                                 $graph->Stroke("../../images/graficas/grafica1.png");
+                                 @unlink("../../images/graficas/grafica"."$username".".png");
+                                 $graph->Stroke("../../images/graficas/grafica"."$username".".png");
 
                                  $arr1 = serialize($array_hoteles);
                                  $arr2 = serialize($array_medias);
@@ -831,7 +833,7 @@
                                  <br><br><br>
                                   <div class='row'>
                                     <div class='col s12 m12 l12'>
-                                      <img src='../../images/graficas/grafica1.png'/>
+                                      <img src='../../images/graficas/grafica"."$username".".png'/>
                                     </div>
                                   </div>
                                   <div class='row'>
@@ -846,6 +848,7 @@
 
                                        <div class='col s12 m12 l2'>
                                          <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                         <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                                        </div>
                                     </form>
 
@@ -999,8 +1002,8 @@
                                   $graph->title->Set("Media anual " . $year . " de cada hotel");
                                   $graph->title->SetFont(FF_ARIAL,FS_BOLD,15);
                                   // Display the graph
-                                  @unlink("../../images/graficas/grafica1.png");
-                                  $graph->Stroke("../../images/graficas/grafica1.png");
+                                  @unlink("../../images/graficas/grafica"."$username".".png");
+                                  $graph->Stroke("../../images/graficas/grafica"."$username".".png");
 
                                   $arr1 = serialize($array_hoteles);
                                   $arr2 = serialize($array_medias);
@@ -1010,7 +1013,7 @@
                                   <br><br><br>
                                    <div class='row'>
                                      <div class='col s12 m12 l12'>
-                                       <img src='../../images/graficas/grafica1.png'/>
+                                       <img src='../../images/graficas/grafica"."$username".".png'/>
                                      </div>
                                    </div>
                                    <div class='row'>
@@ -1024,6 +1027,7 @@
 
                                        <div class='col s12 m12 l2'>
                                          <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                         <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                                        </div>
                                       </form>
 
