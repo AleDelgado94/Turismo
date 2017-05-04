@@ -72,13 +72,13 @@ $pdf->LN();
 $hoteles = array('Tipo', utf8_decode('Corta'), utf8_decode('Larga'), utf8_decode('E-mail'), utf8_decode('Tlfn'));
 $ocupacion = array(utf8_decode('Numero'), $_POST['tipo1'], $_POST['tipo2'], $_POST['tipo3'], $_POST['tipo4']);
 
-
+$nombre=$_POST["usuario_pdf"];
 
 
 $pdf->cabeceraVertical($hoteles);
 $pdf->datosVerticales($ocupacion);
 $pdf->LN();
-$pdf->Image("../../images/graficas/grafica1.png");
+$pdf->Image("../../images/graficas/grafica"."$nombre".".png");
 
 $pdf->Output('Tipo.pdf','D');
 

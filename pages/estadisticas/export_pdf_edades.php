@@ -73,12 +73,13 @@ $hoteles = array('Years', utf8_decode('0 to 12 years'), utf8_decode('13 to 30 ye
 $ocupacion = array('Average (%)', $_POST['edad1'], $_POST['edad2'], $_POST['edad3'], $_POST['edad4']);
 
 
+$nombre=$_POST["usuario_pdf"];
 
 
 $pdf->cabeceraVertical($hoteles);
 $pdf->datosVerticales($ocupacion);
 $pdf->LN();
-$pdf->Image("../../images/graficas/grafica1.png");
+$pdf->Image("../../images/graficas/grafica"."$nombre".".png");
 
 $pdf->Output('Edades.pdf','D');
 

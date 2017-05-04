@@ -465,8 +465,8 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                       }
                     }
                     else if($numero_paises != ""){
@@ -512,8 +512,8 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                       }
                     }
                     else{
@@ -556,7 +556,7 @@
                       if($grafica == TRUE){
                         echo "
                         <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                         </div>
                         </div> ";
                         echo "
@@ -568,6 +568,7 @@
                             <input type='hidden' value='".$numero_serializados."' name='num_person_nacionalidad'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_nacionalidades.php' method='POST'>
@@ -694,8 +695,8 @@
                       $p1->value->SetColor('black');
                       $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                       $graph->legend->SetColor('black');
-                      @unlink("../../images/graficas/grafica1.png");
-                      $graph->Stroke("../../images/graficas/grafica1.png");
+                      @unlink("../../images/graficas/grafica"."$username".".png");
+                      $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                       echo "
                       <div class='row'>
                         <p>
@@ -756,7 +757,7 @@
                     if($grafica == TRUE){
                       echo "
                       <div class='col s12 m12 l3'>
-                          <img src='../../images/graficas/grafica1.png'/>
+                          <img src='../../images/graficas/grafica"."$username".".png'/>
                       </div>
                       </div>";
                       echo "
@@ -770,6 +771,7 @@
                           <input type='hidden' value='".$filas4['numero']."' name='edad4'/>
                           <div class='col s12 m12 l2'>
                             <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                            <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                           </div>
                         </form>
                         <form action='excel_edades.php' method='POST'>
@@ -899,12 +901,12 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
-                          @unlink("../../images/graficas/grafica1.png");
-                          $graph->Stroke("../../images/graficas/grafica1.png");
+                          @unlink("../../images/graficas/grafica"."$username".".png");
+                          $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         if($grafica == TRUE){
                           echo "
                           <div class='col s12 m12 l3'>
-                              <img src='../../images/graficas/grafica1.png'/>
+                              <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                           </div>";
                           echo "
@@ -917,6 +919,7 @@
                               <input type='hidden' value='".$fila4['numero']."' name='tramo3'/>
                               <div class='col s12 m12 l2'>
                                 <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                               </div>
                             </form>
                             <form action='excel_tramo_horario.php' method='POST'>
@@ -1109,12 +1112,12 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
-                          @unlink("../../images/graficas/grafica1.png");
-                          $graph->Stroke("../../images/graficas/grafica1.png");
+                          @unlink("../../images/graficas/grafica"."$username".".png");
+                          $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         if($grafica == TRUE){
                           echo "
                           <div class='col s12 m12 l3'>
-                              <img src='../../images/graficas/grafica1.png'/>
+                              <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                           </div>";
                           echo "
@@ -1127,6 +1130,7 @@
                               <input type='hidden' value='".$fila4['numero']."' name='ofi3'/>
                               <div class='col s12 m12 l2'>
                                 <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                               </div>
                             </form>
                             <form action='excel_oficina.php' method='POST'>
@@ -1328,12 +1332,12 @@
                           $p1->value->SetColor('black');
                           $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                           $graph->legend->SetColor('black');
-                          @unlink("../../images/graficas/grafica1.png");
-                          $graph->Stroke("../../images/graficas/grafica1.png");
+                          @unlink("../../images/graficas/grafica"."$username".".png");
+                          $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         if($grafica == TRUE){
                           echo "
                           <div class='col s12 m12 l3'>
-                              <img src='../../images/graficas/grafica1.png'/>
+                              <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                           </div>";
                           echo "
@@ -1347,6 +1351,7 @@
                               <input type='hidden' value='".$fila5['numero']."' name='tipo4'/>
                               <div class='col s12 m12 l2'>
                                 <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                                <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                               </div>
                             </form>
                           <form action='excel_oficina.php' method='POST'>
@@ -1568,13 +1573,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($conocer);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -1586,6 +1591,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_alojamiento_conocer.php' method='POST'>
@@ -1663,13 +1669,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($repite);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -1681,6 +1687,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_alojamiento_repite.php' method='POST'>
@@ -1758,13 +1765,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($alojamiento_tipo);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -1776,6 +1783,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_alojamiento_tipo.php' method='POST'>
@@ -1853,11 +1861,11 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -1869,6 +1877,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_alojamiento_motivo.php' method='POST'>
@@ -1946,13 +1955,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($municipio);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -1964,6 +1973,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_alojamiento_sealoja.php' method='POST'>
@@ -2039,13 +2049,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($tiempo);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2057,6 +2067,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_alojamiento_testancia.php' method='POST'>
@@ -2144,13 +2155,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($recursos);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2162,6 +2173,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_informacion_recursos.php' method='POST'>
@@ -2239,13 +2251,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($aloja);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2257,6 +2269,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_informacion_aloja.php' method='POST'>
@@ -2334,13 +2347,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($transporte);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2352,6 +2365,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_informacion_transporte.php' method='POST'>
@@ -2429,13 +2443,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($oci);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2447,6 +2461,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_informacion_ocio.php' method='POST'>
@@ -2524,13 +2539,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($eventos);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2542,6 +2557,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_informacion_eventos.php' method='POST'>
@@ -2617,13 +2633,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($servicios_publicos);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2635,6 +2651,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_informacion_servpublicos.php' method='POST'>
@@ -2710,13 +2727,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($informacion_tenerife);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2728,6 +2745,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_informacion_tenerife.php' method='POST'>
@@ -2812,13 +2830,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($materiales_guia);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2830,6 +2848,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_materiales_municipio.php' method='POST'>
@@ -2910,13 +2929,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($materiales_guia);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -2928,6 +2947,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_materiales_otros_municipios.php' method='POST'>
@@ -3008,13 +3028,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($materiales_guia);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -3026,6 +3046,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_materiales_otras_islas.php' method='POST'>
@@ -3106,13 +3127,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($materiales_guia);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -3124,6 +3145,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_materiales_tenerife.php' method='POST'>
@@ -3204,13 +3226,13 @@
                         $p1->value->SetColor('black');
                         $graph->legend->SetFont(FF_ARIAL,FS_BOLD,12);
                         $graph->legend->SetColor('black');
-                        @unlink("../../images/graficas/grafica1.png");
-                        $graph->Stroke("../../images/graficas/grafica1.png");
+                        @unlink("../../images/graficas/grafica"."$username".".png");
+                        $graph->Stroke("../../images/graficas/grafica"."$username".".png");
                         $arr1 = serialize($materiales_guia);
                         $arr2 = serialize($numero);
                         echo "
                           <div class='col s12 m12 l3'>
-                            <img src='../../images/graficas/grafica1.png'/>
+                            <img src='../../images/graficas/grafica"."$username".".png'/>
                           </div>
                         </div>";
                         echo "
@@ -3222,6 +3244,7 @@
                             <input type='hidden' value='".$arr2."' name='arr2'/>
                             <div class='col s12 m12 l2'>
                               <input id='' value='Generar PDF' type ='submit' onclick=''/>
+                              <input name='usuario_pdf' type='hidden' value='"."$username"."'/>
                             </div>
                           </form>
                           <form action='excel_material_promocional.php' method='POST'>

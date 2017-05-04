@@ -80,12 +80,13 @@ for ($i=0; $i < count($numero_personas); $i++) {
 }
 
 
+$nombre=$_POST["usuario_pdf"];
 
 
 $pdf->cabeceraVertical($hoteles);
 $pdf->datosVerticales($ocupacion);
 $pdf->LN();
-$pdf->Image("../../images/graficas/grafica1.png");
+$pdf->Image("../../images/graficas/grafica"."$nombre".".png");
 
 $pdf->Output('conocieron.pdf','D');
 

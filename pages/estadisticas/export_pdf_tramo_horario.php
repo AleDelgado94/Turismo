@@ -73,12 +73,12 @@ $hoteles = array('Tipo', utf8_decode('9 a 11'), utf8_decode('11 a 13'), utf8_dec
 $ocupacion = array(utf8_decode('Numero'), $_POST['tramo1'], $_POST['tramo2'], $_POST['tramo3']);
 
 
-
+$nombre=$_POST["usuario_pdf"];
 
 $pdf->cabeceraVertical($hoteles);
 $pdf->datosVerticales($ocupacion);
 $pdf->LN();
-$pdf->Image("../../images/graficas/grafica1.png");
+$pdf->Image("../../images/graficas/grafica"."$nombre".".png");
 
 $pdf->Output('Tramo_horario.pdf','D');
 
