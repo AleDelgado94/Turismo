@@ -77,6 +77,7 @@
             <li><i class="material-icons">new_releases</i><a href="incidencias/incidencias.php">&nbsp; Incidencias</a></li>
             <li><i class="material-icons">info</i><a href="observaciones/observaciones.php">&nbsp; Observaciones</a></li>
             <li><i class="material-icons">credit_card</i><a href="ocupacion/ocupacion.php">&nbsp; Ocupación hotelera</a></li>
+            <li><i class="material-icons">verified_user</i><a href="resumen/resumen.php">&nbsp; Resumen diario</a></li>
             <?php
               if($username == 'admin'){
                 echo "<li> <i class='material-icons'>contacts</i><a href='gestion_usuarios.php'>&nbsp; Gestión de usuario</a></li>";
